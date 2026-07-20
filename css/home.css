@@ -114,12 +114,15 @@ color: #023dc8;
 .image{
     /* background-color: blueviolet; */
     /* padding:2em 3em; */
-    max-width: 60%;
+    max-width:100%;
     /* margin-right:30px ; */
 }
 
- .imgs img{
-    max-width: 980rem !important;
+ /* Purane .imgs img { width: 900px; } ko delete karke ye laga do */
+.imgs img {
+    width: 100%;
+    max-width: 900px; /* Desktop par ye maximum 900px hi rahegi */
+    height: auto;
 }
 
 
@@ -127,59 +130,35 @@ button{
     background-color: #023dc8 !important;
 }
 
-/* From Uiverse.io by nikk7007 */ 
-.slice {
-  --c1: #202020;
-  --c2: var(--theme-color);
-  --size-letter: 20px;
-  padding: 0.5em 1em;
-  font-size: var(--size-letter);
-
-  background-color: transparent;
-  border: calc(var(--size-letter) / 6) solid var(--c2);
-  border-radius: 0.2em;
-  cursor: pointer;
-
-  overflow: hidden;
-  position: relative;
-  transition: 300ms cubic-bezier(0.83, 0, 0.17, 1);
-
-  & > .text {
-    font-weight: 700;
-    color: black !important;
-    position: relative;
-    z-index: 1;
-    transition: color 700ms cubic-bezier(0.83, 0, 0.17, 1);
-  }
+/* From Uiverse.io by suda-code */ 
+button {
+  padding: 12.5px 30px;
+  border: 0;
+  border-radius: 100px;
+  background-color: #2ba8fb;
+  color: #ffffff;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
 }
 
-.slice::after {
-  content: "";
-
-  width: 0;
-  height: calc(300% + 1em);
-
-  position: absolute;
-  translate: -50% -50%;
-  inset: 50%;
-  rotate: 30deg;
-
-  background-color: rgb(178, 219, 243);
-  transition: 1000ms cubic-bezier(0.83, 0, 0.17, 1);
+button:hover {
+  background-color: #6fc5ff;
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+  
+}
+.slice button:hover{
+color: black !important;
 }
 
-.slice:hover {
-  & > .text {
-    color: var(--c1);
-  }
-  &::after {
-    width: calc(120% + 1em);
-  }
-}
 
-.slice:active {
-  scale: 0.98;
-  filter: brightness(0.9);
+button:active {
+  background-color: #3d94cf;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.98);
 }
 
 
@@ -326,61 +305,161 @@ button{
 }
   
 
+/* ==========================================================================
+   FINAL CLEAN & FIXED MEDIA QUERIES (LIBRAX)
+   ========================================================================== */
+/* ==========================================================================
+   FINAL CLEAN & FIXED MEDIA QUERIES (LIBRAX)
+   ========================================================================== */
 
-
-@media only screen and (max-width:1277px){
-    .hero{
-        background-color:blueviolet  !important;
+/* 1. Large Screens & Tablets Breakpoint (1277px) */
+@media only screen and (max-width: 1277px) {
+    .hero {
+        flex-direction: column; /* Image upar aur text cleanly niche shift ho jayega */
+        align-items: center;
+        text-align: center;
+        padding: 2em;
+        min-height: auto;
     }
 
-    .hero .text{
+    .hero .text {
+        max-width: 100% !important;
         width: 100%;
-    }
-
-    .image .imgs img{
-        width: 100%;
-    }
-}
-
-@media only screen and (max-width:1088px){
-  .hero{
+        padding: 1em 0;
+        display: flex;
         flex-direction: column;
+        align-items: center; /* Heading aur buttons perfect center alignment mein aane ke liye */
     }
-}
 
-@media only screen and (max-width:900px){
-    .fstrow{
-        flex-direction: column;
+    .hero .text p {
+        max-width: 500px;
+    }
+
+    .image {
+        padding-right: 0 !important;
+        margin-bottom: 2rem;
+        width: 100% !important;
+        display: flex;
         justify-content: center;
+    }
+
+    /* Is rule se image width control hogi aur screen se bahar bilkul nahi jayegi */
+    .image .imgs img {
+        width: 100% !important;
+        max-width: 550px; /* Image layout ka maximum crisp size */
+        height: auto !important;
+    }
+
+    .card-cont {
+        padding-top: 15px;
+        width: 100%;
+    }
+
+    .fstrow {
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .flip-card {
+        width: 45%; /* Grid style look tablets ke liye */
+    }
+
+    .sec {
+        width: 50%;
+    }
+}
+
+/* 2. Intermediate Screen Breakpoint (1088px) */
+@media only screen and (max-width: 1088px) {
+    /* Rules standard upar se cascade ho rahe hain */
+}
+
+/* 3. Tablets & Medium Screens (900px & 820px combined) */
+@media only screen and (max-width: 900px) {
+    .fstrow {
+        flex-direction: column; 
         align-items: center;
         width: 100%;
     }
-    .card-cont{
-         justify-content: center;
+
+    .flip-card {
+        width: 85%;
+    }
+
+    .secrow {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 30px;
+    }
+
+    /* Border line desktop se mobile screen flow ke mutabiq bottom switch */
+    .bord {
+        border-left: none !important;
+        border-bottom: 3px solid rgb(81, 110, 128);
+    }
+
+    .yesbord {
+        border-bottom: 3px solid rgb(81, 110, 128);
+    }
+
+    .nobord {
+        border: none;
+    }
+
+    .sec {
+        width: 80%;
+        height: auto;
+        padding: 20px 0;
+        margin-top: 20px;
     }
 }
 
+/* 4. Mobile Phones (576px & 455px standard setups) */
+@media only screen and (max-width: 576px) {
+    .hero {
+        padding: 20px;
+    }
 
+    .hero .text h1 {
+        font-size: 4rem; /* Oversized heading mobile par tight wrap hogi */
+    }
 
+    .hero .text h4 {
+        font-size: 2rem;
+    }
 
+    .flip-card {
+        width: 95%;
+        height: 13rem;
+    }
+}
 
+/* 5. Small Screens (411px) */
+@media only screen and (max-width: 411px) {
+    .hero .text h1 {
+        font-size: 3.5rem;
+    }
 
+    .text .btns {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
 
+    .text .btns div {
+        width: 100%;
+    }
 
+    .text .btns button {
+        width: 100%; /* UI block touch accuracy optimize karne ke liye */
+    }
 
+    .mar {
+        margin-left: 0 !important;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .slice {
+        margin-top: 10px;
+    }
+}
