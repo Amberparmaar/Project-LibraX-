@@ -1,3 +1,30 @@
+/* ===================================================
+   RESPONSIVE OVERRIDES (MOBILE/TABLET)
+=================================================== */
+
+@media(max-width: 576px) {
+    .issue-book-container {
+        padding: 15px;
+    }
+}
+
+
+
+
+/* =====================
+   Responsive Workspace
+===================== */
+
+/* Mobile adjustments (up to 576px) */
+@media(max-width: 576px) {
+  .workspace-container {
+    padding: 15px;
+  }
+}
+
+
+
+
 /* FOOTER RESPONSIVE MEDIA QUERIES */
 
 /* Tablet */

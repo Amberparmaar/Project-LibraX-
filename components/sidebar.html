@@ -39,11 +39,6 @@
 
     </div>
 
-
-
-
-
-
     <div class="overlay" id="overlay"></div>
 
 
@@ -132,7 +127,7 @@
 
 
 
-                        <a href="#" class="active">
+                        <a href="../html/issue-book.html" class="active">
 
                             <i class="fa-solid fa-book-open"></i>
 
@@ -142,7 +137,7 @@
 
 
 
-                        <a href="#">
+                        <a href="../html/return-book.html">
 
                             <i class="fa-solid fa-arrow-rotate-left"></i>
 
@@ -233,42 +228,42 @@
 
 
 
-<script>
+    <script>
 
 
-const menuBtn = document.getElementById("menuBtn");
+        const menuBtn = document.getElementById("menuBtn");
 
-const sidebar = document.getElementById("sidebar");
+        const sidebar = document.getElementById("sidebar");
 
-const overlay = document.getElementById("overlay");
-
-
-
-menuBtn.onclick = function(){
-
-
-    sidebar.classList.toggle("show");
-
-    overlay.classList.toggle("show");
-
-
-}
+        const overlay = document.getElementById("overlay");
 
 
 
-overlay.onclick = function(){
+        menuBtn.onclick = function () {
 
 
-    sidebar.classList.remove("show");
+            sidebar.classList.toggle("show");
 
-    overlay.classList.remove("show");
-
-
-}
+            overlay.classList.toggle("show");
 
 
+        }
 
-</script>
+
+
+        overlay.onclick = function () {
+
+
+            sidebar.classList.remove("show");
+
+            overlay.classList.remove("show");
+
+
+        }
+
+
+
+    </script>
 
 
 

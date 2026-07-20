@@ -2,21 +2,526 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
 
 :root {
-    --primary-color: #2563EB;
-    --secondary-color: #0F2747;
-    --background-color: #EFF6FF;
-    --white: #FFFFFF;
-    --border-color: #334155;/* Bottom Divider Color */
-    --text-gray: #94A3B8;/* Muted text for readability over dark background */
+  --primary-color: #2563EB;
+  --primary-hover: #1d4ed8;
+  --secondary-color: #0F2747;
+  --background-color: #EFF6FF;
+  --white: #FFFFFF;
+  --border-color: #334155;
+  --text-gray: #94A3B8; /* Muted text for readability over dark background */
+  
+  /* Additional system colors */
+  --navy-dark: #06285c;
+  --slate-dark: #0f172a;
+  --slate-medium: #1e293b;
+  --slate-text: #334155;
+  --slate-label: #64748b;
+  --border-light: #e2e8f0;
+  --bg-light: #f8fafc;
+  --bg-hover: #f1f5f9;
+  
+  /* Status Colors */
+  --status-success: #10b981;
+  --status-success-bg: #e6f7ed;
+  --status-success-text: #1f9254;
+  --status-warning: #f97316;
+  --status-danger: #ef4444;
+  
+  /* Scanner Specific */
+  --scanner-bg: #111111;
+  --laser-color: #ff3b30;
+  --shadow-light: rgba(0, 0, 0, 0.03);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+
+
+/* ===================================================
+   QR-Scanner CSS
+   
+=================================================== */
+.scanner-view {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1 / 1;
+  background: var(--scanner-bg);
+  border-radius: 12px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Laser Line Effect */
+.scanner-view::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  right: 5%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--laser-color), transparent);
+  box-shadow: 0 0 8px var(--laser-color);
+}
+
+/* Target Corners */
+.corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--primary-color);
+}
+
+.top-left {
+  top: 25px;
+  left: 25px;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: 8px;
+}
+
+.top-right {
+  top: 25px;
+  right: 25px;
+  border-left: none;
+  border-bottom: none;
+  border-top-right-radius: 8px;
+}
+
+.bottom-left {
+  bottom: 25px;
+  left: 25px;
+  border-right: none;
+  border-top: none;
+  border-bottom-left-radius: 8px;
+}
+
+.bottom-right {
+  bottom: 25px;
+  right: 25px;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: 8px;
+}
+
+.member-profile-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.badge-active {
+  background-color: var(--status-success-bg);
+  color: var(--status-success-text);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.info-label {
+  color: var(--slate-label);
+  font-size: 14px;
+}
+
+.info-value {
+  color: var(--slate-medium);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+}
+
+.info-row {
+  padding: 8px 0;
+}
+
+/* ===================================================
+   Return BOOK  CSS
+   
+=================================================== */
+
+/* 1. The Main Outer Container */
+.workspace-container {
+  padding: 30px;
+}
+
+/* 2. The Table Card wrapper */
+.table-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px var(--shadow-light);
+  margin-bottom: 24px;
+}
+
+/* 3. Title & Search Area */
+.page-title {
+  color: var(--navy-dark);
+  font-weight: 700;
+  font-size: 22px;
+  margin: 0;
+}
+
+.search-wrapper {
+  position: relative;
+  max-width: 320px;
+  width: 100%;
+}
+
+.search-wrapper i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-gray);
+}
+
+.search-input {
+  padding-left: 38px;
+  border-radius: 30px;
+  border: 1px solid var(--border-light);
+  font-size: 14px;
+  height: 40px;
+  background-color: var(--bg-light);
+}
+
+.search-input:focus {
+  box-shadow: none;
+  border-color: var(--primary-color);
+}
+
+/* 4. Custom Table Style */
+.custom-table {
+  vertical-align: middle;
+  margin-bottom: 0;
+}
+
+.custom-table th {
+  font-weight: 600;
+  color: var(--navy-dark);
+  font-size: 13px;
+  border-bottom: 2px solid var(--bg-hover);
+  padding: 15px 10px;
+}
+
+.custom-table td {
+  font-size: 13.5px;
+  color: var(--slate-text);
+  font-weight: 500;
+  padding: 16px 10px;
+  border-bottom: 1px solid var(--bg-hover);
+}
+
+/* Status Colors */
+.text-ontime {
+  color: var(--status-success) !important;
+}
+
+.text-overdue {
+  color: var(--status-warning) !important;
+}
+
+.text-fine {
+  color: var(--status-danger) !important;
+}
+
+/* Action Button */
+.btn-return {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.btn-return:hover {
+  background-color: var(--primary-hover);
+  color: var(--white);
+}
+
+/* 5. KPI Cards */
+.kpi-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px var(--shadow-light);
+  height: 100%;
+}
+
+.kpi-title {
+  color: var(--navy-dark);
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.kpi-value {
+  color: var(--navy-dark);
+  font-weight: 700;
+  font-size: 32px;
+  margin: 0;
+}
+
+
+/* ===================================================
+   ISSUE BOOK  CSS
+   
+=================================================== */
+
+/* --- Main Module Container --- */
+.issue-book-container {
+  padding: 30px;
+}
+
+.input-group-text {
+  cursor: pointer;
+}
+
+/* Base Card Styling (Modern Shadow & Radius) */
+.issue-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+/* Module Title */
+.card-title {
+  color: var(--navy-dark);
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 24px;
+}
+
+/* --- Form Input Component Styling --- */
+.form-group label {
+  font-weight: 600;
+  color: var(--navy-dark);
+  font-size: 13.5px;
+  margin-bottom: 8px;
+}
+
+/* Customizing Bootstrap Control Aesthetics */
+.form-control,
+.form-select {
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  font-size: 14px;
+  height: 40px;
+  background-color: var(--white);
+}
+
+.form-control:focus,
+.form-select:focus {
+  box-shadow: none;
+  border-color: var(--primary-color);
+}
+
+/* Textarea height override */
+textarea.form-control {
+  height: auto;
+}
+
+/* Modern Date Input Icon Placement (Webkit) */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  padding-left: 10px;
+}
+
+/* --- Member Info Panel Component --- */
+.member-info-panel {
+  background-color: var(--bg-light);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.panel-title {
+  color: var(--navy-dark);
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Profile Picture/Avatar */
+.member-profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Typographical elements within profile */
+.member-name {
+  color: var(--navy-dark);
+  font-weight: 700;
+  font-size: 15px;
+  margin: 0;
+}
+
+.member-id {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.member-dept {
+  color: var(--text-gray);
+  font-size: 13px;
+}
+
+/* Statistics display (horizontal pairs) */
+.stats-item {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.stats-label {
+  color: var(--navy-dark);
+  font-weight: 600;
+  font-size: 13.5px;
+}
+
+.stats-value {
+  color: var(--navy-dark);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* Overdue status coloring */
+.text-overdue {
+  color: var(--status-danger) !important;
+}
+
+/* --- Submit Action Button --- */
+.btn-issue {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  margin-top: 10px;
+}
+
+.btn-issue:hover {
+  background-color: var(--primary-hover);
+  color: var(--white);
+}
+
+/* setting page styling */
+/* =====================
+        Workspace Area
+        ===================== */
+.blank-area {
+  background: var(--bg-light);
+  min-height: 100vh;
+}
+
+/* =====================
+        Settings Sub-tab UI Elements
+        ===================== */
+.settings-card {
+  min-height: 520px;
+  /* Gives the settings card a consistent framework height */
+}
+
+.settings-nav .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--slate-label);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.settings-nav .nav-link i {
+  font-size: 18px;
+  width: 20px;
+}
+
+.settings-nav .nav-link:hover {
+  color: var(--navy-dark);
+  background: var(--bg-hover);
+}
+
+.settings-nav .nav-link.active {
+  color: var(--primary-color) !important;
+  background: var(--background-color) !important;
+}
+
+.settings-title {
+  color: var(--navy-dark);
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.section-title {
+  color: var(--slate-dark);
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.form-label-custom {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--slate-text);
+  margin-bottom: 6px;
+}
+
+.form-control-custom {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-light);
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  color: var(--slate-medium);
+}
+
+.form-control-custom:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+  background-color: var(--white);
+}
+
+.settings-desc {
+  font-size: 13px;
+  color: var(--slate-label);
+  margin-top: 2px;
+}
+
+.form-check-input {
+  cursor: pointer;
+  width: 2.5em;
+  height: 1.25em;
 }
