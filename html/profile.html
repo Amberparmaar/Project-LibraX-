@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibraX - Profile Settings</title>
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <!-- Logo / Header Section -->
+        <div class="logo-section">
+            <i class="fa-solid fa-book-open logo-icon"></i>
+            <span class="logo-name">LibraX</span>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span class="link-name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-book"></i>
+                    <span class="link-name">Books</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="link-name">Members</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span class="link-name">Digital ID Cards</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <span class="link-name">QR Scanner</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-book-medical"></i>
+                    <span class="link-name">Issue Book</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-keyboard"></i>
+                    <span class="link-name">Return Book</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span class="link-name">Reports</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    <span class="link-name">Settings</span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Logout Button -->
+        <div class="logout-section">
+            <a href="#">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class="link-name">Logout</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="main-content cont">
+        <div class="header-title">
+            <h1>Profile Page</h1>
+        </div>
+
+        <div class="whole">
+            <!-- Profile Details Section -->
+            <div class="flex">
+                <div class="profile-image-container">
+                    <div class="profile"><img src="../images/admin.webp" alt="Admin Profile"></div>
+                    <button class="btn">Change Photo</button>
+                </div>
+
+                <div class="input-group margin">
+                    <label class="label">Full Name</label>
+                    <input autocomplete="off" name="name" id="name" class="input" type="text" required>
+                </div>
+
+                <div class="input-group margin">
+                    <label class="label">Email address</label>
+                    <input autocomplete="off" name="Email" id="Email" class="input" type="email" required>
+                </div>
+
+                <div class="input-group margin">
+                    <label class="label">Phone</label>
+                    <input autocomplete="off" name="Phone" id="Phone" class="input" type="number" required>
+                </div>
+
+                <div class="input-group margin">
+                    <label class="label">Department</label>
+                    <input autocomplete="off" name="department" id="department" class="input" type="text" required>
+                </div>
+
+                <div class="margin">
+                    <button class="uiverse-btn">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front text">Update Profile</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Change Password Section -->
+            <div class="change">
+                <div class="margin">
+                    <h2>Change Password</h2>
+                </div>
+
+                <div class="input-group margin">
+                    <label class="label">Current Password</label>
+                    <input autocomplete="off" name="password" id="password" class="input" type="password" required>
+                </div>
+
+                <div class="input-group margin">
+                    <label class="label">New Password</label>
+                    <input autocomplete="off" name="new" id="new_password" class="input" type="password" required>
+                </div>
+
+                <div class="input-group margin">
+                    <label class="label">Confirm Password</label>
+                    <input autocomplete="off" name="confirm" id="confirm_password" class="input" type="password" required>
+                </div>
+
+                <div class="margin">
+                    <button class="uiverse-btn">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front text">Update Password</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
