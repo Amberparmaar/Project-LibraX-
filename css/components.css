@@ -93,133 +93,113 @@ body {
   background: #f1f5f9;
 }
 
-/* =====================
-   Mobile Header
-===================== */
+.dashboard {
+  width: 100%;
+  min-height: 100vh;
+}
 
+/* =====================
+           Mobile Top Header (Fixed at top)
+        ===================== */
 .mobile-header {
   display: none;
-
   height: 65px;
-
   background: #06285c;
-
-  color: white;
-
+  color: #ffffff;
   align-items: center;
-
   justify-content: space-between;
-
   padding: 0 18px;
+  position: fixed; /* Fixed position on top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .mobile-logo {
   display: flex;
-
   align-items: center;
 }
 
 .mobile-logo img {
   width: 120px;
-
   height: 38px;
-
   object-fit: contain;
 }
 
 .mobile-header button {
   background: none;
-
   border: none;
-
-  color: white;
-
+  color: #ffffff;
   font-size: 24px;
-
   cursor: pointer;
 }
 
 /* =====================
-   Main Layout
-===================== */
+           Desktop Fixed Sidebar & Main Container
+        ===================== */
+@media (min-width: 992px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 16.666667%; /* Standard col-lg-2 width */
+    height: 100vh;
+    z-index: 1000;
+    background-color: #06285c;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+  }
 
-.dashboard {
-  width: 100%;
-
-  min-height: 100vh;
-}
-
-.main-card {
-  min-height: 100vh;
+  .blank-area {
+    margin-left: 16.666667%; /* Offset main content by sidebar width */
+    width: 83.333333%; /* Standard col-lg-10 width */
+    min-height: 100vh;
+    background-color: #f8fafc;
+  }
 }
 
 /* =====================
-   Sidebar
-===================== */
-
-.sidebar {
-  background: #06285c;
-
-  color: white;
-
-  min-height: 100vh;
-
-  display: flex;
-
-  flex-direction: column;
-
-  transition: 0.3s ease;
-}
-
+           Sidebar Internal Elements
+        ===================== */
 .logo {
   display: flex;
-
   align-items: center;
-
   padding: 20px;
 }
 
-/* Desktop Logo */
-
 .logo img {
   width: 160px;
-
   height: 42px;
-
   object-fit: contain;
 }
 
 .menu {
   flex: 1;
+  overflow-y: auto; /* Internal scrolling if items exceed sidebar height */
 }
 
 .menu a {
   display: flex;
-
   align-items: center;
-
   gap: 12px;
-
-  color: white;
-
+  color: #ffffff;
   text-decoration: none;
-
   padding: 12px 20px;
-
   font-size: 14px;
+  transition: background 0.2s ease;
 }
 
-.menu a:hover {
-  background: #2563eb;
-
+.menu a:hover,
+.menu a.active {
+  background-color: #2563eb;
   border-radius: 5px;
 }
 
 .menu i {
   width: 18px;
 }
-
-/* Footer */
 
 .sidebar-footer {
   padding: 20px;
@@ -231,29 +211,18 @@ body {
 
 .logout {
   color: #ef4444;
-
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-/* Blank Area */
-
-.blank-area {
-  background: #f8fafc;
-
-  min-height: 100vh;
-}
-
-/* Overlay */
-
+/* Mobile Overlay */
 .overlay {
   display: none;
-
   position: fixed;
-
   inset: 0;
-
   background: rgba(0, 0, 0, 0.4);
-
   z-index: 900;
 }
 

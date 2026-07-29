@@ -1,110 +1,164 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings</title>
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
     <!-- FontAwesome for Social and Contact Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- custom css -->
-  
-     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/components.css">
-    <link rel="stylesheet" href="../../css/responsive.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- custom css -->
 
-</head>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/responsive.css" />
+  </head>
 
-<body>
-
-
+  <body>
     <!-- MOBILE HEADER -->
     <div class="mobile-header">
-        <div class="mobile-logo">
-            <img src="../images//logo3.png" alt="Logo">
-        </div>
-        <button id="menuBtn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+      <div class="mobile-logo">
+        <img src="../images//logo3.png" alt="Logo" />
+      </div>
+      <button id="menuBtn" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
 
     <div class="overlay" id="overlay"></div>
 
-    <div class="dashboard">
-        <div class="main-card">
-            <div class="row g-0">
+    <div class="dashboard container-fluid p-0">
+      <div class="main-card">
+        <div class="row g-0">
+          <!-- SIDEBAR -->
+          <div class="col-lg-2 sidebar" id="sidebar">
+            <div class="logo desktop-logo">
+              <img src="../../images//logo3.png" alt="Logo" />
+            </div>
 
-                <!-- SIDEBAR -->
-                <div class="col-lg-2 sidebar" id="sidebar">
-                    <div class="logo desktop-logo">
-                        <img src="../../images//logo3.png" alt="Logo">
-                    </div>
+            <div class="menu">
+              <a href="#"><i class="fa-solid fa-house"></i> Dashboard</a>
+              <a href="#"><i class="fa-solid fa-book"></i> Books</a>
+              <a href="#"><i class="fa-solid fa-users"></i> Members</a>
+              <a href="../member/ID-card.html"
+                ><i class="fa-solid fa-id-card"></i> Digital ID Cards</a
+              >
+              <a href="../member/qr-scanner.html"
+                ><i class="fa-solid fa-qrcode"></i> QR Scanner</a
+              >
+              <a href="../admin/issue-book.html"
+                ><i class="fa-solid fa-book-open"></i> Issue Book</a
+              >
+              <a href="../admin/return-book.html"
+                ><i class="fa-solid fa-arrow-rotate-left"></i> Return Book</a
+              >
+              <a href="../admin/Reports.html"
+                ><i class="fa-solid fa-chart-line"></i> Reports</a
+              >
+              <a href="../admin/setting.html" class="active"
+                ><i class="fa-solid fa-gear"></i> Settings</a
+              >
+            </div>
 
-                    <div class="menu">
-                        <a href="#"><i class="fa-solid fa-house"></i> Dashboard</a>
-                        <a href="#"><i class="fa-solid fa-book"></i> Books</a>
-                        <a href="#"><i class="fa-solid fa-users"></i> Members</a>
-                        <a href="../member/ID-card.html"><i class="fa-solid fa-id-card"></i> Digital ID Cards</a>
-                        <a href="../member/qr-scanner.html"><i class="fa-solid fa-qrcode"></i> QR Scanner</a>
-                        <a href="../admin/issue-book.html"><i class="fa-solid fa-book-open"></i> Issue Book</a>
-                        <a href="../admin/return-book.html"><i class="fa-solid fa-arrow-rotate-left"></i> Return Book</a>
-                        <a href="../admin/Reports.html"><i class="fa-solid fa-chart-line"></i> Reports</a>
-                        <a href="../admin/setting.html" class="active"><i class="fa-solid fa-gear"></i> Settings</a>
-                    </div>
+            <div class="sidebar-footer">
+              <hr />
+              <a href="#" class="logout"
+                ><i class="fa-solid fa-right-from-bracket"></i> Logout</a
+              >
+            </div>
+          </div>
 
-                    <div class="sidebar-footer">
-                        <hr>
-                        <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
-                    </div>
-                </div>
+          <!-- WORKSPACE AREA (Centered alignment configurations applied here) -->
+          <div class="col-12 col-lg-10 blank-area d-flex align-items-center">
+            <div class="container-fluid p-4">
+              <!-- Main Content Settings Card Framework -->
+              <div
+                class="card border-0 bg-white rounded-4 p-4 shadow-sm w-100 settings-card d-flex flex-column justify-content-between"
+              >
+                <div>
+                  <h5 class="settings-title mb-4">Settings</h5>
 
-                <!-- WORKSPACE AREA (Centered alignment configurations applied here) -->
-                <div class="col-12 col-lg-10 blank-area d-flex align-items-center">
-                    <div class="container-fluid p-4">
-
-                        <!-- Main Content Settings Card Framework -->
-                        <div
-                            class="card border-0 bg-white rounded-4 p-4 shadow-sm w-100 settings-card d-flex flex-column justify-content-between">
-                            <div>
-                                <h5 class="settings-title mb-4">Settings</h5>
-
-                                <div class="row g-4">
-                                    <!-- Settings Navigation Column (Sub-tabs) -->
-                                    <div class="col-12 col-md-4 col-xl-3">
-                                        <div class="nav flex-column nav-pills settings-nav" id="settingsTabs"
-                                            role="tablist" aria-orientation="vertical">
-                                            <button class="nav-link active" id="tab-general" data-bs-toggle="pill"
+                  <div class="row g-4">
+                    <!-- Settings Navigation Column (Sub-tabs) -->
+                    <div class="col-12 col-md-4 col-xl-3">
+                      <div
+                        class="nav flex-column nav-pills settings-nav"
+                        id="settingsTabs"
+                        role="tablist"
+                        aria-orientation="vertical"
+                      >
+                        <!-- <button class="nav-link active" id="tab-general" data-bs-toggle="pill"
                                                 data-bs-target="#content-general" type="button" role="tab"
                                                 aria-controls="content-general" aria-selected="true">
                                                 <i class="fa-solid fa-sliders"></i> General
-                                            </button>
-                                            <button class="nav-link" id="tab-notifications" data-bs-toggle="pill"
-                                                data-bs-target="#content-notifications" type="button" role="tab"
-                                                aria-controls="content-notifications" aria-selected="false">
-                                                <i class="fa-regular fa-bell"></i> Notifications
-                                            </button>
-                                            <button class="nav-link" id="tab-security" data-bs-toggle="pill"
-                                                data-bs-target="#content-security" type="button" role="tab"
-                                                aria-controls="content-security" aria-selected="false">
-                                                <i class="fa-solid fa-shield-halved"></i> Security
-                                            </button>
-                                            <button class="nav-link" id="tab-appearance" data-bs-toggle="pill"
-                                                data-bs-target="#content-appearance" type="button" role="tab"
-                                                aria-controls="content-appearance" aria-selected="false">
-                                                <i class="fa-solid fa-palette"></i> Appearance
-                                            </button>
-                                        </div>
-                                    </div>
+                                            </button> -->
+                        <button
+                          class="nav-link"
+                          id="tab-profile"
+                          data-bs-toggle="pill"
+                          data-bs-target="#content-profile"
+                          type="button"
+                          role="tab"
+                          aria-controls="content-profile"
+                          aria-selected="true"
+                        >
+                          <i class="fa-solid fa-user"></i> Profile
+                        </button>
+                        <button
+                          class="nav-link"
+                          id="tab-notifications"
+                          data-bs-toggle="pill"
+                          data-bs-target="#content-notifications"
+                          type="button"
+                          role="tab"
+                          aria-controls="content-notifications"
+                          aria-selected="false"
+                        >
+                          <i class="fa-solid fa-bell"></i>Notifications
+                        </button>
+                        <button
+                          class="nav-link"
+                          id="tab-security"
+                          data-bs-toggle="pill"
+                          data-bs-target="#content-security"
+                          type="button"
+                          role="tab"
+                          aria-controls="content-security"
+                          aria-selected="false"
+                        >
+                          <i class="fa-solid fa-shield-halved"></i> Security
+                        </button>
+                        <button
+                          class="nav-link"
+                          id="tab-appearance"
+                          data-bs-toggle="pill"
+                          data-bs-target="#content-appearance"
+                          type="button"
+                          role="tab"
+                          aria-controls="content-appearance"
+                          aria-selected="false"
+                        >
+                          <i class="fa-solid fa-palette"></i> Appearance
+                        </button>
+                      </div>
+                    </div>
 
-                                    <!-- Settings Content Display View Column -->
-                                    <div class="col-12 col-md-8 col-xl-9 border-start-md ps-md-4">
-                                        <div class="tab-content" id="settingsTabsContent">
-
-                                            <!-- 1. General Settings Content Layout View -->
-                                            <div class="tab-pane fade show active" id="content-general" role="tabpanel"
+                    <!-- Settings Content Display View Column -->
+                    <div
+                      class="col-12 col-md-8 col-xl-9 border-start-md ps-md-4"
+                    >
+                      <div class="tab-content" id="settingsTabsContent">
+                        <!-- 1. General Settings Content Layout View -->
+                        <!-- <div class="tab-pane fade show active" id="content-general" role="tabpanel"
                                                 aria-labelledby="tab-general">
                                                 <h6 class="section-title">General Settings</h6>
                                                 <form id="generalSettingsForm">
@@ -125,119 +179,339 @@
                                                         </select>
                                                     </div>
                                                 </form>
-                                            </div>
+                                            </div> -->
+                        <!-- 1. PROFILE TAB CONTENT -->
+                        <div
+                          class="tab-pane fade show active"
+                          id="content-profile"
+                          role="tabpanel"
+                          aria-labelledby="tab-profile"
+                        >
+                          <div class="row g-4">
+                            <!-- Left Card: Profile Info -->
+                            <div class="col-12 col-lg-6">
+                              <div
+                                class="p-4 bg-white border rounded-4 h-100 d-flex flex-column justify-content-between shadow-sm"
+                              >
+                                <div>
+                                  <h6 class="fw-bold text-dark mb-4">
+                                    Profile Information
+                                  </h6>
 
-                                            <!-- 2. Notification Toggles Content Layout View -->
-                                            <div class="tab-pane fade" id="content-notifications" role="tabpanel"
-                                                aria-labelledby="tab-notifications">
-                                                <h6 class="section-title">Notification Toggles</h6>
-
-                                                <div
-                                                    class="d-flex justify-content-between align-items-start mb-4 pb-3 border-bottom">
-                                                    <div>
-                                                        <label class="fw-semibold text-dark mb-0 d-block"
-                                                            style="font-size: 15px;">Email Notifications</label>
-                                                        <span class="settings-desc d-block">Send notifications on book
-                                                            checkout/returns.</span>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" role="switch"
-                                                            id="emailNotifSwitch" checked>
-                                                    </div>
-                                                </div>
-
-                                                <div class="d-flex justify-content-between align-items-start mb-4">
-                                                    <div>
-                                                        <label class="fw-semibold text-dark mb-0 d-block"
-                                                            style="font-size: 15px;">SMS Notifications</label>
-                                                        <span class="settings-desc d-block">Send alerts for upcoming due
-                                                            dates via SMS.</span>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" role="switch"
-                                                            id="smsNotifSwitch">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- 3. Security Configuration Content Layout View -->
-                                            <div class="tab-pane fade" id="content-security" role="tabpanel"
-                                                aria-labelledby="tab-security">
-                                                <h6 class="section-title">Security Configuration</h6>
-                                                <p class="text-secondary" style="font-size: 14px;">Access rules and
-                                                    database backups can be set here. Enabled automatically.</p>
-                                            </div>
-
-                                            <!-- 4. Visual Appearance Content Layout View -->
-                                            <div class="tab-pane fade" id="content-appearance" role="tabpanel"
-                                                aria-labelledby="tab-appearance">
-                                                <h6 class="section-title">Visual Appearance</h6>
-
-                                                <div class="d-flex justify-content-between align-items-start">
-                                                    <div>
-                                                        <label class="fw-semibold text-dark mb-0 d-block"
-                                                            style="font-size: 15px;">Dark Mode</label>
-                                                        <span class="settings-desc d-block">Toggle between light and
-                                                            dark themes.</span>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" role="switch"
-                                                            id="darkModeSwitch">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
+                                  <!-- User Header -->
+                                  <div
+                                    class="d-flex align-items-center gap-3 mb-4"
+                                  >
+                                    <div
+                                      class="rounded-circle overflow-hidden bg-light flex-shrink-0"
+                                      style="width: 72px; height: 72px"
+                                    >
+                                      <img
+                                        src="../../images/user-avatar.png"
+                                        alt="Admin"
+                                        class="w-100 h-100 object-fit-cover"
+                                      />
                                     </div>
+                                    <div>
+                                      <h5 class="fw-bold mb-0 text-dark">
+                                        Admin
+                                      </h5>
+                                      <span class="text-muted small"
+                                        >Administrator</span
+                                      >
+                                    </div>
+                                  </div>
+
+                                  <!-- Form -->
+                                  <form id="profileInfoForm">
+                                    <div class="mb-3">
+                                      <label
+                                        class="form-label text-secondary fw-semibold small mb-1"
+                                        for="fullName"
+                                        >Full Name</label
+                                      >
+                                      <input
+                                        type="text"
+                                        class="form-control bg-light border-light-subtle rounded-3 py-2 px-3 text-dark"
+                                        id="fullName"
+                                        value="Admin"
+                                      />
+                                    </div>
+
+                                    <div class="mb-3">
+                                      <label
+                                        class="form-label text-secondary fw-semibold small mb-1"
+                                        for="emailAddr"
+                                        >Email</label
+                                      >
+                                      <input
+                                        type="email"
+                                        class="form-control bg-light border-light-subtle rounded-3 py-2 px-3 text-dark"
+                                        id="emailAddr"
+                                        value="admin@example.com"
+                                      />
+                                    </div>
+
+                                    <div class="mb-4">
+                                      <label
+                                        class="form-label text-secondary fw-semibold small mb-1"
+                                        for="phoneNum"
+                                        >Phone</label
+                                      >
+                                      <input
+                                        type="text"
+                                        class="form-control bg-light border-light-subtle rounded-3 py-2 px-3 text-dark"
+                                        id="phoneNum"
+                                        value="+92 300 1234567"
+                                      />
+                                    </div>
+                                  </form>
                                 </div>
+
+                                <button
+                                  type="submit"
+                                  form="profileInfoForm"
+                                  class="btn btn-primary w-100 py-2.5 rounded-3 fw-medium"
+                                  style="
+                                    background-color: #2563eb;
+                                    border: none;
+                                  "
+                                >
+                                  Update Profile
+                                </button>
+                              </div>
                             </div>
 
-                            <!-- General Save Action Row Aligned Cleanly to Bottom Base -->
-                            <div class="d-flex justify-content-end mt-4 pt-3 border-top">
-                                <button type="submit" form="generalSettingsForm" class="btn btn-primary px-4 fw-medium"
-                                    style="background-color: #2563EB; border: none; padding: 10px 20px; border-radius: 8px;">Save
-                                    Changes</button>
-                            </div>
+                            <!-- Right Card: Change Password -->
+                            <div class="col-12 col-lg-6">
+                              <div
+                                class="p-4 bg-white border rounded-4 h-100 d-flex flex-column justify-content-between shadow-sm"
+                              >
+                                <div>
+                                  <h6 class="fw-bold text-dark mb-4">
+                                    Change Password
+                                  </h6>
 
+                                  <form id="changePasswordForm">
+                                    <div class="mb-3">
+                                      <label
+                                        class="form-label text-secondary fw-semibold small mb-1"
+                                        for="currentPassword"
+                                        >Current Password</label
+                                      >
+                                      <input
+                                        type="password"
+                                        class="form-control bg-light border-light-subtle rounded-3 py-2 px-3"
+                                        id="currentPassword"
+                                        placeholder="Enter current password"
+                                      />
+                                    </div>
+
+                                    <div class="mb-3">
+                                      <label
+                                        class="form-label text-secondary fw-semibold small mb-1"
+                                        for="newPassword"
+                                        >New Password</label
+                                      >
+                                      <input
+                                        type="password"
+                                        class="form-control bg-light border-light-subtle rounded-3 py-2 px-3"
+                                        id="newPassword"
+                                        placeholder="Enter new password"
+                                      />
+                                    </div>
+
+                                    <div class="mb-4">
+                                      <label
+                                        class="form-label text-secondary fw-semibold small mb-1"
+                                        for="confirmPassword"
+                                        >Confirm Password</label
+                                      >
+                                      <input
+                                        type="password"
+                                        class="form-control bg-light border-light-subtle rounded-3 py-2 px-3"
+                                        id="confirmPassword"
+                                        placeholder="Confirm new password"
+                                      />
+                                    </div>
+                                  </form>
+                                </div>
+
+                                <button
+                                  type="submit"
+                                  form="changePasswordForm"
+                                  class="btn btn-primary w-100 py-2.5 rounded-3 fw-medium"
+                                  style="
+                                    background-color: #2563eb;
+                                    border: none;
+                                  "
+                                >
+                                  Update Password
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- 2. Notification Toggles Content Layout View -->
+                        <div
+                          class="tab-pane fade"
+                          id="content-notifications"
+                          role="tabpanel"
+                          aria-labelledby="tab-notifications"
+                        >
+                          <h6 class="section-title">Notification Toggles</h6>
+
+                          <div
+                            class="d-flex justify-content-between align-items-start mb-4 pb-3 border-bottom"
+                          >
+                            <div>
+                              <label
+                                class="fw-semibold text-dark mb-0 d-block"
+                                style="font-size: 15px"
+                                >Email Notifications</label
+                              >
+                              <span class="settings-desc d-block"
+                                >Send notifications on book
+                                checkout/returns.</span
+                              >
+                            </div>
+                            <div class="form-check form-switch">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                role="switch"
+                                id="emailNotifSwitch"
+                                checked
+                              />
+                            </div>
+                          </div>
+
+                          <div
+                            class="d-flex justify-content-between align-items-start mb-4"
+                          >
+                            <div>
+                              <label
+                                class="fw-semibold text-dark mb-0 d-block"
+                                style="font-size: 15px"
+                                >SMS Notifications</label
+                              >
+                              <span class="settings-desc d-block"
+                                >Send alerts for upcoming due dates via
+                                SMS.</span
+                              >
+                            </div>
+                            <div class="form-check form-switch">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                role="switch"
+                                id="smsNotifSwitch"
+                              />
+                            </div>
+                          </div>
                         </div>
 
+                        <!-- 3. Security Configuration Content Layout View -->
+                        <div
+                          class="tab-pane fade"
+                          id="content-security"
+                          role="tabpanel"
+                          aria-labelledby="tab-security"
+                        >
+                          <h6 class="section-title">Security Configuration</h6>
+                          <p class="text-secondary" style="font-size: 14px">
+                            Access rules and database backups can be set here.
+                            Enabled automatically.
+                          </p>
+                        </div>
+
+                        <!-- 4. Visual Appearance Content Layout View -->
+                        <div
+                          class="tab-pane fade"
+                          id="content-appearance"
+                          role="tabpanel"
+                          aria-labelledby="tab-appearance"
+                        >
+                          <h6 class="section-title">Visual Appearance</h6>
+
+                          <div
+                            class="d-flex justify-content-between align-items-start"
+                          >
+                            <div>
+                              <label
+                                class="fw-semibold text-dark mb-0 d-block"
+                                style="font-size: 15px"
+                                >Dark Mode</label
+                              >
+                              <span class="settings-desc d-block"
+                                >Toggle between light and dark themes.</span
+                              >
+                            </div>
+                            <div class="form-check form-switch">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                role="switch"
+                                id="darkModeSwitch"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
 
+                <!-- General Save Action Row Aligned Cleanly to Bottom Base -->
+                <div class="d-flex justify-content-end mt-4 pt-3 border-top">
+                  <button
+                    type="submit"
+                    form="generalSettingsForm"
+                    class="btn btn-primary px-4 fw-medium"
+                    style="
+                      background-color: #2563eb;
+                      border: none;
+                      padding: 10px 20px;
+                      border-radius: 8px;
+                    "
+                  >
+                    Save Changes
+                  </button>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
-
-
-
-
     <!-- bootstrape js -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-        crossorigin="anonymous"></script>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+      integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Side Navigation Logic Toggle Script -->
     <script>
-        const menuBtn = document.getElementById("menuBtn");
-        const sidebar = document.getElementById("sidebar");
-        const overlay = document.getElementById("overlay");
+      const menuBtn = document.getElementById("menuBtn");
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("overlay");
 
-        menuBtn.onclick = function () {
-            sidebar.classList.toggle("show");
-            overlay.classList.toggle("show");
-        };
+      menuBtn.onclick = function () {
+        sidebar.classList.toggle("show");
+        overlay.classList.toggle("show");
+      };
 
-        overlay.onclick = function () {
-            sidebar.classList.remove("show");
-            overlay.classList.remove("show");
-        };
+      overlay.onclick = function () {
+        sidebar.classList.remove("show");
+        overlay.classList.remove("show");
+      };
     </script>
-
-</body>
-
+  </body>
 </html>
