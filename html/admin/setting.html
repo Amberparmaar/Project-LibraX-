@@ -10,7 +10,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- FontAwesome for Social and Contact Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- custom css -->
+    <!-- custom css -->
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
@@ -25,14 +25,14 @@
         <div class="mobile-logo">
             <img src="../images//logo3.png" alt="Logo">
         </div>
-        <button id="menuBtn">
+        <button id="menuBtn" aria-label="Toggle Navigation">
             <i class="fa-solid fa-bars"></i>
         </button>
     </div>
 
     <div class="overlay" id="overlay"></div>
 
-    <div class="dashboard">
+    <div class="dashboard container-fluid p-0">
         <div class="main-card">
             <div class="row g-0">
 
@@ -49,7 +49,8 @@
                         <a href="../member/ID-card.html"><i class="fa-solid fa-id-card"></i> Digital ID Cards</a>
                         <a href="../member/qr-scanner.html"><i class="fa-solid fa-qrcode"></i> QR Scanner</a>
                         <a href="../admin/issue-book.html"><i class="fa-solid fa-book-open"></i> Issue Book</a>
-                        <a href="../admin/return-book.html"><i class="fa-solid fa-arrow-rotate-left"></i> Return Book</a>
+                        <a href="../admin/return-book.html"><i class="fa-solid fa-arrow-rotate-left"></i> Return
+                            Book</a>
                         <a href="../admin/Reports.html"><i class="fa-solid fa-chart-line"></i> Reports</a>
                         <a href="../admin/setting.html" class="active"><i class="fa-solid fa-gear"></i> Settings</a>
                     </div>
@@ -75,15 +76,20 @@
                                     <div class="col-12 col-md-4 col-xl-3">
                                         <div class="nav flex-column nav-pills settings-nav" id="settingsTabs"
                                             role="tablist" aria-orientation="vertical">
-                                            <button class="nav-link active" id="tab-general" data-bs-toggle="pill"
+                                            <!-- <button class="nav-link active" id="tab-general" data-bs-toggle="pill"
                                                 data-bs-target="#content-general" type="button" role="tab"
                                                 aria-controls="content-general" aria-selected="true">
                                                 <i class="fa-solid fa-sliders"></i> General
+                                            </button> -->
+                                            <button class="nav-link " id="tab-profile" data-bs-toggle="pill"
+                                                data-bs-target="#content-profile" type="button" role="tab"
+                                                aria-controls="content-profile" aria-selected="true">
+                                                <i class="fa-solid fa-user"></i> Profile
                                             </button>
                                             <button class="nav-link" id="tab-notifications" data-bs-toggle="pill"
                                                 data-bs-target="#content-notifications" type="button" role="tab"
                                                 aria-controls="content-notifications" aria-selected="false">
-                                                <i class="fa-regular fa-bell"></i> Notifications
+                                                <i class="fa-solid fa-bell"></i>Notifications
                                             </button>
                                             <button class="nav-link" id="tab-security" data-bs-toggle="pill"
                                                 data-bs-target="#content-security" type="button" role="tab"
@@ -103,7 +109,7 @@
                                         <div class="tab-content" id="settingsTabsContent">
 
                                             <!-- 1. General Settings Content Layout View -->
-                                            <div class="tab-pane fade show active" id="content-general" role="tabpanel"
+                                            <!-- <div class="tab-pane fade show active" id="content-general" role="tabpanel"
                                                 aria-labelledby="tab-general">
                                                 <h6 class="section-title">General Settings</h6>
                                                 <form id="generalSettingsForm">
@@ -124,8 +130,125 @@
                                                         </select>
                                                     </div>
                                                 </form>
-                                            </div>
+                                            </div> -->
+                                            <!-- 1. PROFILE TAB CONTENT -->
+                                            <div class="tab-pane fade show active" id="content-profile" role="tabpanel"
+                                                aria-labelledby="tab-profile">
+                                                <div class="row g-4">
 
+                                                    <!-- Left Card: Profile Info -->
+                                                    <div class="col-12 col-lg-6">
+                                                        <div
+                                                            class="p-4 bg-white border rounded-4 h-100 d-flex flex-column justify-content-between shadow-sm">
+                                                            <div>
+                                                                <h6 class="fw-bold text-dark mb-4">Profile Information
+                                                                </h6>
+
+                                                                <!-- User Header -->
+                                                                <div class="d-flex align-items-center gap-3 mb-4">
+                                                                    <div class="rounded-circle overflow-hidden bg-light flex-shrink-0"
+                                                                        style="width: 72px; height: 72px;">
+                                                                        <img src="../../images/user-avatar.png"
+                                                                            alt="Admin"
+                                                                            class="w-100 h-100 object-fit-cover">
+                                                                    </div>
+                                                                    <div>
+                                                                        <h5 class="fw-bold mb-0 text-dark">Admin</h5>
+                                                                        <span class="text-muted small">Administrator</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Form -->
+                                                                <form id="profileInfoForm">
+                                                                    <div class="mb-3">
+                                                                        <label
+                                                                            class="form-label text-secondary fw-semibold small mb-1"
+                                                                            for="fullName">Full Name</label>
+                                                                        <input type="text"
+                                                                            class="form-control bg-light border-light-subtle rounded-3 py-2 px-3 text-dark"
+                                                                            id="fullName" value="Admin">
+                                                                    </div>
+
+                                                                    <div class="mb-3">
+                                                                        <label
+                                                                            class="form-label text-secondary fw-semibold small mb-1"
+                                                                            for="emailAddr">Email</label>
+                                                                        <input type="email"
+                                                                            class="form-control bg-light border-light-subtle rounded-3 py-2 px-3 text-dark"
+                                                                            id="emailAddr" value="admin@example.com">
+                                                                    </div>
+
+                                                                    <div class="mb-4">
+                                                                        <label
+                                                                            class="form-label text-secondary fw-semibold small mb-1"
+                                                                            for="phoneNum">Phone</label>
+                                                                        <input type="text"
+                                                                            class="form-control bg-light border-light-subtle rounded-3 py-2 px-3 text-dark"
+                                                                            id="phoneNum" value="+92 300 1234567">
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+
+                                                            <button type="submit" form="profileInfoForm"
+                                                                class="btn btn-primary w-100 py-2.5 rounded-3 fw-medium"
+                                                                style="background-color: #2563eb; border: none;">
+                                                                Update Profile
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Right Card: Change Password -->
+                                                    <div class="col-12 col-lg-6">
+                                                        <div
+                                                            class="p-4 bg-white border rounded-4 h-100 d-flex flex-column justify-content-between shadow-sm">
+                                                            <div>
+                                                                <h6 class="fw-bold text-dark mb-4">Change Password</h6>
+
+                                                                <form id="changePasswordForm">
+                                                                    <div class="mb-3">
+                                                                        <label
+                                                                            class="form-label text-secondary fw-semibold small mb-1"
+                                                                            for="currentPassword">Current
+                                                                            Password</label>
+                                                                        <input type="password"
+                                                                            class="form-control bg-light border-light-subtle rounded-3 py-2 px-3"
+                                                                            id="currentPassword"
+                                                                            placeholder="Enter current password">
+                                                                    </div>
+
+                                                                    <div class="mb-3">
+                                                                        <label
+                                                                            class="form-label text-secondary fw-semibold small mb-1"
+                                                                            for="newPassword">New Password</label>
+                                                                        <input type="password"
+                                                                            class="form-control bg-light border-light-subtle rounded-3 py-2 px-3"
+                                                                            id="newPassword"
+                                                                            placeholder="Enter new password">
+                                                                    </div>
+
+                                                                    <div class="mb-4">
+                                                                        <label
+                                                                            class="form-label text-secondary fw-semibold small mb-1"
+                                                                            for="confirmPassword">Confirm
+                                                                            Password</label>
+                                                                        <input type="password"
+                                                                            class="form-control bg-light border-light-subtle rounded-3 py-2 px-3"
+                                                                            id="confirmPassword"
+                                                                            placeholder="Confirm new password">
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+
+                                                            <button type="submit" form="changePasswordForm"
+                                                                class="btn btn-primary w-100 py-2.5 rounded-3 fw-medium"
+                                                                style="background-color: #2563eb; border: none;">
+                                                                Update Password
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
                                             <!-- 2. Notification Toggles Content Layout View -->
                                             <div class="tab-pane fade" id="content-notifications" role="tabpanel"
                                                 aria-labelledby="tab-notifications">

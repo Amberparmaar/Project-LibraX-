@@ -1,3 +1,4 @@
+
 /* font poppins */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -574,14 +575,55 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #dcfce7;
 }
 
-/* Responsive adjustment */
-@media (max-width: 767.98px) {
-    .issued-table-card {
-        padding: 10px;
-    }
-    .custom-issued-table thead th,
-    .custom-issued-table tbody td {
-        padding: 10px 12px;
-        white-space: nowrap;
-    }
-}
+/* member notification styling */
+/* Notifications Outer Container Styling */
+        .notifications-container {
+            background-color: #ffffff;
+            border: 1px solid #eef2f6;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            width: 100%;
+        }
+
+        /* Individual Notification Card */
+        .notification-card {
+            border: 1px solid #f1f5f9;
+            border-radius: 12px;
+            background-color: #ffffff;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .notification-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Icon Container Inside Cards */
+        .icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* Status Dot Indicator */
+        .unread-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        .dot-unread {
+            background-color: #0d6efd;
+        }
+
+        .dot-read {
+            background-color: #cbd5e1;
+        }
+
+        
