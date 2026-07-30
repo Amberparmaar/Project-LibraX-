@@ -1,6 +1,15 @@
 :root{
     --bg-color:#e8eefc;
-    --theme-color: #023dc8 ;
+    --theme-color: #021c5a ;
+}
+
+:root {
+    --primary-color: #2563EB;
+    --secondary-color: #0F2747;
+    --background-color: #EFF6FF;
+    --white: #FFFFFF;
+    --border-color: #3c4d65;/* Bottom Divider Color */
+    --text-gray: #58626f;/* Muted text for readability over dark background */
 }
 
 *{
@@ -86,7 +95,7 @@
     flex-direction: row;
     min-height: 90vh;
     max-width: 100%;
-    background-color: #e8eefc;
+    background-color: var(--background-color);
 }
 
 .text{
@@ -99,8 +108,9 @@ padding: 3em;
     max-width:350px;
 }
 
-h2{
+.hero .text h2{
     margin-top: 20px;
+    color: #000;
   
 }
 h4{
@@ -109,7 +119,7 @@ h4{
 
 h1{
     font-size: 8em;
-color: #023dc8;
+color: var(--primary-color);
 }
 .image{
     /* background-color: blueviolet; */
@@ -126,46 +136,104 @@ color: #023dc8;
 }
 
 
-button{
-    background-color: #023dc8 !important;
-}
-
-/* From Uiverse.io by suda-code */ 
-button {
-  padding: 12.5px 30px;
-  border: 0;
+/* yeh lagaya mne hover button */
+/* From Uiverse.io by gharsh11032000 */ 
+.animated-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  background-color: inherit;
   border-radius: 100px;
-  background-color: #2ba8fb;
-  color: #ffffff;
-  font-weight: Bold;
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
+  font-weight: 600;
+  color: greenyellow;
+  box-shadow: 0 0 0 2px greenyellow;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-button:hover {
-  background-color: #6fc5ff;
-  box-shadow: 0 0 20px #6fc5ff50;
-  transform: scale(1.1);
-  
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: greenyellow;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.slice button:hover{
-color: black !important;
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: greenyellow;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #212121;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+  fill: #212121;
+}
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px greenyellow;
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
 }
 
 
-button:active {
-  background-color: #3d94cf;
-  transition: all 0.25s;
-  -webkit-transition: all 0.25s;
-  box-shadow: none;
-  transform: scale(0.98);
-}
+/* --------- */
 
 
 .card-cont{
     max-width: 100%;
-    min-height: 60vh;
-    background-color:var(--bg-color) ;
+    min-height: 90vh;
+    background-color:var(--background-color) ;
     
 }
 
@@ -187,7 +255,7 @@ button:active {
 .flip-card {
   background-color: transparent;
   width: 22rem; 
-  height: 12rem;
+  height: 14rem !important;
   perspective: 1000px;
   font-family: 'Poppins', sans-serif; /* LibraX design jesa clean font */
 }
@@ -227,11 +295,11 @@ button:active {
 .flip-card-front {
   background: linear-gradient(135deg, #ffffff 40%, #e8eefc 100%);
   border: 1px solid #d0daf5;
-  color: #023dc8; /* Dark Blue Text */
+  color: var(--primary-color); /* Dark Blue Text */
 }
 
 .flip-card-front .card-title {
-  color: #023dc8;
+  color: var(--primary-color);
   font-weight: 700;
 }
 
@@ -242,7 +310,7 @@ button:active {
 /* Back Side Layout (Premium Dark Blue Theme) */
 .flip-card-back {
   background: linear-gradient(135deg, #023dc8 0%, #012375 100%);
-  border: 1px solid #023dc8;
+  border: 1px solid var(--primary-color);
   color: #ffffff; /* White Text */
   transform: rotateY(180deg);
 }
@@ -265,7 +333,7 @@ button:active {
 
 /* Front side icon color */
 .flip-card-front i {
-  color: #023dc8;
+  color: var(--primary-color);
 }
 
 /* Back side icon color */
@@ -278,32 +346,61 @@ button:active {
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
+    align-items: center;
+    border-radius: 30px;
+    margin-top: 50px;
 }
 
 
 /* From Uiverse.io by adamgiebl */ 
 .sec {
   width: 390px;
-  height: 170px;
-  background-color: var(--bg-color);
+  height: 200px;
+  background-color: var(--theme-color);
   display: flex;
-
   align-items: center;
   justify-content: center;
   margin-top: 50px;
 
 }
 
-.sec i{
+.sec i {
      font-size: 2.8rem;
-     color: var(--theme-color);
+     color: var(--white);
 }
 
+.sec, h2 ,p{
+  color: var(--white);
+}
 
 .bord{
     border-left: 3px solid rgb(81, 110, 128);
 }
   
+.sec .circle{
+  width: 80px;
+  height: 80px;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+
+.hero p{
+  color: var(--text-gray) ;
+}
+
+
+.yesbord{
+  border-radius: 30px 0 0 30px;
+}
+.nobord{
+  border-radius: 0 30px 30px 0;
+}
+
+
 
 /* ==========================================================================
    FINAL CLEAN & FIXED MEDIA QUERIES (LIBRAX)
@@ -311,155 +408,3 @@ button:active {
 /* ==========================================================================
    FINAL CLEAN & FIXED MEDIA QUERIES (LIBRAX)
    ========================================================================== */
-
-/* 1. Large Screens & Tablets Breakpoint (1277px) */
-@media only screen and (max-width: 1277px) {
-    .hero {
-        flex-direction: column; /* Image upar aur text cleanly niche shift ho jayega */
-        align-items: center;
-        text-align: center;
-        padding: 2em;
-        min-height: auto;
-    }
-
-    .hero .text {
-        max-width: 100% !important;
-        width: 100%;
-        padding: 1em 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Heading aur buttons perfect center alignment mein aane ke liye */
-    }
-
-    .hero .text p {
-        max-width: 500px;
-    }
-
-    .image {
-        padding-right: 0 !important;
-        margin-bottom: 2rem;
-        width: 100% !important;
-        display: flex;
-        justify-content: center;
-    }
-
-    /* Is rule se image width control hogi aur screen se bahar bilkul nahi jayegi */
-    .image .imgs img {
-        width: 100% !important;
-        max-width: 550px; /* Image layout ka maximum crisp size */
-        height: auto !important;
-    }
-
-    .card-cont {
-        padding-top: 15px;
-        width: 100%;
-    }
-
-    .fstrow {
-        flex-wrap: wrap;
-        gap: 20px;
-        padding: 20px 0;
-    }
-
-    .flip-card {
-        width: 45%; /* Grid style look tablets ke liye */
-    }
-
-    .sec {
-        width: 50%;
-    }
-}
-
-/* 2. Intermediate Screen Breakpoint (1088px) */
-@media only screen and (max-width: 1088px) {
-    /* Rules standard upar se cascade ho rahe hain */
-}
-
-/* 3. Tablets & Medium Screens (900px & 820px combined) */
-@media only screen and (max-width: 900px) {
-    .fstrow {
-        flex-direction: column; 
-        align-items: center;
-        width: 100%;
-    }
-
-    .flip-card {
-        width: 85%;
-    }
-
-    .secrow {
-        flex-direction: column;
-        align-items: center;
-        padding-bottom: 30px;
-    }
-
-    /* Border line desktop se mobile screen flow ke mutabiq bottom switch */
-    .bord {
-        border-left: none !important;
-        border-bottom: 3px solid rgb(81, 110, 128);
-    }
-
-    .yesbord {
-        border-bottom: 3px solid rgb(81, 110, 128);
-    }
-
-    .nobord {
-        border: none;
-    }
-
-    .sec {
-        width: 80%;
-        height: auto;
-        padding: 20px 0;
-        margin-top: 20px;
-    }
-}
-
-/* 4. Mobile Phones (576px & 455px standard setups) */
-@media only screen and (max-width: 576px) {
-    .hero {
-        padding: 20px;
-    }
-
-    .hero .text h1 {
-        font-size: 4rem; /* Oversized heading mobile par tight wrap hogi */
-    }
-
-    .hero .text h4 {
-        font-size: 2rem;
-    }
-
-    .flip-card {
-        width: 95%;
-        height: 13rem;
-    }
-}
-
-/* 5. Small Screens (411px) */
-@media only screen and (max-width: 411px) {
-    .hero .text h1 {
-        font-size: 3.5rem;
-    }
-
-    .text .btns {
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
-    }
-
-    .text .btns div {
-        width: 100%;
-    }
-
-    .text .btns button {
-        width: 100%; /* UI block touch accuracy optimize karne ke liye */
-    }
-
-    .mar {
-        margin-left: 0 !important;
-    }
-
-    .slice {
-        margin-top: 10px;
-    }
-}

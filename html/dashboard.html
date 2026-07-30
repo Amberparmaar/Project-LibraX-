@@ -1,470 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-
-    <!-- bootstrap link -->
+    <title>LibraX - Admin Dashboard</title>
+     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
-    <!-- //Custom styling// -->
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+     <link rel="stylesheet" href="../css/components.css">
+      <link rel="stylesheet" href="../css/responsive.css">
 </head>
-
 <body>
 
-    <!DOCTYPE html>
-    <html lang="en">
+     <!-- Mobile Top Header -->
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LibraX Sidebar</title>
-        <!-- Font Awesome Link Icons ke liye -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet" href="style.css">
-    </head>
+    <div class="mobile-header">
 
-    <body>
 
-        <!-- Sidebar Main Container -->
-        <div class="sidebar">
+        <div class="mobile-logo">
 
-            <!-- Brand Logo & Name -->
-            <div class="logo-details">
-                <i class="fa-solid fa-book-bookmark icon"></i>
-                <div class="logo_name">LibraX</div>
-                <i class="fa-solid fa-bars" id="btn"></i>
-            </div>
-
-            <!-- Navigation Links List -->
-            <ul class="nav-list">
-                <li class="active">
-                    <a href="#">
-                        <i class="fa-solid fa-chart-pie"></i>
-                        <span class="links_name">Dashboard</span>
-                    </a>
-                    <span class="tooltip">Dashboard</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-book"></i>
-                        <span class="links_name">Books</span>
-                    </a>
-                    <span class="tooltip">Books</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-users"></i>
-                        <span class="links_name">Members</span>
-                    </a>
-                    <span class="tooltip">Members</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-id-card"></i>
-                        <span class="links_name">Digital ID Cards</span>
-                    </a>
-                    <span class="tooltip">Digital ID Cards</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-qrcode"></i>
-                        <span class="links_name">QR Scanner</span>
-                    </a>
-                    <span class="tooltip">QR Scanner</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-hand-holding-hand"></i>
-                        <span class="links_name">Issue Book</span>
-                    </a>
-                    <span class="tooltip">Issue Book</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-arrow-rotate-left"></i>
-                        <span class="links_name">Return Book</span>
-                    </a>
-                    <span class="tooltip">Return Book</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-chart-line"></i>
-                        <span class="links_name">Reports</span>
-                    </a>
-                    <span class="tooltip">Reports</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-gear"></i>
-                        <span class="links_name">Settings</span>
-                    </a>
-                    <span class="tooltip">Settings</span>
-                </li>
-
-                <!-- Logout Section at bottom -->
-                <li class="profile">
-                    <a href="#">
-                        <i class="fa-solid fa-right-from-bracket" id="log_out"></i>
-                        <span class="links_name">Logout</span>
-                    </a>
-                    <span class="tooltip">Logout</span>
-                </li>
-            </ul>
+            <img src="../images/logo3.png" alt="Logo">
         </div>
 
-        <!-- Main Content Area (Jahan baaki dashboard ka data aayega) -->
 
 
-        <div class="container">
-            <div class="toprow">
-                <div class="group">
-                    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
-                        <g>
-                            <path
-                                d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
-                            </path>
-                        </g>
-                    </svg>
-                    <input placeholder="Search here" type="search" class="input">
-                </div>
+        <button id="menuBtn">
+ 
+            <i class="fa-solid fa-bars"></i>
 
-                <div class="admin">
-                    <div style="margin: 15px 30px 0 0; color:rgb(87, 87, 112);"><i class="fa-regular fa-bell"
-                            style="font-size: 2rem;"></i></div>
-                    <div class="profile"><img src="../images/admin.webp"></div>
-                    <div style="margin-left: 15px;">
-                        <div>
-                            <h4><b>Admin</b></h4>
-                        </div>
-                        <div>
-                            <p><b>Administrator</b></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </button>
 
-
-            <!-- --------- -->
-
-
-            <div style="margin-left: 10px;">
-                <h3><b>Dashboard</b></h3>
-            </div>
-
-
-
-            <!-- --------- -->
-
-
-
-            <div class="cardcont">
-                <!-- ---1--- -->
-                <div class="card">
-
-                    <div style="margin-right: 20px; "><i class="fa-solid fa-suitcase" style="color: #023dc8;"></i></div>
-                    <div class="book">
-                        <div>
-                            <h2><b>2500+</b></h2>
-                        </div>
-                        <div>
-                            <p><b>Books</b></p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- ---2--- -->
-
-
-                <div class="card">
-                    <div style="margin-right: 20px; "><i class="fa-solid fa-circle-user" style="color: green;"></i>
-                    </div>
-                    <div class="book">
-                        <div>
-                            <h2><b>850+</b></h2>
-                        </div>
-                        <div>
-                            <p><b>Members</b></p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- ---3--- -->
-
-                <div class="card">
-                    <div style="margin-right: 20px; "><i class="fa-solid fa-book" style="color: rgb(250, 152, 6);"></i>
-                    </div>
-                    <div class="book">
-                        <div>
-                            <h2><b>1450+</b></h2>
-                        </div>
-                        <div>
-                            <p><b>Books Issued</b></p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- ---4--- -->
-
-                <div class="card">
-                    <div style="margin-right: 20px; "><i class="fa-solid fa-clock" style="color: red;"></i></div>
-                    <div class="book">
-                        <div>
-                            <h2><b>25+</b></h2>
-                        </div>
-                        <div>
-                            <p><b>Overtime books</b></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
-
-            <!-- --------- -->
-
-
-
-            <div>
-
-                <div class="dashboard-charts-container">
-
-                    <!-- Card 1: Monthly Issue & Return -->
-                    <div class="chart-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Monthly Issue & Return</h3>
-                            <div class="chart-legend">
-                                <span class="legend-item">
-                                    <span class="legend-color issued-color"></span> Issued
-                                </span>
-                                <span class="legend-item">
-                                    <span class="legend-color returned-color"></span> Returned
-                                </span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <!-- Baad mein canvas element chart lagane k liye yahan aayega -->
-                            <!-- <canvas id="monthlyChart"></canvas> -->
-
-                            <!-- Temporary Mock Bar Chart UI -->
-                            <div class="mock-bar-chart">
-                                <div class="y-axis">
-                                    <span>500</span><span>400</span><span>300</span><span>200</span><span>100</span><span>0</span>
-                                </div>
-                                <div class="chart-bars-wrapper">
-                                    <!-- Example Month Bars -->
-                                    <div class="month-bar-group">
-                                        <div class="bar issued" style="height: 60%"></div>
-                                        <div class="bar returned" style="height: 40%"></div><span
-                                            class="month-label">Jan</span>
-                                    </div>
-                                    <div class="month-bar-group">
-                                        <div class="bar issued" style="height: 85%"></div>
-                                        <div class="bar returned" style="height: 70%"></div><span
-                                            class="month-label">Feb</span>
-                                    </div>
-                                    <div class="month-bar-group">
-                                        <div class="bar issued" style="height: 45%"></div>
-                                        <div class="bar returned" style="height: 55%"></div><span
-                                            class="month-label">Mar</span>
-                                    </div>
-                                    <div class="month-bar-group">
-                                        <div class="bar issued" style="height: 75%"></div>
-                                        <div class="bar returned" style="height: 60%"></div><span
-                                            class="month-label">Apr</span>
-                                    </div>
-                                    <div class="month-bar-group">
-                                        <div class="bar issued" style="height: 90%"></div>
-                                        <div class="bar returned" style="height: 80%"></div><span
-                                            class="month-label">May</span>
-                                    </div>
-                                    <div class="month-bar-group">
-                                        <div class="bar issued" style="height: 65%"></div>
-                                        <div class="bar returned" style="height: 50%"></div><span
-                                            class="month-label">Jun</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2: Books by Category -->
-                    <div class="chart-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Books by Category</h3>
-                        </div>
-                        <div class="card-body doughnut-chart-layout">
-                            <!-- Left Side: Doughnut Placeholder -->
-                            <div class="chart-donut-wrapper">
-                                <div class="mock-donut"></div>
-                            </div>
-
-                            <!-- Right Side: Categories List/Legend -->
-                            <div class="category-legend-list">
-                                <div class="category-item">
-                                    <span class="dot cs-dot"></span>
-                                    <span class="cat-name">Computer Science</span>
-                                </div>
-                                <div class="category-item">
-                                    <span class="dot prog-dot"></span>
-                                    <span class="cat-name">Programming</span>
-                                </div>
-                                <div class="category-item">
-                                    <span class="dot sci-dot"></span>
-                                    <span class="cat-name">Science</span>
-                                </div>
-                                <div class="category-item">
-                                    <span class="dot mgmt-dot"></span>
-                                    <span class="cat-name">Management</span>
-                                </div>
-                                <div class="category-item">
-                                    <span class="dot hist-dot"></span>
-                                    <span class="cat-name">History</span>
-                                </div>
-                                <div class="category-item">
-                                    <span class="dot other-dot"></span>
-                                    <span class="cat-name">Other</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-            </div>
-            <!-- --------- -->
-
-
-            <div>
-
-<div class="recent-activities">
-    <h5 class="mb-3">Recent Activities</h5>
-
-    <div class="activity-grid">
-
-        <!-- Card 1 -->
-        <div class="activity-card">
-            <div class="activity-icon blue">
-                <i class="fa-solid fa-arrow-trend-up"></i>
-            </div>
-
-            <div class="activity-content">
-                <h6>New book added</h6>
-                <p>Atomic Habits</p>
-            </div>
-
-            <span class="time">2 min ago</span>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="activity-card">
-            <div class="activity-icon green">
-                <i class="fa-solid fa-book-open"></i>
-            </div>
-
-            <div class="activity-content">
-                <h6>Book issued to</h6>
-                <p>Ali Raza</p>
-            </div>
-
-            <span class="time">15 min ago</span>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="activity-card">
-            <div class="activity-icon purple">
-                <i class="fa-solid fa-users"></i>
-            </div>
-
-            <div class="activity-content">
-                <h6>New member registered</h6>
-                <p>Sara Khan</p>
-            </div>
-
-            <span class="time">1 hour ago</span>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="activity-card">
-            <div class="activity-icon red">
-                <i class="fa-solid fa-circle-left"></i>
-            </div>
-
-            <div class="activity-content">
-                <h6>Book returned by</h6>
-                <p>Usman Ahmed</p>
-            </div>
-
-            <span class="time">2 hours ago</span>
-        </div>
 
     </div>
-</div>
 
-                
+
+
+
+
+
+    <div class="overlay" id="overlay"></div>
+
+
+    <div class="dashboard">
+
+
+        <div class="main-card">
+
+
+            <div class="row g-0">
+
+
+
+
+
+
+                <!-- Sidebar -->
+
+
+                <div class="col-lg-2 sidebar" id="sidebar">
+
+
+
+                    <div class="logo desktop-logo">
+
+
+                        <img src="../images/logo3.png" alt="Logo">
+
+
+                    </div>
+
+
+
+
+
+                    <div class="menu">
+
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-house"></i>
+
+                            Dashboard
+
+                        </a>
+
+
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-book"></i>
+
+                            Books
+
+                        </a>
+
+
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-users"></i>
+
+                            Members
+
+                        </a>
+
+
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-id-card"></i>
+
+                            Digital ID Cards
+
+                        </a>
+
+
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-qrcode"></i>
+
+                            QR Scanner
+
+                        </a>
+
+
+
+                        <a href="#" class="active">
+
+                            <i class="fa-solid fa-book-open"></i>
+
+                            Issue Book
+
+                        </a>
+
+
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-arrow-rotate-left"></i>
+
+                            Return Book
+
+                        </a>
+
+
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                            Reports
+
+                        </a>
+
+
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-gear"></i>
+
+                            Settings
+
+                        </a>
+
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="sidebar-footer">
+
+
+                        <hr>
+
+
+                        <a href="#" class="logout">
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            Logout
+
+                        </a>
+
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <!-- Blank Workspace -->
+
+
+                <div class="col-lg-10 blank-area">
+
+
+                </div>
+
+
+
+
+
+
             </div>
-            <!-- --------- -->
-            <div></div>
-
-        </div>
 
 
         </div>
 
 
+    </div>
+
+
+
+<script>
+
+
+const menuBtn = document.getElementById("menuBtn");
+
+const sidebar = document.getElementById("sidebar");
+
+const overlay = document.getElementById("overlay");
+
+
+
+menuBtn.onclick = function(){
+
+
+    sidebar.classList.toggle("show");
+
+    overlay.classList.toggle("show");
+
+
+}
+
+
+
+overlay.onclick = function(){
+
+
+    sidebar.classList.remove("show");
+
+    overlay.classList.remove("show");
+
+
+}
+
+
+
+</script>
 
 
 
 
 
+    <!-- bootstrape js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- JavaScript Sidebar to toggle open/close -->
-        <script>
-            let sidebar = document.querySelector(".sidebar");
-            let closeBtn = document.querySelector("#btn");
-
-            closeBtn.addEventListener("click", () => {
-                sidebar.classList.toggle("open");
-                menuBtnChange(); // calling the function(optional)
-            });
-
-            // Toggle ham-menu icon to close icon
-            function menuBtnChange() {
-                if (sidebar.classList.contains("open")) {
-                    closeBtn.classList.replace("fa-bars", "fa-xmark");
-                } else {
-                    closeBtn.classList.replace("fa-xmark", "fa-bars");
-                }
-            }
-        </script>
-    </body>
-
-    </html>
 
 </body>
-
 </html>
