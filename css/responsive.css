@@ -379,3 +379,203 @@
     /* Adjust height according to your mobile header size */
   }
 }
+<<<<<<< HEAD
+=======
+
+
+
+}
+
+
+  /* /////-------home page--------//////// */
+
+
+  
+/* 1. Large Screens & Tablets Breakpoint (1277px) */
+@media only screen and (max-width: 1277px) {
+    .hero {
+        flex-direction: column; /* Image upar aur text cleanly niche shift ho jayega */
+        align-items: center;
+        text-align: center;
+        padding: 2em;
+        min-height: auto;
+    }
+
+    .hero .text {
+        max-width: 100% !important;
+        width: 100%;
+        padding: 1em 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Heading aur buttons perfect center alignment mein aane ke liye */
+    }
+
+    .hero .text p {
+        max-width: 500px;
+    }
+
+    .image {
+        padding-right: 0 !important;
+        margin-bottom: 2rem;
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Is rule se image width control hogi aur screen se bahar bilkul nahi jayegi */
+    .image .imgs img {
+        width: 100% !important;
+        max-width: 550px; /* Image layout ka maximum crisp size */
+        height: auto !important;
+    }
+
+    .card-cont {
+        padding-top: 15px;
+        width: 100%;
+    }
+
+    .fstrow {
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .flip-card {
+        width: 45%; /* Grid style look tablets ke liye */
+    }
+
+    .sec {
+        width: 50%;
+    }
+}
+
+/* 2. Intermediate Screen Breakpoint (1088px) */
+@media only screen and (max-width: 1088px) {
+    /* Rules standard upar se cascade ho rahe hain */
+}
+
+/* 3. Tablets & Medium Screens (900px & 820px combined) */
+@media only screen and (max-width: 900px) {
+    .fstrow {
+        flex-direction: column; 
+        align-items: center;
+        width: 100%;
+    }
+
+    .flip-card {
+        width: 85%;
+    }
+
+    .secrow {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 30px;
+    }
+
+    /* Border line desktop se mobile screen flow ke mutabiq bottom switch */
+    .bord {
+        border-left: none !important;
+        border-bottom: 3px solid rgb(81, 110, 128);
+    }
+
+    .yesbord {
+        border-bottom: 3px solid rgb(81, 110, 128);
+    }
+
+    .nobord {
+        border: none;
+    }
+
+    .sec {
+        width: 80%;
+        height: auto;
+        padding: 20px 0;
+        margin-top: 20px;
+    }
+}
+
+/* 4. Mobile Phones (576px & 455px standard setups) */
+@media only screen and (max-width: 576px) {
+    .hero {
+        padding: 20px;
+    }
+
+    .hero .text h1 {
+        font-size: 4rem; /* Oversized heading mobile par tight wrap hogi */
+    }
+
+    .hero .text h4 {
+        font-size: 2rem;
+    }
+
+    .flip-card {
+        width: 95%;
+        height: 13rem;
+    }
+}
+
+/* 5. Small Screens (411px) */
+@media only screen and (max-width: 411px) {
+    .hero .text h1 {
+        font-size: 3.5rem;
+    }
+
+    .text .btns {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .text .btns div {
+        width: 100%;
+    }
+
+    .text .btns button {
+        width: 100%; /* UI block touch accuracy optimize karne ke liye */
+    }
+
+    .mar {
+        margin-left: 0 !important;
+    }
+
+    .slice {
+        margin-top: 10px;
+    }
+}
+
+
+
+
+  /* /////-------Dashboard  page--------//////// */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 9182e7d (homee images png add ki hai)
