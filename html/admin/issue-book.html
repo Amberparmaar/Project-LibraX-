@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Book</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- FontAwesome for Social and Contact Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Flatpickr Calendar CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+
+</head>
+
+<body>
+    <!-- MOBILE HEADER -->
+    <div class="mobile-header">
+        <div class="mobile-logo">
+            <!-- Reliable placeholder logo -->
+            <img src="../images//logo3.png" alt="Logo">
+        </div>
+        <button id="menuBtn" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="dashboard container-fluid p-0">
+        <div class="main-card">
+            <div class="row g-0">
+
+                <!-- SIDEBAR -->
+                <div class="col-lg-2 sidebar" id="sidebar">
+                    <div class="logo desktop-logo">
+                        <img src="../../images/logo3.png" alt="Logo">
+                    </div>
+
+                    <div class="menu">
+                        <a href="#"><i class="fa-solid fa-house"></i> Dashboard</a>
+                        <a href="#"><i class="fa-solid fa-book"></i> Books</a>
+                        <a href="#"><i class="fa-solid fa-users"></i> Members</a>
+                        <a href="../admin/qr-scanner.html"><i class="fa-solid fa-qrcode"></i> QR Scanner</a>
+                        <a href="../admin/issue-book.html" class="active"><i class="fa-solid fa-book-open"></i> Issue
+                            Book</a>
+                        <a href="../admin/return-book.html"><i class="fa-solid fa-arrow-rotate-left"></i> Return
+                            Book</a>
+                        <a href="../admin/issue-book.html"><i class="fa-solid fa-chart-line"></i> Reports</a>
+                        <a href="../admin/setting.html"><i class="fa-solid fa-gear"></i> Settings</a>
+                    </div>
+
+                    <div class="sidebar-footer">
+                        <hr>
+                        <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                    </div>
+                </div>
+
+                <!-- WORKSPACE AREA (Blank Area) -->
+                <div class="col-lg-10 blank-area">
+                    <div class="issue-book-container">
+
+                        <div class="issue-card">
+                            <h1 class="card-title">Issue Book</h1>
+
+                            <form class="row g-4">
+
+
+
+                                <!-- Left Column (Form) - -->
+                                <div class="col-lg-7">
+                                    <div class="row g-3">
+
+                                        <div class="col-12 form-group">
+                                            <label for="selectMember">Select Member</label>
+                                            <select class="form-select" id="selectMember">
+                                                <option value="m001">Ali Raza (M001)</option>
+                                                <!-- More members added dynamically -->
+                                            </select>
+                                        </div>
+
+                                        <div class="col-12 form-group">
+                                            <label for="selectBook">Select Book</label>
+                                            <select class="form-select" id="selectBook">
+                                                <option value="book1">Clean Code - Robert C. Martin</option>
+                                                <!-- More books added dynamically -->
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6 form-group">
+                                            <label for="issueDate">Issue Date</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="issueDate"
+                                                    placeholder="DD/MM/YYYY">
+                                                <span class="input-group-text" id="issueDateIcon"><i
+                                                        class="fa-regular fa-calendar text-secondary"></i></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 form-group">
+                                            <label for="returnDate">Return Date</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="returnDate"
+                                                    placeholder="DD/MM/YYYY">
+                                                <span class="input-group-text" id="returnDateIcon"><i
+                                                        class="fa-regular fa-calendar text-secondary"></i></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 form-group">
+                                            <label for="remarks">Remarks (Optional)</label>
+                                            <textarea class="form-control" id="remarks" rows="3"
+                                                placeholder="Enter remarks..."></textarea>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-issue">Issue Book</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- Right Column (Member Info Panel)  -->
+                                <div class="col-lg-5">
+                                    <div class="member-info-card">
+                                        <h2 class="panel-title">Member Info</h2>
+
+                                        <!-- Profile and Name -->
+                                        <div
+                                            class="member-profile d-flex align-items-center gap-3 pb-3 border-bottom mb-3">
+                                            <img src="https://via.placeholder.com/60" alt="Member Avatar">
+                                            <div>
+                                                <h3 class="member-name">Ali Raza</h3>
+                                                <p class="member-id mb-1">M001</p>
+                                                <p class="member-dept mb-0">Computer Science</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Borrowed Stats -->
+                                        <div class="borrowed-stats">
+                                            <div
+                                                class="d-flex align-items-center justify-content-between stats-item border-bottom mb-3">
+                                                <span class="stats-label">Books Currently Borrowed</span>
+                                                <span class="stats-value">2</span>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between stats-item">
+                                                <span class="stats-label">Overdue Books</span>
+                                                <span class="stats-value text-fine">0</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </form>
+                            <!-- BOTTOM SECTION: RECENT ISSUED BOOKS TABLE -->
+                            <div class="issued-table-card mt-4">
+                                <div class="table-responsive">
+                                    <table class="table custom-issued-table align-middle mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Book</th>
+                                                <th>Member</th>
+                                                <th>Issue Date</th>
+                                                <th>Return Date</th>
+                                                <th class="text-center">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fw-medium text-dark">Atomic Habits</td>
+                                                <td class="text-secondary">Ali Raza</td>
+                                                <td class="text-secondary">10 May 2024</td>
+                                                <td class="text-secondary">24 May 2024</td>
+                                                <td class="text-center">
+                                                    <span class="status-badge status-issued">Issued</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium text-dark">Clean Code</td>
+                                                <td class="text-secondary">Ali Raza</td>
+                                                <td class="text-secondary">10 May 2024</td>
+                                                <td class="text-secondary">26 May 2024</td>
+                                                <td class="text-center">
+                                                    <span class="status-badge status-issued">Issued</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- bootstrape js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <!-- FLATPICKR CALENDAR SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Script Actions and Initializations -->
+    <script>
+        <!-- Side Navigation Logic Toggle Script -->
+        const menuBtn = document.getElementById("menuBtn");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        menuBtn.onclick = function () {
+            sidebar.classList.toggle("show");
+            overlay.classList.toggle("show");
+        };
+
+        overlay.onclick = function () {
+            sidebar.classList.remove("show");
+            overlay.classList.remove("show");
+        };
+        // ==========================================
+        // Calendar Setup (Flatpickr)
+        // ==========================================
+        const config = {
+            dateFormat: "d/m/Y",
+            allowInput: true
+        };
+
+        // Target your new HTML input IDs
+        const issuePicker = flatpickr("#issueDate", config);
+        const returnPicker = flatpickr("#returnDate", config);
+
+        // Target your new icon block container IDs
+        document.getElementById("issueDateIcon").onclick = () => issuePicker.open();
+        document.getElementById("returnDateIcon").onclick = () => returnPicker.open();
+
+
+    </script>
+
+</body>
+
+</html>
