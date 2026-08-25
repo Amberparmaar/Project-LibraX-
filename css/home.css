@@ -1,0 +1,454 @@
+/* Navbar spacing aur settings */
+.pad {
+    padding: 0 15px;
+}
+
+/* Nav links ki base styling aur relative position (line ko anchor karne ke liye) */
+.custom-nav-link {
+    position: relative;
+    color: #333 !important; /* Aap apni theme ke mutabiq color change kar sakte hain */
+    font-weight: 600;
+    text-decoration: none;
+    padding-bottom: 5px !important;
+}
+
+/* Underline create ho rahi hai ::after se */
+.custom-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Shuru mein line chupayi hui hai */
+    height: 3px; /* Line ki thickness */
+    background-color:var(--theme-color); /* Video waala green color (aap change kar sakte hain) */
+    transition: width 0.4s ease; /* Smooth transition effect */
+}
+
+/* Hover karne par line poori 100% wide ho jayegi */
+.custom-nav-link:hover::after {
+    width: 100%;
+}
+
+.img{
+    height: 50px;
+    width: 50px;
+}
+
+.side{
+    margin-left: 500px !important;
+  
+}
+
+
+.pad{
+      padding: 0 2em 0 2em;
+}
+
+.bp{
+    padding: 10px 40px 10px 40px;
+}
+
+
+.btns{
+    display: flex;
+    margin-top: 30px;
+} 
+
+.mar{
+    margin-left: 20px;
+    background-color: white !important;
+    color: #023dc8;
+}
+.shape{
+  background-color: aqua;
+  --s: 300px; /* adjust to control the size */
+
+  width: var(--s); 
+  aspect-ratio: 1;
+  --g:/calc(var(--s)*0.285) calc(var(--s)*0.285) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
+  mask: calc(50% + var(--s)*0.328) calc(50% + var(--s)*0) var(--g),calc(50% + var(--s)*0.205) calc(50% + var(--s)*0.257) var(--g),calc(50% + var(--s)*-0.073) calc(50% + var(--s)*0.32) var(--g),calc(50% + var(--s)*-0.296) calc(50% + var(--s)*0.142) var(--g),calc(50% + var(--s)*-0.296) calc(50% + var(--s)*-0.142) var(--g),calc(50% + var(--s)*-0.073) calc(50% + var(--s)*-0.32) var(--g),calc(50% + var(--s)*0.205) calc(50% + var(--s)*-0.257) var(--g),radial-gradient(calc(var(--s)*0.425),#000 99%,#0000 101%) subtract,calc(50% + var(--s)*0.489) calc(50% + var(--s)*0.235) var(--g),calc(50% + var(--s)*0.121) calc(50% + var(--s)*0.529) var(--g),calc(50% + var(--s)*-0.338) calc(50% + var(--s)*0.424) var(--g),calc(50% + var(--s)*-0.542) calc(50% + var(--s)*0) var(--g),calc(50% + var(--s)*-0.338) calc(50% + var(--s)*-0.424) var(--g),calc(50% + var(--s)*0.121) calc(50% + var(--s)*-0.529) var(--g),calc(50% + var(--s)*0.489) calc(50% + var(--s)*-0.235) var(--g);
+}
+
+.hero{ 
+    padding: 3em;
+    display: flex !important;
+    flex-direction: row;
+    min-height: 90vh;
+    max-width: 100%;
+    background-color: #e8eefc;
+}
+
+.text{
+max-width: 40% !important;
+/* background-color: beige; */
+padding: 3em;
+}
+
+.text p{
+    max-width:350px;
+}
+
+h2{
+    margin-top: 20px;
+  
+}
+h4{
+    font-size: 2em;
+}
+
+h1{
+    font-size: 8em;
+color: #023dc8;
+}
+.image{
+    /* background-color: blueviolet; */
+    /* padding:2em 3em; */
+    max-width:100%;
+    /* margin-right:30px ; */
+}
+
+ /* Purane .imgs img { width: 900px; } ko delete karke ye laga do */
+.imgs img {
+    width: 100%;
+    max-width: 900px; /* Desktop par ye maximum 900px hi rahegi */
+    height: auto;
+}
+
+
+button{
+    background-color: #023dc8 !important;
+}
+
+/* From Uiverse.io by suda-code */ 
+button {
+  padding: 12.5px 30px;
+  border: 0;
+  border-radius: 100px;
+  background-color: #2ba8fb;
+  color: #ffffff;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+button:hover {
+  background-color: #6fc5ff;
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+  
+}
+.slice button:hover{
+color: black !important;
+}
+
+
+button:active {
+  background-color: #3d94cf;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+
+.card-cont{
+    max-width: 100%;
+    min-height: 60vh;
+    background-color:var(--bg-color) ;
+    
+}
+
+.cardd{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+ .fstrow{
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+ }
+
+
+/* Flip Card Container */
+.flip-card {
+  background-color: transparent;
+  width: 22rem; 
+  height: 12rem;
+  perspective: 1000px;
+  font-family: 'Poppins', sans-serif; /* LibraX design jesa clean font */
+}
+
+/* Inner container jo actual rotate hota hai */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Hover effect */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front aur Back sides ki common styling */
+.flip-card-front, .flip-card-back {
+  box-shadow: 0 4px 20px rgba(2, 61, 200, 0.08); /* Image jesa soft blue shadow */
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 12px; /* Smooth professional borders */
+  padding: 15px; 
+}
+
+/* Front Side Layout (Soft Light Blue Theme) */
+.flip-card-front {
+  background: linear-gradient(135deg, #ffffff 40%, #e8eefc 100%);
+  border: 1px solid #d0daf5;
+  color: #023dc8; /* Dark Blue Text */
+}
+
+.flip-card-front .card-title {
+  color: #023dc8;
+  font-weight: 700;
+}
+
+.flip-card-front .card-subtitle {
+  color: #5c6a85 !important; /* Professional Muted Text Color */
+}
+
+/* Back Side Layout (Premium Dark Blue Theme) */
+.flip-card-back {
+  background: linear-gradient(135deg, #023dc8 0%, #012375 100%);
+  border: 1px solid #023dc8;
+  color: #ffffff; /* White Text */
+  transform: rotateY(180deg);
+}
+
+.flip-card-back .card-title {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.flip-card-back p {
+  color: #e8eefc; /* Soft Light Blue text for back description */
+  font-size: 0.9rem;
+}
+
+/* Icon Styling (LibraX matching) */
+.flip-card i {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+/* Front side icon color */
+.flip-card-front i {
+  color: #023dc8;
+}
+
+/* Back side icon color */
+.flip-card-back i {
+  color: #ffffff;
+}
+
+
+.secrow{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+
+/* From Uiverse.io by adamgiebl */ 
+.sec {
+  width: 390px;
+  height: 170px;
+  background-color: var(--bg-color);
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+
+}
+
+.sec i{
+     font-size: 2.8rem;
+     color: var(--theme-color);
+}
+
+
+.bord{
+    border-left: 3px solid rgb(81, 110, 128);
+}
+  
+
+/* ==========================================================================
+   FINAL CLEAN & FIXED MEDIA QUERIES (LIBRAX)
+   ========================================================================== */
+/* ==========================================================================
+   FINAL CLEAN & FIXED MEDIA QUERIES (LIBRAX)
+   ========================================================================== */
+
+/* 1. Large Screens & Tablets Breakpoint (1277px) */
+@media only screen and (max-width: 1277px) {
+    .hero {
+        flex-direction: column; /* Image upar aur text cleanly niche shift ho jayega */
+        align-items: center;
+        text-align: center;
+        padding: 2em;
+        min-height: auto;
+    }
+
+    .hero .text {
+        max-width: 100% !important;
+        width: 100%;
+        padding: 1em 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Heading aur buttons perfect center alignment mein aane ke liye */
+    }
+
+    .hero .text p {
+        max-width: 500px;
+    }
+
+    .image {
+        padding-right: 0 !important;
+        margin-bottom: 2rem;
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Is rule se image width control hogi aur screen se bahar bilkul nahi jayegi */
+    .image .imgs img {
+        width: 100% !important;
+        max-width: 550px; /* Image layout ka maximum crisp size */
+        height: auto !important;
+    }
+
+    .card-cont {
+        padding-top: 15px;
+        width: 100%;
+    }
+
+    .fstrow {
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .flip-card {
+        width: 45%; /* Grid style look tablets ke liye */
+    }
+
+    .sec {
+        width: 50%;
+    }
+}
+
+/* 2. Intermediate Screen Breakpoint (1088px) */
+@media only screen and (max-width: 1088px) {
+    /* Rules standard upar se cascade ho rahe hain */
+}
+
+/* 3. Tablets & Medium Screens (900px & 820px combined) */
+@media only screen and (max-width: 900px) {
+    .fstrow {
+        flex-direction: column; 
+        align-items: center;
+        width: 100%;
+    }
+
+    .flip-card {
+        width: 85%;
+    }
+
+    .secrow {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 30px;
+    }
+
+    /* Border line desktop se mobile screen flow ke mutabiq bottom switch */
+    .bord {
+        border-left: none !important;
+        border-bottom: 3px solid rgb(81, 110, 128);
+    }
+
+    .yesbord {
+        border-bottom: 3px solid rgb(81, 110, 128);
+    }
+
+    .nobord {
+        border: none;
+    }
+
+    .sec {
+        width: 80%;
+        height: auto;
+        padding: 20px 0;
+        margin-top: 20px;
+    }
+}
+
+/* 4. Mobile Phones (576px & 455px standard setups) */
+@media only screen and (max-width: 576px) {
+    .hero {
+        padding: 20px;
+    }
+
+    .hero .text h1 {
+        font-size: 4rem; /* Oversized heading mobile par tight wrap hogi */
+    }
+
+    .hero .text h4 {
+        font-size: 2rem;
+    }
+
+    .flip-card {
+        width: 95%;
+        height: 13rem;
+    }
+}
+
+/* 5. Small Screens (411px) */
+@media only screen and (max-width: 411px) {
+    .hero .text h1 {
+        font-size: 3.5rem;
+    }
+
+    .text .btns {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .text .btns div {
+        width: 100%;
+    }
+
+    .text .btns button {
+        width: 100%; /* UI block touch accuracy optimize karne ke liye */
+    }
+
+    .mar {
+        margin-left: 0 !important;
+    }
+
+    .slice {
+        margin-top: 10px;
+    }
+}
