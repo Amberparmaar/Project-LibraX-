@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports Book</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- FontAwesome for Social and Contact Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Flatpickr Calendar CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<!-- custom css -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+
+
+</head>
+
+<body>
+
+    <!-- MOBILE HEADER -->
+    <div class="mobile-header">
+        <div class="mobile-logo">
+            <img src="../images//logo3.png" alt="Logo">
+        </div>
+        <button id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="dashboard">
+        <div class="main-card">
+            <div class="row g-0">
+
+                <!-- SIDEBAR -->
+                <div class="col-lg-2 sidebar" id="sidebar">
+                    <div class="logo desktop-logo">
+                        <img src="../../images//logo3.png" alt="Logo">
+                    </div>
+
+                    <div class="menu">
+                        <a href="#"><i class="fa-solid fa-house"></i> Dashboard</a>
+                        <a href="#"><i class="fa-solid fa-book"></i> Books</a>
+                        <a href="#"><i class="fa-solid fa-users"></i> Members</a>
+                        <a href="../member/ID-card.html"><i class="fa-solid fa-id-card"></i> Digital ID Cards</a>
+                        <a href="../member/qr-scanner.html"><i class="fa-solid fa-qrcode"></i> QR Scanner</a>
+                        <a href="../admin/issue-book.html"><i class="fa-solid fa-book-open"></i> Issue Book</a>
+                        <a href="../admin/return-book.html"><i class="fa-solid fa-arrow-rotate-left"></i> Return Book</a>
+                        <a href="../admin/Reports.html" class="active"><i class="fa-solid fa-chart-line"></i> Reports</a>
+                        <a href="../admin/setting.html"><i class="fa-solid fa-gear"></i> Settings</a>
+                    </div>
+
+                    <div class="sidebar-footer">
+                        <hr>
+                        <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                    </div>
+                </div>
+
+                <!-- WORKSPACE AREA -->
+                <div class="col-lg-10 blank-area">
+                    <div class="container-fluid p-4">
+
+                        <!-- Main Content Card Wrapper -->
+                        <div class="card border-0 bg-white rounded-4 p-4 shadow-sm w-100">
+                            <h5 class="fw-bold mb-4 text-dark" style="color: #06285c !important;">Reports & Analytics
+                            </h5>
+
+                            <!-- Date Filters & Actions Row -->
+                            <div class="row g-3 align-items-end mb-4">
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+                                    <label class="form-label small fw-medium text-secondary mb-1">From Date</label>
+                                    <div class="input-group">
+                                        <input type="text" id="fromDate" class="form-control bg-white"
+                                            value="01/05/2024" placeholder="DD/MM/YYYY">
+                                        <span class="input-group-text bg-white" id="fromDateIcon"><i
+                                                class="fa-regular fa-calendar text-secondary"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+                                    <label class="form-label small fw-medium text-secondary mb-1">To Date</label>
+                                    <div class="input-group">
+                                        <input type="text" id="toDate" class="form-control bg-white" value="31/05/2024"
+                                            placeholder="DD/MM/YYYY">
+                                        <span class="input-group-text bg-white" id="toDateIcon"><i
+                                                class="fa-regular fa-calendar text-secondary"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4 col-xl-2">
+                                    <button class="btn btn-primary w-100 fw-medium"
+                                        style="background-color: #2563EB; border: none; padding: 7px 12px;">Generate
+                                        Report</button>
+                                </div>
+                            </div>
+
+                            <!-- Metric Stat Grid Counter Cards -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-6 col-md-3">
+                                    <div class="p-3 border rounded-3 bg-light-subtle">
+                                        <span class="d-block small text-secondary fw-medium mb-1">Total Issued</span>
+                                        <h3 class="fw-bold mb-0 text-dark" style="color: #06285c !important;">1,450</h3>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="p-3 border rounded-3 bg-light-subtle">
+                                        <span class="d-block small text-secondary fw-medium mb-1">Total Returned</span>
+                                        <h3 class="fw-bold mb-0 text-dark" style="color: #06285c !important;">1,250</h3>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="p-3 border rounded-3 bg-light-subtle">
+                                        <span class="d-block small text-secondary fw-medium mb-1">New Members</span>
+                                        <h3 class="fw-bold mb-0 text-dark" style="color: #06285c !important;">85</h3>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="p-3 border rounded-3 bg-light-subtle">
+                                        <span class="d-block small text-secondary fw-medium mb-1">Fine Collected</span>
+                                        <h3 class="fw-bold mb-0 text-dark" style="color: #06285c !important;">Rs. 18,500
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Charts Panel Segment Row -->
+                            <div class="row g-4">
+
+                                <!-- Monthly Issue Report ChartJS Component -->
+                                <div class="col-12 col-xl-6">
+                                    <div class="p-3 border rounded-3 h-100">
+                                        <span class="d-block fw-bold mb-3 text-dark"
+                                            style="color: #06285c !important;">Monthly Issue Report</span>
+                                        <div class="chart-container">
+                                            <canvas id="issueReportChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Top Books Metrics Horizontal Bar ChartJS Component -->
+                                <div class="col-12 col-xl-6">
+                                    <div class="p-3 border rounded-3 h-100">
+                                        <span class="d-block fw-bold mb-3 text-dark"
+                                            style="color: #06285c !important;">Top Books</span>
+                                        <div class="chart-container">
+                                            <canvas id="topBooksChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- bootstrape js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+
+
+    <!-- CHART.JS SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- FLATPICKR CALENDAR SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Script Actions and Initializations -->
+    <script>
+        <!-- Side Navigation Logic Toggle Script -->
+        const menuBtn = document.getElementById("menuBtn");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        menuBtn.onclick = function () {
+            sidebar.classList.toggle("show");
+            overlay.classList.toggle("show");
+        };
+
+        overlay.onclick = function () {
+            sidebar.classList.remove("show");
+            overlay.classList.remove("show");
+        };
+
+        // ==========================================
+        // Calendar Setup (Flatpickr)
+        // ==========================================
+        const config = {
+            dateFormat: "d/m/Y",
+            allowInput: true
+        };
+
+        const fromPicker = flatpickr("#fromDate", config);
+        const toPicker = flatpickr("#toDate", config);
+
+        // Make calendar open up when clicking on the side input icon blocks too
+        document.getElementById("fromDateIcon").onclick = () => fromPicker.open();
+        document.getElementById("toDateIcon").onclick = () => toPicker.open();
+
+
+        // ==========================================
+        // Chart.js 1: Monthly Issue Report (Line)
+        // ==========================================
+        const lineCtx = document.getElementById('issueReportChart').getContext('2d');
+        new Chart(lineCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [
+                    {
+                        label: 'Issued',
+                        data: [120, 220, 340, 280, 340, 430],
+                        borderColor: '#2563EB',
+                        backgroundColor: '#2563EB',
+                        borderWidth: 3,
+                        tension: 0.2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    },
+                    {
+                        label: 'Returned',
+                        data: [80, 160, 200, 240, 200, 280],
+                        borderColor: '#1f9254',
+                        backgroundColor: '#1f9254',
+                        borderWidth: 3,
+                        tension: 0.2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        align: 'end',
+                        labels: {
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            boxWidth: 8,
+                            boxHeight: 8,
+                            font: { family: 'Poppins', size: 12 }
+                        }
+                    },
+                    tooltip: { padding: 10 }
+                },
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 500,
+                        ticks: { stepSize: 100, font: { family: 'Poppins', size: 11 } },
+                        grid: { color: '#e2e8f0' }
+                    },
+                    x: {
+                        ticks: { font: { family: 'Poppins', size: 12 } },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // ==========================================
+        // Chart.js 2: Top Books (Horizontal Bar)
+        // ==========================================
+        const barCtx = document.getElementById('topBooksChart').getContext('2d');
+        new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Atomic Habits', 'Clean Code', 'Deep Work', 'The 5 AM Club', 'Rich Dad Poor Dad'],
+                datasets: [{
+                    label: 'Copies Issued',
+                    data: [190, 160, 136, 110, 90],
+                    backgroundColor: '#2563EB',
+                    borderRadius: 50,
+                    barThickness: 14
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { padding: 10 }
+                },
+                scales: {
+                    x: {
+                        min: 0,
+                        max: 200,
+                        ticks: { stepSize: 50, font: { family: 'Poppins', size: 11 } },
+                        grid: { color: '#e2e8f0' }
+                    },
+                    y: {
+                        ticks: { font: { family: 'Poppins', size: 12 }, crossAlign: 'far' },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
