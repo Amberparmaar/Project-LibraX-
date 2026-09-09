@@ -138,273 +138,767 @@
 }
 
 
-/* Side layout */
-/* Responsive */
 
-@media(max-width:991px){
+/* ==============================================================
+             Navbar media query
+   ==============================================================*/
+ 
+@media screen and (max-width: 990px) {
 
+.log{
+  margin-top: 0.5rem !important;
 
+}
+  } 
 
-.mobile-header{
+ 
+/* ==============================================================
+             About Page media query
+   ==============================================================*/
 
-    display:flex;
+/* --- Tablet / Small Laptops (Under 1024px) --- */
+@media screen and (max-width: 1024px) {
+  .main-container {
+    flex-direction: column !important;
+    min-height: auto !important;
+  }
 
+  .content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 3rem 2rem 1rem 2rem !important;
+  }
+
+  .image {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    padding: 1rem 2rem 3rem 2rem !important;
+  }
+}
+
+/* --- Mobile Nav & Footer Center (Under 991px) --- */
+@media screen and (max-width: 991px) {
+  .navigation .navbar-nav {
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .pad {
+    padding: 8px 0 !important;
+  }
+
+  .pad.ms-lg-3 {
+    margin-top: 10px;
+  }
+
+  .navigation .custom-nav-link::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-container .text-md-end {
+    text-align: center !important;
+    margin-top: 10px;
+  }
+}
+
+/* --- Tablets Layout & Card Fixes (Under 768px) --- */
+@media screen and (max-width: 768px) {
+  .content h1 {
+    font-size: 2.2rem !important;
+    margin-top: 10px !important;
+  }
+
+  .content p {
+    max-width: 100% !important;
+  }
+
+  /* Mission Section Alignment */
+  .mission .flex {
+    align-items: center;
+    gap: 15px;
+    padding: 0 1.5rem;
+  }
+
+  .mission i {
+    font-size: 2.5rem !important;
+    margin-left: 0 !important;
+  }
+
+  .mission h3 {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .mission p {
+    margin-left: 0 !important;
+    padding: 0.5rem 1.5rem 1rem 1.5rem !important;
+  }
+
+  /* Cards Wrapper Flex Layout */
+  .cards {
+    flex-wrap: wrap !important;
+    gap: 25px !important;
+    padding: 1rem 1rem 4rem 1rem !important;
+  }
+
+  /* Fixed Card Outer Dimensions for UI Verse Effect */
+  .card {
+    width: 280px !important;
+    height: 220px !important;
+  }
+
+  /* Inner Card Box Adjustment */
+  .bg {
+    width: calc(100% - 10px) !important;
+    height: calc(100% - 10px) !important;
+    padding: 10px !important;
+  }
+
+  .blob {
+    width: 280px !important;
+    height: 220px !important;
+  }
+
+  /* Card Content Scaling */
+  .card i {
+    font-size: 3rem !important;
+  }
+
+  .card h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 5px !important;
+  }
+
+  .card p {
+    font-size: 0.95rem !important;
+    margin: 0 !important;
+  }
+}
+
+/* --- Small Mobile Phones (Under 480px) --- */
+@media screen and (max-width: 480px) {
+  .content {
+    padding: 1.5rem 1rem !important;
+    gap: 20px !important;
+  }
+
+  .content h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .image {
+    padding: 0 1rem 2rem 1rem !important;
+  }
+
+  /* Cards Full Scale Mobile Fix */
+  .card {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 220px !important;
+  }
+
+  .blob {
+    width: 100% !important;
+    height: 220px !important;
+  }
+
+  /* Footer Mobile View */
+  .footer-container {
+    text-align: center !important;
+  }
+
+  .footer-container .contact-item {
+    justify-content: center;
+  }
+
+  .footer-container .social-icons-container {
+    justify-content: center;
+    margin-top: 15px;
+  }
 }
 
 
 
 
-.sidebar{
 
 
-    position:fixed;
-
-    top:65px;
-
-    left:-260px;
-
-    width:250px;
-
-    height:calc(100vh - 65px);
-
-    min-height:auto;
-
-    z-index:1000;
+/* 
+ ==============================================================
+             feature Page media query
+   ============================================================= */
 
 
+
+
+/* Facility Container Spacing */
+.facility {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* --- Desktops & Large Laptops (Under 1200px) --- */
+/* =========================================================
+   1200px SCREEN & OVERFLOW SLIDER PERMANENT FIX
+   ========================================================= */
+
+/* Prevent horizontal scroll page-wide */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+/* 1250px se niche horizontal slider khatam aur cards auto-fit */
+@media screen and (max-width: 1250px) {
+  .facility, .feat {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 1400px width ko fit karke 100% container mein lana */
+  .firstthree,
+  .secondthree {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 25px !important; /* Original 100px gap slider create kar raha tha */
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  /* Card Width 400px se kam karke 320px taaki 1200px screen mein teeno fit hon */
+  .ccc {
+    width: 320px !important; 
+    max-width: 100% !important;
+    height: 260px !important;
+    margin: 0 !important;
+  }
+
+  .bgi {
+    width: calc(100% - 10px) !important;
+    height: calc(100% - 10px) !important;
+  }
+
+  .blob {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Management Box Fix */
+  .management {
+    width: 100% !important;
+    max-width: 950px !important;
+    margin: 3rem auto 0 auto !important;
+    padding: 3rem 2rem !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* --- TABLETS & 786px SPECIFIC FIX (Under 991px) --- */
+@media screen and (max-width: 991px) {
+  /* Navbar Adjustments */
+  .navigation .navbar-nav {
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .pad {
+    padding: 8px 0 !important;
+  }
+
+  .pad.ms-lg-3 {
+    margin-top: 10px;
+  }
+
+  .navigation .custom-nav-link::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .feat .content {
+    padding: 2rem 1.5rem 1rem 1.5rem !important;
+    text-align: center;
+  }
+
+  /* CARDS SPACING FIX FOR 786px: */
+  .facility {
+    gap: 30px !important; /* Row 1, Row 2 aur Banner ke beech proper space */
+    padding: 0 1.5rem 4rem 1.5rem !important;
+  }
+
+  .firstthree,
+  .secondthree {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 30px !important; /* Cards ke beech horizontal aur vertical space */
+    width: 100% !important;
+  }
+
+  .ccc {
+    width: calc(50% - 20px) !important; /* 2 cards per row on tablet */
+    min-width: 270px !important;
+    max-width: 330px !important;
+    height: 250px !important;
+    margin: 0 !important; /* Margin conflict remove */
+  }
+
+  .bgi {
+    width: calc(100% - 10px) !important;
+    height: calc(100% - 10px) !important;
+    padding: 15px !important;
+    text-align: center;
+  }
+
+  .bgi i {
+    font-size: 2.8rem !important;
+  }
+
+  .bgi h3 {
+    font-size: 1.3rem !important;
+    padding-top: 0.5rem !important;
+  }
+
+  .bgi p {
+    font-size: 0.9rem !important;
+    padding-top: 0.3rem !important;
+  }
+
+  /* Management Box */
+  .management {
+    width: 100% !important;
+    max-width: 690px !important;
+    padding: 3rem 1.5rem !important;
+    margin: 2rem auto 0 auto !important;
+    border-radius: 20px !important;
+  }
+
+  .management h4 {
+    font-size: 1.4rem !important;
+  }
+
+  .management p {
+    padding-top: 1rem !important;
+  }
+
+  /* Footer Alignment */
+  .footer-container .text-md-end {
+    text-align: center !important;
+    margin-top: 10px;
+  }
+}
+
+/* --- MOBILE PHONES (Under 650px) --- */
+@media screen and (max-width: 650px) {
+  .facility {
+    gap: 20px !important;
+    padding: 0 1rem 3rem 1rem !important;
+  }
+
+  /* Cards vertically single-column mein stack ho jayenge */
+  .firstthree,
+  .secondthree {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+  }
+
+  .ccc {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 230px !important;
+  }
+
+  .bgi i {
+    font-size: 2.3rem !important;
+  }
+
+  .bgi h3 {
+    font-size: 1.2rem !important;
+  }
+
+  .bgi p {
+    font-size: 0.85rem !important;
+  }
+
+  .management {
+    padding: 2rem 1rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .management h4 {
+    font-size: 1.2rem !important;
+  }
+
+  .management p {
+    font-size: 0.88rem !important;
+    padding-top: 0.5rem !important;
+  }
+
+  .footer-container {
+    text-align: center !important;
+  }
+
+  .footer-container .contact-item,
+  .footer-container .social-icons-container {
+    justify-content: center;
+  }
 }
 
 
 
-.sidebar.show{
+/* =========================================================
+   SPECIAL FIX FOR 300px & ULTRA-SMALL SCREENS (NO SLIDER)
+   ========================================================= */
+@media screen and (max-width: 380px) {
+  /* Screen ka horizontal overflow / slider strictly block */
+  html, body, .facility, .feat {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
 
-    left:0;
+  /* Facility & Row Container Gap */
+  .facility {
+    gap: 15px !important;
+    padding-bottom: 2rem !important;
+   
+  }
 
+  .firstthree,
+  .secondthree {
+    width: 100% !important;
+    gap: 15px !important;
+    align-items: center !important;
+  }
+
+  /* Card Ko 300px Screen K Ke Mutabiq Chota Karein */
+  .ccc {
+    width: 100% !important;
+    max-width: 160px !important; /* Screen width (~300px) ke andar easily fit hoga */
+    height: 210px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Inner Card Box Adjustment */
+  .bgi {
+    width: calc(100% - 8px) !important;
+    height: calc(100% - 8px) !important;
+    top: 4px !important;
+    left: 4px !important;
+    padding: 10px 8px !important;
+  }
+
+  /* Animation Blob Fix */
+  .blob {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Text & Icon Scaling */
+  .bgi i {
+    font-size: 1.8rem !important;
+  }
+
+  .bgi h3 {
+    font-size: 1.05rem !important;
+    padding-top: 0.3rem !important;
+  }
+
+  .bgi p {
+    font-size: 0.78rem !important;
+    padding-top: 0.2rem !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Management Banner Fix */
+  .management {
+    width: 100% !important;
+    max-width: 270px !important;
+    padding: 1.5rem 0.8rem !important;
+    margin: 1rem auto !important;
+    border-radius: 15px !important;
+  }
+
+  .management h4 {
+    font-size: 1.1rem !important;
+  }
+
+  .management p {
+    font-size: 0.8rem !important;
+    padding-top: 0.4rem !important;
+  }
 }
 
 
 
-
-.desktop-logo{
-
-    display:none;
-
-}
+/* 
+ ============================================================================
+             Home Page media query
+   ========================================================================== */
 
 
 
 
+   /* =/* ============================================================
+   LibraX Home Page - Fully Responsive Media Queries
+   ============================================================ */
 
-.logo img{
-
-    width:140px;
-
-    height:38px;
-
-}
-
-
-
-.blank-area{
-
-    min-height:calc(100vh - 65px);
-
-}
-
-
-
-}
-
-
-
-
-
-
-@media(max-width:576px){
-
-
-
-.mobile-logo img{
-
-    width:100px;
-
-    height:32px;
-
-}
-
-
-
-.mobile-header{
-
-    padding:0 12px;
-
-}
-
-
-
-}
-
-
-  /* /////-------home page--------//////// */
-
-
-  
-/* 1. Large Screens & Tablets Breakpoint (1277px) */
-@media only screen and (max-width: 1277px) {
+/* Specific Breakpoint for 1059px & Below */
+@media screen and (max-width: 1059px) {
+    /* Hero Section Adjustments */
     .hero {
-        flex-direction: column; /* Image upar aur text cleanly niche shift ho jayega */
-        align-items: center;
-        text-align: center;
-        padding: 2em;
-        min-height: auto;
+        gap: 20px;
+        padding: 2rem 1rem;
     }
 
-    .hero .text {
-        max-width: 100% !important;
+    .text {
+        max-width: 55% !important;
+        padding: 1em 0.5em;
+    }
+
+    .text h1 {
+        font-size: 4.8rem;
+    }
+
+    /* Fix Buttons Overflow & Distortion */
+    .btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: flex-start;
+        align-items: center;
         width: 100%;
-        padding: 1em 0;
+    }
+
+    .animated-batan {
+        width: auto !important;
+        max-width: 100% !important;
+        padding: 12px 24px !important;
+        font-size: 1rem !important;
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    
+
+
+    /* Fix Gap Between Cards */
+    .card-cont {
+        padding: 20px 15px;
+    }
+
+    .fstrow {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px !important; /* Excess gap fix */
+        margin: 0 auto;
+    }
+
+    .flip-card {
+        width: calc(50% - 20px) !important; /* 2 Cards per row without extra space */
+        max-width: 420px;
+        margin: 0;
+    }
+
+    /* Stats Row Fix */
+    .secrow {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px !important;
+        margin-top: 30px;
+        padding: 15px;
+    }
+
+    .sec {
+        width: calc(50% - 15px) !important;
+        margin: 0;
+        border-radius: 15px !important;
+        border-left: none !important;
+    }
+}
+
+/* Tablets & Small Laptops (Up to 991px) */
+@media screen and (max-width: 991px) {
+    button .navbar-toggler{
+    background-color: var(--white) !important;
+}
+    /* Navbar Styles */
+    .navbar-collapse {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        margin-top: 15px;
+    }
+
+    .navbar-nav .pad {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .custom-nav-link::after {
+        display: none;
+    }
+
+    /* Hero Section */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        padding: 2rem 1rem;
+    }
+
+    .text {
+        max-width: 100% !important;
+        padding: 1.5em 0;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Heading aur buttons perfect center alignment mein aane ke liye */
+        align-items: center;
     }
 
-    .hero .text p {
-        max-width: 500px;
+    .text h1 {
+        font-size: 4rem;
+    }
+
+    .btns {
+        justify-content: center;
+    }
+
+    .animated-batan{
+        max-width: 100%;
+        width: 200px !important;
     }
 
     .image {
-        padding-right: 0 !important;
-        margin-bottom: 2rem;
-        width: 100% !important;
+        width: 100%;
         display: flex;
         justify-content: center;
     }
 
-    /* Is rule se image width control hogi aur screen se bahar bilkul nahi jayegi */
-    .image .imgs img {
-        width: 100% !important;
-        max-width: 550px; /* Image layout ka maximum crisp size */
-        height: auto !important;
-    }
-
-    .card-cont {
-        padding-top: 15px;
-        width: 100%;
-    }
-
-    .fstrow {
-        flex-wrap: wrap;
-        gap: 20px;
-        padding: 20px 0;
-    }
-
-    .flip-card {
-        width: 45%; /* Grid style look tablets ke liye */
-    }
-
-    .sec {
-        width: 50%;
-    }
-}
-
-/* 2. Intermediate Screen Breakpoint (1088px) */
-@media only screen and (max-width: 1088px) {
-    /* Rules standard upar se cascade ho rahe hain */
-}
-
-/* 3. Tablets & Medium Screens (900px & 820px combined) */
-@media only screen and (max-width: 900px) {
-    .fstrow {
-        flex-direction: column; 
-        align-items: center;
-        width: 100%;
-    }
-
-    .flip-card {
-        width: 85%;
-    }
-
-    .secrow {
-        flex-direction: column;
-        align-items: center;
-        padding-bottom: 30px;
-    }
-
-    /* Border line desktop se mobile screen flow ke mutabiq bottom switch */
-    .bord {
-        border-left: none !important;
-        border-bottom: 3px solid rgb(81, 110, 128);
-    }
-
-    .yesbord {
-        border-bottom: 3px solid rgb(81, 110, 128);
-    }
-
-    .nobord {
-        border: none;
-    }
-
-    .sec {
-        width: 80%;
+    .imgs img {
+        max-width: 100%;
         height: auto;
-        padding: 20px 0;
-        margin-top: 20px;
-    }
-}
-
-/* 4. Mobile Phones (576px & 455px standard setups) */
-@media only screen and (max-width: 576px) {
-    .hero {
-        padding: 20px;
-    }
-
-    .hero .text h1 {
-        font-size: 4rem; /* Oversized heading mobile par tight wrap hogi */
-    }
-
-    .hero .text h4 {
-        font-size: 2rem;
     }
 
     .flip-card {
-        width: 95%;
-        height: 13rem;
+        width: calc(50% - 15px) !important;
     }
 }
 
-/* 5. Small Screens (411px) */
-@media only screen and (max-width: 411px) {
-    .hero .text h1 {
-        font-size: 3.5rem;
+
+
+@media screen and (max-width: 1203px) {
+
+ .animated-batan{
+        max-width: 100%;
+        width: 200px !important;
     }
 
-    .text .btns {
+}
+
+
+
+/* Mobile Devices & Small Screens (Up to 768px) */
+@media screen and (max-width: 768px) {
+    .text h1 {
+        font-size: 3.2rem;
+    }
+
+    .text h4 {
+        font-size: 1.1em;
+    }
+
+    .fstrow {
+        gap: 15px !important;
+    }
+
+    .flip-card {
+        width: 100% !important;
+        max-width: 380px;
+    }
+
+    .sec {
+        width: 100% !important;
+        max-width: 400px;
+    }
+}
+
+
+
+/* Extra Small Mobile Screens (Up to 480px) */
+@media screen and (max-width: 480px) {
+    .text h1 {
+        font-size: 2.5rem;
+    }
+
+    .btns {
+        flex-direction: column; 
+        width: 100%;
+    }
+
+    .animated-batan {
+        width: 100% !important;
+    }
+
+    .sec {
+        flex-direction: row;
+        padding: 15px;
+        height: auto;
+    }
+
+    .sec .circle {
+        width: 50px;
+        height: 50px;
+        margin-right: 12px !important;
+    }
+
+    .image  {
+    min-height: 222px !important;
+    margin: 0 !important;
+}
+}
+
+/* Extra Small Mobile Screens (480px & below) */
+@media screen and (max-width: 480px) {
+    .btns {
+        display: flex;
         flex-direction: column;
         width: 100%;
-        gap: 12px;
+        align-items: center;
+        gap: 12px; /* Buttons ke beech space */
     }
 
-    .text .btns div {
-        width: 100%;
-    }
+    
 
-    .text .btns button {
-        width: 100%; /* UI block touch accuracy optimize karne ke liye */
-    }
-
-    .mar {
-        margin-left: 0 !important;
-    }
-
-    .slice {
-        margin-top: 10px;
+    .animated-batan,
+    .btns button,
+    .btns a {
+        width: 100% !important;        /* Dono buttons equal full width lein */
+        max-width: 180px !important;    /* Clean look ke liye maximum width fix */
+        text-align: center;
+        justify-content: center;
+        box-sizing: border-box;
     }
 }
 
 
 
 
-  /* /////-------Dashboard  page--------//////// */
 
 
 
@@ -412,12 +906,410 @@
 
 
 
+/* ====================================================
+                   dasboard media query
+  ===================================================== */
 
 
 
+/* ==========================================
+            LARGE LAPTOP
+========================================== */
+@media (max-width:1200px){
+
+.container{
+    margin-left:90px;
+    max-width:calc(100% - 90px);
+    padding:20px;
+}
+
+.cardcont{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.card{
+    width:100%;
+}
+
+.dashboard-charts-container{
+    grid-template-columns:1fr;
+}
+
+.activity-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
 
 
+/* ==========================================
+                TABLET
+========================================== */
 
+@media (max-width:992px){
+
+.container{
+    margin-left:78px;
+    max-width:calc(100% - 78px);
+    padding:15px;
+    }
+
+.toprow{
+    flex-direction:column;
+    gap:20px;
+}
+
+.admin{
+    margin-left:0;
+    justify-content:space-between;
+    width:100%;
+}
+
+.group{
+    max-width:100%;
+}
+
+.input{
+    width:100%;
+}
+
+.cardcont{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.chart-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.doughnut-chart-layout{
+    flex-direction:column;
+}
+
+.activity-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+
+/* ==========================================
+                MOBILE
+========================================== */
+
+@media (max-width:768px){
+
+.sidebar{
+    width:70px;
+}
+
+.sidebar.open{
+    width:220px;
+}
+
+.container{
+    margin-left:70px;
+    max-width:calc(100% - 70px);
+    padding:15px;
+    }
+
+.toprow{
+    flex-direction:column;
+}
+
+.group{
+    width:100%;
+    max-width:100%;
+}
+
+.admin{
+    flex-wrap:wrap;
+    gap:10px;
+    }
+
+.cardcont{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+.card{
+    width:100%;
+    height:auto;
+    padding:25px;
+}
+
+.dashboard-charts-container{
+    padding:0;
+}
+
+.chart-card{
+    padding:15px;
+}
+
+.card-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+    }
+
+.chart-legend{
+    flex-wrap:wrap;
+}
+
+.mock-bar-chart{
+    overflow-x:auto;
+}
+
+.chart-bars-wrapper{
+    min-width:450px;
+}
+
+.doughnut-chart-layout{
+    flex-direction:column;
+}
+
+.activity-grid{
+    grid-template-columns:1fr;
+}
+
+.activity-card{
+    flex-wrap:wrap;
+}
+
+.time{
+    position:static;
+    margin-left:auto;
+}
+
+}
+
+
+/* ==========================================
+            SMALL MOBILE
+========================================== */
+
+@media (max-width:576px){
+
+.container{
+    padding:10px;
+    }
+
+.sidebar{
+    width:60px;
+}
+
+.sidebar.open{
+    width:200px;
+}
+
+.container{
+    margin-left:60px;
+    max-width:calc(100% - 60px);
+}
+
+.profile img{
+    width:45px;
+    height:45px;
+}
+
+.admin h4{
+    font-size:16px;
+}
+
+.admin p{
+    font-size:12px;
+}
+
+.card{
+    padding:20px;
+}
+
+.card h2{
+    font-size:24px;
+}
+
+.card p{
+    font-size:14px;
+}
+
+.chart-card{
+    padding:12px;
+}
+
+.chart-title{
+    font-size:15px;
+    }
+
+.chart-donut-wrapper{
+    width:120px;
+    height:120px;
+}
+
+.mock-donut::before{
+    width:55px;
+    height:55px;
+}
+
+.activity-card{
+    padding:12px;
+}
+
+.activity-content h6{
+    font-size:14px;
+}
+
+.activity-content p{
+    font-size:12px;
+}
+
+.time{
+    font-size:11px;
+}
+
+}
+
+@media (max-width: 620px){
+
+.dashboard-charts-container{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:15px;
+    padding:0;
+    }
+
+.chart-card{
+    width:100%;
+    min-width:0;
+    overflow:hidden;
+}
+
+.mock-bar-chart{
+    width:100%;
+    overflow-x:auto;
+}
+
+.chart-bars-wrapper{
+    min-width:320px;
+}
+
+.y-axis{
+    width:20px;
+    flex-shrink:0;
+}
+
+.doughnut-chart-layout{
+    flex-direction:column;
+    align-items:center;
+}
+
+.category-legend-list{
+    width:100%;
+    margin-top:20px;
+    }
+
+.chart-donut-wrapper{
+    width:120px;
+    height:120px;
+}
+
+}
+
+
+/*=========cards media query=============== */
+
+/* Responsive Media Queries */
+
+/* Tablet & Smaller Laptops (under 1024px) */
+@media screen and (max-width: 1024px) {
+    .dashboardcards {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+}
+
+/* Mobile Screens (under 600px) */
+@media screen and (max-width: 600px) {
+    .dashboardcards {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 10px;
+    }
+
+    .dash-card {
+        width: 100%;
+        max-width: 280px; /* Mobile par card ki width screen ke sath adjust ho jayegi */
+        height: 140px;
+    }
+
+    .dashbg {
+        gap: 1.5rem;
+        padding: 0 10px;
+    }
+
+    .dashbg i {
+        font-size: 3rem;
+    }
+
+    .book-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .book-content p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Media Query for 587px and below */
+@media screen and (max-width: 587px) {
+    .dashboardcards {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem;
+        padding: 10px;
+    }
+
+    .dash-card {
+        width: 100%;
+        max-width: 260px; /* Card size standard bounds me rahega */
+        height: 140px;
+    }
+
+    .dashbg {
+        /* Fixed width/height remove karke bounds adjust ki hain */
+        width: auto;
+        height: auto;
+        inset: 4px; 
+        gap: 0.8rem; /* Icon aur text ke darmiyan gap reduce kiya */
+        padding: 0 12px;
+        justify-content: flex-start; /* Alignment left keep karte hue spacing maintain ki */
+    }
+
+    .dashbg i {
+        font-size: 2.6rem; /* Icon font reduce kiya taake text ke liye space mile */
+        flex-shrink: 0;
+    }
+
+    .book-content {
+        text-align: left;
+        overflow: visible;
+    }
+
+    .book-content h2 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .book-content p {
+        font-size: 0.8rem;
+        white-space: nowrap; /* Text next line par wrap nahi hoga */
+    }
+}
 
 
 

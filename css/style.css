@@ -20,3 +20,1151 @@
     text-decoration: none;
     font-family: "Poppins", sans-serif;
 }
+
+
+/* ======================================================================
+                             About page styling
+  ==================================================================== */
+
+/* Navigation link ki base positioning */
+.navbar{
+   background-color: var(--background-color) !important;
+}
+
+
+.navigation .custom-nav-link {
+    position: relative;
+    text-decoration: none;
+    padding-bottom: 5px; /* Text aur line ke beech ka space */
+    transition: color 0.3s ease;
+}
+
+
+/* Underline ke liye pseudo-element (initial state: width 0%) */
+.navigation .custom-nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px; /* Line ki thickness */
+    background-color: #2563EB; /* Aapka preferred blue color */
+    transition: width 0.4s ease-in-out; /* Smooth slide animation */
+    border-radius: 2px;
+}
+
+
+/* Hover effect - width 100% ho kar animation show ho gi */
+.navigation .custom-nav-link:hover::before {
+    width: 100%;
+}
+
+
+/* Navbar spacing aur settings */
+.pad {
+    padding: 0 15px;
+}
+
+/* Nav links ki base styling aur relative position (line ko anchor karne ke liye) */
+.custom-nav-link {
+    position: relative;
+    color: #333 !important; /* Aap apni theme ke mutabiq color change kar sakte hain */
+    font-weight: 600;
+    text-decoration: none;
+    padding-bottom: 5px !important;
+}
+
+/* Underline create ho rahi hai ::after se */
+.custom-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Shuru mein line chupayi hui hai */
+    height: 3px; /* Line ki thickness */
+    background-color:var(--theme-color); /* Video waala green color (aap change kar sakte hain) */
+    transition: width 0.4s ease; /* Smooth transition effect */
+}
+
+/* Hover karne par line poori 100% wide ho jayegi */
+.custom-nav-link:hover::after {
+    width: 100%;
+    color: var(--primary-color) !important;
+}
+
+
+/* navigation bar button */
+
+button {
+   border: none;
+   color: #fff;
+   background-image: linear-gradient(30deg, #0400ff, #0490dc);
+   border-radius: 20px;
+   background-size: 100% auto;
+   font-family: inherit;
+   font-size: 17px;
+   padding: 0.6em 1.5em;
+}
+
+
+button:hover {
+   background-position: right center;
+   background-size: 200% auto;
+  -webkit-animation: pulse 2s infinite;
+   animation: pulse512 1.5s infinite;
+}
+
+
+@keyframes pulse512 {
+ 0% {
+  box-shadow: 0 0 0 0 #05bada66;
+ }
+
+ 70% {
+  box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+ }
+
+ 100% {
+  box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+ }
+}
+
+/* Toggler button ka custom background color */
+.navigation .navbar-toggler {
+    background-color: var(--background-color); /* Apni pasand ka color code yahan daalein */
+    border: 1px solid transparent; /* Border remove ya change karne ke liye */
+    padding: 6px 10px;
+    box-shadow: none !important; /* Click hone par blue focus ring hatane ke liye */
+}
+
+/* Jab toggler button par hover ya click ho */
+.navigation .navbar-toggler:hover,
+.navigation .navbar-toggler:focus {
+    background-color: var(--background-color); /* Hover background color */
+}
+
+/* Hamburger icon (lines) ka color white/custom karne ke liye */
+.navigation .navbar-toggler-icon {
+    /* SVG filter se icon ka color white hota hai */
+    filter: invert(1) grayscale(100%) brightness(200%); 
+}
+
+
+/*--------- About Page content------------ */
+
+
+.main-container{
+    max-width: 100%;
+    min-height:100vh ;
+    background-color:var(--background-color);
+    display: flex;
+   color: black !important;
+}
+
+
+.content{
+    max-width: 100%;
+padding: 4rem;
+display: flex;
+flex-direction: column;
+gap: 50px;
+}
+
+
+.image{
+    max-width: 100%;
+    width:  800px;
+    display: flex;
+    flex-direction: column;
+    min-height: inherit;
+    margin-left: auto;
+    padding: 2rem 3rem 2rem 2rem;
+     transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  margin-left: 3.5rem;
+}
+
+
+/* .image:hover{
+ 
+  transform: scale(1.1);
+} */
+
+
+img{
+    max-width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+
+ .content p{
+    max-width: 480px ;
+}
+
+
+.content h1{
+    font-weight: 500;
+    margin-top: 50px;
+    font-size: 3rem;
+}
+
+
+ .content i{
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+}
+
+
+.mission{
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+   padding-bottom: 1rem;
+}
+
+
+.mission h3{
+    padding: 1rem 1rem 0 1rem;
+    font-weight: 600;
+}
+
+
+.mission p{
+    padding: 0 ;
+    margin-left:8.5rem;
+}
+
+
+.mission i{
+    font-size: 4rem;
+  margin-left: 3.5rem;
+}
+
+
+.flex{
+    display: flex;
+    margin-top: 1rem;
+}
+
+
+/* cards styling from ui verse */
+
+ 
+.cards{
+   max-width: 100%;
+   min-height: 60px;
+    /* margin-top: 8rem; */
+    background-color:var(--background-color);
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+   padding-bottom: 6rem;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+.card i{
+    font-size: 4rem;
+    color: var(--primary-color);
+}
+
+
+.card h2{
+    font-weight: bold;
+} 
+
+
+.card:hover {
+  background-color:var(--white);
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+
+
+.card:active {
+  background-color: #3d94cf;
+  transition: all 0.25s;
+  -webkit-transition: all 0.50s;
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+/* hover */
+
+.card {
+  position: relative;
+   width: 330px;
+  height: 254px;
+  border-radius: 14px;
+  z-index: 1111;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+
+.bg {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 320px;
+  height: 242px;
+  z-index: 2;
+  background: rgba(255, 255, 255, .95);
+  backdrop-filter: blur(24px);
+  border-radius: 10px;
+  overflow: hidden;
+  outline: 2px solid white;
+  display: flex;
+  flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+
+.blob {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+ width: 330px;
+  height: 254px;
+  border-radius: 50%;
+  background-color:var(--primary-color);
+  opacity: 1;
+  filter: blur(12px);
+  animation: blob-bounce 5s infinite ease;
+}
+
+@keyframes blob-bounce {
+  0% {
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+  }
+
+  50% {
+    transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+  }
+
+  75% {
+    transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+  }
+
+  100% {
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
+  }
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
+
+/* ==========================================================================
+                            Features Page Styling
+    ========================================================================= */
+
+.feat{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.facility{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    gap: 50px;
+    padding:  0 0 10rem 0;
+     flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+.firstthree{
+    display: flex;
+    gap: 100px;
+    justify-content: space-evenly ;
+     max-width: 100%;
+}
+
+
+.secondthree{
+    display: flex;
+    justify-content: space-evenly;
+     gap: 100px;
+}
+
+
+.ccc{
+   
+     width: 400px;
+  height: 300px;
+  box-shadow: none;
+
+}
+
+
+ h2 , h3{
+    font-weight: 600;
+ }
+
+
+  .ccc p , h3{
+    padding-top: 1rem;
+  }
+
+
+.management  {
+    width: 950px;
+    min-height: 200px;
+    background-color: var(--primary-color);
+   text-align: center;
+    padding-top: 2rem;
+    margin-top: 5rem;
+    border-radius: 30px;
+    padding: 5rem;
+    color: var(--white);
+}
+
+ .management p {
+    padding-top: 2rem;
+ }
+
+
+h4{
+    font-weight: 600;
+}
+
+
+.bgi{
+     position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 390px;
+  height: 290px;
+  z-index: 2;
+  background: rgba(255, 255, 255, .95);
+  backdrop-filter: blur(24px);
+  border-radius: 10px;
+  overflow: hidden;
+  outline: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+}
+
+
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
+
+/* ==========================================================================
+              Dashboard Page Styling
+    ========================================================================= */
+
+    
+
+/* Main Content Wrapper Adjustment */
+.home-section {
+    position: relative;
+    background: #f4f6f9;
+    min-height: 100vh;
+    top: 0;
+    left: 78px;
+    width: calc(100% - 78px);
+    transition: all 0.5s ease;
+    padding: 24px;
+}
+
+
+.sidebar.open ~ .home-section {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+
+.home-section .text {
+    display: inline-block;
+    color: #0b1a30;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+
+/* /////////////////////////////// */
+
+
+.container{
+    width:calc(100% - 78px);
+    max-width:none;
+    margin-left:78px;
+    padding:2rem;
+    transition:.4s;
+    background-color: var(--bg-color);
+}
+
+
+.sidebar.open ~ .container{
+    width:calc(100% - 250px);
+    margin-left:250px;
+}
+
+
+/* From Uiverse.io by alexruix */ 
+.group {
+ display: flex;
+ line-height: 28px;
+ align-items: center;
+ position: relative;
+ max-width: 190px;
+}
+
+
+.input {
+ width: 100%;
+ height: 40px;
+ line-height: 28px;
+ padding: 0 1rem;
+ padding-left: 2.5rem;
+ border: 2px solid transparent;
+ border-radius: 8px;
+ outline: none;
+ background-color: #f3f3f4;
+ color: #0d0c22;
+ transition: .3s ease;
+}
+
+
+.input::placeholder {
+ color: #9e9ea7;
+}
+
+
+.input:focus, input:hover {
+ outline: none;
+ border-color:--theme-color;
+ background-color: #fff;
+ box-shadow: 0 0 0 4px #2564eb51;
+}
+
+
+.icon {
+ position: absolute;
+ left: 1rem;
+ fill: var(--primary-color);
+ width: 1rem;
+ height: 1rem;
+}
+
+
+.toprow{
+    display: flex;  
+}
+
+
+.admin{
+    display: flex;
+    margin-left: auto;
+}
+
+
+.profile img{
+    max-width:60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+
+.cardcont{
+    
+    gap: 2rem;
+}
+
+.cards{
+    display: flex;
+}
+
+
+/* From Uiverse.io by ElSombrero2 */ 
+.dashcard {
+  width: 190px;
+  height: 254px;
+  background:var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 0px 3px 1px #00000088;
+  cursor: pointer;
+}
+
+
+.dashcard .content {
+  border-radius: 5px;
+  background: var(--white);
+   width: 1px;
+  height: 254px;
+  z-index: 1;
+  padding: 20px;
+  color:var(--text-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.dashcontent::before {
+  opacity: 0;
+  transition: opacity 300ms;
+  content: " ";
+  display: block;
+  background: white;
+  width: 190px;
+  height: 254px;
+  position: absolute;
+  filter: blur(50px);
+  overflow: hidden;
+}
+
+.dashcard:hover .content::before {
+  opacity: 1;
+}
+
+.dashcard::before {
+  opacity: 0;
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 80px;
+  height: 360px;
+  background: linear-gradient(#ff2288, #387ef0);
+  transition: opacity 300ms;
+  animation: rotation_9018 8000ms infinite linear;
+  animation-play-state: paused;
+}
+
+
+.dashcard:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+
+.dashcard::after {
+  position: absolute;
+  content: " ";
+  display: block;
+  width: 250px;
+  height: 360px;
+  background: #17171733;
+  backdrop-filter: blur(50px);
+}
+
+
+@keyframes rotation_9018 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* ---------------- */
+
+/* Google Font Import (Agar aap already use nahi kar rahe) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-blue: #1b49f4;
+    --text-dark: #2b303a;
+    --text-muted: #8a92a6;
+    --bg-light: #f8f9fa;
+    --card-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+
+.dashboard-charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color); /* Dashboard wrapper light background */
+    margin-top: 20px;
+}
+
+
+/* Card General Styling */
+.chart-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+  transition: all 0.5s;
+}
+
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+
+/* Legend Styling for Card 1 */
+.chart-legend {
+    display: flex;
+    gap: 16px;
+}
+
+
+.legend-item {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+.legend-color {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+
+.issued-color { background-color: var(--primary-blue); }
+.returned-color { background-color: #f43f5e; } /* Coral Pink color */
+
+/* --- Mock Bar Chart Styling --- */
+.mock-bar-chart {
+    display: flex;
+    height: 200px;
+    gap: 15px;
+}
+
+
+.y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: right;
+    width: 25px;
+    padding-bottom: 20px;
+}
+
+
+.chart-bars-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-grow: 1;
+    border-left: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+    padding: 0 10px;
+
+}
+
+.month-bar-group {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 100%;
+    position: relative;
+    width: 40px;
+    padding-bottom: 20px;
+}
+
+
+.bar {
+    width: 8px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    animation: barGrow 1s ease-out;
+}
+
+
+.bar.issued { background-color: var(--primary-blue); }
+.bar.returned { background-color: #f43f5e; }
+
+.month-label {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+
+/* --- Doughnut Layout Styling --- */
+.doughnut-chart-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    flex-grow: 1;
+}
+
+
+.chart-donut-wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+}
+
+
+/* Conic gradient to mock the doughnut chart segments */
+.mock-donut {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        #1b49f4 0% 35%, 
+        #00bac7 35% 55%, 
+        #ffb800 55% 70%, 
+        #ff4b5c 70% 85%, 
+        #9b51e0 85% 95%,
+        #a0aec0 95% 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Cutout hole for doughnut effect */
+.mock-donut::before {
+    content: "";
+    width: 70px;
+    height: 70px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+
+.category-legend-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.category-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+
+/* Category Colors matching the template image */
+.cs-dot { background-color: #1b49f4; }
+.prog-dot { background-color: #00bac7; }
+.sci-dot { background-color: #ffb800; }
+.mgmt-dot { background-color: #ff4b5c; }
+.hist-dot { background-color: #9b51e0; }
+.other-dot { background-color: #a0aec0; }
+
+.cat-name {
+    font-size: 13px;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+
+/* Simple animation for aesthetic look */
+@keyframes barGrow {
+    from { height: 0; }
+}
+
+
+/* Responsive adjustment */
+@media (max-width: 480px) {
+    .doughnut-chart-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+.dashcont{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+
+/* ------------- */
+
+.recent-activities{
+    margin-top:20px;
+}
+
+
+.activity-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+
+.activity-card{
+    background:#fff;
+    border:1px solid #eef1f7;
+    border-radius:14px;
+    padding:15px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    transition:.3s;
+    position:relative;
+}
+
+
+.activity-card:hover{
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transform:translateY(-3px);
+}
+
+
+.activity-icon{
+    width:45px;
+    height:45px;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    color:#fff;
+    flex-shrink:0;
+}
+
+
+.blue{
+    background:#2563eb;
+}
+
+.green{
+    background:#22c55e;
+}
+
+.purple{
+    background:#7c3aed;
+}
+
+.red{
+    background:#ef4444;
+}
+
+.activity-content{
+    flex:1;
+}
+
+.activity-content h6{
+    margin:0;
+    font-size:15px;
+    font-weight:600;
+    color:#222;
+}
+
+.activity-content p{
+    margin:3px 0 0;
+    font-size:13px;
+    color:#777;
+}
+
+
+.time{
+    position:absolute;
+    right:15px;
+    bottom:15px;
+    font-size:12px;
+    color:#999;
+}
+
+
+
+/* Sidebar ki fixed proper width */
+.sidebar {
+    width: 260px !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 100;
+}
+
+/* Blank Area ko Sidebar ke aage shift karna aur baaki bachi width dena */
+.blank-area {
+    margin-left: 260px !important;
+    width: calc(100% - 260px) !important;
+}
+ .dashboardcards{
+            display: flex;
+            gap: 3rem;
+            padding: 1rem;
+            flex-wrap: wrap !important;
+         
+        }
+        /* Card Container */
+        .dash-card {
+            position: relative;
+            width: 250px;
+            height: 154px;
+            border-radius: 14px;
+            z-index: 1111;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+             transition: all 0.5s;
+        }
+
+
+        .dash-card:hover{
+box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+transform: scale(1.1);
+
+
+        }
+
+              .chart-card:hover{
+box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+transform: scale(0.9);
+
+
+        }
+       
+        .book-content h2{
+        font-size: 2rem;
+        }
+
+
+        /* ----------------------------------------------- */
+
+        /* Inner Background Container */
+        .dashbg {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 240px;
+            height: 144px;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(24px);
+            border-radius: 10px;
+            overflow: hidden;
+            outline: 2px solid white;
+
+            /* Flex Layout Content Alignment */
+            display: flex;
+           gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .dashbg i{
+            font-size: 4rem;
+        }
+
+        /* Animated Blob Effect */
+        .dashblob {
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #ff0000;
+            opacity: 1;
+            filter: blur(12px);
+            animation: blob-bounce 5s infinite ease;
+        }
+
+        .blue{
+             background-color: #002aff;
+        }
+
+        .green{
+             background-color: green;
+        }
+
+        .yellow{
+             background-color: rgb(255, 191, 0);
+        }
+
+
+        @keyframes blob-bounce {
+            0% {
+                transform: translate(-100%, -100%) translate3d(0, 0, 0);
+            }
+
+            25% {
+                transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+            }
+
+            50% {
+                transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+            }
+
+            75% {
+                transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+            }
+
+            100% {
+                transform: translate(-100%, -100%) translate3d(0, 0, 0);
+            }
+        }
+
+
+
+
+
+
+
+
+ 

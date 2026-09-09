@@ -23,31 +23,15 @@
     padding: 0 15px;
 }
 
-/* Nav links ki base styling aur relative position (line ko anchor karne ke liye) */
-.custom-nav-link {
-    position: relative;
-    color: #333 !important; /* Aap apni theme ke mutabiq color change kar sakte hain */
-    font-weight: 600;
-    text-decoration: none;
-    padding-bottom: 5px !important;
-}
 
-/* Underline create ho rahi hai ::after se */
-.custom-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0; /* Shuru mein line chupayi hui hai */
-    height: 3px; /* Line ki thickness */
-    background-color:var(--theme-color); /* Video waala green color (aap change kar sakte hain) */
-    transition: width 0.4s ease; /* Smooth transition effect */
-}
 
-/* Hover karne par line poori 100% wide ho jayegi */
-.custom-nav-link:hover::after {
-    width: 100%;
-}
+/* =======================================
+         navigation bar
+============================================== */
+
+
+
+/* ================================================ */
 
 .img{
     height: 50px;
@@ -90,7 +74,7 @@
 }
 
 .hero{ 
-    padding: 3em;
+    padding: 2rem;
     display: flex !important;
     flex-direction: row;
     min-height: 90vh;
@@ -114,11 +98,12 @@ padding: 3em;
   
 }
 h4{
-    font-size: 2em;
+    font-size: 1.5em;
+    font-weight: 600;
 }
 
 h1{
-    font-size: 8em;
+    font-size: 8rem;
 color: var(--primary-color);
 }
 .image{
@@ -126,6 +111,7 @@ color: var(--primary-color);
     /* padding:2em 3em; */
     max-width:100%;
     /* margin-right:30px ; */
+    margin-bottom: 3rem;
 }
 
  /* Purane .imgs img { width: 900px; } ko delete karke ye laga do */
@@ -136,95 +122,110 @@ color: var(--primary-color);
 }
 
 
-/* yeh lagaya mne hover button */
-/* From Uiverse.io by gharsh11032000 */ 
-.animated-button {
+.btns{
+  gap: 1.5rem;
+}
+/* From Uiverse.io by ryota1231 */ 
+.animated-batan {
   position: relative;
+  width: 190px;
+  height: 55px; /* height thodi kam ki hai taake button standard size lage */
   display: flex;
   align-items: center;
+  justify-content: center; /* content center karne ke liye */
   gap: 4px;
-  padding: 16px 36px;
-  border: 4px solid;
-  border-color: transparent;
+  padding: 0 5rem 0 0;
+  /* border: 4px solid transparent; */
   font-size: 16px;
-  background-color: inherit;
-  border-radius: 100px;
+  background-color: var(--primary-color);
+  border-radius: 50px;
   font-weight: 600;
-  color: greenyellow;
-  box-shadow: 0 0 0 2px greenyellow;
+  color: var(--white);
+  box-shadow: 0 0 0 0 transparent; /* Hover se pehle border/shadow nahi dikhega */
   cursor: pointer;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.animated-button svg {
+.arrow{
+  padding-right:7rem  !important;
+}
+
+.animated-batan svg {
   position: absolute;
   width: 24px;
-  fill: greenyellow;
+  fill: var(--white);
   z-index: 9;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.animated-button .arr-1 {
+.animated-batan .arr-1 {
   right: 16px;
 }
 
-.animated-button .arr-2 {
+.animated-batan .arr-2 {
   left: -25%;
 }
 
-.animated-button .circle {
+.animated-batan .circle {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  background-color: greenyellow;
+  background-color: white;
   border-radius: 50%;
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.animated-button .text {
+.animated-batan .text {
   position: relative;
   z-index: 1;
+  white-space: nowrap; /* Text ko do lines mein break hone se rokta hai */
   transform: translateX(-12px);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.animated-button:hover {
+.animated-batan:hover {
   box-shadow: 0 0 0 12px transparent;
   color: #212121;
   border-radius: 12px;
+   border: 4px solid #2563EB;
 }
 
-.animated-button:hover .arr-1 {
+.animated-batan:hover .arr-1 {
   right: -25%;
 }
 
-.animated-button:hover .arr-2 {
+.animated-batan:hover .arr-2 {
   left: 16px;
 }
 
-.animated-button:hover .text {
+.animated-batan:hover .text {
   transform: translateX(12px);
 }
 
-.animated-button:hover svg {
-  fill: #212121;
+.animated-batan:hover svg {
+  fill: #1f387e;
+  background-color: var(--white);
+   
 }
 
-.animated-button:active {
+.animated-batan:active {
   scale: 0.95;
   box-shadow: 0 0 0 4px greenyellow;
+    border: 4px solid #2563EB;
 }
 
-.animated-button:hover .circle {
+.animated-batan:hover .circle {
   width: 220px;
   height: 220px;
   opacity: 1;
+   
 }
+
 
 
 /* --------- */
@@ -378,8 +379,8 @@ color: var(--primary-color);
 }
   
 .sec .circle{
-  width: 80px;
-  height: 80px;
+  width: 110px;
+  height: 110px;
   background-color: var(--primary-color);
   display: flex;
   align-items: center;
@@ -389,7 +390,7 @@ color: var(--primary-color);
 
 
 .hero p{
-  color: var(--text-gray) ;
+  color: black ;
 }
 
 
@@ -402,9 +403,10 @@ color: var(--primary-color);
 
 
 
-/* ==========================================================================
-   FINAL CLEAN & FIXED MEDIA QUERIES (LIBRAX)
-   ========================================================================== */
-/* ==========================================================================
-   FINAL CLEAN & FIXED MEDIA QUERIES (LIBRAX)
-   ========================================================================== */
+footer .container{
+  background-color: var(--secondary-color);
+}
+
+h3{
+  font-size: 8rem;
+}
