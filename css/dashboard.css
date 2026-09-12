@@ -2,9 +2,6 @@
     --bg-color:#e8eefc;
     --theme-color: #023dc8 ;
 }
-
-
-
 /* Sidebar Styling */
 .sidebar {
     position: fixed;
@@ -323,7 +320,6 @@
 
 .cardcont{
     display: flex;
-    justify-content: center;
     justify-content: space-between;
     margin-top: 20px;
     padding: 1rem;
@@ -336,10 +332,6 @@
 
 
 /* ---------------- */
-
-/* Google Font Import (Agar aap already use nahi kar rahe) */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
 :root {
     --primary-blue: #1b49f4;
     --text-dark: #2b303a;
@@ -949,23 +941,3 @@
 }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

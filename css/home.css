@@ -1,388 +1,413 @@
-<<<<<<< HEAD
-=======
-:root{
-    --bg-color:#e8eefc;
-    --theme-color: #021c5a ;
+
+/* =======================================
+   IMAGE
+======================================= */
+
+.img {
+  height: 50px;
+  width: 50px;
 }
 
-:root {
-    --primary-color: #2563EB;
-    --secondary-color: #0F2747;
-    --background-color: #EFF6FF;
-    --white: #FFFFFF;
-    --border-color: #3c4d65;/* Bottom Divider Color */
-    --text-gray: #58626f;/* Muted text for readability over dark background */
+
+/* =======================================
+   SIDEBAR
+======================================= */
+
+.side {
+  margin-left: 500px !important;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
->>>>>>> 9182e7d (homee images png add ki hai)
-/* Navbar spacing aur settings */
+/* =======================================
+   PADDING
+======================================= */
+
 .pad {
-    padding: 0 15px;
+  padding: 0 2em;
 }
 
-/* Nav links ki base styling aur relative position (line ko anchor karne ke liye) */
-.custom-nav-link {
-    position: relative;
-    color: #333 !important; /* Aap apni theme ke mutabiq color change kar sakte hain */
-    font-weight: 600;
-    text-decoration: none;
-    padding-bottom: 5px !important;
-}
-
-/* Underline create ho rahi hai ::after se */
-.custom-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0; /* Shuru mein line chupayi hui hai */
-    height: 3px; /* Line ki thickness */
-    background-color:var(--theme-color); /* Video waala green color (aap change kar sakte hain) */
-    transition: width 0.4s ease; /* Smooth transition effect */
-}
-
-/* Hover karne par line poori 100% wide ho jayegi */
-.custom-nav-link:hover::after {
-    width: 100%;
-}
-
-.img{
-    height: 50px;
-    width: 50px;
-}
-
-.side{
-    margin-left: 500px !important;
-  
+.bp {
+  padding: 10px 40px;
 }
 
 
-.pad{
-      padding: 0 2em 0 2em;
-}
+/* =======================================
+   BUTTONS
+======================================= */
 
-.bp{
-    padding: 10px 40px 10px 40px;
-}
-
-
-.btns{
-    display: flex;
-    margin-top: 30px;
-} 
-
-.mar{
-    margin-left: 20px;
-    background-color: white !important;
-    color: #023dc8;
-}
-.shape{
-  background-color: aqua;
-  --s: 300px; /* adjust to control the size */
-
-  width: var(--s); 
-  aspect-ratio: 1;
-  --g:/calc(var(--s)*0.285) calc(var(--s)*0.285) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
-  mask: calc(50% + var(--s)*0.328) calc(50% + var(--s)*0) var(--g),calc(50% + var(--s)*0.205) calc(50% + var(--s)*0.257) var(--g),calc(50% + var(--s)*-0.073) calc(50% + var(--s)*0.32) var(--g),calc(50% + var(--s)*-0.296) calc(50% + var(--s)*0.142) var(--g),calc(50% + var(--s)*-0.296) calc(50% + var(--s)*-0.142) var(--g),calc(50% + var(--s)*-0.073) calc(50% + var(--s)*-0.32) var(--g),calc(50% + var(--s)*0.205) calc(50% + var(--s)*-0.257) var(--g),radial-gradient(calc(var(--s)*0.425),#000 99%,#0000 101%) subtract,calc(50% + var(--s)*0.489) calc(50% + var(--s)*0.235) var(--g),calc(50% + var(--s)*0.121) calc(50% + var(--s)*0.529) var(--g),calc(50% + var(--s)*-0.338) calc(50% + var(--s)*0.424) var(--g),calc(50% + var(--s)*-0.542) calc(50% + var(--s)*0) var(--g),calc(50% + var(--s)*-0.338) calc(50% + var(--s)*-0.424) var(--g),calc(50% + var(--s)*0.121) calc(50% + var(--s)*-0.529) var(--g),calc(50% + var(--s)*0.489) calc(50% + var(--s)*-0.235) var(--g);
-}
-
-.hero{ 
-    padding: 3em;
-    display: flex !important;
-    flex-direction: row;
-    min-height: 90vh;
-    max-width: 100%;
-    background-color: var(--background-color);
-}
-
-.text{
-max-width: 40% !important;
-/* background-color: beige; */
-padding: 3em;
-}
-
-.text p{
-    max-width:350px;
-}
-
-.hero .text h2{
-    margin-top: 20px;
-    color: #000;
-  
-}
-h4{
-    font-size: 2em;
-}
-
-h1{
-    font-size: 8em;
-color: var(--primary-color);
-}
-.image{
-    /* background-color: blueviolet; */
-    /* padding:2em 3em; */
-    max-width:100%;
-    /* margin-right:30px ; */
-}
-
- /* Purane .imgs img { width: 900px; } ko delete karke ye laga do */
-.imgs img {
-    width: 100%;
-    max-width: 900px; /* Desktop par ye maximum 900px hi rahegi */
-    height: auto;
-}
-
-
-/* yeh lagaya mne hover button */
-/* From Uiverse.io by gharsh11032000 */ 
-.animated-button {
-  position: relative;
+.btns {
+  width: 500px;
   display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 16px 36px;
-  border: 4px solid;
-  border-color: transparent;
-  font-size: 16px;
-  background-color: inherit;
-  border-radius: 100px;
+  margin: 40px 0 0;
+  gap: 15px;
+}
+
+.mar {
+  margin-left: 20px;
+  background-color: white !important;
+  color: #023dc8;
+}
+
+
+/* =======================================
+   SHAPE
+======================================= */
+
+.shape {
+  background-color: aqua;
+
+  --s: 300px;
+
+  width: var(--s);
+  aspect-ratio: 1;
+
+  --g: /calc(var(--s) * 0.285)
+    calc(var(--s) * 0.285)
+    radial-gradient(
+      50% 50%,
+      #000 99%,
+      #0000 101%
+    )
+    no-repeat;
+
+  mask:
+    calc(50% + var(--s) * 0.328)
+    calc(50% + var(--s) * 0)
+    var(--g),
+
+    calc(50% + var(--s) * 0.205)
+    calc(50% + var(--s) * 0.257)
+    var(--g),
+
+    calc(50% + var(--s) * -0.073)
+    calc(50% + var(--s) * 0.32)
+    var(--g),
+
+    calc(50% + var(--s) * -0.296)
+    calc(50% + var(--s) * 0.142)
+    var(--g),
+
+    calc(50% + var(--s) * -0.296)
+    calc(50% + var(--s) * -0.142)
+    var(--g),
+
+    calc(50% + var(--s) * -0.073)
+    calc(50% + var(--s) * -0.32)
+    var(--g),
+
+    calc(50% + var(--s) * 0.205)
+    calc(50% + var(--s) * -0.257)
+    var(--g),
+
+    radial-gradient(
+      calc(var(--s) * 0.425),
+      #000 99%,
+      #0000 101%
+    )
+    subtract,
+
+    calc(50% + var(--s) * 0.489)
+    calc(50% + var(--s) * 0.235)
+    var(--g),
+
+    calc(50% + var(--s) * 0.121)
+    calc(50% + var(--s) * 0.529)
+    var(--g),
+
+    calc(50% + var(--s) * -0.338)
+    calc(50% + var(--s) * 0.424)
+    var(--g),
+
+    calc(50% + var(--s) * -0.542)
+    calc(50% + var(--s) * 0)
+    var(--g),
+
+    calc(50% + var(--s) * -0.338)
+    calc(50% + var(--s) * -0.424)
+    var(--g),
+
+    calc(50% + var(--s) * 0.121)
+    calc(50% + var(--s) * -0.529)
+    var(--g),
+
+    calc(50% + var(--s) * 0.489)
+    calc(50% + var(--s) * -0.235)
+    var(--g);
+}
+
+
+/* =======================================
+   HERO
+======================================= */
+
+.hero {
+  padding: 2rem;
+  display: flex !important;
+  flex-direction: row;
+  min-height: 90vh;
+  max-width: 100%;
+  background-color: var(--background-color);
+}
+
+.text {
+  max-width: 50%;
+  padding: 3em;
+}
+
+.text p {
+  max-width: 350px;
+}
+
+.hero .text h2 {
+  margin-top: 20px;
+  color: #000;
+}
+
+.hero h1 {
+  font-size: 8em;
+  color: var(--primary-color);
+}
+
+.hero h4 {
+  font-size: 1.5em;
   font-weight: 600;
-  color: greenyellow;
-  box-shadow: 0 0 0 2px greenyellow;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.animated-button svg {
-  position: absolute;
-  width: 24px;
-  fill: greenyellow;
-  z-index: 9;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+.image {
+  max-width: 100%;
+  margin-bottom: 3rem;
 }
 
-.animated-button .arr-1 {
-  right: 16px;
+.imgs img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
 }
 
-.animated-button .arr-2 {
-  left: -25%;
-}
-
-.animated-button .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  background-color: greenyellow;
-  border-radius: 50%;
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button .text {
-  position: relative;
-  z-index: 1;
-  transform: translateX(-12px);
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button:hover {
-  box-shadow: 0 0 0 12px transparent;
-  color: #212121;
-  border-radius: 12px;
-}
-
-.animated-button:hover .arr-1 {
-  right: -25%;
-}
-
-.animated-button:hover .arr-2 {
-  left: 16px;
-}
-
-.animated-button:hover .text {
-  transform: translateX(12px);
-}
-
-.animated-button:hover svg {
-  fill: #212121;
-}
-
-.animated-button:active {
-  scale: 0.95;
-  box-shadow: 0 0 0 4px greenyellow;
-}
-
-.animated-button:hover .circle {
-  width: 220px;
-  height: 220px;
-  opacity: 1;
+.hero p {
+  color: var(--text-gray);
 }
 
 
-/* --------- */
+/* =======================================
+   CARD CONTAINER
+======================================= */
 
-
-.card-cont{
-    max-width: 100%;
-    min-height: 90vh;
-    background-color:var(--background-color) ;
-    
+.card-cont {
+  width: 100%;
+  min-height: 90vh;
+  padding: 50px 30px;
+  background-color: var(--background-color);
+  box-sizing: border-box;
 }
 
-.cardd{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    justify-content: space-evenly;
-}
 
- .fstrow{
+/* =======================================
+   FIRST ROW - FLIP CARDS
+======================================= */
+
+.fstrow {
   display: flex;
   justify-content: center;
-  justify-content: space-evenly;
- }
-
-
-/* Flip Card Container */
-.flip-card {
-  background-color: transparent;
-  width: 22rem; 
-  height: 14rem !important;
-  perspective: 1000px;
-  font-family: 'Poppins', sans-serif; /* LibraX design jesa clean font */
+  align-items: stretch;
+  gap: 25px;
+  flex-wrap: wrap;
 }
 
-/* Inner container jo actual rotate hota hai */
+
+/* Flip Card */
+
+.flip-card {
+  background-color: transparent;
+
+  width: 260px;
+  height: 220px;
+
+  perspective: 1000px;
+
+  font-family: "Poppins", sans-serif;
+}
+
+
+/* Inner */
+
 .flip-card-inner {
   position: relative;
+
   width: 100%;
   height: 100%;
+
   text-align: center;
+
   transition: transform 0.8s;
+
   transform-style: preserve-3d;
 }
 
-/* Hover effect */
+
+/* Hover */
+
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
-/* Front aur Back sides ki common styling */
-.flip-card-front, .flip-card-back {
-  box-shadow: 0 4px 20px rgba(2, 61, 200, 0.08); /* Image jesa soft blue shadow */
+
+/* Front + Back */
+
+.flip-card-front,
+.flip-card-back {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
+
   width: 100%;
   height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 20px rgba(2, 61, 200, 0.08);
+
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border-radius: 12px; /* Smooth professional borders */
-  padding: 15px; 
 }
 
-/* Front Side Layout (Soft Light Blue Theme) */
+
+/* =======================================
+   FRONT
+======================================= */
+
 .flip-card-front {
-  background: linear-gradient(135deg, #ffffff 40%, #e8eefc 100%);
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 40%,
+      #e8eefc 100%
+    );
+
   border: 1px solid #d0daf5;
-  color: var(--primary-color); /* Dark Blue Text */
+
+  color: var(--primary-color);
 }
 
 .flip-card-front .card-title {
   color: var(--primary-color);
+
   font-weight: 700;
+
+  margin-bottom: 10px;
 }
 
 .flip-card-front .card-subtitle {
-  color: #5c6a85 !important; /* Professional Muted Text Color */
+  color: #5c6a85 !important;
+
+  margin: 0;
+
+  font-size: 14px;
+
+  line-height: 1.5;
 }
 
-/* Back Side Layout (Premium Dark Blue Theme) */
+
+/* =======================================
+   BACK
+======================================= */
+
 .flip-card-back {
-  background: linear-gradient(135deg, #023dc8 0%, #012375 100%);
+  background:
+    linear-gradient(
+      135deg,
+      #023dc8 0%,
+      #012375 100%
+    );
+
   border: 1px solid var(--primary-color);
-  color: #ffffff; /* White Text */
+
+  color: #ffffff;
+
   transform: rotateY(180deg);
 }
 
 .flip-card-back .card-title {
   color: #ffffff;
+
   font-weight: 700;
+
+  margin-bottom: 10px;
 }
 
 .flip-card-back p {
-  color: #e8eefc; /* Soft Light Blue text for back description */
+  color: #e8eefc;
+
   font-size: 0.9rem;
+
+  margin: 0;
 }
 
-/* Icon Styling (LibraX matching) */
+
+/* =======================================
+   FLIP CARD ICON
+======================================= */
+
 .flip-card i {
   font-size: 2.2rem;
+
   margin-bottom: 12px;
 }
 
-/* Front side icon color */
 .flip-card-front i {
   color: var(--primary-color);
 }
 
-/* Back side icon color */
 .flip-card-back i {
   color: #ffffff;
 }
 
+/* =======================================
+   RESPONSIVE & CLEAN CSS
+======================================= */
 
-.secrow{
-    display: flex;
-    justify-content: center;
-    justify-content: space-evenly;
-    align-items: center;
-    border-radius: 30px;
-    margin-top: 50px;
+.secrow {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; /* Overflow hone se bachayega */
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 60px;
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: var(--secondary-color);
 }
 
-
-/* From Uiverse.io by adamgiebl */ 
 .sec {
-  width: 390px;
-  height: 200px;
-  background-color: var(--theme-color);
+  flex: 1 1 200px; /* Automatic adjustment */
+  min-height: 120px;
+  background-color: var(--secondary-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
-
+  gap: 15px;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
-.sec i {
-     font-size: 2.8rem;
-     color: var(--white);
+/* Internal Lines */
+.sec.bord {
+  border-left: 2px solid rgb(81, 110, 128);
 }
 
-.sec, h2 ,p{
-  color: var(--white);
-}
-
-.bord{
-    border-left: 3px solid rgb(81, 110, 128);
-}
-  
-.sec .circle{
-  width: 80px;
-  height: 80px;
+.sec .circle {
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
   background-color: var(--primary-color);
   display: flex;
   align-items: center;
@@ -390,24 +415,21 @@ color: var(--primary-color);
   border-radius: 50%;
 }
 
-
-.hero p{
-  color: var(--text-gray) ;
+.sec i {
+  font-size: 1.6rem;
+  color: var(--white);
 }
 
-
-.yesbord{
-  border-radius: 30px 0 0 30px;
-}
-.nobord{
-  border-radius: 0 30px 30px 0;
+.sec h2 {
+  color: var(--white);
+  margin: 0 0 2px 0;
+  font-size: 1.5rem;
 }
 
+.sec p {
+  color: var(--white);
+  margin: 0;
+  font-size: 0.85rem;
+  white-space: nowrap; /* Text ko tootne se rokega */
+}
 
-
-/* ==========================================================================
-   FINAL CLEAN & FIXED MEDIA QUERIES (LIBRAX)
-   ========================================================================== */
-/* ==========================================================================
-   FINAL CLEAN & FIXED MEDIA QUERIES (LIBRAX)
-   ========================================================================== */

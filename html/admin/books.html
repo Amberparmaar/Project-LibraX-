@@ -23,10 +23,55 @@
   </head>
 
   <body>
-    <div class="top-bar">
-      <div class="logo desktop-logo">
-        <img src="../../images/logo1.png" alt="Logo" class="logo-img" />
-      </div>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary navigation">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../../index.html">
+                <img src="../../images/logo1.png" alt="LibraX Logo" class="logo-img">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item pad">
+                        <a class="nav-link custom-nav-link" href="../../index.html">Home</a>
+                    </li>
+                    <li class="nav-item pad">
+                        <a class="nav-link custom-nav-link" href="../../about.html">About</a>
+                    </li>
+                    <li class="nav-item pad">
+                        <a class="nav-link custom-nav-link" href="../../feature.html">Features</a>
+                    </li>
+                    <li class="nav-item pad">
+                        <a class="nav-link custom-nav-link" href="../admin/books.html">Books</a>
+                    </li>
+                    <li class="nav-item pad">
+                        <a class="nav-link custom-nav-link" href="../../contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                       <a href="../../login.html"> <button class="animated-button" type="button"  onclick="window.location.href='../html/login.html'">
+                            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+                            </svg>
+
+                            <span class="text">Login</span>
+                            <span class="circle"></span>
+
+                            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+                            </svg>
+                        </button></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    
 
       <div class="search-filter">
         <div class="search-box">
@@ -212,6 +257,113 @@
         </button>
       </div>
     </div>
+       <!-- FOOTER START -->
+    <footer class=" container-xxl footer-container">
+      <div class="container">
+        <div class="row gy-5">
+          <!-- Logo -->
+
+          <div class="col-lg-4 col-md-6 logo-section">
+            <img src="./images/logo3.png" alt="LibraX Logo" />
+
+            <p class="logo-desc">
+              LibraX is a modern and intelligent library management system
+              designed to make library operations easier and faster.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+
+          <div class="col-lg-2 col-md-6">
+            <h4>Quick Links</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">Home</a></li>
+
+              <li><a href="./about.html">About</a></li>
+
+              <li><a href="./html/admin/books.html">Books</a></li>
+
+              <li><a href="./contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+
+          <div class="col-lg-3 col-md-6">
+            <h4>Services</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">Book Management</a></li>
+
+              <li><a href="#">Member Management</a></li>
+
+              <li><a href="#">Borrow & Return</a></li>
+
+              <li><a href="#">Reports</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+
+          <div class="col-lg-3 col-md-6">
+            <h4>Contact Us</h4>
+
+            <ul class="list-unstyled">
+              <li class="contact-item">
+                <i class="fa-solid fa-phone"></i>
+
+                <span>+10 300 1234567</span>
+              </li>
+
+              <li class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+
+                <span>library@librax.com</span>
+              </li>
+
+              <li class="contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+
+                <span>University Campus</span>
+              </li>
+            </ul>
+
+            <div class="social-icons-container">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+
+              <a href="#" class="social-icon">
+                <i class="fab fa-x-twitter"></i>
+              </a>
+
+              <a href="#" class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="row align-items-center">
+          <div class="col-md-6">© 2026 LibraX. All rights reserved.</div>
+
+          <div class="col-md-6 text-md-end">
+            <a href="#" class="me-3"> Privacy Policy </a>
+
+            <a href="#"> Terms & Conditions </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- FOOTER END -->
 
     <!-- bootstrape js -->
     <script

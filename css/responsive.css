@@ -1,36 +1,20 @@
-/* ===================================================
-   RESPONSIVE OVERRIDES (MOBILE/TABLET)
-=================================================== */
 
 @media (max-width: 576px) {
-  .issue-book-container {
-    padding: 15px;
-  }
-}
-
-/* =====================
-   Responsive Workspace
-===================== */
-
-/* Mobile adjustments (up to 576px) */
-
-@media (max-width: 576px) {
+  .issue-book-container,
   .workspace-container {
     padding: 15px;
   }
 }
 
-/* FOOTER RESPONSIVE MEDIA QUERIES */
-
-/* Tablet */
+/* ===================================================
+   FOOTER RESPONSIVE
+=================================================== */
 
 @media (max-width: 991px) {
   .footer-container {
     text-align: left;
   }
 }
-
-/* Column alignment */
 
 @media (min-width: 992px) {
   .footer-container .row.gy-5 {
@@ -46,14 +30,11 @@
   }
 }
 
-/*  MOBILE */
-
 @media (max-width: 767px) {
   .footer-container {
     padding: 40px 20px;
   }
-}
-@media (max-width: 767px) {
+
   .footer-container .col-lg-4,
   .footer-container .col-lg-2,
   .footer-container .col-lg-3,
@@ -69,8 +50,6 @@
     justify-content: flex-start;
   }
 
-  /* Bottom links center */
-
   .footer-container .text-md-end {
     text-align: center !important;
     margin-top: 15px;
@@ -81,8 +60,6 @@
     margin: 5px 8px;
   }
 }
-
-/* Small phones */
 
 @media (max-width: 576px) {
   .footer-container {
@@ -107,26 +84,9 @@
   height: 38px;
 }
 
-/* Side layout */
-/* Responsive */
-/* =====================
-           Mobile & Tablet Responsive
-        ===================== */
-
-@media (max-width: 576px) {
-  .mobile-logo img {
-    width: 100px;
-
-    height: 32px;
-  }
-
-  .mobile-header {
-    padding: 0 12px;
-  }
-}
-
-/* contact page responsive */
-/* Responsive */
+/* ===================================================
+   CONTACT PAGE
+=================================================== */
 
 @media (max-width: 768px) {
   .contact-card {
@@ -139,146 +99,10 @@
   }
 }
 
-/* member-dashboard responsiveness  */
+/* ===================================================
+   BOOKS RESPONSIVE
+=================================================== */
 
-/* =====================================
-        STUDENT DASHBOARD RESPONSIVE
-===================================== */
-
-/* ---------- Tablet ---------- */
-
-@media (max-width: 991px) {
-  .dashboard-content {
-    padding: 20px;
-  }
-
-  .top-header {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .top-header .search-box {
-    width: 100%;
-  }
-
-  .header-right {
-    justify-content: space-between;
-  }
-
-  .dashboard-card {
-    padding: 18px;
-  }
-
-  .dashboard-box {
-    padding: 20px;
-  }
-}
-
-/* ---------- Mobile ---------- */
-
-@media (max-width: 768px) {
-  .dashboard-content {
-    padding: 15px;
-  }
-
-  .welcome-section h3 {
-    font-size: 24px;
-  }
-
-  .welcome-section p {
-    font-size: 13px;
-  }
-
-  .top-header {
-    gap: 15px;
-  }
-
-  .header-right {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 15px;
-  }
-
-  .user-profile {
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .notification-btn {
-    align-self: flex-end;
-  }
-
-  .dashboard-card {
-    gap: 15px;
-  }
-
-  .card-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-  }
-
-  .dashboard-card h2 {
-    font-size: 22px;
-  }
-
-  .dashboard-box {
-    overflow-x: auto;
-  }
-
-  .dashboard-box table {
-    min-width: 650px;
-  }
-}
-
-/* ---------- Small Mobile ---------- */
-
-@media (max-width: 576px) {
-  .dashboard-content {
-    padding: 12px;
-  }
-
-  .welcome-section {
-    margin-bottom: 20px;
-  }
-
-  .welcome-section h3 {
-    font-size: 22px;
-  }
-
-  .dashboard-card {
-    padding: 16px;
-  }
-
-  .card-icon {
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-    font-size: 18px;
-  }
-
-  .dashboard-card h2 {
-    font-size: 20px;
-  }
-
-  .dashboard-card p {
-    font-size: 12px;
-  }
-
-  .box-title h5 {
-    font-size: 16px;
-  }
-
-  .notification-item h6 {
-    font-size: 12px;
-  }
-
-  .notification-item span {
-    font-size: 11px;
-  }
-}
-
-/* books responsiveness  */
 @media (max-width: 991px) {
   .top-bar {
     flex-direction: column;
@@ -291,6 +115,7 @@
     justify-content: space-between;
   }
 }
+
 @media (max-width: 576px) {
   .top-bar {
     gap: 15px;
@@ -315,50 +140,10 @@
     width: 100%;
   }
 }
-@media (max-width: 991.98px) {
-  .mobile-header {
-    display: flex;
-  }
 
-  .sidebar {
-    position: fixed;
-    top: 65px;
-    left: -260px;
-    width: 250px;
-    height: calc(100vh - 65px);
-    z-index: 1000;
-    background-color: #06285c;
-    transition: left 0.3s ease;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .sidebar.show {
-    left: 0;
-  }
-
-  .desktop-logo {
-    display: none;
-  }
-
-  .blank-area {
-    margin-left: 0;
-    width: 100%;
-    min-height: calc(100vh - 65px);
-    padding-top: 65px;
-  }
-}
-
-@media (max-width: 576px) {
-  .mobile-logo img {
-    width: 100px;
-    height: 32px;
-  }
-
-  .mobile-header {
-    padding: 0 12px;
-  }
-}
+/* ===================================================
+   ISSUED BOOKS TABLE
+=================================================== */
 
 @media (max-width: 767.98px) {
   .issued-table-card {
@@ -372,210 +157,668 @@
   }
 }
 
-/* Push main workspace below fixed header on mobile screens */
+/* ===================================================
+   MEMBER DASHBOARD
+=================================================== */
+
+/* Mobile / Tablet header + sidebar */
 @media (max-width: 991.98px) {
+  .mobile-header {
+    display: flex;
+    height: 65px;
+    background: #06285c;
+    color: #ffffff;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 65px);
+    z-index: 999;
+    background-color: #06285c;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .desktop-logo {
+    display: none;
+  }
+
+  .dashboard-content {
+    padding: 20px;
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
   .blank-area {
-    padding-top: 80px !important;
-    /* Adjust height according to your mobile header size */
+    margin-left: 0 !important;
+    width: 100% !important;
+    min-height: calc(100vh - 65px);
+    padding: 30px 20px;
+  }
+
+  .top-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .header-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .user-profile img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .user-profile div {
+    display: none;
   }
 }
-<<<<<<< HEAD
-=======
 
+/* Dashboard welcome */
+@media (max-width: 768px) {
+  .welcome-section {
+    padding: 20px 0;
+  }
 
+  .welcome-section h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
 
+  .welcome-section p {
+    font-size: 14px;
+  }
 }
 
+@media (max-width: 576px) {
+  .welcome-section h3 {
+    font-size: 20px;
+  }
 
-  /* /////-------home page--------//////// */
+  .welcome-section p {
+    font-size: 13px;
+  }
+}
 
+/* Dashboard cards */
+@media (max-width: 1200px) {
+  .row.g-4 > .col-lg-3 {
+    flex: 0 0 calc(50% - 8px);
+    max-width: calc(50% - 8px);
+  }
+}
 
-  
-/* 1. Large Screens & Tablets Breakpoint (1277px) */
+@media (max-width: 768px) {
+  .row.g-4 > .col-lg-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .dashboard-card {
+    padding: 20px;
+    min-height: 140px;
+  }
+
+  .card-content {
+    gap: 15px;
+  }
+
+  .card-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .text-group h2 {
+    font-size: 24px;
+  }
+
+  .text-group p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-card {
+    padding: 15px;
+    min-height: 120px;
+  }
+
+  .card-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .text-group h2 {
+    font-size: 20px;
+  }
+
+  .text-group p {
+    font-size: 11px;
+  }
+
+  .blob {
+    width: 120px !important;
+    height: 120px !important;
+  }
+}
+
+/* Dashboard bottom section */
+@media (max-width: 991px) {
+  .row.mt-4.g-4 > .col-lg-8,
+  .row.mt-4.g-4 > .col-lg-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .dashboard-box {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-box {
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+
+  .box-title h5 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-box {
+    padding: 15px;
+  }
+
+  .box-title h5 {
+    font-size: 15px;
+  }
+}
+
+/* Dashboard tables */
+@media (max-width: 991px) {
+  .table-responsive {
+    overflow-x: auto;
+    border-radius: 10px;
+    margin: -20px -20px 0 -20px;
+  }
+
+  .table {
+    min-width: 500px;
+    margin-bottom: 0;
+  }
+
+  .table thead th,
+  .table tbody td {
+    font-size: 13px;
+    padding: 12px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .table thead th,
+  .table tbody td {
+    font-size: 12px;
+    padding: 10px 8px;
+  }
+
+  .status {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .table-responsive {
+    margin: -15px -15px 0 -15px;
+  }
+
+  .table thead th,
+  .table tbody td {
+    font-size: 11px;
+    padding: 8px 6px;
+  }
+}
+
+/* Dashboard notifications */
+@media (max-width: 991px) {
+  .notification-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .notification-item:last-child {
+    border-bottom: none;
+  }
+
+  .notification-item h6 {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .notification-item span {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .notification-item {
+    padding: 12px 0;
+    display: flex;
+    gap: 12px;
+  }
+
+  .notification-item h6 {
+    font-size: 13px;
+  }
+
+  .notification-item span {
+    font-size: 11px;
+  }
+
+  .notification-item i {
+    font-size: 8px;
+    flex-shrink: 0;
+  }
+}
+
+/* General dashboard spacing */
+@media (max-width: 768px) {
+  .blank-area {
+    padding: 25px 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .blank-area {
+    padding: 20px 12px;
+  }
+
+  .dashboard {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .row.g-4 {
+    gap: 12px !important;
+  }
+
+  .col-lg-3,
+  .col-md-6 {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .mobile-logo img {
+    width: 90px;
+    height: 30px;
+  }
+
+  .mobile-header {
+    padding: 0 12px;
+  }
+
+  .mobile-header button {
+    font-size: 20px;
+  }
+
+  .menu a {
+    padding: 12px 15px;
+    font-size: 12px;
+  }
+
+  .sidebar {
+    width: 220px;
+  }
+
+  .logo img {
+    width: 140px;
+    height: 36px;
+  }
+}
+
+/* Top header small screens */
+@media (max-width: 576px) {
+  .top-header {
+    padding: 15px 0;
+    gap: 12px;
+  }
+
+  .search-box {
+    padding: 10px 15px;
+    height: 40px;
+    border-radius: 8px;
+  }
+
+  .search-box input {
+    height: 100%;
+    font-size: 13px;
+  }
+
+  .search-box i {
+    font-size: 14px;
+    left: 12px;
+  }
+
+  .header-right {
+    gap: 10px;
+  }
+
+  .notification-btn {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+
+  .notification-btn i {
+    font-size: 16px;
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Dashboard card content */
+@media (max-width: 768px) {
+  .card-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 3;
+    position: relative;
+  }
+
+  .text-group {
+    text-align: left;
+  }
+}
+
+/* Menu */
+@media (max-width: 991px) {
+  .menu a {
+    padding: 14px 18px;
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .menu i {
+    width: 16px;
+  }
+}
+
+/* ===================================================
+   BOOK CONTENT
+=================================================== */
+
+.book-content {
+  text-align: left;
+  overflow: visible;
+}
+
+.book-content h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.book-content p {
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* ===================================================
+   HOME PAGE RESPONSIVE
+=================================================== */
+
+/* Large screens / tablets */
 @media only screen and (max-width: 1277px) {
-    .hero {
-        flex-direction: column; /* Image upar aur text cleanly niche shift ho jayega */
-        align-items: center;
-        text-align: center;
-        padding: 2em;
-        min-height: auto;
-    }
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2em;
+    min-height: auto;
+  }
 
-    .hero .text {
-        max-width: 100% !important;
-        width: 100%;
-        padding: 1em 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Heading aur buttons perfect center alignment mein aane ke liye */
-    }
+  .hero .text {
+    max-width: 100% !important;
+    width: 100%;
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .hero .text p {
-        max-width: 500px;
-    }
+  .hero .text p {
+    max-width: 500px;
+  }
 
-    .image {
-        padding-right: 0 !important;
-        margin-bottom: 2rem;
-        width: 100% !important;
-        display: flex;
-        justify-content: center;
-    }
+  .image {
+    padding-right: 0 !important;
+    margin-bottom: 2rem;
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+  }
 
-    /* Is rule se image width control hogi aur screen se bahar bilkul nahi jayegi */
-    .image .imgs img {
-        width: 100% !important;
-        max-width: 550px; /* Image layout ka maximum crisp size */
-        height: auto !important;
-    }
+  .image .imgs img {
+    width: 100% !important;
+    max-width: 550px;
+    height: auto !important;
+  }
 
-    .card-cont {
-        padding-top: 15px;
-        width: 100%;
-    }
+  .card-cont {
+    padding-top: 15px;
+    width: 100%;
+  }
 
-    .fstrow {
-        flex-wrap: wrap;
-        gap: 20px;
-        padding: 20px 0;
-    }
+  .fstrow {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 0;
+  }
 
-    .flip-card {
-        width: 45%; /* Grid style look tablets ke liye */
-    }
+  .flip-card {
+    width: 45%;
+  }
 
-    .sec {
-        width: 50%;
-    }
+  .sec {
+    width: 50%;
+  }
 }
 
-/* 2. Intermediate Screen Breakpoint (1088px) */
-@media only screen and (max-width: 1088px) {
-    /* Rules standard upar se cascade ho rahe hain */
-}
+/* 1088px breakpoint was empty and has been removed */
 
-/* 3. Tablets & Medium Screens (900px & 820px combined) */
+/* Tablets / medium screens */
 @media only screen and (max-width: 900px) {
-    .fstrow {
-        flex-direction: column; 
-        align-items: center;
-        width: 100%;
-    }
+  .fstrow {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 
-    .flip-card {
-        width: 85%;
-    }
+  .flip-card {
+    width: 85%;
+  }
 
-    .secrow {
-        flex-direction: column;
-        align-items: center;
-        padding-bottom: 30px;
-    }
+  .secrow {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+  }
 
-    /* Border line desktop se mobile screen flow ke mutabiq bottom switch */
-    .bord {
-        border-left: none !important;
-        border-bottom: 3px solid rgb(81, 110, 128);
-    }
+  .bord {
+    border-left: none !important;
+    border-bottom: 3px solid rgb(81, 110, 128);
+  }
 
-    .yesbord {
-        border-bottom: 3px solid rgb(81, 110, 128);
-    }
+  .yesbord {
+    border-bottom: 3px solid rgb(81, 110, 128);
+  }
 
-    .nobord {
-        border: none;
-    }
+  .nobord {
+    border: none;
+  }
 
-    .sec {
-        width: 80%;
-        height: auto;
-        padding: 20px 0;
-        margin-top: 20px;
-    }
+  .sec {
+    width: 80%;
+    height: auto;
+    padding: 20px 0;
+    margin-top: 20px;
+  }
 }
 
-/* 4. Mobile Phones (576px & 455px standard setups) */
+/* Mobile */
+@media only screen and (max-width: 768px) {
+  .secrow {
+    flex-direction: column;
+    border-radius: 20px;
+  }
+
+  .sec {
+    width: 100%;
+    justify-content: center;
+    padding: 20px 10px;
+  }
+
+  .sec.bord {
+    border-left: none;
+    border-top: 2px solid rgb(81, 110, 128);
+  }
+}
+
 @media only screen and (max-width: 576px) {
-    .hero {
-        padding: 20px;
-    }
+  .hero {
+    padding: 20px;
+  }
 
-    .hero .text h1 {
-        font-size: 4rem; /* Oversized heading mobile par tight wrap hogi */
-    }
+  .hero .text h1 {
+    font-size: 4rem;
+  }
 
-    .hero .text h4 {
-        font-size: 2rem;
-    }
+  .hero .text h4 {
+    font-size: 2rem;
+  }
 
-    .flip-card {
-        width: 95%;
-        height: 13rem;
-    }
+  .flip-card {
+    width: 95%;
+    height: 13rem;
+  }
 }
 
-/* 5. Small Screens (411px) */
+/* Small screens */
 @media only screen and (max-width: 411px) {
-    .hero .text h1 {
-        font-size: 3.5rem;
-    }
+  .hero .text h1 {
+    font-size: 3.5rem;
+  }
 
-    .text .btns {
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
-    }
+  .text .btns {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
 
-    .text .btns div {
-        width: 100%;
-    }
+  .text .btns div,
+  .text .btns button {
+    width: 100%;
+  }
 
-    .text .btns button {
-        width: 100%; /* UI block touch accuracy optimize karne ke liye */
-    }
+  .mar {
+    margin-left: 0 !important;
+  }
 
-    .mar {
-        margin-left: 0 !important;
-    }
-
-    .slice {
-        margin-top: 10px;
-    }
+  .slice {
+    margin-top: 10px;
+  }
 }
 
+/* ===================================================
+   OVERLAY
+=================================================== */
 
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 900;
+  transition: opacity 0.3s ease;
+}
 
+.overlay.show {
+  display: block;
+}
 
-  /* /////-------Dashboard  page--------//////// */
+/* ===================================================
+   PRINT
+=================================================== */
 
+@media print {
+  .mobile-header,
+  .overlay,
+  .notification-btn,
+  .sidebar {
+    display: none !important;
+  }
 
+  .blank-area {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
 
+/* ===================================================
+   ACCESSIBILITY
+=================================================== */
 
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .overlay,
+  .dashboard-card,
+  .notification-item {
+    transition: none !important;
+    animation: none !important;
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 9182e7d (homee images png add ki hai)
