@@ -24,82 +24,45 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary navigation">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="./index.html">
-          <img src="../images/logo1.png" alt="LibraX Logo" class="logo-img" />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto align-items-center">
-            <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="./index.html">Home</a>
-            </li>
-            <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="./about.html">About</a>
-            </li>
-            <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="./feature.html"
-                >Features</a
-              >
-            </li>
-            <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="./html/admin/books.html"
-                >Books</a
-              >
-            </li>
-            <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="./contact.html"
-                >Contact</a
-              >
-            </li>
-            <li class="nav-item ms-lg-3">
-              <a href="./login.html">
-                <button
-                  class="animated-button nav-btn"
-                  type="button"
-                  onclick="window.location.href = '../html/login.html'"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    class="arr-2"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-                    />
-                  </svg>
-
-                  <span class="text">Login</span>
-                  <span class="circle"></span>
-
-                  <svg
-                    viewBox="0 0 24 24"
-                    class="arr-1"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-                    />
-                  </svg>
-                </button>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+   <nav class="navbar navbar-expand-lg bg-body-tertiary navigation position-fixed z-1 w-100">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img style="width: 170px" src="./images/logo1.png" alt="LibraX Logo" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="menu-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="#">Home</a></li>
+        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./about.html">About</a></li>
+        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./feature.html">Features</a></li>
+        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./html/admin/books.html">Books</a></li>
+        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./contact.html">Contact</a></li>
+        <li class="nav-item pad ms-lg-3">
+          <a href="./login.html" class="animated-button nav-btn">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+            </svg>
+            <span class="btn-text">Login</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
     <!-- ================= CONTACT SECTION START ================= -->
 
@@ -173,30 +136,18 @@
               ></textarea>
 
               <!-- Submit Button Wrapper -->
-              <div class="btn-container">
-                <button class="animated-button" type="submit">
-                  <svg
-                    viewBox="0 0 24 24"
-                    class="arr-2"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-                    ></path>
-                  </svg>
-                  <span class="text">Send Message</span>
-                  <span class="circle"></span>
-                  <svg
-                    viewBox="0 0 24 24"
-                    class="arr-1"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-                    ></path>
-                  </svg>
-                </button>
-              </div>
+             <div class="btn-wrapper" style="max-width: 200px;">
+        <a href="#" class="animated-button">
+          <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://display 0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+          </svg>
+          <span class="btn-text">Send Message</span>
+          <span class="circle"></span>
+          <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+          </svg>
+        </a>
+      </div>
             </form>
           </div>
         </div>

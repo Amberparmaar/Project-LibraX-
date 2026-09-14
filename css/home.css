@@ -35,12 +35,7 @@
    BUTTONS
 ======================================= */
 
-.btns {
-  width: 500px;
-  display: flex;
-  margin: 40px 0 0;
-  gap: 15px;
-}
+
 
 .mar {
   margin-left: 20px;

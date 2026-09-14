@@ -142,9 +142,52 @@ a {
 
 /* ========button styling start============= */
 
+/* Variable Definitions */
+:root {
+  --primary-color: #2563eb;
+  --background-color: #ffffff;
+  --secondary-color: #1e293b;
+}
+
+/* Base Navbar */
+.navbar {
+  background-color: var(--background-color) !important;
+}
+
+.pad {
+  padding: 0 15px;
+}
+
+.custom-nav-link {
+  position: relative;
+  font-weight: 600;
+  text-decoration: none;
+  padding-bottom: 5px !important;
+  transition: color 0.3s ease;
+}
+
+.custom-nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  transition: width 0.4s ease-in-out;
+}
+
+.custom-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Universal Base Button Style */
 .animated-button {
   position: relative;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
   padding: 10px 36px;
   border: 4px solid transparent;
@@ -157,6 +200,9 @@ a {
   cursor: pointer;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  text-decoration: none !important;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .animated-button svg {
@@ -188,7 +234,7 @@ a {
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.animated-button .text {
+.animated-button .btn-text {
   position: relative;
   z-index: 1;
   transform: translateX(-12px);
@@ -209,7 +255,7 @@ a {
   left: 16px;
 }
 
-.animated-button:hover .text {
+.animated-button:hover .btn-text {
   transform: translateX(12px);
 }
 
@@ -223,11 +269,118 @@ a {
 }
 
 .animated-button:hover .circle {
-  width: 220px;
-  height: 220px;
+  width: 300px;
+  height: 300px;
   opacity: 1;
 }
 
+/* Specific Size Fix for Navbar Login Button */
+.nav-btn {
+  padding: 8px 30px !important;
+  font-size: 14px !important;
+}
+
+.nav-btn:hover .circle {
+  width: 200px !important;
+  height: 200px !important;
+}
+
+/* Hero Section Layout Rules */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 120px;
+  padding-bottom: 60px;
+  gap: 30px;
+  padding-left: 40px;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 550px;
+}
+.hero-content h1{
+ color: var(--primary-color);
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Hero Buttons Layout */
+.btns {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 450px;
+}
+
+.btn-wrapper {
+  flex: 1;
+}
+
+.btn-wrapper .animated-button {
+  width: 100%;
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  .btns {
+    margin: 30px auto 0;
+  }
+
+  .menu-icon,
+  .menu-icon::before,
+  .menu-icon::after {
+    width: 24px;
+    height: 2px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+    display: block;
+    transition: 0.3s ease;
+  }
+
+  .menu-icon {
+    position: relative;
+    margin: 8px 0;
+  }
+
+  .menu-icon::before,
+  .menu-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .menu-icon::before { top: -7px; }
+  .menu-icon::after { top: 7px; }
+
+  .navbar-toggler[aria-expanded="true"] .menu-icon { background: transparent; }
+  .navbar-toggler[aria-expanded="true"] .menu-icon::before { transform: rotate(45deg); top: 0; }
+  .navbar-toggler[aria-expanded="true"] .menu-icon::after { transform: rotate(-45deg); top: 0; }
+}
+
+@media (max-width: 576px) {
+  .btns {
+    flex-direction: column;
+    max-width: 100%;
+  }
+}
 /* ========button styling end============= */
 
 .continue {
@@ -259,14 +412,16 @@ a {
 .social-btn img {
   width: 28px;
 }
+/* ragister page */
 
 .register {
+ 
   text-align: center;
 
   font-size: 14px;
 }
 
-/* ragister page */
+
 .register-section {
   min-height: 100vh;
 
@@ -289,7 +444,7 @@ a {
   border-radius: 20px;
 
   padding: 45px;
-
+margin-top: 50px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
@@ -654,15 +809,6 @@ h2 {
   text-decoration: none;
 }
 
-@media (max-width: 768px) {
-  .register-card {
-    padding: 30px;
-  }
-
-  .top-image {
-    display: none;
-  }
-}
 /* forget password page */
 
 .forgot-section {
@@ -1297,10 +1443,12 @@ tbody tr:hover {
 /* ================= CONTACT PAGE ================= */
 
 .contact-section {
+
   padding: 50px 8%;
 }
 
 .contact-card {
+    margin-top: 60px;
   background: var(--white);
 
   border-radius: 20px;
@@ -1680,10 +1828,10 @@ p {
   padding: 0 15px;
 }
 
-/* Nav links ki base styling aur relative position (line ko anchor karne ke liye) */
+
 .custom-nav-link {
   position: relative;
-  color: #333 !important; /* Aap apni theme ke mutabiq color change kar sakte hain */
+  color: #333; 
   font-weight: 600;
   text-decoration: none;
   padding-bottom: 5px !important;
@@ -1741,7 +1889,7 @@ p {
 
 /* Hamburger icon (lines) ka color white/custom karne ke liye */
 .navigation .navbar-toggler-icon {
-  /* SVG filter se icon ka color white hota hai */
+
   filter: invert(1) grayscale(100%) brightness(200%);
 }
 
@@ -1752,6 +1900,7 @@ p {
   min-height: 100vh;
   background-color: var(--background-color);
   display: flex;
+ 
   color: black !important;
 }
 
@@ -1765,7 +1914,7 @@ p {
 
 .image {
   max-width: 100%;
-  width: 800px;
+  width: 600px;
   display: flex;
   flex-direction: column;
   min-height: inherit;
@@ -1773,7 +1922,7 @@ p {
   padding: 2rem 3rem 2rem 2rem;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
-  margin-left: 3.5rem;
+  
 }
 
 img {
@@ -3118,16 +3267,6 @@ h4 {
 }
 
 /* /////////////////////////////// */
-
-.container {
-  width: calc(100% - 78px);
-  max-width: none;
-  margin-left: 78px;
-  padding: 2rem;
-  transition: 0.4s;
-  background-color: var(--bg-color);
-}
-
 .sidebar.open ~ .container {
   width: calc(100% - 250px);
   margin-left: 250px;
