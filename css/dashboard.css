@@ -4,6 +4,181 @@
     ========================================================================= */
 
     
+:root{
+    --bg-color:#e8eefc;
+    --theme-color: #023dc8 ;
+}
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 78px; /* Closed width */
+    background: #0b1a30; /* LibraX Dark Blue Theme */
+    padding: 6px 14px;
+    z-index: 99;
+    transition: all 0.5s ease; /* Smooth Sliding Animation */
+}
+
+.sidebar.open {
+    width: 250px; /* Opened width */
+}
+
+.sidebar .logo-details {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.sidebar .logo-details .icon {
+    color: #fff;
+    font-size: 24px;
+    margin-right: 10px;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details .icon {
+    opacity: 1;
+}
+
+.sidebar .logo-details .logo_name {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.sidebar.open .logo-details .logo_name {
+    opacity: 1;
+}
+
+.sidebar .logo-details #btn {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: all 0.4s ease;
+    font-size: 23px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+}
+
+.sidebar.open .logo-details #btn {
+    text-align: right;
+}
+
+.sidebar i {
+    color: #a5b4fc; /* Subtle lighter blue icons */
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.sidebar .nav-list {
+    margin-top: 20px;
+    height: 100%;
+    padding-bottom: 60px;
+    overflow-y: auto;
+}
+
+/* Scrollbar hide karney k liye */
+.sidebar .nav-list::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar li {
+    position: relative;
+    margin: 8px 0;
+    list-style: none;
+}
+
+/* Tooltip for hover effect when sidebar is closed */
+.sidebar li .tooltip {
+    position: absolute;
+    top: -20px;
+    left: calc(100% + 15px);
+    z-index: 3;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0s;
+    color: #0b1a30;
+}
+
+.sidebar li:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.4s ease;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sidebar.open li .tooltip {
+    display: none;
+}
+
+.sidebar li a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    background: transparent;
+}
+
+/* Hover & Active item color states matching Image 4 */
+.sidebar li:hover a, 
+.sidebar li.active a {
+    background: #1e3a8a; /* Soft selection color */
+}
+
+.sidebar li:hover a i, 
+.sidebar li:hover a .links_name,
+.sidebar li.active a i,
+.sidebar li.active a .links_name {
+    color: #ffffff; /* Text turns fully white on hover/active */
+}
+
+.sidebar li a .links_name {
+    color: #a5b4fc;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+.sidebar.open li a .links_name {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Bottom Logout button placement */
+.sidebar .profile {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    left: 0;
+    padding: 0 14px;
+    transition: all 0.5s ease;
+}
 
 /* Main Content Wrapper Adjustment */
 .home-section {
@@ -142,7 +317,6 @@
 
 .cardcont{
     display: flex;
-    justify-content: center;
     justify-content: space-between;
     margin-top: 20px;
     padding: 1rem;
@@ -155,10 +329,6 @@
 
 
 /* ---------------- */
-
-/* Google Font Import (Agar aap already use nahi kar rahe) */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
 :root {
     --primary-blue: #1b49f4;
     --text-dark: #2b303a;
