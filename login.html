@@ -76,7 +76,7 @@
 
               <p>Login to your account</p>
 
-              <form>
+              <form id="loginForm">
                 <div class="mb-3">
                   <label>Email Address</label>
 
@@ -84,6 +84,7 @@
                     type="email"
                     class="form-control"
                     placeholder="Enter your email"
+                    id="email"
                   />
                 </div>
 
@@ -94,6 +95,8 @@
                     type="password"
                     class="form-control"
                     placeholder="Enter your password"
+                    id="password"
+                
                   />
 
                   <i class="bi bi-eye"></i>
@@ -145,7 +148,7 @@
                 <p class="continue">Or continue with</p>
 
                 <div class="social-login">
-                  <button class="social-btn">
+                  <button id="googleBtn" class="social-btn">
                     <img
                       src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
                     />
@@ -191,6 +194,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 
     <!-- custom js -->
-    <script src="../JS/index.js"></script>
+    <script type="module" src="./JS/auth.js"></script>
   </body>
 </html>
