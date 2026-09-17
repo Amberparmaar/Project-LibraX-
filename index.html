@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LibraX - The Library Management</title>
 
     <!-- Font Awesome v6.5.1 CDN -->
@@ -23,244 +23,288 @@
     <!-- custom css -->
     <link rel="stylesheet" href="./css/style.css" />
     <link href="./css/home.css" rel="stylesheet" />
-  <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/responsive.css" />
     <link rel="stylesheet" href="./css/components.css" />
   </head>
 
   <body>
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary navigation position-fixed z-3 w-100">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img style="width: 170px" src="./images/logo1.png" alt="LibraX Logo" />
-    </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+    <!-- Navigation -->
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary navigation position-fixed z-3 w-100"
     >
-      <span class="menu-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="#">Home</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./about.html">About</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./feature.html">Features</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./html/admin/books.html">Books</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./contact.html">Contact</a></li>
-        <li class="nav-item pad ms-lg-3">
-          <a href="./login.html" class="animated-button nav-btn">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-            </svg>
-            <span class="btn-text">Login</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- Hero Section -->
-<div class="container-xxl hero-section">
-  <div class="hero-content">
-    <h2 class="fw-bold">Welcome to</h2>
-    <h1 class="display-1 fw-bold">LibraX</h1>
-    <h4>Smart Library Management System</h4>
-    <p>Managing Books, Members, Borrowing records and reports efficiently with LibraX.</p>
-
-    <div class="btns">
-      <div class="btn-wrapper">
-        <a href="./ragister.html" class="animated-button">
-          <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-          </svg>
-          <span class="btn-text">Sign Up</span>
-          <span class="circle"></span>
-          <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-          </svg>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            style="width: 170px"
+            src="./images/logo1.png"
+            alt="LibraX Logo"
+          />
         </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="menu-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="./about.html">About</a>
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="./feature.html"
+                >Features</a
+              >
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="./html/admin/books.html"
+                >Books</a
+              >
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="./contact.html"
+                >Contact</a
+              >
+            </li>
+            <li class="nav-item pad ms-lg-3">
+              <a href="./login.html" class="animated-button nav-btn">
+                <svg
+                  viewBox="0 0 24 24"
+                  class="arr-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                  />
+                </svg>
+                <span class="btn-text">Login</span>
+                <span class="circle"></span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="arr-1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container-xxl hero-section">
+      <div class="hero-content">
+        <h2 class="fw-bold">Welcome to</h2>
+        <h1 class="display-1 fw-bold">LibraX</h1>
+        <h4>Smart Library Management System</h4>
+        <p>
+          Managing Books, Members, Borrowing records and reports efficiently
+          with LibraX.
+        </p>
+
+        <div class="btns">
+          <div class="btn-wrapper">
+            <a href="./ragister.html" class="animated-button">
+              <svg
+                viewBox="0 0 24 24"
+                class="arr-2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                />
+              </svg>
+              <span class="btn-text">Sign Up</span>
+              <span class="circle"></span>
+              <svg
+                viewBox="0 0 24 24"
+                class="arr-1"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="btn-wrapper">
+            <a href="./html/admin/books.html" class="animated-button">
+              <svg
+                viewBox="0 0 24 24"
+                class="arr-2"
+                xmlns="http://display 0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                />
+              </svg>
+              <span class="btn-text">Books</span>
+              <span class="circle"></span>
+              <svg
+                viewBox="0 0 24 24"
+                class="arr-1"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
 
-      <div class="btn-wrapper">
-        <a href="./html/admin/books.html" class="animated-button">
-          <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://display 0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-          </svg>
-          <span class="btn-text">Books</span>
-          <span class="circle"></span>
-          <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-          </svg>
-        </a>
+      <div class="hero-image">
+        <img src="./images/homee.png" alt="Hero Illustration" />
       </div>
     </div>
-  </div>
-
-  <div class="hero-image">
-    <img src="./images/homee.png" alt="Hero Illustration" />
-  </div>
-</div>
 
     <!-- ///////cards//////////////-->
 
-<div class="container-xxl  card-cont">
+    <div class="container-xxl card-cont">
+      <!-- ================= FIRST ROW ================= -->
+      <div class="fstrow">
+        <!-- Card 1 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front card-body">
+              <i class="fa-solid fa-book-open"></i>
+              <h3 class="card-title">Large Collection</h3>
+              <p class="card-subtitle">
+                Thousands of books across multiple categories.
+              </p>
+            </div>
 
-  <!-- ================= FIRST ROW ================= -->
-  <div class="fstrow">
-
-    <!-- Card 1 -->
-    <div class="flip-card">
-      <div class="flip-card-inner">
-
-        <div class="flip-card-front card-body">
-          <i class="fa-solid fa-book-open"></i>
-          <h3 class="card-title">Large Collection</h3>
-          <p class="card-subtitle">
-            Thousands of books across multiple categories.
-          </p>
+            <div class="flip-card-back card-body">
+              <i class="fa-solid fa-book-open"></i>
+              <h3 class="card-title">Explore Now</h3>
+              <p>Click to browse our library catalog.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="flip-card-back card-body">
-          <i class="fa-solid fa-book-open"></i>
-          <h3 class="card-title">Explore Now</h3>
-          <p>Click to browse our library catalog.</p>
+        <!-- Card 2 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front card-body">
+              <i class="fa-solid fa-users"></i>
+              <h3 class="card-title">Member Management</h3>
+              <p class="card-subtitle">
+                Store and manage member information efficiently.
+              </p>
+            </div>
+
+            <div class="flip-card-back card-body">
+              <i class="fa-solid fa-users"></i>
+              <h3 class="card-title">Explore Now</h3>
+              <p>Manage your library members easily.</p>
+            </div>
+          </div>
         </div>
 
+        <!-- Card 3 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front card-body">
+              <i class="fa-solid fa-circle-left"></i>
+              <h3 class="card-title">Issue and Return</h3>
+              <p class="card-subtitle">
+                Issue and return books in just a few clicks.
+              </p>
+            </div>
+
+            <div class="flip-card-back card-body">
+              <i class="fa-solid fa-circle-left"></i>
+              <h3 class="card-title">Explore Now</h3>
+              <p>Manage book issues and returns easily.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front card-body">
+              <i class="fa-solid fa-arrow-trend-up"></i>
+              <h3 class="card-title">Smart Dashboard</h3>
+              <p class="card-subtitle">
+                Track library activities and get real-time insights.
+              </p>
+            </div>
+
+            <div class="flip-card-back card-body">
+              <i class="fa-solid fa-arrow-trend-up"></i>
+              <h3 class="card-title">Explore Now</h3>
+              <p>Track your library activities easily.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= SECOND ROW ================= -->
+      <div class="container-xxl secrow">
+        <!-- Books -->
+        <div class="sec">
+          <div class="circle">
+            <i class="fa-solid fa-book"></i>
+          </div>
+          <div class="stat-text">
+            <h2>2500+</h2>
+            <p>Books</p>
+          </div>
+        </div>
+
+        <!-- Members -->
+        <div class="sec bord">
+          <div class="circle">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div class="stat-text">
+            <h2>850+</h2>
+            <p>Members</p>
+          </div>
+        </div>
+
+        <!-- Books Issued -->
+        <div class="sec bord">
+          <div class="circle">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="stat-text">
+            <h2>1450+</h2>
+            <p>Books Issued</p>
+          </div>
+        </div>
+
+        <!-- Satisfaction -->
+        <div class="sec bord">
+          <div class="circle">
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="stat-text">
+            <h2>98%</h2>
+            <p>User Satisfaction</p>
+          </div>
+        </div>
       </div>
     </div>
-
-
-    <!-- Card 2 -->
-    <div class="flip-card">
-      <div class="flip-card-inner">
-
-        <div class="flip-card-front card-body">
-          <i class="fa-solid fa-users"></i>
-          <h3 class="card-title">Member Management</h3>
-          <p class="card-subtitle">
-            Store and manage member information efficiently.
-          </p>
-        </div>
-
-        <div class="flip-card-back card-body">
-          <i class="fa-solid fa-users"></i>
-          <h3 class="card-title">Explore Now</h3>
-          <p>Manage your library members easily.</p>
-        </div>
-
-      </div>
-    </div>
-
-
-    <!-- Card 3 -->
-    <div class="flip-card">
-      <div class="flip-card-inner">
-
-        <div class="flip-card-front card-body">
-          <i class="fa-solid fa-circle-left"></i>
-          <h3 class="card-title">Issue and Return</h3>
-          <p class="card-subtitle">
-            Issue and return books in just a few clicks.
-          </p>
-        </div>
-
-        <div class="flip-card-back card-body">
-          <i class="fa-solid fa-circle-left"></i>
-          <h3 class="card-title">Explore Now</h3>
-          <p>Manage book issues and returns easily.</p>
-        </div>
-
-      </div>
-    </div>
-
-
-    <!-- Card 4 -->
-    <div class="flip-card">
-      <div class="flip-card-inner">
-
-        <div class="flip-card-front card-body">
-          <i class="fa-solid fa-arrow-trend-up"></i>
-          <h3 class="card-title">Smart Dashboard</h3>
-          <p class="card-subtitle">
-            Track library activities and get real-time insights.
-          </p>
-        </div>
-
-        <div class="flip-card-back card-body">
-          <i class="fa-solid fa-arrow-trend-up"></i>
-          <h3 class="card-title">Explore Now</h3>
-          <p>Track your library activities easily.</p>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-
-
-  <!-- ================= SECOND ROW ================= -->
- <div class="container-xxl  secrow">
-
-  <!-- Books -->
-  <div class="sec">
-    <div class="circle">
-      <i class="fa-solid fa-book"></i>
-    </div>
-    <div class="stat-text">
-      <h2>2500+</h2>
-      <p>Books</p>
-    </div>
-  </div>
-
-  <!-- Members -->
-  <div class="sec bord">
-    <div class="circle">
-      <i class="fa-solid fa-users"></i>
-    </div>
-    <div class="stat-text">
-      <h2>850+</h2>
-      <p>Members</p>
-    </div>
-  </div>
-
-  <!-- Books Issued -->
-  <div class="sec bord">
-    <div class="circle">
-      <i class="fa-solid fa-book-open"></i>
-    </div>
-    <div class="stat-text">
-      <h2>1450+</h2>
-      <p>Books Issued</p>
-    </div>
-  </div>
-
-  <!-- Satisfaction -->
-  <div class="sec bord">
-    <div class="circle">
-      <i class="fa-solid fa-star"></i>
-    </div>
-    <div class="stat-text">
-      <h2>98%</h2>
-      <p>User Satisfaction</p>
-    </div>
-  </div>
-
-</div>
-
-</div>
 
     <!-- FOOTER START -->
-    <footer class=" container-xxl footer-container">
+    <footer class="container-xxl footer-container">
       <div class="container">
         <div class="row gy-5">
           <!-- Logo -->
@@ -380,7 +424,3 @@
     ></script>
   </body>
 </html>
-
-
-
-

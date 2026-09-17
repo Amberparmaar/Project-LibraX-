@@ -42,7 +42,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="#">Home</a></li>
+        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="/">Home</a></li>
         <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./about.html">About</a></li>
         <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./feature.html">Features</a></li>
         <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./html/admin/books.html">Books</a></li>
@@ -110,34 +110,38 @@
           <!-- Right Side: Form -->
           <div class="contact-form">
             <h3>Send Us a Message</h3>
-            <form action="#">
+            <form action="#" id="contactForm" method="POST">
               <input
                 type="text"
                 class="contact-input"
                 placeholder="Your Name"
+                id="name"
                 required
               />
               <input
                 type="email"
                 class="contact-input"
                 placeholder="Your Email"
+                id="email"
                 required
               />
               <input
                 type="text"
                 class="contact-input"
                 placeholder="Subject"
+                id="subject"
                 required
               />
               <textarea
                 class="contact-input message-box"
                 placeholder="Message"
+                 id="message"
                 required
               ></textarea>
 
               <!-- Submit Button Wrapper -->
              <div class="btn-wrapper" style="max-width: 200px;">
-        <a href="#" class="animated-button">
+        <button  type="submit" class="animated-button">
           <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://display 0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
           </svg>
@@ -146,7 +150,7 @@
           <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
           </svg>
-        </a>
+        </button>
       </div>
             </form>
           </div>
@@ -278,5 +282,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
     <!-- custom js -->
     <script src="./JS/index.js"></script>
+    <script type="module" src="./JS/contact.js"></script>
   </body>
 </html>

@@ -51,20 +51,16 @@
                         <a class="nav-link custom-nav-link" href="../../contact.html">Contact</a>
                     </li>
                     <li class="nav-item ms-lg-3">
-                       <a href="../../login.html"> <button class="animated-button" type="button"  onclick="window.location.href='../html/login.html'">
-                            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-                            </svg>
-
-                            <span class="text">Login</span>
-                            <span class="circle"></span>
-
-                            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-                            </svg>
-                        </button></a>
+                        <a href="../../login.html" class="animated-button nav-btn">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+            </svg>
+            <span class="btn-text">Login</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+            </svg>
+          </a>
                     </li>
                 </ul>
             </div>
@@ -73,18 +69,23 @@
     
     
 
-      <div class="search-filter">
+      <div class="search-filter" >
         <div class="search-box">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Search books..." />
+          <input type="text" id="searchInput" placeholder="Search books..." />
         </div>
 
-        <select class="filter-btn">
-          <option>All Categories</option>
-          <option>Programming</option>
-          <option>Self Help</option>
-          <option>Finance</option>
-          <option>Fantasy</option>
+        <select class="filter-btn" id="categoryFilter">
+          <option value="All Categories">All Categories</option>
+  <option value="fiction">Fiction</option>
+  <option value="non-fiction">Non-Fiction</option>
+  <option value="programming">Programming</option>
+  <option value="science">Science</option>
+  <option value="business">Business</option>
+  <option value="islamic">Islamic</option>
+  <option value="history">History</option>
+  <option value="biography">Biography</option>
+  <option value="children">Children</option>
         </select>
       </div>
     </div>
@@ -116,7 +117,7 @@
           <!-- Logo -->
 
           <div class="col-lg-4 col-md-6 logo-section">
-            <img src="./images/logo3.png" alt="LibraX Logo" />
+            <img src="../../images/logo3.png" alt="LibraX Logo" />
 
             <p class="logo-desc">
               LibraX is a modern and intelligent library management system

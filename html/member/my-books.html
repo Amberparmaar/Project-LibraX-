@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Management System</title>
+    <title>Library Management System - My Books</title>
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
-
 </head>
 
 <body>
@@ -41,7 +40,7 @@
                     </div>
 
                     <div class="menu">
-                        <a href="#">
+                        <a href="../member/member-dashboard.html">
                             <i class="fa-solid fa-house"></i> Dashboard
                         </a>
                         <a href="../member/my-books.html" class="active">
@@ -60,7 +59,7 @@
 
                     <div class="sidebar-footer">
                         <hr>
-                        <a href="#" class="logout">
+                        <a href="#" class="logout" id="logoutBtn">
                             <i class="fa-solid fa-right-from-bracket"></i> Logout
                         </a>
                     </div>
@@ -80,33 +79,10 @@
                                         <th scope="col" class="py-3 px-3 fw-bold text-dark">Fine</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <!-- Dynamically filled via Firebase -->
+                                <tbody id="myBooksTableBody">
                                     <tr>
-                                        <td class="py-3 px-3 fw-bold text-secondary">Atomic Habits</td>
-                                        <td class="py-3 px-3 text-secondary">10 May 2024</td>
-                                        <td class="py-3 px-3 text-secondary">24 May 2024</td>
-                                        <td class="py-3 px-3">
-                                            <span class="badge bg-success-subtle text-success fw-semibold px-3 py-2 rounded-2">Issued</span>
-                                        </td>
-                                        <td class="py-3 px-3 text-secondary">Rs. 0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-3 px-3 fw-bold text-secondary">Deep Work</td>
-                                        <td class="py-3 px-3 text-secondary">12 May 2024</td>
-                                        <td class="py-3 px-3 text-secondary">26 May 2024</td>
-                                        <td class="py-3 px-3">
-                                            <span class="badge bg-success-subtle text-success fw-semibold px-3 py-2 rounded-2">Issued</span>
-                                        </td>
-                                        <td class="py-3 px-3 text-secondary">Rs. 0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-3 px-3 fw-bold text-secondary">The 5 AM Club</td>
-                                        <td class="py-3 px-3 text-secondary">15 May 2024</td>
-                                        <td class="py-3 px-3 text-secondary">29 May 2024</td>
-                                        <td class="py-3 px-3">
-                                            <span class="badge bg-warning-subtle text-warning fw-semibold px-3 py-2 rounded-2">Due Soon</span>
-                                        </td>
-                                        <td class="py-3 px-3 text-secondary">Rs. 0</td>
+                                        <td colspan="5" class="text-center py-4 text-muted">Loading books...</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -123,57 +99,38 @@
         </div>
     </div>
 
-
-
-
+    <!-- Toggle Mobile Menu Script -->
     <script>
-
-
         const menuBtn = document.getElementById("menuBtn");
-
         const sidebar = document.getElementById("sidebar");
-
         const overlay = document.getElementById("overlay");
 
-
-
-        menuBtn.onclick = function () {
-
-
-            sidebar.classList.toggle("show");
-
-            overlay.classList.toggle("show");
-
-
+        if (menuBtn) {
+            menuBtn.onclick = function () {
+                sidebar.classList.toggle("show");
+                overlay.classList.toggle("show");
+            };
         }
 
-
-
-        overlay.onclick = function () {
-
-
-            sidebar.classList.remove("show");
-
-            overlay.classList.remove("show");
-
-
+        if (overlay) {
+            overlay.onclick = function () {
+                sidebar.classList.remove("show");
+                overlay.classList.remove("show");
+            };
         }
-
-
-
     </script>
 
-
-
-
-
-    <!-- bootstrape js -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
         integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
         crossorigin="anonymous"></script>
+
+    <!-- Firebase Logic -->
+     <script type="module" src="../../JS/auth.js"></script>
+    <script type="module" src="../../JS/my-books.js"></script>
 
 </body>
 

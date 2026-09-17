@@ -10,11 +10,10 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- FontAwesome for Social and Contact Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
- <!-- custom css -->
+    <!-- custom css -->
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
-
 </head>
 
 <body>
@@ -22,8 +21,7 @@
     <!-- MOBILE HEADER -->
     <div class="mobile-header">
         <div class="mobile-logo">
-            <!-- Reliable placeholder logo -->
-            <img src="../../images/logo3.png" " alt="Logo">
+            <img src="../../images/logo3.png" alt="Logo">
         </div>
         <button id="menuBtn" aria-label="Toggle Navigation">
             <i class="fa-solid fa-bars"></i>
@@ -56,13 +54,16 @@
 
                     <div class="sidebar-footer">
                         <hr>
-                        <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                        <a href="#" class="logout" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                     </div>
                 </div>
 
                 <!-- WORKSPACE AREA -->
                 <div class="col-lg-10 blank-area">
                     <div class="workspace-container">
+
+                        <!-- Alert Message Placeholder -->
+                        <div id="returnMessage"></div>
 
                         <!-- Table Card wrapper -->
                         <div class="table-card">
@@ -74,8 +75,8 @@
                                 <div class="col-sm-6 d-flex justify-content-sm-end">
                                     <div class="search-wrapper">
                                         <i class="fa-solid fa-magnifying-glass"></i>
-                                        <input type="text" class="form-control search-input"
-                                            placeholder="Search by member ID or name...">
+                                        <input type="text" id="searchInput" class="form-control search-input"
+                                            placeholder="Search by member ID, name, or book...">
                                     </div>
                                 </div>
                             </div>
@@ -94,42 +95,12 @@
                                             <th class="text-end">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <!-- Dynamic Rows target via id -->
+                                    <tbody id="returnBooksTable">
                                         <tr>
-                                            <td>Ali Raza</td>
-                                            <td>Clean Code</td>
-                                            <td>15 May 2024</td>
-                                            <td>29 May 2024</td>
-                                            <td>Rs. 0</td>
-                                            <td class="text-ontime">On Time</td>
-                                            <td class="text-end"><button class="btn btn-return">Return</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sara Khan</td>
-                                            <td>Atomic Habits</td>
-                                            <td>10 May 2024</td>
-                                            <td>24 May 2024</td>
-                                            <td class="text-fine">Rs. 50</td>
-                                            <td class="text-overdue">Overdue</td>
-                                            <td class="text-end"><button class="btn btn-return">Return</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Usman Ahmed</td>
-                                            <td>Deep Work</td>
-                                            <td>16 May 2024</td>
-                                            <td>30 May 2024</td>
-                                            <td>Rs. 0</td>
-                                            <td class="text-ontime">On Time</td>
-                                            <td class="text-end"><button class="btn btn-return">Return</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fatima Noor</td>
-                                            <td>The 5 AM Club</td>
-                                            <td>14 May 2024</td>
-                                            <td>28 May 2024</td>
-                                            <td>Rs. 0</td>
-                                            <td class="text-ontime">On Time</td>
-                                            <td class="text-end"><button class="btn btn-return">Return</button></td>
+                                            <td colspan="7" class="text-center text-secondary py-4">
+                                                Loading issued books...
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -141,13 +112,13 @@
                             <div class="col-md-6">
                                 <div class="kpi-card">
                                     <h2 class="kpi-title">Total Overdue Books</h2>
-                                    <p class="kpi-value">25</p>
+                                    <p class="kpi-value" id="totalOverdueBooks">0</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="kpi-card">
-                                    <h2 class="kpi-title">Total Fine Collected</h2>
-                                    <p class="kpi-value">Rs. 18,500</p>
+                                    <h2 class="kpi-title">Total Fine Calculated</h2>
+                                    <p class="kpi-value" id="totalFineCollected">Rs. 0</p>
                                 </div>
                             </div>
                         </div>
@@ -159,35 +130,15 @@
         </div>
     </div>
 
-
-
-
-    <!-- bootstrape js -->
+    <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
         integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
         crossorigin="anonymous"></script>
-
-
-    <!-- Side Navigation Logic Toggle Script -->
-    <script>
-        const menuBtn = document.getElementById("menuBtn");
-        const sidebar = document.getElementById("sidebar");
-        const overlay = document.getElementById("overlay");
-
-        menuBtn.onclick = function () {
-            sidebar.classList.toggle("show");
-            overlay.classList.toggle("show");
-        };
-
-        overlay.onclick = function () {
-            sidebar.classList.remove("show");
-            overlay.classList.remove("show");
-        };
-    </script>
-
+<script type="module" src="../../JS/auth.js"></script>
+    <script type="module" src="../../JS/return-book.js"></script>
 </body>
 
 </html>

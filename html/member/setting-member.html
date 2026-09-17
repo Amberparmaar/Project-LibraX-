@@ -14,16 +14,14 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
-
 </head>
 
 <body>
 
-
     <!-- MOBILE HEADER -->
     <div class="mobile-header">
         <div class="mobile-logo">
-            <img src="../../images/logo3.png"  alt="Logo">
+            <img src="../../images/logo3.png" alt="Logo">
         </div>
         <button id="menuBtn" aria-label="Toggle Navigation">
             <i class="fa-solid fa-bars"></i>
@@ -37,100 +35,45 @@
             <div class="row g-0">
 
                 <div class="col-lg-2 sidebar" id="sidebar">
-
-
-
                     <div class="logo desktop-logo">
-
-
                         <img src="../../images/logo3.png" alt="Logo">
-
-
                     </div>
-
-
-
-
 
                     <div class="menu">
-
-
                         <a href="#">
-
                             <i class="fa-solid fa-house"></i>
-
                             Dashboard
-
                         </a>
-
-
-
                         <a href="../member/my-books.html">
-
                             <i class="fa-solid fa-book"></i>
-
                             My Books
-
                         </a>
-
                         <a href="../member/ID-card.html">
-
                             <i class="fa-solid fa-id-card"></i>
-
                             Membership Cards
-
                         </a>
-
-
-
-                        <a href="../member/notifications.html">
-
-                            <i class="fa-solid fa-bell"></i>
-
-                            Notifications
-
-                        </a>
-
-
-
+                        
                         <a href="../member/setting-member.html" class="active">
-
                             <i class="fa-solid fa-gear"></i>
-
                             Settings
-
                         </a>
-
-
-
                     </div>
-
-
 
                     <div class="sidebar-footer">
-
-
                         <hr>
-
-
-                        <a href="#" class="logout">
-
+                        <a href="#" class="logout" id="logoutBtn">
                             <i class="fa-solid fa-right-from-bracket"></i>
-
                             Logout
-
                         </a>
-
-
                     </div>
-
                 </div>
 
-
-                 <!-- WORKSPACE AREA -->
-                <!-- Note: changed align-items-center to align-items-start so tab height changes don't shift content vertically -->
+                <!-- WORKSPACE AREA -->
                 <div class="col-12 col-lg-10 blank-area d-flex align-items-start">
                     <div class="container-fluid p-4">
+
+                        <!-- Alert Messages Container -->
+                        <div id="settingsMessage"></div>
 
                         <!-- Settings Main Card -->
                         <div class="card border-0 bg-white rounded-4 p-4 shadow-sm w-100 settings-card">
@@ -177,11 +120,11 @@
                                                             <!-- User Header -->
                                                             <div class="d-flex align-items-center gap-3 mb-4">
                                                                 <div class="rounded-circle overflow-hidden bg-light flex-shrink-0" style="width: 72px; height: 72px;">
-                                                                    <img src="../../images/user-avatar.png" alt="Ali Raza" class="w-100 h-100 object-fit-cover">
+                                                                    <img id="profileAvatar" src="../../images/user-avatar.png" alt="User Avatar" class="w-100 h-100 object-fit-cover">
                                                                 </div>
                                                                 <div>
-                                                                    <h5 class="fw-bold mb-0 text-dark">Ali Raza</h5>
-                                                                    <span class="text-muted small">M00123</span>
+                                                                    <h5 id="profileDisplayName" class="fw-bold mb-0 text-dark">User</h5>
+                                                                    <span id="profileMemberId" class="text-muted small">ID</span>
                                                                 </div>
                                                             </div>
 
@@ -189,17 +132,22 @@
                                                             <form id="profileInfoForm">
                                                                 <div class="mb-3">
                                                                     <label class="form-label text-secondary fw-semibold small mb-1" for="fullName">Full Name</label>
-                                                                    <input type="text" class="form-control bg-light border-light-subtle rounded-3 py-2 px-3 text-dark" id="fullName" value="Ali Raza">
+                                                                    <input type="text" class="form-control bg-light border-light-subtle rounded-3 py-2 px-3 text-dark" id="fullName" placeholder="Full Name" required>
                                                                 </div>
 
                                                                 <div class="mb-3">
                                                                     <label class="form-label text-secondary fw-semibold small mb-1" for="emailAddr">Email</label>
-                                                                    <input type="email" class="form-control bg-light border-light-subtle rounded-3 py-2 px-3 text-dark" id="emailAddr" value="ali@example.com">
+                                                                    <input type="email" class="form-control bg-light border-light-subtle rounded-3 py-2 px-3 text-dark" id="emailAddr" placeholder="Email Address" required>
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label class="form-label text-secondary fw-semibold small mb-1" for="phoneNum">Phone</label>
+                                                                    <input type="text" class="form-control bg-light border-light-subtle rounded-3 py-2 px-3 text-dark" id="phoneNum" placeholder="Phone Number">
                                                                 </div>
 
                                                                 <div class="mb-4">
-                                                                    <label class="form-label text-secondary fw-semibold small mb-1" for="phoneNum">Phone</label>
-                                                                    <input type="text" class="form-control bg-light border-light-subtle rounded-3 py-2 px-3 text-dark" id="phoneNum" value="+92 300 1234567">
+                                                                    <label class="form-label text-secondary fw-semibold small mb-1" for="profileImageInput">Profile Picture</label>
+                                                                    <input type="file" class="form-control bg-light border-light-subtle rounded-3 py-2 px-3" id="profileImageInput" accept="image/*">
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -218,18 +166,18 @@
 
                                                             <form id="changePasswordForm">
                                                                 <div class="mb-3">
-                                                                    <label class="form-label text-secondary fw-semibold small mb-1" for="currentPassword">Current Password</label>
-                                                                    <input type="password" class="form-control bg-light border-light-subtle rounded-3 py-2 px-3" id="currentPassword" placeholder="Enter current password">
+                                                                    <label class="form-label text-secondary fw-semibold small mb-1" for="currentPasswordInput">Current Password</label>
+                                                                    <input type="password" class="form-control bg-light border-light-subtle rounded-3 py-2 px-3" id="currentPasswordInput" placeholder="Enter current password" required>
                                                                 </div>
 
                                                                 <div class="mb-3">
-                                                                    <label class="form-label text-secondary fw-semibold small mb-1" for="newPassword">New Password</label>
-                                                                    <input type="password" class="form-control bg-light border-light-subtle rounded-3 py-2 px-3" id="newPassword" placeholder="Enter new password">
+                                                                    <label class="form-label text-secondary fw-semibold small mb-1" for="newPasswordInput">New Password</label>
+                                                                    <input type="password" class="form-control bg-light border-light-subtle rounded-3 py-2 px-3" id="newPasswordInput" placeholder="Enter new password" required>
                                                                 </div>
 
                                                                 <div class="mb-4">
-                                                                    <label class="form-label text-secondary fw-semibold small mb-1" for="confirmPassword">Confirm Password</label>
-                                                                    <input type="password" class="form-control bg-light border-light-subtle rounded-3 py-2 px-3" id="confirmPassword" placeholder="Confirm new password">
+                                                                    <label class="form-label text-secondary fw-semibold small mb-1" for="confirmPasswordInput">Confirm Password</label>
+                                                                    <input type="password" class="form-control bg-light border-light-subtle rounded-3 py-2 px-3" id="confirmPasswordInput" placeholder="Confirm new password" required>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -246,7 +194,8 @@
                                         <!-- 2. SECURITY TAB -->
                                         <div class="tab-pane fade" id="content-security" role="tabpanel" aria-labelledby="tab-security">
                                             <h6 class="section-title">Security Configuration</h6>
-                                            <p class="text-secondary" style="font-size: 14px;">Access rules and database backups can be set here. Enabled automatically.</p>
+                                            <p class="text-secondary" style="font-size: 14px;">Email: <strong id="securityEmail">-</strong></p>
+                                            <p class="text-secondary" style="font-size: 14px;">Status: <span id="accountStatus" class="badge bg-info">-</span></p>
                                         </div>
 
                                         <!-- 3. APPEARANCE TAB -->
@@ -275,16 +224,7 @@
         </div>
     </div>
 
-
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-    <!-- bootstrape js -->
+    <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
@@ -292,23 +232,28 @@
         integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
         crossorigin="anonymous"></script>
 
-
     <!-- Side Navigation Logic Toggle Script -->
     <script>
         const menuBtn = document.getElementById("menuBtn");
         const sidebar = document.getElementById("sidebar");
         const overlay = document.getElementById("overlay");
 
-        menuBtn.onclick = function () {
-            sidebar.classList.toggle("show");
-            overlay.classList.toggle("show");
-        };
+        if (menuBtn) {
+            menuBtn.onclick = function () {
+                sidebar.classList.toggle("show");
+                overlay.classList.toggle("show");
+            };
+        }
 
-        overlay.onclick = function () {
-            sidebar.classList.remove("show");
-            overlay.classList.remove("show");
-        };
+        if (overlay) {
+            overlay.onclick = function () {
+                sidebar.classList.remove("show");
+                overlay.classList.remove("show");
+            };
+        }
     </script>
+    <script type="module" src="../../JS/auth.js"></script>
+    <script type="module" src="../../JS/setting-member.js"></script>
 
 </body>
 

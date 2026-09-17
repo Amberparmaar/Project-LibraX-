@@ -1,4 +1,3 @@
-// js/auth.js
 import { 
   registerUser, 
   loginUser, 
@@ -38,9 +37,8 @@ document.getElementById("registerForm")?.addEventListener("submit", async (e) =>
   const password = document.getElementById("password").value;
    const contact = document.getElementById("contact").value;
   const role = document.getElementById("role").value;
-  
-  const result = await registerUser(email, password, name,contact, role);
-  
+  const department = document.getElementById("registerDepartment")?.value || "";
+    const result = await registerUser(name,email,password,contact,role,department);
   if (result.success) {
     alert("Account Created");
     window.location.href = "login.html";
@@ -72,7 +70,7 @@ document.getElementById("forgotPasswordForm")?.addEventListener("submit", async 
 });
 
 // google auth
-document.getElementById('googleBtn').addEventListener('click', async () => {
+document.getElementById('googleBtn')?.addEventListener('click', async () => {
   const result = await googleSignIn('user'); // Default role 'user'
   if (result.success) {
     console.log("Logged in user:", result.user);

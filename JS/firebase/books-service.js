@@ -17,6 +17,7 @@ export async function addBook(bookData) {
     const docRef = await addDoc(collection(db, "books"), {
       title: bookData.title,
       author: bookData.author,
+     
       isbn: bookData.isbn,
       category: bookData.category,
       totalCopies: parseInt(bookData.totalCopies),
@@ -65,24 +66,32 @@ export async function searchBooks(searchTerm) {
   }
 }
 
-// 4. update
+// 4. UPDATE BOOK
 export async function updateBook(bookId, bookData) {
   try {
     const bookRef = doc(db, "books", bookId);
+
     await updateDoc(bookRef, {
       title: bookData.title,
       author: bookData.author,
-      isbn: bookData.isbn,
+      price: bookData.price || "",
+      isbn: bookData.isbn || "",
       category: bookData.category,
-      totalCopies: parseInt(bookData.totalCopies),
-      description: bookData.description,
+      totalCopies: parseInt(bookData.totalCopies) || 0,
+      availableCopies: parseInt(bookData.availableCopies) || 0,
+      description: bookData.description || "",
+      coverImage: bookData.coverImage || "",
       updatedAt: new Date()
     });
+
     return { success: true };
+
   } catch (error) {
+    console.error("Update Book Error:", error);
     return { success: false, error: error.message };
   }
 }
+
 
 // 5 DELETE 
 export async function deleteBook(bookId) {

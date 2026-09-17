@@ -12,7 +12,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 import { db } from "./firebase-config.js";
 
-// 1. نیا رکن شامل کریں
 export async function addMember(memberData) {
   try {
     const docRef = await addDoc(collection(db, "members"), {
@@ -21,7 +20,7 @@ export async function addMember(memberData) {
       phone: memberData.phone,
       address: memberData.address,
       joinDate: new Date(),
-      membershipStatus: "active", // active یا inactive
+      membershipStatus: "active",
       membershipExpiry: memberData.membershipExpiry || null,
       booksIssued: 0,
       fineAmount: 0,
@@ -33,7 +32,7 @@ export async function addMember(memberData) {
   }
 }
 
-// 2. تمام اراکین حاصل کریں
+
 export async function getAllMembers() {
   try {
     const q = query(collection(db, "members"), orderBy("name"));
@@ -48,7 +47,7 @@ export async function getAllMembers() {
   }
 }
 
-// 3. رکن تلاش کریں
+
 export async function searchMembers(searchTerm) {
   try {
     const allMembersResult = await getAllMembers();
@@ -66,7 +65,7 @@ export async function searchMembers(searchTerm) {
   }
 }
 
-// 4. رکن کو UPDATE کریں
+
 export async function updateMember(memberId, memberData) {
   try {
     const memberRef = doc(db, "members", memberId);
@@ -83,7 +82,7 @@ export async function updateMember(memberId, memberData) {
   }
 }
 
-// 5. رکن DELETE کریں
+
 export async function deleteMember(memberId) {
   try {
     await deleteDoc(doc(db, "members", memberId));
@@ -93,7 +92,7 @@ export async function deleteMember(memberId) {
   }
 }
 
-// 6. Active اراکین حاصل کریں
+
 export async function getActiveMembers() {
   try {
     const allMembersResult = await getAllMembers();
