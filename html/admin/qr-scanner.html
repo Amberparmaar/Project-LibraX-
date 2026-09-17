@@ -1,19 +1,29 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR-Scanner</title>
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <!-- FontAwesome for Social and Contact Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- custom css -->
+
+    <title>QR Scanner | LibraX</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
+
+    <!-- QR Scanner Library -->
+    <script src="https://unpkg.com/html5-qrcode" defer></script>
 
 </head>
 
@@ -21,49 +31,124 @@
 
 
     <!-- MOBILE HEADER -->
+
     <div class="mobile-header">
+
         <div class="mobile-logo">
-            <!-- Replaced with a reliable placeholder logo so you can preview layout structure immediately -->
-            <img src="../../images/logo1.png" alt="Logo">
+
+            <img src="../../images/logo1.png" alt="LibraX Logo">
+
         </div>
+
         <button id="menuBtn" aria-label="Toggle Navigation">
+
             <i class="fa-solid fa-bars"></i>
+
         </button>
+
     </div>
+
 
     <div class="overlay" id="overlay"></div>
 
+
     <div class="dashboard container-fluid p-0">
+
         <div class="main-card">
+
             <div class="row g-0">
 
+
                 <!-- SIDEBAR -->
+
                 <div class="col-lg-2 sidebar" id="sidebar">
+
                     <div class="logo desktop-logo">
-                        <img src="../../images/logo3.png" alt="Logo">
+
+                        <img src="../../images/logo3.png" alt="LibraX Logo">
+
                     </div>
 
 
                     <div class="menu">
-                        <a href="#"><i class="fa-solid fa-house"></i> Dashboard</a>
-                        <a href="./books.html"><i class="fa-solid fa-book"></i> Books</a>
-                        <a href="../member/members.html"><i class="fa-solid fa-users"></i> Members</a>
-                        <a href="../admin/qr-scanner.html" class="active"><i class="fa-solid fa-qrcode"></i> QR Scanner</a>
-                        <a href="../admin/issue-book.html" ><i class="fa-solid fa-book-open"></i> Issue
-                            Book</a>
-                        <a href="../admin/return-book.html"><i class="fa-solid fa-arrow-rotate-left"></i> Return
-                            Book</a>
-                        <a href="../admin/issue-book.html"><i class="fa-solid fa-chart-line"></i> Reports</a>
-                        <a href="../admin/setting.html"><i class="fa-solid fa-gear"></i> Settings</a>
-                    </div>
 
+                        <a href="#">
+
+                            <i class="fa-solid fa-house"></i>
+
+                            Dashboard
+
+                        </a>
+
+
+                        <a href="./books.html">
+
+                            <i class="fa-solid fa-book"></i>
+
+                            Books
+
+                        </a>
+
+
+                        <a href="../member/members.html">
+
+                            <i class="fa-solid fa-users"></i>
+
+                            Members
+
+                        </a>
+
+
+                        <a href="./qr-scanner.html" class="active">
+
+                            <i class="fa-solid fa-qrcode"></i>
+
+                            QR Scanner
+
+                        </a>
+
+
+                        <a href="./issue-book.html">
+
+                            <i class="fa-solid fa-book-open"></i>
+
+                            Issue Book
+
+                        </a>
+
+
+                        <a href="./return-book.html">
+
+                            <i class="fa-solid fa-arrow-rotate-left"></i>
+
+                            Return Book
+
+                        </a>
+
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                            Reports
+
+                        </a>
+
+
+                        <a href="./setting.html">
+
+                            <i class="fa-solid fa-gear"></i>
+
+                            Settings
+
+                        </a>
+
+                    </div>
 
 
                     <div class="sidebar-footer">
 
-
                         <hr>
-
 
                         <a href="#" class="logout">
 
@@ -73,124 +158,400 @@
 
                         </a>
 
-
                     </div>
 
+
                 </div>
+
+
 
                 <!-- WORKSPACE AREA -->
+
                 <div class="col-lg-10 blank-area">
+
                     <div class="container-fluid p-4">
+
                         <div class="row g-4">
 
-                            <!-- Left Side: Scan QR Code Card -->
+
+
+                            <!-- LEFT SIDE: SCANNER CARD -->
+
                             <div class="col-12 col-md-5 col-xl-4">
+
                                 <div class="card border-0 bg-white rounded-4 p-4 shadow-sm">
-                                    <h5 class="fw-bold mb-4 text-dark" style="color: #06285c !important;">Scan QR Code
+
+
+                                    <h5 class="fw-bold mb-4"
+                                        style="color: #06285c !important;">
+
+                                        Scan QR Code
+
                                     </h5>
 
-                                    <!-- Scanner Box UI Component -->
-                                    <div class="scanner-view mb-4 shadow-sm">
-                                        <div class="corner top-left"></div>
-                                        <div class="corner top-right"></div>
-                                        <div class="corner bottom-left"></div>
-                                        <div class="corner bottom-right"></div>
+
+                                    <!-- REAL CAMERA SCANNER -->
+
+                                    <div id="reader"
+                                        class="mb-3"
+                                        style="width: 100%; min-height: 180px;">
+
                                     </div>
 
-                                    <!-- Scan Trigger Button -->
-                                    <div class="text-center w-100">
-                                        <button class="btn btn-primary px-4 py-2-5 w-100 fw-medium rounded-3"
-                                            style="background-color: #2563EB; border: none; padding: 12px;">
-                                            <i class="fa-solid fa-qrcode me-2"></i> Start Scanner
-                                        </button>
+
+                                    <!-- SCANNER STATUS -->
+
+                                    <div id="scannerStatus"
+                                        class="text-center small text-muted mb-3"
+                                        aria-live="polite">
+
+                                        Ready to scan
+
                                     </div>
+
+
+                                    <!-- START SCANNER BUTTON -->
+
+                                    <button id="startScannerBtn"
+                                        class="btn btn-primary w-100 fw-medium rounded-3 mb-2"
+                                        style="background-color: #2563EB; border: none; padding: 12px;">
+
+                                        <i class="fa-solid fa-camera me-2"></i>
+
+                                        Start Scanner
+
+                                    </button>
+
+
+                                    <!-- STOP SCANNER BUTTON -->
+
+                                    <button id="stopScannerBtn"
+                                        class="btn btn-outline-danger w-100 rounded-3 mb-2"
+                                        style="display: none;">
+
+                                        <i class="fa-solid fa-stop me-2"></i>
+
+                                        Stop Scanner
+
+                                    </button>
+
+
+                                    <!-- ERROR MESSAGE -->
+
+                                    <div id="scannerError"
+                                        class="alert alert-danger mt-3 d-none"
+                                        role="alert">
+
+                                    </div>
+
+
                                 </div>
+
                             </div>
 
-                            <!-- Right Side: Scan Result Information Container -->
+
+
+                            <!-- RIGHT SIDE: RESULT CARD -->
+
                             <div class="col-12 col-md-7 col-xl-8">
+
                                 <div class="card border-0 bg-white rounded-4 p-4 shadow-sm">
-                                    <h5 class="fw-bold mb-4 text-dark" style="color: #06285c !important;">Scan Result
+
+
+                                    <h5 class="fw-bold mb-4"
+                                        style="color: #06285c !important;">
+
+                                        Scan Result
+
                                     </h5>
 
-                                    <!-- Member Details Wrapper -->
-                                    <div class="d-flex align-items-center gap-3 mb-4">
-                                        <img src="https://via.placeholder.com/120x38/06285c/ffffff?text=LibraX"
-                                            alt="Member Photo" class="member-profile-img">
-                                        <div>
-                                            <h4 class="mb-1 fw-bold text-dark" style="color: #06285c !important;">Ali
-                                                Raza</h4>
-                                            <div class="fw-semibold text-primary mb-2"
-                                                style="color: #2563EB !important;">M001</div>
-                                            <span class="badge-active">Active Member</span>
-                                        </div>
+
+
+                                    <!-- EMPTY RESULT -->
+
+                                    <div id="emptyResult"
+                                        class="text-center py-5">
+
+
+                                        <i class="fa-solid fa-qrcode fa-3x mb-3"
+                                            style="color: #2563EB;">
+
+                                        </i>
+
+
+                                        <h6 class="fw-bold text-dark">
+
+                                            No Member Scanned
+
+                                        </h6>
+
+
+                                        <p class="text-muted mb-0">
+
+                                            Scan a member QR code to view details.
+
+                                        </p>
+
+
                                     </div>
 
-                                    <!-- Profile Data Rows -->
-                                    <div class="container-fluid p-0 mb-4">
-                                        <div class="row info-row border-bottom g-0">
-                                            <div class="col-6 info-label">Department</div>
-                                            <div class="col-6 info-value">Computer Science</div>
+
+
+                                    <!-- DYNAMIC MEMBER RESULT -->
+
+                                    <div id="memberResult"
+                                        class="d-none">
+
+
+                                        <!-- MEMBER PROFILE -->
+
+                                        <div class="d-flex align-items-center gap-3 mb-4">
+
+
+                                            <img id="memberPhoto"
+                                                src="../../images/default-profile.png"
+                                                alt="Member Photo"
+                                                class="member-profile-img"
+                                                style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%;">
+
+
+                                            <div>
+
+
+                                                <h4 id="memberName"
+                                                    class="mb-1 fw-bold"
+                                                    style="color: #06285c !important;">
+
+                                                    —
+
+                                                </h4>
+
+
+                                                <div id="memberId"
+                                                    class="fw-semibold text-primary mb-2">
+
+                                                    —
+
+                                                </div>
+
+
+                                                <span id="memberStatus"
+                                                    class="badge-active">
+
+                                                    —
+
+                                                </span>
+
+
+                                            </div>
+
+
                                         </div>
-                                        <div class="row info-row border-bottom g-0">
-                                            <div class="col-6 info-label">Email</div>
-                                            <div class="col-6 info-value text-truncate">ali@example.com</div>
+
+
+
+                                        <!-- MEMBER DETAILS -->
+
+                                        <div class="container-fluid p-0 mb-4">
+
+
+                                            <div class="row info-row border-bottom g-0">
+
+                                                <div class="col-6 info-label">
+
+                                                    Department
+
+                                                </div>
+
+                                                <div class="col-6 info-value"
+                                                    id="memberDepartment">
+
+                                                    —
+
+                                                </div>
+
+                                            </div>
+
+
+
+                                            <div class="row info-row border-bottom g-0">
+
+                                                <div class="col-6 info-label">
+
+                                                    Email
+
+                                                </div>
+
+                                                <div class="col-6 info-value text-truncate"
+                                                    id="memberEmail">
+
+                                                    —
+
+                                                </div>
+
+                                            </div>
+
+
+
+                                            <div class="row info-row border-bottom g-0">
+
+                                                <div class="col-6 info-label">
+
+                                                    Phone
+
+                                                </div>
+
+                                                <div class="col-6 info-value"
+                                                    id="memberPhone">
+
+                                                    —
+
+                                                </div>
+
+                                            </div>
+
+
+
+                                            <div class="row info-row border-bottom g-0">
+
+                                                <div class="col-6 info-label">
+
+                                                    Books Borrowed
+
+                                                </div>
+
+                                                <div class="col-6 info-value"
+                                                    id="memberBorrowed">
+
+                                                    0
+
+                                                </div>
+
+                                            </div>
+
+
+
+                                            <div class="row info-row border-bottom g-0">
+
+                                                <div class="col-6 info-label">
+
+                                                    Overdue Books
+
+                                                </div>
+
+                                                <div class="col-6 info-value text-danger fw-bold"
+                                                    id="memberOverdue">
+
+                                                    0
+
+                                                </div>
+
+                                            </div>
+
+
+
+                                            <div class="row info-row g-0 pt-2">
+
+                                                <div class="col-6 info-label">
+
+                                                    Total Fine
+
+                                                </div>
+
+                                                <div class="col-6 info-value text-danger fw-bold"
+                                                    id="memberFine">
+
+                                                    Rs. 0
+
+                                                </div>
+
+                                            </div>
+
+
                                         </div>
-                                        <div class="row info-row border-bottom g-0">
-                                            <div class="col-6 info-label">Phone</div>
-                                            <div class="col-6 info-value">+92 300 1234567</div>
-                                        </div>
-                                        <div class="row info-row border-bottom g-0">
-                                            <div class="col-6 info-label">Books Borrowed</div>
-                                            <div class="col-6 info-value">2</div>
-                                        </div>
-                                        <div class="row info-row border-bottom g-0">
-                                            <div class="col-6 info-label">Overdue Books</div>
-                                            <div class="col-6 info-value text-danger fw-bold">0</div>
-                                        </div>
-                                        <div class="row info-row g-0 pt-2">
-                                            <div class="col-6 info-label">Total Fine</div>
-                                            <div class="col-6 info-value text-danger fw-bold">Rs. 0</div>
-                                        </div>
+
+
+
+                                        <!-- CLEAR RESULT BUTTON -->
+
+                                        <button id="clearResultBtn"
+                                            class="btn btn-outline-secondary rounded-3">
+
+                                            <i class="fa-solid fa-rotate-left me-2"></i>
+
+                                            Clear Result
+
+                                        </button>
+
+
                                     </div>
 
-                                    <!-- Action Trigger Action Button -->
-                                    
 
                                 </div>
+
                             </div>
+
 
                         </div>
+
                     </div>
+
                 </div>
 
-            </div>
-        </div>
-    </div>
-    <!-- bootstrape js -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-        crossorigin="anonymous"></script>
 
-    <!-- Side Navigation Logic Toggle Script -->
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- BOOTSTRAP JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <!-- SIDEBAR TOGGLE -->
+
     <script>
+
         const menuBtn = document.getElementById("menuBtn");
+
         const sidebar = document.getElementById("sidebar");
+
         const overlay = document.getElementById("overlay");
 
+
         menuBtn.onclick = function () {
+
             sidebar.classList.toggle("show");
+
             overlay.classList.toggle("show");
+
         };
 
+
         overlay.onclick = function () {
+
             sidebar.classList.remove("show");
+
             overlay.classList.remove("show");
+
         };
+
     </script>
+
+
+
+    <!-- QR SCANNER JS -->
+
+    <script type="module"
+        src="../../JS/qr-scanner.js">
+
+    </script>
+
 
 </body>
 

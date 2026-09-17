@@ -1,5 +1,6 @@
 /* font poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -300,8 +301,9 @@ a {
   flex: 1;
   max-width: 550px;
 }
-.hero-content h1{
- color: var(--primary-color);
+
+.hero-content h1 {
+  color: var(--primary-color);
 }
 
 .hero-image {
@@ -367,12 +369,27 @@ a {
     left: 0;
   }
 
-  .menu-icon::before { top: -7px; }
-  .menu-icon::after { top: 7px; }
+  .menu-icon::before {
+    top: -7px;
+  }
 
-  .navbar-toggler[aria-expanded="true"] .menu-icon { background: transparent; }
-  .navbar-toggler[aria-expanded="true"] .menu-icon::before { transform: rotate(45deg); top: 0; }
-  .navbar-toggler[aria-expanded="true"] .menu-icon::after { transform: rotate(-45deg); top: 0; }
+  .menu-icon::after {
+    top: 7px;
+  }
+
+  .navbar-toggler[aria-expanded="true"] .menu-icon {
+    background: transparent;
+  }
+
+  .navbar-toggler[aria-expanded="true"] .menu-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  .navbar-toggler[aria-expanded="true"] .menu-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
 }
 
 @media (max-width: 576px) {
@@ -381,6 +398,7 @@ a {
     max-width: 100%;
   }
 }
+
 /* ========button styling end============= */
 
 .continue {
@@ -412,10 +430,11 @@ a {
 .social-btn img {
   width: 28px;
 }
+
 /* ragister page */
 
 .register {
- 
+
   text-align: center;
 
   font-size: 14px;
@@ -444,7 +463,7 @@ a {
   border-radius: 20px;
 
   padding: 45px;
-margin-top: 50px;
+  margin-top: 50px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
@@ -493,12 +512,10 @@ h2 {
   left: 5%;
   right: 5%;
   height: 3px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--laser-color),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      var(--laser-color),
+      transparent);
   box-shadow: 0 0 8px var(--laser-color);
 }
 
@@ -583,6 +600,15 @@ h2 {
 /* 1. The Main Outer Container */
 .workspace-container {
   padding: 30px;
+}
+
+/* 2. The Table Card wrapper */
+.table-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px var(--shadow-light);
+  margin-bottom: 24px;
 }
 
 /* 3. Title & Search Area */
@@ -976,6 +1002,7 @@ p {
 .sidebar.show {
   transform: translateX(0) !important;
 }
+
 .logo {
   display: flex;
 
@@ -1420,6 +1447,7 @@ tbody tr:hover {
     gap: 15px;
   }
 }
+
 /* navbar css */
 /* Navbar Login Button */
 .navigation .nav-btn {
@@ -1448,7 +1476,7 @@ tbody tr:hover {
 }
 
 .contact-card {
-    margin-top: 60px;
+  margin-top: 60px;
   background: var(--white);
 
   border-radius: 20px;
@@ -1571,6 +1599,7 @@ tbody tr:hover {
 
   background-color: var(--background-color) !important;
 }
+
 .btn-container .animated-button:hover {
   background-color: var(--primary-color) !important;
 }
@@ -1756,9 +1785,11 @@ tbody tr:hover {
 /* FIX 1: New styling for the content wrapper to place it on top */
 .card-content {
   display: flex;
-  flex-direction: row; /* Horizontal alignment for icon/text */
+  flex-direction: row;
+  /* Horizontal alignment for icon/text */
   align-items: center;
-  gap: 15px; /* Spacing between icon and text */
+  gap: 15px;
+  /* Spacing between icon and text */
   /* This places the content on top of .bg */
   position: relative;
   z-index: 5;
@@ -1786,7 +1817,8 @@ p {
 }
 
 .card-icon.blue {
-  color: #007bff; /* Explicit blue color */
+  color: #007bff;
+  /* Explicit blue color */
 }
 
 /* ======================================================================
@@ -1801,7 +1833,8 @@ p {
 .navigation .custom-nav-link {
   position: relative;
   text-decoration: none;
-  padding-bottom: 5px; /* Text aur line ke beech ka space */
+  padding-bottom: 5px;
+  /* Text aur line ke beech ka space */
   transition: color 0.3s ease;
 }
 
@@ -1812,9 +1845,12 @@ p {
   bottom: 0;
   left: 0;
   width: 0%;
-  height: 3px; /* Line ki thickness */
-  background-color: #2563eb; /* Aapka preferred blue color */
-  transition: width 0.4s ease-in-out; /* Smooth slide animation */
+  height: 3px;
+  /* Line ki thickness */
+  background-color: #2563eb;
+  /* Aapka preferred blue color */
+  transition: width 0.4s ease-in-out;
+  /* Smooth slide animation */
   border-radius: 2px;
 }
 
@@ -1831,7 +1867,7 @@ p {
 
 .custom-nav-link {
   position: relative;
-  color: #333; 
+  color: #333;
   font-weight: 600;
   text-decoration: none;
   padding-bottom: 5px !important;
@@ -1843,12 +1879,14 @@ p {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0; /* Shuru mein line chupayi hui hai */
-  height: 3px; /* Line ki thickness */
-  background-color: var(
-    --theme-color
-  ); /* Video waala green color (aap change kar sakte hain) */
-  transition: width 0.4s ease; /* Smooth transition effect */
+  width: 0;
+  /* Shuru mein line chupayi hui hai */
+  height: 3px;
+  /* Line ki thickness */
+  background-color: var(--theme-color);
+  /* Video waala green color (aap change kar sakte hain) */
+  transition: width 0.4s ease;
+  /* Smooth transition effect */
 }
 
 /* Hover karne par line poori 100% wide ho jayegi */
@@ -1873,18 +1911,20 @@ p {
 
 /* Toggler button ka custom background color */
 .navigation .navbar-toggler {
-  background-color: var(
-    --background-color
-  ); /* Apni pasand ka color code yahan daalein */
-  border: 1px solid transparent; /* Border remove ya change karne ke liye */
+  background-color: var(--background-color);
+  /* Apni pasand ka color code yahan daalein */
+  border: 1px solid transparent;
+  /* Border remove ya change karne ke liye */
   padding: 6px 10px;
-  box-shadow: none !important; /* Click hone par blue focus ring hatane ke liye */
+  box-shadow: none !important;
+  /* Click hone par blue focus ring hatane ke liye */
 }
 
 /* Jab toggler button par hover ya click ho */
 .navigation .navbar-toggler:hover,
 .navigation .navbar-toggler:focus {
-  background-color: var(--background-color); /* Hover background color */
+  background-color: var(--background-color);
+  /* Hover background color */
 }
 
 /* Hamburger icon (lines) ka color white/custom karne ke liye */
@@ -1900,7 +1940,7 @@ p {
   min-height: 100vh;
   background-color: var(--background-color);
   display: flex;
- 
+
   color: black !important;
 }
 
@@ -1922,7 +1962,7 @@ p {
   padding: 2rem 3rem 2rem 2rem;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
-  
+
 }
 
 img {
@@ -2081,15 +2121,19 @@ img {
   0% {
     transform: translate(-100%, -100%);
   }
+
   25% {
     transform: translate(0%, -100%);
   }
+
   50% {
     transform: translate(0%, 0%);
   }
+
   75% {
     transform: translate(-100%, 0%);
   }
+
   100% {
     transform: translate(-100%, -100%);
   }
@@ -2447,12 +2491,10 @@ img {
   justify-content: center;
 
   border-radius: 10px;
-  background: radial-gradient(
-    circle at 55% 55%,
-    rgba(219, 234, 254, 0.9),
-    rgba(248, 250, 252, 0.95) 60%,
-    #f8fafc 100%
-  );
+  background: radial-gradient(circle at 55% 55%,
+      rgba(219, 234, 254, 0.9),
+      rgba(248, 250, 252, 0.95) 60%,
+      #f8fafc 100%);
 
   overflow: hidden;
 }
@@ -2782,9 +2824,11 @@ img {
   object-fit: cover;
   border-radius: 4px;
 }
+
 .thumbnails button {
   background-color: var(--background-color) !important;
 }
+
 /* =========================================================
    RIGHT SIDE - INFORMATION
 ========================================================= */
@@ -3140,6 +3184,7 @@ img {
   border-color: #fecaca;
   background: #fff5f5;
 }
+
 .dot-read {
   background-color: #cbd5e1;
 }
@@ -3254,7 +3299,7 @@ h4 {
   padding: 24px;
 }
 
-.sidebar.open ~ .home-section {
+.sidebar.open~.home-section {
   left: 250px;
   width: calc(100% - 250px);
 }
@@ -3267,7 +3312,7 @@ h4 {
 }
 
 /* /////////////////////////////// */
-.sidebar.open ~ .container {
+.sidebar.open~.container {
   width: calc(100% - 250px);
   margin-left: 250px;
 }
@@ -3426,7 +3471,8 @@ input:hover {
   gap: 24px;
   padding: 20px;
   font-family: "Poppins", sans-serif;
-  background-color: var(--bg-color); /* Dashboard wrapper light background */
+  background-color: var(--bg-color);
+  /* Dashboard wrapper light background */
   margin-top: 20px;
 }
 
@@ -3479,9 +3525,12 @@ input:hover {
 .issued-color {
   background-color: var(--primary-blue);
 }
+
 .returned-color {
   background-color: #f43f5e;
-} /* Coral Pink color */
+}
+
+/* Coral Pink color */
 
 /* --- Mock Bar Chart Styling --- */
 .mock-bar-chart {
@@ -3531,6 +3580,7 @@ input:hover {
 .bar.issued {
   background-color: var(--primary-blue);
 }
+
 .bar.returned {
   background-color: #f43f5e;
 }
@@ -3564,14 +3614,12 @@ input:hover {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: conic-gradient(
-    #1b49f4 0% 35%,
-    #00bac7 35% 55%,
-    #ffb800 55% 70%,
-    #ff4b5c 70% 85%,
-    #9b51e0 85% 95%,
-    #a0aec0 95% 100%
-  );
+  background: conic-gradient(#1b49f4 0% 35%,
+      #00bac7 35% 55%,
+      #ffb800 55% 70%,
+      #ff4b5c 70% 85%,
+      #9b51e0 85% 95%,
+      #a0aec0 95% 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3608,18 +3656,23 @@ input:hover {
 .cs-dot {
   background-color: #1b49f4;
 }
+
 .prog-dot {
   background-color: #00bac7;
 }
+
 .sci-dot {
   background-color: #ffb800;
 }
+
 .mgmt-dot {
   background-color: #ff4b5c;
 }
+
 .hist-dot {
   background-color: #9b51e0;
 }
+
 .other-dot {
   background-color: #a0aec0;
 }
@@ -3748,12 +3801,14 @@ input:hover {
   margin-left: 260px !important;
   width: calc(100% - 260px) !important;
 }
+
 .dashboardcards {
   display: flex;
   gap: 3rem;
   padding: 1rem;
   flex-wrap: wrap !important;
 }
+
 /* Card Container */
 .dash-card {
   position: relative;

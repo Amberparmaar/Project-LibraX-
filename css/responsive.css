@@ -909,3 +909,44 @@
     align-items: center;
   }
 }
+/* ==========================================
+   DIGITAL ID CARD PRINT
+========================================== */
+
+@media print {
+
+    body * {
+        visibility: hidden !important;
+    }
+
+    #membershipCard,
+    #membershipCard * {
+        visibility: visible !important;
+    }
+
+    #membershipCard {
+        position: absolute !important;
+
+        left: 50% !important;
+
+        top: 50% !important;
+
+        transform: translate(-50%, -50%) !important;
+
+        width: 680px !important;
+
+        max-width: 680px !important;
+
+        box-shadow: none !important;
+
+        border: 1px solid #ddd !important;
+
+        margin: 0 !important;
+    }
+
+    @page {
+        size: landscape;
+        margin: 10mm;
+    }
+
+}
