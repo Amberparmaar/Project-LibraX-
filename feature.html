@@ -29,59 +29,102 @@
 
   <body>
     <!-- Header -->
-   <nav class="navbar navbar-expand-lg bg-body-tertiary navigation position-fixed z-3 w-100">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img style="width: 170px" src="./images/logo1.png" alt="LibraX Logo" />
-    </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary navigation position-fixed z-3 w-100"
     >
-      <span class="menu-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="/">Home</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./about.html">About</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./feature.html">Features</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./html/admin/books.html">Books</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./contact.html">Contact</a></li>
-        <li class="nav-item pad ms-lg-3">
-          <a href="./login.html" class="animated-button nav-btn">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-            </svg>
-            <span class="btn-text">Login</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            style="width: 170px"
+            src="./images/logo1.png"
+            alt="LibraX Logo"
+            class="scale-in"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="menu-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link fade-in" href="/">Home</a>
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link fade-in" href="./about.html"
+                >About</a
+              >
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link fade-in" href="./feature.html"
+                >Features</a
+              >
+            </li>
+            <li class="nav-item pad">
+              <a
+                class="nav-link custom-nav-link fade-in"
+                href="./html/admin/books.html"
+                >Books</a
+              >
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link fade-in" href="./contact.html"
+                >Contact</a
+              >
+            </li>
+            <li class="nav-item pad ms-lg-3">
+              <a href="./login.html" class="animated-button nav-btn">
+                <svg
+                  viewBox="0 0 24 24"
+                  class="arr-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                  />
+                </svg>
+                <span class="btn-text">Login</span>
+                <span class="circle"></span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="arr-1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- Main Content -->
     <div class="container-xxl main-container feat">
-      <div class=" content">
-        <div class="container-xxl mt-5 pt-5">
-          <h2 class="fw-bold">Our Amazing Features</h2>
-          <p>Everything you need to manage your library efficiently.</p>
+      <div class="content">
+        <div class="container-xxl mt-5 pt-5 text-center">
+          <h1 class="fw-bold slide-left">Our Amazing Features</h1>
+          <p class="slide-left fs-5 fst-italic mx-auto">
+            Everything you need to manage your library efficiently, from
+            organizing books and managing members to tracking book issues and
+            returns—all in one simple and convenient system.
+          </p>
         </div>
       </div>
 
       <!-- Cards Section -->
       <div class="cards facility">
         <div class="firstthree">
-          <div class="card ccc">
+          <div class="card ccc scroll-fade">
             <div class="bgi">
               <i class="fa-solid fa-book-open-reader"></i>
               <h3>Book Management</h3>
@@ -90,7 +133,7 @@
             <div class="blob"></div>
           </div>
 
-          <div class="card ccc">
+          <div class="card ccc scroll-fade">
             <div class="bgi">
               <i class="fa-solid fa-users"></i>
               <h3>Member Management</h3>
@@ -99,7 +142,7 @@
             <div class="blob"></div>
           </div>
 
-          <div class="card ccc">
+          <div class="card ccc scroll-fade">
             <div class="bgi">
               <i class="fa-solid fa-arrows-rotate"></i>
               <h3>Issue & Return</h3>
@@ -110,7 +153,7 @@
         </div>
 
         <div class="secondthree">
-          <div class="card ccc">
+          <div class="card ccc scroll-fade">
             <div class="bgi">
               <i class="fa-solid fa-chart-line"></i>
               <h3>Reports & Analytics</h3>
@@ -119,7 +162,7 @@
             <div class="blob"></div>
           </div>
 
-          <div class="card ccc">
+          <div class="card ccc scroll-fade">
             <div class="bgi">
               <i class="fa-solid fa-qrcode"></i>
               <h3>Barcode / QR Code</h3>
@@ -128,7 +171,7 @@
             <div class="blob"></div>
           </div>
 
-          <div class="card ccc">
+          <div class="card ccc scroll-fade">
             <div class="bgi">
               <i class="fa-solid fa-shield-halved"></i>
               <h3>Secure & Reliable</h3>
@@ -138,9 +181,11 @@
           </div>
         </div>
 
-        <div class="management">
+        <div class="management scroll-fade">
           <h4>More than just a library management system</h4>
-          <p>LibraX is your complete library automation solution</p>
+          <p class="text-light">
+            LibraX is your complete library automation solution
+          </p>
         </div>
       </div>
       <!-- Closed: .cards.facility -->
@@ -148,7 +193,7 @@
     <!-- Closed: .main-container.feat -->
 
     <!-- FOOTER START -->
-    <footer class="container-xxl footer-container">
+    <footer class="container-xxl footer-container scroll-fade">
       <div class="container">
         <div class="row gy-5">
           <!-- Logo -->
@@ -164,10 +209,10 @@
           <div class="col-lg-2 col-md-6">
             <h4>Quick Links</h4>
             <ul class="list-unstyled">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Books</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./html/admin/books.html">Books</a></li>
+              <li><a href="./contact.html">Contact</a></li>
             </ul>
           </div>
 
@@ -241,6 +286,12 @@
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
       crossorigin="anonymous"
     ></script>
+
+    <!-- GSAP Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+
+    <!-- GSAP Animation Script -->
+    <script src="./JS/animation.js"></script>
   </body>
 </html>
-

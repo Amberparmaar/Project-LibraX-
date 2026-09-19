@@ -80,10 +80,7 @@
                 <i class="fa-solid fa-arrow-rotate-left"></i>
                 Return Book
               </a>
-              <a href="./Reports.html">
-                <i class="fa-solid fa-chart-line"></i>
-                Reports
-              </a>
+
               <a href="./setting.html">
                 <i class="fa-solid fa-gear"></i>
                 Settings
@@ -126,11 +123,17 @@
                   <i class="fa-regular fa-bell" style="font-size: 1.5rem"></i>
                 </div>
                 <div class="profile">
-                  <img id="adminAvatar" src="../../images/admin.webp" alt="Admin" />
+                  <img
+                    id="adminAvatar"
+                    src="../../images/admin.webp"
+                    alt="Admin"
+                  />
                 </div>
                 <div style="margin-left: 15px">
                   <h5 class="mb-0"><b id="adminName">Admin</b></h5>
-                  <small class="text-muted"><b id="adminRole">Administrator</b></small>
+                  <small class="text-muted"
+                    ><b id="adminRole">Administrator</b></small
+                  >
                 </div>
               </div>
             </div>
@@ -138,8 +141,11 @@
             <!-- Heading -->
             <div class="mb-4 d-flex justify-content-between align-items-center">
               <h3>Admin Dashboard</h3>
-              <span class="badge bg-light text-dark shadow-sm py-2 px-3 fw-medium">
-                <i class="fa-solid fa-calendar-day me-1 text-primary"></i> <span id="currentDateDisplay">--</span>
+              <span
+                class="badge bg-light text-dark shadow-sm py-2 px-3 fw-medium"
+              >
+                <i class="fa-solid fa-calendar-day me-1 text-primary"></i>
+                <span id="currentDateDisplay">--</span>
               </span>
             </div>
 
@@ -147,7 +153,10 @@
             <div class="dashboardcards">
               <div class="dash-card">
                 <div class="dashbg">
-                  <i class="fa-solid fa-book" style="color: rgb(45, 45, 250)"></i>
+                  <i
+                    class="fa-solid fa-book"
+                    style="color: rgb(45, 45, 250)"
+                  ></i>
                   <div class="book-content">
                     <h2 id="statTotalBooks">0</h2>
                     <p>Total Books</p>
@@ -169,7 +178,10 @@
 
               <div class="dash-card">
                 <div class="dashbg">
-                  <i class="fa-solid fa-book-open" style="color: rgb(250, 152, 6)"></i>
+                  <i
+                    class="fa-solid fa-book-open"
+                    style="color: rgb(250, 152, 6)"
+                  ></i>
                   <div class="book-content">
                     <h2 id="statBooksIssued">0</h2>
                     <p>Books Issued</p>
@@ -192,21 +204,36 @@
 
             <!-- Charts Section -->
             <div class="dashboard-charts-container mb-4 mt-4">
-              <div class="chart-card p-3 bg-white rounded-4 shadow-sm" style="flex: 2;">
+              <div
+                class="chart-card p-3 bg-white rounded-4 shadow-sm"
+                style="flex: 2"
+              >
                 <div class="card-header border-0 bg-transparent mb-2">
-                  <h5 class="card-title fw-bold text-dark m-0">Monthly Issue & Return</h5>
+                  <h5 class="card-title fw-bold text-dark m-0">
+                    Monthly Issue & Return
+                  </h5>
                 </div>
                 <div class="card-body">
-                  <canvas id="monthlyChart" style="max-height: 280px; width: 100%;"></canvas>
+                  <canvas
+                    id="monthlyChart"
+                    style="max-height: 280px; width: 100%"
+                  ></canvas>
                 </div>
               </div>
 
-              <div class="chart-card p-3 bg-white rounded-4 shadow-sm" style="flex: 1;">
+              <div
+                class="chart-card p-3 bg-white rounded-4 shadow-sm"
+                style="flex: 1"
+              >
                 <div class="card-header border-0 bg-transparent mb-2">
-                  <h5 class="card-title fw-bold text-dark m-0">Books by Category</h5>
+                  <h5 class="card-title fw-bold text-dark m-0">
+                    Books by Category
+                  </h5>
                 </div>
-                <div class="card-body d-flex justify-content-center align-items-center">
-                  <canvas id="categoryChart" style="max-height: 260px;"></canvas>
+                <div
+                  class="card-body d-flex justify-content-center align-items-center"
+                >
+                  <canvas id="categoryChart" style="max-height: 260px"></canvas>
                 </div>
               </div>
             </div>
@@ -215,10 +242,11 @@
             <div class="recent-activities bg-white rounded-4 p-4 shadow-sm">
               <h5 class="mb-3 fw-bold">Recent Activities</h5>
               <div id="activityGrid" class="activity-grid">
-                <div class="text-center py-4 text-muted small">Loading recent activities...</div>
+                <div class="text-center py-4 text-muted small">
+                  Loading recent activities...
+                </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -256,6 +284,12 @@
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
       crossorigin="anonymous"
     ></script>
+    <!-- GSAP Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+
+    <!-- GSAP Animation Script -->
+    <script src="../../JS/animation.js"></script>
 
     <!-- App Modules -->
     <script type="module" src="../../JS/auth.js"></script>

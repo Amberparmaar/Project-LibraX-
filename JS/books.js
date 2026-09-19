@@ -1,16 +1,16 @@
-import { 
-  addBook, 
-  getAllBooks, 
-  updateBook, 
-  deleteBook, 
-  searchBooks 
-} from "../JS/firebase/books-service.js"; 
-import { uploadImageToCloudinary } from '../JS/cloudinary.js';
+import {
+  addBook,
+  getAllBooks,
+  updateBook,
+  deleteBook,
+  searchBooks,
+} from "../JS/firebase/books-service.js";
+import { uploadImageToCloudinary } from "../JS/cloudinary.js";
 import { auth } from "../JS/firebase/firebase-config.js";
 let currentBooks = [];
-let filteredBooks = []; 
+let filteredBooks = [];
 let currentPage = 1;
-const rowsPerPage = 6; 
+const rowsPerPage = 6;
 
 // ================= 1. FIREBASE SE BOOKS FETCH KARNA =================
 async function loadBooks() {
@@ -30,7 +30,7 @@ async function loadBooks() {
     filteredBooks = [...currentBooks]; // Initial setting
     currentPage = 1;
     renderPaginatedBooks();
-    setupSearchAndFilters(); 
+    setupSearchAndFilters();
   } else {
     console.error("Error loading books:", result.error);
     if (container) {
@@ -111,7 +111,8 @@ function updatePaginationUI(totalItems, startIndex, endIndex, totalPages) {
 function displayBooks(books) {
   const container = document.querySelector(".books-container");
   const tableBody = document.getElementById("booksTableBody");
-  const defaultImg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn76n4M7gBWQAT28M5jrXgYixN62L11b6SymBpmGW64zd18tRxM8t6Ra-H&s=10";
+  const defaultImg =
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn76n4M7gBWQAT28M5jrXgYixN62L11b6SymBpmGW64zd18tRxM8t6Ra-H&s=10";
 
   // --- A. CARD LAYOUT RENDER ---
   if (container) {
@@ -126,28 +127,28 @@ function displayBooks(books) {
         const coverUrl = book.coverImage || book.imageUrl || defaultImg;
 
         const cardHTML = `
-          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-            <div class="book">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 ">
+            <div class="book book-card hover-scale">
               <div class="book-details">
-                <h3>${book.title || 'Untitled'}</h3>
-                <p><i class="fa-solid fa-user"></i> ${book.author || 'Unknown'}</p>
-                 <p><i class="fa-solid fa-user"></i> ${book.price || 'Unknown'}</p>
-                <p><i class="fa-solid fa-tag"></i> ${book.category || 'General'}</p>
+                <h5 class=" text-center">${book.title || "Untitled"}</h5>
+                <p><i class="fa-solid fa-user"></i> ${book.author || "Unknown"}</p>
+                 <p><i class="fa-solid fa-tag"></i> ${book.price || "Unknown"}</p>
+                <p><i class="fa-solid fa-layer-group"></i> ${book.category || "General"}</p>
                 <p><i class="fa-solid fa-book"></i> Total Copies : ${totalCount}</p>
                 <p>
-                  <i class="fa-solid ${isAvailable ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger'}"></i>
+                  <i class="fa-solid ${isAvailable ? "fa-circle-check text-success" : "fa-circle-xmark text-danger"}"></i>
                   Available : ${availableCount}
                 </p>
 
-                <span class="status ${isAvailable ? 'available' : 'unavailable'}">
-                  ${isAvailable ? 'Available' : 'Out of Stock'}
+                <span class="status ${isAvailable ? "available" : "unavailable"}">
+                  ${isAvailable ? "Available" : "Out of Stock"}
                 </span>
 
-                <button class="view-btn mt-2" onclick="viewBookDetails('${book.id}')">
+                <button class="view-btn mt-1" onclick="viewBookDetails('${book.id}')">
                   <i class="fa-solid fa-eye"></i> View Details
                 </button>
               
-                <button class="btn btn-sm btn-danger w-100 mt-2" onclick="deleteBookHandler('${book.id}')">
+                <button class="btn btn-sm btn-danger w-100 mt-1 mb-1" onclick="deleteBookHandler('${book.id}')">
                   <i class="fa-solid fa-trash"></i> Delete
                 </button>
               </div>
@@ -178,22 +179,32 @@ function displayBooks(books) {
         const availableCount = book.availableCopies ?? book.available ?? 0;
         const totalCount = book.totalCopies ?? book.quantity ?? 0;
         const coverUrl = book.coverImage || book.imageUrl || defaultImg;
-        
-        let statusClass = availableCount > 2 ? "available" : availableCount > 0 ? "low" : "out-of-stock";
-        let statusText = availableCount > 2 ? "Available" : availableCount > 0 ? "Low Stock" : "Out of Stock";
 
-        const tr = document.createElement('tr');
+        let statusClass =
+          availableCount > 2
+            ? "available"
+            : availableCount > 0
+              ? "low"
+              : "out-of-stock";
+        let statusText =
+          availableCount > 2
+            ? "Available"
+            : availableCount > 0
+              ? "Low Stock"
+              : "Out of Stock";
+
+        const tr = document.createElement("tr");
         tr.innerHTML = `
           <td>
             <div class="book-info">
               <div class="book-img" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
                 <img src="${coverUrl}" alt="${book.title}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
               </div>
-              <span>${book.title || 'Untitled'}</span>
+              <span>${book.title || "Untitled"}</span>
             </div>
           </td>
-          <td>${book.author || 'Unknown'}</td>
-          <td>${book.category || 'General'}</td>
+          <td>${book.author || "Unknown"}</td>
+          <td>${book.category || "General"}</td>
           <td>${totalCount}</td>
           <td>${availableCount}</td>
           <td><span class="status ${statusClass}">${statusText}</span></td>
@@ -211,19 +222,22 @@ function displayBooks(books) {
 }
 
 // ================= 4. ADD BOOK FORM SUBMISSION HANDLER =================
-const addBookForm = document.getElementById('addBookForm');
+const addBookForm = document.getElementById("addBookForm");
 if (addBookForm) {
-  addBookForm.addEventListener('submit', async (e) => {
+  addBookForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const title = document.getElementById('bookTitleInput')?.value.trim() || "";
-    const desc = document.getElementById('bookdesc')?.value.trim() || "";
-    const author = document.getElementById('bookAuthorInput')?.value.trim() || "";
-    const price = document.getElementById('bookPriceInput')?.value.trim() || "";
-    const category = document.getElementById('bookCategoryInput')?.value.trim() || "";
-    const isbn = document.getElementById('bookIsbnInput')?.value.trim() || "";
-    const totalCopies = parseInt(document.getElementById('totalCopiesInput')?.value) || 0;
-    const imageFile = document.getElementById('bookImageInput')?.files[0];
+    const title = document.getElementById("bookTitleInput")?.value.trim() || "";
+    const desc = document.getElementById("bookdesc")?.value.trim() || "";
+    const author =
+      document.getElementById("bookAuthorInput")?.value.trim() || "";
+    const price = document.getElementById("bookPriceInput")?.value.trim() || "";
+    const category =
+      document.getElementById("bookCategoryInput")?.value.trim() || "";
+    const isbn = document.getElementById("bookIsbnInput")?.value.trim() || "";
+    const totalCopies =
+      parseInt(document.getElementById("totalCopiesInput")?.value) || 0;
+    const imageFile = document.getElementById("bookImageInput")?.files[0];
 
     const submitBtn = addBookForm.querySelector('button[type="submit"]');
     submitBtn.innerText = "Uploading & Saving...";
@@ -238,23 +252,23 @@ if (addBookForm) {
       const newBook = {
         title: title,
         author: author,
-        price:price,
+        price: price,
         category: category,
         isbn: isbn,
-        description: desc, 
+        description: desc,
         totalCopies: totalCopies,
         availableCopies: totalCopies,
         coverImage: coverImage || "",
-        createdAt: new Date()
+        createdAt: new Date(),
       };
-console.log("Current Firebase User:", auth.currentUser);
+
       const res = await addBook(newBook);
 
       if (res.success) {
         alert("Book successfully add ho gayi!");
         addBookForm.reset();
-        
-        const modalElement = document.getElementById('addBookModal');
+
+        const modalElement = document.getElementById("addBookModal");
         if (modalElement) {
           const bootstrapModal = bootstrap.Modal.getInstance(modalElement);
           if (bootstrapModal) bootstrapModal.hide();
@@ -276,67 +290,82 @@ console.log("Current Firebase User:", auth.currentUser);
 
 // ================= 5. SEARCH & CATEGORY FILTER =================
 
+let searchDebounceTimer = null;
 
 function setupSearchAndFilters() {
+  const searchInput = document.querySelector(".search-box input");
+  const categoryFilter = document.getElementById("categoryFilter");
 
-    const searchInput = document.querySelector(".search-box input");
-    const categoryFilter = document.getElementById("categoryFilter");
+  if (searchInput) {
+    searchInput.removeEventListener("input", debouncedSearch);
+    searchInput.addEventListener("input", debouncedSearch);
+  }
 
-    if (searchInput) {
-        searchInput.removeEventListener("input", filterAndSearchBooks);
-        searchInput.addEventListener("input", filterAndSearchBooks);
-    }
-
-    if (categoryFilter) {
-        categoryFilter.removeEventListener("change", filterAndSearchBooks);
-        categoryFilter.addEventListener("change", filterAndSearchBooks);
-    }
+  if (categoryFilter) {
+    categoryFilter.removeEventListener("change", filterAndSearchBooks);
+    categoryFilter.addEventListener("change", filterAndSearchBooks);
+  }
 }
 
+// Debounce: typing rukne ke 300ms baad hi filter chale (performance ke liye)
+function debouncedSearch() {
+  clearTimeout(searchDebounceTimer);
+  searchDebounceTimer = setTimeout(filterAndSearchBooks, 300);
+}
 
 function filterAndSearchBooks() {
+  const searchInput = document.querySelector(".search-box input");
+  const categoryFilter = document.getElementById("categoryFilter");
 
-    const searchInput = document.querySelector(".search-box input");
-    const categoryFilter = document.getElementById("categoryFilter");
+  const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : "";
 
-    const searchTerm = searchInput
-        ? searchInput.value.toLowerCase().trim()
-        : "";
+  const selectedCategory = categoryFilter
+    ? categoryFilter.value
+    : "All Categories";
 
-    const selectedCategory = categoryFilter
-        ? categoryFilter.value
-        : "All Categories";
+  filteredBooks = currentBooks.filter((book) => {
+    const title = (book.title || "").toLowerCase();
+    const author = (book.author || "").toLowerCase();
+    const isbn = (book.isbn || "").toLowerCase();
+    const category = (book.category || "").toLowerCase();
 
+    const matchesSearch =
+      title.includes(searchTerm) ||
+      author.includes(searchTerm) ||
+      isbn.includes(searchTerm);
 
-    filteredBooks = currentBooks.filter((book) => {
+    const matchesCategory =
+      selectedCategory === "All Categories" ||
+      category === selectedCategory.toLowerCase();
 
-        const title = (book.title || "").toLowerCase();
-        const author = (book.author || "").toLowerCase();
-        const isbn = (book.isbn || "").toLowerCase();
-        const category = (book.category || "").toLowerCase();
+    return matchesSearch && matchesCategory;
+  });
 
-
-        const matchesSearch =
-            title.includes(searchTerm) ||
-            author.includes(searchTerm) ||
-            isbn.includes(searchTerm);
-
-
-        const matchesCategory =
-            selectedCategory === "All Categories" ||
-            category === selectedCategory.toLowerCase();
-
-
-        return matchesSearch && matchesCategory;
-    });
-
-
-    currentPage = 1;
-    renderPaginatedBooks();
+  currentPage = 1;
+  renderPaginatedBooks();
 }
 
 // ================= 6. GLOBAL HANDLERS FOR WINDOW =================
 window.deleteBookHandler = async function (bookId) {
+  const book = currentBooks.find((b) => b.id === bookId);
+
+  if (!book) {
+    alert("Book nahi mili!");
+    return;
+  }
+
+  // Safety check: agar copies issue hain to delete mat hone do
+  const totalCount = book.totalCopies ?? 0;
+  const availableCount = book.availableCopies ?? 0;
+  const issuedCount = totalCount - availableCount;
+
+  if (issuedCount > 0) {
+    alert(
+      `Ye book delete nahi ho sakti — ${issuedCount} copy/copies abhi kisi member ke paas issue hain.`,
+    );
+    return;
+  }
+
   if (confirm("Kya aap yeh book delete karna chahte hain?")) {
     const result = await deleteBook(bookId);
     if (result.success) {
@@ -356,34 +385,27 @@ window.viewBookDetails = function (bookId) {
 document.addEventListener("DOMContentLoaded", () => {
   loadBooks();
 });
-// edit modal
+
+// ================= 7. EDIT MODAL =================
 window.openEditModal = function (bookId) {
-
-  console.log("Edit clicked:", bookId);
-
-  const book = currentBooks.find(b => b.id === bookId);
+  const book = currentBooks.find((b) => b.id === bookId);
 
   if (!book) {
     console.error("Book not found:", bookId);
     return;
   }
 
-  document.getElementById('editBookIdInput').value = book.id;
+  document.getElementById("editBookIdInput").value = book.id;
 
-  document.getElementById('editBookTitleInput').value =
-    book.title || "";
+  document.getElementById("editBookTitleInput").value = book.title || "";
 
-  document.getElementById('editBookAuthorInput').value =
-    book.author || "";
-    
+  document.getElementById("editBookAuthorInput").value = book.author || "";
 
-  document.getElementById('editBookCategoryInput').value =
-    book.category || "";
+  document.getElementById("editBookCategoryInput").value = book.category || "";
 
-  document.getElementById('editTotalCopiesInput').value =
-    book.totalCopies ?? 0;
+  document.getElementById("editTotalCopiesInput").value = book.totalCopies ?? 0;
 
-  const modalElement = document.getElementById('editBookModal');
+  const modalElement = document.getElementById("editBookModal");
 
   if (!modalElement) {
     console.error("editBookModal HTML mein nahi mila!");
@@ -395,25 +417,25 @@ window.openEditModal = function (bookId) {
 };
 
 // Edit Form Submit
-const editBookForm = document.getElementById('editBookForm');
+const editBookForm = document.getElementById("editBookForm");
 
 if (editBookForm) {
-
-  editBookForm.addEventListener('submit', async (e) => {
+  editBookForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const bookId = document.getElementById('editBookIdInput')?.value;
+    const bookId = document.getElementById("editBookIdInput")?.value;
 
-    const title = document.getElementById('editBookTitleInput')?.value.trim() || "";
-    const author = document.getElementById('editBookAuthorInput')?.value.trim() || "";
-    const category = document.getElementById('editBookCategoryInput')?.value.trim() || "";
+    const title =
+      document.getElementById("editBookTitleInput")?.value.trim() || "";
+    const author =
+      document.getElementById("editBookAuthorInput")?.value.trim() || "";
+    const category =
+      document.getElementById("editBookCategoryInput")?.value.trim() || "";
     const totalCopies =
-      parseInt(document.getElementById('editTotalCopiesInput')?.value) || 0;
+      parseInt(document.getElementById("editTotalCopiesInput")?.value) || 0;
 
     const newImageFile =
-      document.getElementById('editBookImageInput')?.files[0];
-
-    console.log("Editing Book ID:", bookId);
+      document.getElementById("editBookImageInput")?.files[0];
 
     if (!bookId) {
       alert("Book ID nahi mila!");
@@ -421,9 +443,8 @@ if (editBookForm) {
     }
 
     try {
-
       // Current book
-      const oldBook = currentBooks.find(book => book.id === bookId);
+      const oldBook = currentBooks.find((book) => book.id === bookId);
 
       if (!oldBook) {
         alert("Book nahi mili!");
@@ -438,6 +459,15 @@ if (editBookForm) {
         coverImage = await uploadImageToCloudinary(newImageFile);
       }
 
+      // ===== FIX: availableCopies ko reset nahi karna, balke
+      // pehle se issue shuda copies ka hisaab rakh ke adjust karna =====
+      const oldTotal = oldBook.totalCopies ?? 0;
+      const oldAvailable = oldBook.availableCopies ?? 0;
+      const issuedCount = oldTotal - oldAvailable; // kitni copies abhi issue hain
+
+      let newAvailable = totalCopies - issuedCount;
+      if (newAvailable < 0) newAvailable = 0; // safety: negative na ho
+
       const updatedData = {
         title: title,
         author: author,
@@ -446,46 +476,31 @@ if (editBookForm) {
         price: oldBook.price || "",
         description: oldBook.description || "",
         totalCopies: totalCopies,
-        availableCopies: totalCopies,
-        coverImage: coverImage
+        availableCopies: newAvailable,
+        coverImage: coverImage,
       };
-
-      console.log("Updated Data:", updatedData);
 
       const res = await updateBook(bookId, updatedData);
 
-      console.log("Update Result:", res);
-
       if (res.success) {
-
         alert("Book successfully updated!");
 
-        const modalElement =
-          document.getElementById('editBookModal');
+        const modalElement = document.getElementById("editBookModal");
 
-        const modal =
-          bootstrap.Modal.getInstance(modalElement);
+        const modal = bootstrap.Modal.getInstance(modalElement);
 
         if (modal) {
           modal.hide();
         }
 
         await loadBooks();
-
       } else {
-
         alert("Update Error: " + res.error);
-
       }
-
     } catch (err) {
-
       console.error("Edit Book Error:", err);
 
       alert("Error updating book: " + err.message);
-
     }
-
   });
-
 }

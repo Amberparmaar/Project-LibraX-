@@ -58,7 +58,7 @@
             <a href="#"
               ><i class="fa-solid fa-arrow-rotate-left"></i> Return Book</a
             >
-            <a href="#"><i class="fa-solid fa-chart-line"></i> Reports</a>
+
             <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
           </div>
 
@@ -162,9 +162,7 @@
             >
               <p id="memberResultText" class="m-0">Showing 0 members</p>
 
-              <div class="pagination d-flex gap-1" id="memberPagination">
-                
-              </div>
+              <div class="pagination d-flex gap-1" id="memberPagination"></div>
             </div>
           </div>
         </div>
@@ -192,7 +190,7 @@
             </div>
             <div class="modal-body">
               <input type="hidden" id="memberDocumentId" />
-              
+
               <div class="mb-3">
                 <label class="form-label">Full Name</label>
                 <input
@@ -274,6 +272,13 @@
         };
       }
     </script>
+    <!-- GSAP Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+
+    <!-- GSAP Animation Script -->
+    <script src="../../JS/animation.js"></script>
+    <script type="module" src="../../JS/auth.js"></script>
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

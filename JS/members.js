@@ -7,12 +7,11 @@ import {
   doc,
   query,
   where,
-  serverTimestamp
+  serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 import { db } from "../JS/firebase/firebase-config.js";
 
-// Helper function for safe HTML string rendering
 function escapeHTML(value) {
   if (value === null || value === undefined) return "";
   return String(value)
@@ -27,7 +26,7 @@ const membersCollection = collection(db, "users");
 let allMembers = [];
 let filteredMembers = [];
 let currentPage = 1;
-const membersPerPage = 3;
+const membersPerPage = 10;
 let editingMemberId = null;
 
 // DOM Selectors
@@ -50,7 +49,33 @@ const memberStatusInput = document.getElementById("memberStatusInput");
 const modalEl = document.getElementById("memberFormModal");
 const memberModal = modalEl ? new bootstrap.Modal(modalEl) : null;
 
-// Load Users from Firestore (Query filtered by role == "user")
+// ================= DIAGNOSTIC: MISSING ELEMENT CHECK =================
+const requiredElements = {
+  memberTableBody,
+  memberSearchInput,
+  memberStatusFilter,
+  memberPagination,
+  memberResultText,
+  openMemberModalBtn,
+  memberForm,
+  memberModalTitle,
+  memberSaveBtn,
+  memberNameInput,
+  memberEmailInput,
+  memberPhoneInput,
+  memberDepartmentInput,
+  memberStatusInput,
+  modalEl,
+};
+
+for (const [name, el] of Object.entries(requiredElements)) {
+  if (!el) {
+    console.error(
+      `⚠️ MISSING ELEMENT: "${name}" is null — is ID ka element HTML mein nahi mila.`,
+    );
+  }
+}
+
 async function loadMembers() {
   if (!memberTableBody) return;
 
@@ -59,20 +84,29 @@ async function loadMembers() {
       <tr>
         <td colspan="7" class="text-center py-4">
           <div class="spinner-border text-primary" role="status"></div>
-          <p class="mt-2 mb-0">Loading registered users...</p>
+          <p class="mt-2 mb-0">Loading registered members...</p>
         </td>
       </tr>
     `;
 
-    // Updated Query: Matching role == "user" directly
-    const membersQuery = query(membersCollection, where("role", "==", "user"));
-    const snapshot = await getDocs(membersQuery);
+    const membersQuery = query(
+      membersCollection,
+      where("role", "==", "member"),
+    );
+    let snapshot = await getDocs(membersQuery);
+
+    if (snapshot.empty) {
+      snapshot = await getDocs(membersCollection);
+    }
 
     allMembers = [];
     snapshot.forEach((docSnap) => {
+      const data = docSnap.data();
+      if (data.role === "admin") return;
+
       allMembers.push({
         firebaseId: docSnap.id,
-        ...docSnap.data()
+        ...data,
       });
     });
 
@@ -106,11 +140,11 @@ function displayMembers() {
     memberTableBody.innerHTML = `
       <tr>
         <td colspan="7" class="text-center py-4 text-muted">
-          <p class="mb-0">No registered users found.</p>
+          <p class="mb-0">No registered members found.</p>
         </td>
       </tr>
     `;
-    if (memberResultText) memberResultText.textContent = "Showing 0 users";
+    if (memberResultText) memberResultText.textContent = "Showing 0 members";
     if (memberPagination) memberPagination.innerHTML = "";
     return;
   }
@@ -118,16 +152,22 @@ function displayMembers() {
   memberTableBody.innerHTML = "";
 
   pageMembers.forEach((member) => {
-    const isActive = member.isActive !== false;
+    const isActive = member.status
+      ? member.status === "Active"
+      : member.isActive !== false;
     const memberStatus = isActive ? "Active" : "Inactive";
     const statusClass = isActive ? "badge bg-success" : "badge bg-secondary";
+    const displayId =
+      member.memberId ||
+      member.memberCode ||
+      "MEM-" + member.firebaseId.substring(0, 5);
 
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td><strong>${escapeHTML(member.uid ? member.uid.substring(0, 8) : "MEM-" + member.firebaseId.substring(0, 5))}</strong></td>
-      <td><strong>${escapeHTML(member.name || "N/A")}</strong></td>
+      <td><strong>${escapeHTML(displayId)}</strong></td>
+      <td><strong>${escapeHTML(member.name || member.fullName || "N/A")}</strong></td>
       <td>${escapeHTML(member.email || "N/A")}</td>
-      <td>${escapeHTML(member.contact || "N/A")}</td>
+      <td>${escapeHTML(member.phone || member.contact || "N/A")}</td>
       <td>${escapeHTML(member.department || "N/A")}</td>
       <td><span class="${statusClass}">${memberStatus}</span></td>
       <td>
@@ -145,7 +185,7 @@ function displayMembers() {
   updatePagination();
 }
 
-// Add/Update User Event
+// Add/Update Member Event
 if (memberForm) {
   memberForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -153,10 +193,11 @@ if (memberForm) {
     const memberData = {
       name: memberNameInput.value.trim(),
       email: memberEmailInput.value.trim(),
-      contact: memberPhoneInput.value.trim(),
+      phone: memberPhoneInput.value.trim(),
       department: memberDepartmentInput.value.trim(),
-      role: "user", // Consistently saving role as "user"
-      isActive: memberStatusInput.value === "Active"
+      role: "member",
+      status: memberStatusInput.value,
+      isActive: memberStatusInput.value === "Active",
     };
 
     try {
@@ -187,8 +228,8 @@ if (openMemberModalBtn) {
     editingMemberId = null;
     if (memberForm) memberForm.reset();
     if (memberDocumentId) memberDocumentId.value = "";
-    if (memberModalTitle) memberModalTitle.textContent = "Add New User";
-    if (memberSaveBtn) memberSaveBtn.textContent = "Save User";
+    if (memberModalTitle) memberModalTitle.textContent = "Add New Member";
+    if (memberSaveBtn) memberSaveBtn.textContent = "Save Member";
     if (memberModal) memberModal.show();
   });
 }
@@ -210,17 +251,49 @@ if (memberTableBody) {
       if (memberDocumentId) memberDocumentId.value = id;
       if (memberNameInput) memberNameInput.value = member.name || "";
       if (memberEmailInput) memberEmailInput.value = member.email || "";
-      if (memberPhoneInput) memberPhoneInput.value = member.contact || "";
-      if (memberDepartmentInput) memberDepartmentInput.value = member.department || "";
-      if (memberStatusInput) memberStatusInput.value = member.isActive !== false ? "Active" : "Inactive";
+      if (memberPhoneInput)
+        memberPhoneInput.value = member.phone || member.contact || "";
+      if (memberDepartmentInput)
+        memberDepartmentInput.value = member.department || "";
+      if (memberStatusInput)
+        memberStatusInput.value =
+          member.status || (member.isActive !== false ? "Active" : "Inactive");
 
-      if (memberModalTitle) memberModalTitle.textContent = "Edit User";
-      if (memberSaveBtn) memberSaveBtn.textContent = "Update User";
+      if (memberModalTitle) memberModalTitle.textContent = "Edit Member";
+      if (memberSaveBtn) memberSaveBtn.textContent = "Update Member";
       if (memberModal) memberModal.show();
     }
 
     if (action === "delete") {
-      if (confirm("Are you sure you want to delete this record?")) {
+      const member = allMembers.find((m) => m.firebaseId === id);
+
+      try {
+        const issuedRef = collection(db, "issuedBooks");
+        const activeIssuesQuery = query(
+          issuedRef,
+          where("memberId", "==", id),
+          where("status", "==", "Issued"),
+        );
+        const activeSnapshot = await getDocs(activeIssuesQuery);
+
+        if (!activeSnapshot.empty) {
+          alert(
+            `Ye member delete nahi ho sakta — iske paas ${activeSnapshot.size} book(s) abhi issue hain. Pehle wo return karwayein.`,
+          );
+          return;
+        }
+      } catch (err) {
+        console.error("Active issues check error:", err);
+
+        alert("Member ke issued books check nahi ho sake. Dobara try karein.");
+        return;
+      }
+
+      if (
+        confirm(
+          `Kya aap "${member?.name || "is member"}" ko delete karna chahte hain?`,
+        )
+      ) {
         await deleteDoc(doc(db, "users", id));
         await loadMembers();
       }
@@ -230,19 +303,23 @@ if (memberTableBody) {
 
 // Filter and Pagination Functions
 if (memberSearchInput) memberSearchInput.addEventListener("input", filterData);
-if (memberStatusFilter) memberStatusFilter.addEventListener("change", filterData);
+if (memberStatusFilter)
+  memberStatusFilter.addEventListener("change", filterData);
 
 function filterData() {
   const queryText = memberSearchInput.value.toLowerCase().trim();
   const statusVal = memberStatusFilter.value;
 
   filteredMembers = allMembers.filter((m) => {
-    const searchText = `${m.name || ""} ${m.email || ""} ${m.department || ""}`.toLowerCase();
+    const searchText =
+      `${m.name || ""} ${m.email || ""} ${m.department || ""}`.toLowerCase();
     const matchesSearch = searchText.includes(queryText);
+
+    const isActive = m.status ? m.status === "Active" : m.isActive !== false;
     const matchesStatus =
       statusVal === "all" ||
-      (statusVal === "Active" && m.isActive !== false) ||
-      (statusVal === "Inactive" && m.isActive === false);
+      (statusVal === "Active" && isActive) ||
+      (statusVal === "Inactive" && !isActive);
 
     return matchesSearch && matchesStatus;
   });
@@ -257,13 +334,15 @@ function updatePagination() {
   memberPagination.innerHTML = "";
 
   if (totalPages <= 1) {
-    if (memberResultText) memberResultText.textContent = `Showing ${filteredMembers.length} users`;
+    if (memberResultText)
+      memberResultText.textContent = `Showing ${filteredMembers.length} members`;
     return;
   }
 
   const start = (currentPage - 1) * membersPerPage + 1;
   const end = Math.min(currentPage * membersPerPage, filteredMembers.length);
-  if (memberResultText) memberResultText.textContent = `Showing ${start} to ${end} of ${filteredMembers.length} users`;
+  if (memberResultText)
+    memberResultText.textContent = `Showing ${start} to ${end} of ${filteredMembers.length} members`;
 
   for (let i = 1; i <= totalPages; i++) {
     const btn = document.createElement("button");

@@ -16,38 +16,38 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    
+
     <!-- custom css -->
     <link rel="stylesheet" href="../../css/components.css" />
     <link rel="stylesheet" href="../../css/responsive.css" />
     <link rel="stylesheet" href="../../css/style.css" />
     <style>
-  /* Status Badge Base Styling */
-  .status {
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    display: inline-block;
-  }
-  
-  /* Color Variations */
-  .status.available {
-    background-color: #d1e7dd;
-    color: #0f5132;
-  }
-  
-  .status.low {
-    background-color: #fff3cd;
-    color: #664d03;
-  }
-  
-  .status.unavailable,
-  .status.out-of-stock {
-    background-color: #f8d7da;
-    color: #842029;
-  }
-</style>
+      /* Status Badge Base Styling */
+      .status {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        display: inline-block;
+      }
+
+      /* Color Variations */
+      .status.available {
+        background-color: #d1e7dd;
+        color: #0f5132;
+      }
+
+      .status.low {
+        background-color: #fff3cd;
+        color: #664d03;
+      }
+
+      .status.unavailable,
+      .status.out-of-stock {
+        background-color: #f8d7da;
+        color: #842029;
+      }
+    </style>
   </head>
 
   <body>
@@ -109,25 +109,19 @@
                 QR Scanner
               </a>
 
-              <a href="#" class="active">
+              <a href="./issue-book.html" class="active">
                 <i class="fa-solid fa-book-open"></i>
 
                 Issue Book
               </a>
 
-              <a href="#">
+              <a href="./return-book.html">
                 <i class="fa-solid fa-arrow-rotate-left"></i>
 
                 Return Book
               </a>
 
-              <a href="#">
-                <i class="fa-solid fa-chart-line"></i>
-
-                Reports
-              </a>
-
-              <a href="#">
+              <a href="./setting.html">
                 <i class="fa-solid fa-gear"></i>
 
                 Settings
@@ -226,7 +220,7 @@
                   </tr>
                 </thead>
 
-               <tbody id="booksTableBody"></tbody>
+                <tbody id="booksTableBody"></tbody>
               </table>
 
               <!-- Bottom Pagination -->
@@ -472,6 +466,12 @@
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
       crossorigin="anonymous"
     ></script>
+    <!-- GSAP Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+
+    <!-- GSAP Animation Script -->
+    <script src="../../JS/animation.js"></script>
     <script type="module" src="../../JS/auth.js"></script>
     <script type="module" src="../../JS/books.js"></script>
   </body>

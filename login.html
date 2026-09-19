@@ -17,69 +17,78 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary navigation position-fixed z-3 w-100">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img style="width: 170px" src="./images/logo1.png" alt="LibraX Logo" />
-    </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary navigation position-fixed z-3 w-100 fade-in"
     >
-      <span class="menu-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="#">Home</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./about.html">About</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./feature.html">Features</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./html/admin/books.html">Books</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./contact.html">Contact</a></li>
-        <li class="nav-item pad ms-lg-3">
-          <a href="./login.html" class="animated-button nav-btn">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-            </svg>
-            <span class="btn-text">Login</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            style="width: 170px"
+            src="./images/logo1.png"
+            alt="LibraX Logo"
+            class="scale-in"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="menu-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="./about.html">About</a>
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="./feature.html"
+                >Features</a
+              >
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="./html/admin/books.html"
+                >Books</a
+              >
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="./contact.html"
+                >Contact</a
+              >
+            </li>
+            <li class="nav-item pad ms-lg-3"></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <section class="login-section">
       <div class="container">
         <div class="row login-card align-items-center">
           <!-- Left Side -->
-
-          <div class="col-lg-5">
+          <div class="col-lg-5 slide-left">
             <div class="form-box">
               <div class="brand">
                 <img
                   src="../images/logo1.png"
                   alt="LibraX Logo"
-                  class="logo-img"
+                  class="logo-img scale-in"
                 />
               </div>
 
               <h2>Welcome Back!</h2>
-
               <p>Login to your account</p>
 
               <form id="loginForm">
                 <div class="mb-3">
                   <label>Email Address</label>
-
                   <input
                     type="email"
                     class="form-control"
@@ -90,15 +99,12 @@
 
                 <div class="mb-3 password-box">
                   <label>Password</label>
-
                   <input
                     type="password"
                     class="form-control"
                     placeholder="Enter your password"
                     id="password"
-                
                   />
-
                   <i class="bi bi-eye"></i>
                 </div>
 
@@ -107,47 +113,51 @@
                 >
                   <div>
                     <input type="checkbox" />
-
                     <span>Remember me</span>
                   </div>
-
                   <a href="./forgetPassword.html">Forgot Password?</a>
                 </div>
 
                 <!-- ========button start=============  -->
                 <div class="d-flex justify-content-center">
-                         <div class="d-flex justify-content-center">
-    <button type="submit" class="animated-button nav-btn">
-
-        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-        </svg>
-
-        <span class="btn-text">Login</span>
-
-        <span class="circle"></span>
-
-        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L12.2218 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-        </svg>
-
-    </button>
-</div>
+                  <button
+                    type="submit"
+                    class="animated-button nav-btn hover-scale"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="arr-2"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                      />
+                    </svg>
+                    <span class="btn-text">Login</span>
+                    <span class="circle"></span>
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="arr-1"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                      />
+                    </svg>
+                  </button>
                 </div>
                 <!-- ========button end=============  -->
               </form>
 
               <div class="text-center mt-4">
                 <p class="continue">Or continue with</p>
-
                 <div class="social-login">
-                  <button id="googleBtn" class="social-btn">
+                  <button id="googleBtn" class="social-btn hover-scale">
                     <img
                       src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+                      alt="Google Logo"
                     />
                   </button>
-
-                 
                 </div>
               </div>
 
@@ -159,20 +169,20 @@
           </div>
 
           <!-- Right Side -->
-
-          <div class="col-lg-7 d-none d-lg-block">
+          <div class="col-lg-7 d-none d-lg-block slide-right">
             <div class="image-box">
               <img
                 src="../images/login.png"
                 alt="library"
-                class="image-fluid"
+                class="image-fluid scale-in"
               />
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- bootstrape js -->
+
+    <!-- bootstrap js -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -183,10 +193,15 @@
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
       crossorigin="anonymous"
     ></script>
-    <!-- gsap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 
-    <!-- custom js -->
+    <!-- GSAP Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+
+    <!-- GSAP Animation Script -->
+    <script src="./JS/animation.js"></script>
+
+    <!-- Custom JS -->
     <script type="module" src="./JS/auth.js"></script>
   </body>
 </html>

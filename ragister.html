@@ -23,7 +23,7 @@
     >
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <img style="width: 170px" src="./images/logo1.png" />
+          <img style="width: 170px" src="./images/logo1.png" class="scale-in" />
         </a>
         <button
           class="navbar-toggler"
@@ -40,37 +40,53 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto align-items-center">
             <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="#">Home</a>
+              <a class="nav-link custom-nav-link fade-in" href="#">Home</a>
             </li>
             <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="./about.html">About</a>
+              <a class="nav-link custom-nav-link fade-in" href="./about.html"
+                >About</a
+              >
             </li>
             <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="./feature.html"
+              <a class="nav-link custom-nav-link fade-in" href="./feature.html"
                 >Features</a
               >
             </li>
             <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="./html/admin/books.html"
+              <a
+                class="nav-link custom-nav-link fade-in"
+                href="./html/admin/books.html"
                 >Books</a
               >
             </li>
             <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="./contact.html"
+              <a class="nav-link custom-nav-link fade-in" href="./contact.html"
                 >Contact</a
               >
             </li>
             <li class="nav-item pad ms-lg-3">
-                       <a href="./login.html" class="animated-button nav-btn">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-            </svg>
-            <span class="btn-text">Login</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-            </svg>
-          </a>
+              <a href="./login.html" class="animated-button nav-btn">
+                <svg
+                  viewBox="0 0 24 24"
+                  class="arr-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                  />
+                </svg>
+                <span class="btn-text">Login</span>
+                <span class="circle"></span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="arr-1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                  />
+                </svg>
+              </a>
             </li>
           </ul>
         </div>
@@ -79,7 +95,7 @@
 
     <section class="register-section">
       <div class="container">
-        <div class="register-card">
+        <div class="register-card slide-left">
           <div
             class="d-flex justify-content-between align-items-start flex-wrap mb-4"
           >
@@ -104,7 +120,7 @@
 
           <form id="registerForm">
             <div class="row">
-              <div class="col-md-6 mb-3">
+              <div class="col-md-6 mb-3 scroll-fade">
                 <label>Full Name</label>
 
                 <input
@@ -115,9 +131,7 @@
                 />
               </div>
 
-            
-
-              <div class="col-md-6 mb-3">
+              <div class="col-md-6 mb-3 scroll-fade">
                 <label>Email Address</label>
 
                 <input
@@ -127,7 +141,7 @@
                   id="email"
                 />
               </div>
-                <div class="col-md-6 mb-3">
+              <div class="col-md-6 mb-3 scroll-fade">
                 <label>Password</label>
 
                 <input
@@ -138,7 +152,7 @@
                 />
               </div>
 
-              <div class="col-md-6 mb-3 position-relative">
+              <div class="col-md-6 mb-3 position-relative scroll-fade">
                 <label>Confirm Password</label>
 
                 <input
@@ -150,7 +164,7 @@
                 <i class="bi bi-eye eye-icon"></i>
               </div>
 
-              <div class="col-md-6 mb-3">
+              <div class="col-md-6 mb-3 scroll-fade">
                 <label>Phone Number</label>
 
                 <input
@@ -161,7 +175,7 @@
                 />
               </div>
 
-              <div class="col-md-6 mb-3">
+              <div class="col-md-6 mb-3 scroll-fade">
                 <label>Student ID (Optional)</label>
 
                 <input
@@ -170,7 +184,7 @@
                   placeholder="Enter your student ID"
                 />
               </div>
-              <div class="col-md-6 mb-3">
+              <div class="col-md-6 mb-3 scroll-fade">
                 <label>User Role</label>
                 <select class="form-select" id="role" required>
                   <option value="">Select your role</option>
@@ -183,49 +197,59 @@
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" />
 
-                  <label class="form-check-label">
+                  <label class="form-check-label scroll-fade">
                     I agree to the
                     <a href="#">Terms & Conditions</a>
                   </label>
                 </div>
               </div>
 
-              <div class="col-md-6 mb-3">
+              <div class="col-md-6 mb-3 scroll-fade">
                 <label>Department</label>
                 <select class="form-select" id="registerDepartment">
                   <option selected>Select department</option>
-                        <option value="">All Categories</option>
-  <option value="fiction">Fiction</option>
-  <option value="non-fiction">Non-Fiction</option>
-  <option value="programming">Programming</option>
-  <option value="science">Science</option>
-  <option value="business">Business</option>
-  <option value="islamic">Islamic</option>
-  <option value="history">History</option>
-  <option value="biography">Biography</option>
-  <option value="children">Children</option>
+                  <option value="">All Categories</option>
+                  <option value="fiction">Fiction</option>
+                  <option value="non-fiction">Non-Fiction</option>
+                  <option value="programming">Programming</option>
+                  <option value="science">Science</option>
+                  <option value="business">Business</option>
+                  <option value="islamic">Islamic</option>
+                  <option value="history">History</option>
+                  <option value="biography">Biography</option>
+                  <option value="children">Children</option>
                 </select>
               </div>
             </div>
 
             <div class="d-flex justify-content-center">
               <div class="d-flex justify-content-center">
-    <button type="submit" class="animated-button nav-btn">
+                <button type="submit" class="animated-button nav-btn">
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="arr-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    />
+                  </svg>
 
-        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-        </svg>
+                  <span class="btn-text">Ragister</span>
 
-        <span class="btn-text">Ragister</span>
+                  <span class="circle"></span>
 
-        <span class="circle"></span>
-
-        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L12.2218 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-        </svg>
-
-    </button>
-</div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="arr-1"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L12.2218 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
           </form>
 
@@ -237,12 +261,19 @@
         </div>
       </div>
     </section>
+    <!-- gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <!-- bootstrape js -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
       crossorigin="anonymous"
     ></script>
+
+    <!-- animation.js -->
+    <script type="module" src="./JS/animation.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"

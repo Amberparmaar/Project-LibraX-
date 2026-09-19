@@ -1,18 +1,17 @@
-import { auth, db } from "../JS/firebase/firebase-config.js"; 
-// Aapki existing Cloudinary file ka path yahan dein:
-import { uploadImageToCloudinary } from "../JS/cloudinary.js"; 
+import { auth, db } from "../JS/firebase/firebase-config.js";
+import { uploadImageToCloudinary } from "../JS/cloudinary.js";
 
-import { 
-  onAuthStateChanged, 
-  updatePassword, 
-  reauthenticateWithCredential, 
+import {
+  onAuthStateChanged,
+  updatePassword,
+  reauthenticateWithCredential,
   EmailAuthProvider,
-  updateProfile
+  updateProfile,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { 
-  doc, 
-  getDoc, 
-  updateDoc 
+import {
+  doc,
+  getDoc,
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 // DOM Elements
@@ -55,21 +54,23 @@ onAuthStateChanged(auth, async (user) => {
   if (user) {
     currentUser = user;
     securityEmail.textContent = user.email || "N/A";
-    
+
     try {
       const userDocRef = doc(db, "users", user.uid);
       const userDocSnap = await getDoc(userDocRef);
 
       if (userDocSnap.exists()) {
         const data = userDocSnap.data();
-        
-        profileDisplayName.textContent = data.fullName || user.displayName || "User";
+
+        profileDisplayName.textContent =
+          data.fullName || user.displayName || "User";
         profileRole.textContent = data.role || "Member";
         fullNameInput.value = data.fullName || "";
         emailAddrInput.value = user.email || "";
         phoneNumInput.value = data.phone || "";
 
-        const photoURL = data.photoURL || user.photoURL || "../../images/user-avatar.png";
+        const photoURL =
+          data.photoURL || user.photoURL || "../../images/user-avatar.png";
         profileAvatar.src = photoURL;
 
         if (data.notifications) {
@@ -88,12 +89,13 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
-// 2. Profile Info Form Submit (Existing Cloudinary Function Integration)
 profileInfoForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (!currentUser) return;
 
-  const submitBtn = profileInfoForm.querySelector('button[type="submit"]') || document.querySelector('button[form="profileInfoForm"]');
+  const submitBtn =
+    profileInfoForm.querySelector('button[type="submit"]') ||
+    document.querySelector('button[form="profileInfoForm"]');
   const originalBtnText = submitBtn.textContent;
 
   try {
@@ -103,7 +105,6 @@ profileInfoForm.addEventListener("submit", async (e) => {
     let photoURL = profileAvatar.src;
     const selectedFile = imageInput.files[0];
 
-    // Agar user ne new picture choose ki ho, toh aapki file ka function call hoga
     if (selectedFile) {
       photoURL = await uploadImageToCloudinary(selectedFile);
     }
@@ -111,7 +112,7 @@ profileInfoForm.addEventListener("submit", async (e) => {
     const updatedData = {
       fullName: fullNameInput.value.trim(),
       phone: phoneNumInput.value.trim(),
-      photoURL: photoURL
+      photoURL: photoURL,
     };
 
     // Firestore record update
@@ -121,7 +122,7 @@ profileInfoForm.addEventListener("submit", async (e) => {
     // Firebase Auth user profile update
     await updateProfile(currentUser, {
       displayName: updatedData.fullName,
-      photoURL: photoURL
+      photoURL: photoURL,
     });
 
     // Update UI Elements
@@ -151,9 +152,12 @@ changePasswordForm.addEventListener("submit", async (e) => {
   }
 
   try {
-    const credential = EmailAuthProvider.credential(currentUser.email, currentPassword);
+    const credential = EmailAuthProvider.credential(
+      currentUser.email,
+      currentPassword,
+    );
     await reauthenticateWithCredential(currentUser, credential);
-    
+
     await updatePassword(currentUser, newPassword);
     showAlert("Password updated successfully!");
     changePasswordForm.reset();
@@ -170,7 +174,7 @@ saveNotificationsBtn.addEventListener("click", async () => {
     const userDocRef = doc(db, "users", currentUser.uid);
     await updateDoc(userDocRef, {
       "notifications.email": emailNotifSwitch.checked,
-      "notifications.sms": smsNotifSwitch.checked
+      "notifications.sms": smsNotifSwitch.checked,
     });
     showAlert("Notification settings saved!");
   } catch (err) {

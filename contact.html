@@ -24,45 +24,84 @@
   </head>
 
   <body>
-   <nav class="navbar navbar-expand-lg bg-body-tertiary navigation position-fixed z-1 w-100">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img style="width: 170px" src="./images/logo1.png" alt="LibraX Logo" />
-    </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary navigation position-fixed z-1 w-100"
     >
-      <span class="menu-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="/">Home</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./about.html">About</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./feature.html">Features</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./html/admin/books.html">Books</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="./contact.html">Contact</a></li>
-        <li class="nav-item pad ms-lg-3">
-          <a href="./login.html" class="animated-button nav-btn">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-            </svg>
-            <span class="btn-text">Login</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            style="width: 170px"
+            src="./images/logo1.png"
+            alt="LibraX Logo"
+            class="scale-in"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="menu-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link fade-in" href="/">Home</a>
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link fade-in" href="./about.html"
+                >About</a
+              >
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link fade-in" href="./feature.html"
+                >Features</a
+              >
+            </li>
+            <li class="nav-item pad">
+              <a
+                class="nav-link custom-nav-link fade-in"
+                href="./html/admin/books.html"
+                >Books</a
+              >
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link fade-in" href="./contact.html"
+                >Contact</a
+              >
+            </li>
+            <li class="nav-item pad ms-lg-3">
+              <a href="./login.html" class="animated-button nav-btn">
+                <svg
+                  viewBox="0 0 24 24"
+                  class="arr-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                  />
+                </svg>
+                <span class="btn-text">Login</span>
+                <span class="circle"></span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="arr-1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- ================= CONTACT SECTION START ================= -->
 
@@ -71,10 +110,12 @@
         <div class="contact-card">
           <!-- Left Side: Info -->
           <div class="contact-info">
-            <h2>Get In Touch</h2>
-            <p>Have questions or need help?<br />We're here for you.</p>
+            <h2 class="scroll-fade">Get In Touch</h2>
+            <p class="scroll-fade">
+              Have questions or need help?<br />We're here for you.
+            </p>
 
-            <div class="contact-item">
+            <div class="contact-item scroll-fade">
               <i class="fa-solid fa-phone"></i>
               <div>
                 <h6>Phone</h6>
@@ -82,7 +123,7 @@
               </div>
             </div>
 
-            <div class="contact-item">
+            <div class="contact-item scroll-fade">
               <i class="fa-solid fa-envelope"></i>
               <div>
                 <h6>Email</h6>
@@ -90,7 +131,7 @@
               </div>
             </div>
 
-            <div class="contact-item">
+            <div class="contact-item scroll-fade">
               <i class="fa-solid fa-location-dot"></i>
               <div>
                 <h6>Address</h6>
@@ -98,7 +139,7 @@
               </div>
             </div>
 
-            <div class="contact-item">
+            <div class="contact-item scroll-fade">
               <i class="fa-solid fa-clock"></i>
               <div>
                 <h6>Working Hours</h6>
@@ -109,49 +150,62 @@
 
           <!-- Right Side: Form -->
           <div class="contact-form">
-            <h3>Send Us a Message</h3>
+            <h3 class="scroll-fade">Send Us a Message</h3>
             <form action="#" id="contactForm" method="POST">
               <input
                 type="text"
-                class="contact-input"
+                class="contact-input scroll-fade"
                 placeholder="Your Name"
                 id="name"
                 required
               />
               <input
                 type="email"
-                class="contact-input"
+                class="contact-input scroll-fade"
                 placeholder="Your Email"
                 id="email"
                 required
               />
               <input
                 type="text"
-                class="contact-input"
+                class="contact-input scroll-fade"
                 placeholder="Subject"
                 id="subject"
                 required
               />
               <textarea
-                class="contact-input message-box"
+                class="contact-input message-box scroll-fade"
                 placeholder="Message"
-                 id="message"
+                id="message"
                 required
               ></textarea>
 
               <!-- Submit Button Wrapper -->
-             <div class="btn-wrapper" style="max-width: 200px;">
-        <button  type="submit" class="animated-button">
-          <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://display 0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-          </svg>
-          <span class="btn-text">Send Message</span>
-          <span class="circle"></span>
-          <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-          </svg>
-        </button>
-      </div>
+              <div class="btn-wrapper" style="max-width: 200px">
+                <button type="submit" class="animated-button">
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="arr-2"
+                    xmlns="http://display 0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    />
+                  </svg>
+                  <span class="btn-text">Send Message</span>
+                  <span class="circle"></span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="arr-1"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    />
+                  </svg>
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -160,7 +214,7 @@
 
     <!-- ================= CONTACT SECTION END ================= -->
     <!-- FOOTER START -->
-    <footer class="container-xxl footer-container">
+    <footer class="container-xxl footer-container scroll-fade">
       <div class="container">
         <div class="row gy-5">
           <!-- Logo -->
@@ -278,8 +332,10 @@
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
       crossorigin="anonymous"
     ></script>
-    <!-- gsap -->
+    <!-- GSAP Plugins -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script type="module" src="./JS/animation.js"></script>
     <!-- custom js -->
     <script src="./JS/index.js"></script>
     <script type="module" src="./JS/contact.js"></script>

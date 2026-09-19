@@ -1,92 +1,50 @@
-
 import { db } from "../JS/firebase/firebase-config.js";
 
 import {
-    collection,
-    getDocs,
-    doc,
-    runTransaction,
-    serverTimestamp
+  collection,
+  getDocs,
+  doc,
+  runTransaction,
+  serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+const menuBtn = document.getElementById("menuBtn");
 
-// ======================================================
-// DOM ELEMENTS
-// ======================================================
+const sidebar = document.getElementById("sidebar");
 
-const menuBtn =
-    document.getElementById("menuBtn");
+const overlay = document.getElementById("overlay");
 
-const sidebar =
-    document.getElementById("sidebar");
+const searchInput = document.getElementById("searchInput");
 
-const overlay =
-    document.getElementById("overlay");
+const returnBooksTable = document.getElementById("returnBooksTable");
 
+const totalOverdueBooks = document.getElementById("totalOverdueBooks");
 
-const searchInput =
-    document.getElementById("searchInput");
+const totalFineCollected = document.getElementById("totalFineCollected");
 
+const returnMessage = document.getElementById("returnMessage");
 
-const returnBooksTable =
-    document.getElementById("returnBooksTable");
-
-
-const totalOverdueBooks =
-    document.getElementById("totalOverdueBooks");
-
-
-const totalFineCollected =
-    document.getElementById("totalFineCollected");
-
-
-const returnMessage =
-    document.getElementById("returnMessage");
-
-
-// ======================================================
-// SETTINGS
-// ======================================================
-
-// Fine per overdue day
 const FINE_PER_DAY = 50;
-
 
 // ======================================================
 // SIDEBAR
 // ======================================================
 
 if (menuBtn) {
+  menuBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("show");
 
-    menuBtn.addEventListener(
-        "click",
-        () => {
-
-            sidebar.classList.toggle("show");
-
-            overlay.classList.toggle("show");
-
-        }
-    );
-
+    overlay.classList.toggle("show");
+  });
 }
-
 
 if (overlay) {
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("show");
 
-    overlay.addEventListener(
-        "click",
-        () => {
-
-            sidebar.classList.remove("show");
-
-            overlay.classList.remove("show");
-
-        }
-    );
-
+    overlay.classList.remove("show");
+  });
 }
-
 
 // ======================================================
 // VARIABLES
@@ -94,16 +52,13 @@ if (overlay) {
 
 let issuedBooks = [];
 
-
 // ======================================================
 // LOAD ISSUED BOOKS
 // ======================================================
 
 async function loadIssuedBooks() {
-
-    try {
-
-        returnBooksTable.innerHTML = `
+  try {
+    returnBooksTable.innerHTML = `
         
             <tr>
                 <td colspan="7"
@@ -116,65 +71,30 @@ async function loadIssuedBooks() {
 
         `;
 
+    const snapshot = await getDocs(collection(db, "issuedBooks"));
 
-        const snapshot =
-            await getDocs(
-                collection(
-                    db,
-                    "issuedBooks"
-                )
-            );
+    issuedBooks = [];
 
+    snapshot.forEach((document) => {
+      const data = document.data();
 
-        issuedBooks = [];
+      // Only currently issued books
+      if (data.status === "Issued") {
+        issuedBooks.push({
+          id: document.id,
 
+          ...data,
+        });
+      }
+    });
 
-        snapshot.forEach(
-            (document) => {
+    renderTable(issuedBooks);
 
-                const data =
-                    document.data();
+    updateSummary(issuedBooks);
+  } catch (error) {
+    console.error("Error loading issued books:", error);
 
-
-                // Only currently issued books
-                if (
-                    data.status === "Issued"
-                ) {
-
-                    issuedBooks.push({
-
-                        id:
-                            document.id,
-
-                        ...data
-
-                    });
-
-                }
-
-            }
-        );
-
-
-        renderTable(
-            issuedBooks
-        );
-
-
-        updateSummary(
-            issuedBooks
-        );
-
-
-    } catch (error) {
-
-        console.error(
-            "Error loading issued books:",
-            error
-        );
-
-
-        returnBooksTable.innerHTML = `
+    returnBooksTable.innerHTML = `
 
             <tr>
 
@@ -188,23 +108,16 @@ async function loadIssuedBooks() {
             </tr>
 
         `;
-
-    }
-
+  }
 }
-
 
 // ======================================================
 // RENDER TABLE
 // ======================================================
 
-function renderTable(
-    books
-) {
-
-    if (books.length === 0) {
-
-        returnBooksTable.innerHTML = `
+function renderTable(books) {
+  if (books.length === 0) {
+    returnBooksTable.innerHTML = `
 
             <tr>
 
@@ -219,76 +132,50 @@ function renderTable(
 
         `;
 
-        return;
+    return;
+  }
 
-    }
+  returnBooksTable.innerHTML = "";
 
+  books.forEach((book) => {
+    const fineInfo = calculateFine(book.returnDate);
 
-    returnBooksTable.innerHTML = "";
+    const row = document.createElement("tr");
 
-
-    books.forEach(
-        (book) => {
-
-            const fineInfo =
-                calculateFine(
-                    book.returnDate
-                );
-
-
-            const row =
-                document.createElement("tr");
-
-
-            row.innerHTML = `
+    row.innerHTML = `
 
                 <td>
                     ${escapeHTML(
-                        book.memberName ||
-                        book.memberCode ||
-                        "Unknown Member"
+                      book.memberName || book.memberCode || "Unknown Member",
                     )}
 
                     ${
-                        book.memberCode
-                            ? `<small class="d-block text-secondary">
+                      book.memberCode
+                        ? `<small class="d-block text-secondary">
                                 ${escapeHTML(book.memberCode)}
                                </small>`
-                            : ""
+                        : ""
                     }
 
                 </td>
 
 
                 <td>
-                    ${escapeHTML(
-                        book.bookTitle ||
-                        "Unknown Book"
-                    )}
+                    ${escapeHTML(book.bookTitle || "Unknown Book")}
                 </td>
 
 
                 <td>
-                    ${escapeHTML(
-                        book.issueDate ||
-                        "—"
-                    )}
+                    ${escapeHTML(book.issueDate || "—")}
                 </td>
 
 
                 <td>
-                    ${escapeHTML(
-                        book.returnDate ||
-                        "—"
-                    )}
+                    ${escapeHTML(book.returnDate || "—")}
                 </td>
 
 
-                <td class="${
-                    fineInfo.fine > 0
-                        ? "text-fine"
-                        : ""
-                }">
+                <td class="${fineInfo.fine > 0 ? "text-fine" : ""}">
 
                     Rs. ${fineInfo.fine}
 
@@ -298,9 +185,7 @@ function renderTable(
                 <td>
 
                     <span class="${
-                        fineInfo.fine > 0
-                            ? "text-overdue"
-                            : "text-ontime"
+                      fineInfo.fine > 0 ? "text-overdue" : "text-ontime"
                     }">
 
                         ${fineInfo.status}
@@ -324,617 +209,290 @@ function renderTable(
 
             `;
 
-
-            returnBooksTable.appendChild(
-                row
-            );
-
-        }
-    );
-
+    returnBooksTable.appendChild(row);
+  });
 }
-
 
 // ======================================================
 // RETURN BUTTON
 // ======================================================
 
-returnBooksTable.addEventListener(
-    "click",
-    async function (event) {
+returnBooksTable.addEventListener("click", async function (event) {
+  const button = event.target.closest(".btn-return");
 
-        const button =
-            event.target.closest(
-                ".btn-return"
-            );
+  if (!button) {
+    return;
+  }
 
+  const issuedBookId = button.dataset.id;
 
-        if (!button) {
-            return;
-        }
+  if (!issuedBookId) {
+    return;
+  }
 
+  const selectedBook = issuedBooks.find((book) => book.id === issuedBookId);
 
-        const issuedBookId =
-            button.dataset.id;
+  if (!selectedBook) {
+    showMessage("Issued book not found.", "danger");
 
+    return;
+  }
 
-        if (!issuedBookId) {
-            return;
-        }
+  const confirmReturn = confirm(
+    `Return "${selectedBook.bookTitle}" for ${selectedBook.memberName}?`,
+  );
 
+  if (!confirmReturn) {
+    return;
+  }
 
-        const selectedBook =
-            issuedBooks.find(
-                book =>
-                    book.id === issuedBookId
-            );
+  button.disabled = true;
 
+  button.textContent = "Returning...";
 
-        if (!selectedBook) {
+  try {
+    const issuedBookRef = doc(db, "issuedBooks", issuedBookId);
 
-            showMessage(
-                "Issued book not found.",
-                "danger"
-            );
+    const bookRef = doc(db, "books", selectedBook.bookId);
 
-            return;
+    // ==================================================
+    // TRANSACTION
+    // ==================================================
 
-        }
+    await runTransaction(db, async (transaction) => {
+      // Get issued book
+      const issuedSnapshot = await transaction.get(issuedBookRef);
 
+      if (!issuedSnapshot.exists()) {
+        throw new Error("Issued book record not found.");
+      }
 
-        const confirmReturn =
-            confirm(
-                `Return "${selectedBook.bookTitle}" for ${selectedBook.memberName}?`
-            );
+      const issuedData = issuedSnapshot.data();
 
+      if (issuedData.status !== "Issued") {
+        throw new Error("This book has already been returned.");
+      }
 
-        if (!confirmReturn) {
-            return;
-        }
+      // Get actual book
+      const bookSnapshot = await transaction.get(bookRef);
 
+      if (!bookSnapshot.exists()) {
+        throw new Error("Book record not found.");
+      }
 
-        button.disabled = true;
+      const bookData = bookSnapshot.data();
 
-        button.textContent =
-            "Returning...";
+      const currentCopies = Number(bookData.availableCopies || 0);
 
+      const totalCopies = Number(bookData.totalCopies || 0);
 
-        try {
+      let newAvailableCopies = currentCopies + 1;
 
-            const issuedBookRef =
-                doc(
-                    db,
-                    "issuedBooks",
-                    issuedBookId
-                );
+      // Don't exceed total copies
+      if (totalCopies > 0 && newAvailableCopies > totalCopies) {
+        newAvailableCopies = totalCopies;
+      }
 
+      // Update book stock
+      transaction.update(bookRef, {
+        availableCopies: newAvailableCopies,
 
-            const bookRef =
-                doc(
-                    db,
-                    "books",
-                    selectedBook.bookId
-                );
+        available: newAvailableCopies > 0,
+      });
 
+      // Calculate fine
+      const fineInfo = calculateFine(issuedData.returnDate);
 
-            // ==================================================
-            // TRANSACTION
-            // ==================================================
+      // Update issued book
+      transaction.update(issuedBookRef, {
+        status: "Returned",
 
-            await runTransaction(
-                db,
-                async (transaction) => {
+        actualReturnDate: getTodayDate(),
 
+        fine: fineInfo.fine,
 
-                    // Get issued book
-                    const issuedSnapshot =
-                        await transaction.get(
-                            issuedBookRef
-                        );
+        returnedAt: serverTimestamp(),
+      });
+    });
 
+    showMessage("Book returned successfully!", "success");
 
-                    if (
-                        !issuedSnapshot.exists()
-                    ) {
+    // Reload data
+    await loadIssuedBooks();
+  } catch (error) {
+    console.error("Error returning book:", error);
 
-                        throw new Error(
-                            "Issued book record not found."
-                        );
+    showMessage(error.message || "Unable to return book.", "danger");
 
-                    }
+    button.disabled = false;
 
-
-                    const issuedData =
-                        issuedSnapshot.data();
-
-
-                    if (
-                        issuedData.status !==
-                        "Issued"
-                    ) {
-
-                        throw new Error(
-                            "This book has already been returned."
-                        );
-
-                    }
-
-
-                    // Get actual book
-                    const bookSnapshot =
-                        await transaction.get(
-                            bookRef
-                        );
-
-
-                    if (
-                        !bookSnapshot.exists()
-                    ) {
-
-                        throw new Error(
-                            "Book record not found."
-                        );
-
-                    }
-
-
-                    const bookData =
-                        bookSnapshot.data();
-
-
-                    const currentCopies =
-                        Number(
-                            bookData.availableCopies || 0
-                        );
-
-
-                    const totalCopies =
-                        Number(
-                            bookData.totalCopies || 0
-                        );
-
-
-                    let newAvailableCopies =
-                        currentCopies + 1;
-
-
-                    // Don't exceed total copies
-                    if (
-                        totalCopies > 0 &&
-                        newAvailableCopies >
-                        totalCopies
-                    ) {
-
-                        newAvailableCopies =
-                            totalCopies;
-
-                    }
-
-
-                    // Update book stock
-                    transaction.update(
-                        bookRef,
-                        {
-
-                            availableCopies:
-                                newAvailableCopies,
-
-                            available:
-                                newAvailableCopies > 0
-
-                        }
-                    );
-
-
-                    // Calculate fine
-                    const fineInfo =
-                        calculateFine(
-                            issuedData.returnDate
-                        );
-
-
-                    // Update issued book
-                    transaction.update(
-                        issuedBookRef,
-                        {
-
-                            status:
-                                "Returned",
-
-                            actualReturnDate:
-                                getTodayDate(),
-
-                            fine:
-                                fineInfo.fine,
-
-                            returnedAt:
-                                serverTimestamp()
-
-                        }
-                    );
-
-                }
-            );
-
-
-            showMessage(
-                "Book returned successfully!",
-                "success"
-            );
-
-
-            // Reload data
-            await loadIssuedBooks();
-
-
-        } catch (error) {
-
-            console.error(
-                "Error returning book:",
-                error
-            );
-
-
-            showMessage(
-                error.message ||
-                "Unable to return book.",
-                "danger"
-            );
-
-
-            button.disabled = false;
-
-            button.textContent =
-                "Return";
-
-        }
-
-    }
-);
-
+    button.textContent = "Return";
+  }
+});
 
 // ======================================================
 // SEARCH
 // ======================================================
 
-searchInput.addEventListener(
-    "input",
-    function () {
+searchInput.addEventListener("input", function () {
+  const searchValue = this.value.trim().toLowerCase();
 
-        const searchValue =
-            this.value
-                .trim()
-                .toLowerCase();
+  if (!searchValue) {
+    renderTable(issuedBooks);
 
+    return;
+  }
 
-        if (!searchValue) {
+  const filteredBooks = issuedBooks.filter((book) => {
+    const memberName = (book.memberName || "").toLowerCase();
 
-            renderTable(
-                issuedBooks
-            );
+    const memberCode = (book.memberCode || "").toLowerCase();
 
-            return;
+    const bookTitle = (book.bookTitle || "").toLowerCase();
 
-        }
+    return (
+      memberName.includes(searchValue) ||
+      memberCode.includes(searchValue) ||
+      bookTitle.includes(searchValue)
+    );
+  });
 
-
-        const filteredBooks =
-            issuedBooks.filter(
-                (book) => {
-
-                    const memberName =
-                        (
-                            book.memberName ||
-                            ""
-                        ).toLowerCase();
-
-
-                    const memberCode =
-                        (
-                            book.memberCode ||
-                            ""
-                        ).toLowerCase();
-
-
-                    const bookTitle =
-                        (
-                            book.bookTitle ||
-                            ""
-                        ).toLowerCase();
-
-
-                    return (
-
-                        memberName.includes(
-                            searchValue
-                        )
-
-                        ||
-
-                        memberCode.includes(
-                            searchValue
-                        )
-
-                        ||
-
-                        bookTitle.includes(
-                            searchValue
-                        )
-
-                    );
-
-                }
-            );
-
-
-        renderTable(
-            filteredBooks
-        );
-
-    }
-);
-
+  renderTable(filteredBooks);
+});
 
 // ======================================================
 // FINE CALCULATION
 // ======================================================
 
-function calculateFine(
-    dueDateString
-) {
-
-    if (!dueDateString) {
-
-        return {
-
-            fine: 0,
-
-            overdueDays: 0,
-
-            status: "On Time"
-
-        };
-
-    }
-
-
-    const dueDate =
-        parseDate(
-            dueDateString
-        );
-
-
-    const today =
-        new Date();
-
-
-    today.setHours(
-        0,
-        0,
-        0,
-        0
-    );
-
-
-    if (!dueDate) {
-
-        return {
-
-            fine: 0,
-
-            overdueDays: 0,
-
-            status: "On Time"
-
-        };
-
-    }
-
-
-    // Not overdue
-    if (
-        today <= dueDate
-    ) {
-
-        return {
-
-            fine: 0,
-
-            overdueDays: 0,
-
-            status: "On Time"
-
-        };
-
-    }
-
-
-    // Difference in days
-    const difference =
-        today.getTime() -
-        dueDate.getTime();
-
-
-    const overdueDays =
-        Math.ceil(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
-
-
-    const fine =
-        overdueDays *
-        FINE_PER_DAY;
-
-
+function calculateFine(dueDateString) {
+  if (!dueDateString) {
     return {
+      fine: 0,
 
-        fine:
-            fine,
+      overdueDays: 0,
 
-        overdueDays:
-            overdueDays,
-
-        status:
-            "Overdue"
-
+      status: "On Time",
     };
+  }
 
+  const dueDate = parseDate(dueDateString);
+
+  const today = new Date();
+
+  today.setHours(0, 0, 0, 0);
+
+  if (!dueDate) {
+    return {
+      fine: 0,
+
+      overdueDays: 0,
+
+      status: "On Time",
+    };
+  }
+
+  // Not overdue
+  if (today <= dueDate) {
+    return {
+      fine: 0,
+
+      overdueDays: 0,
+
+      status: "On Time",
+    };
+  }
+
+  // Difference in days
+  const difference = today.getTime() - dueDate.getTime();
+
+  const overdueDays = Math.ceil(difference / (1000 * 60 * 60 * 24));
+
+  const fine = overdueDays * FINE_PER_DAY;
+
+  return {
+    fine: fine,
+
+    overdueDays: overdueDays,
+
+    status: "Overdue",
+  };
 }
-
 
 // ======================================================
 // UPDATE SUMMARY
 // ======================================================
 
-function updateSummary(
-    books
-) {
+function updateSummary(books) {
+  let overdueBooks = 0;
 
-    let overdueBooks = 0;
+  let totalFine = 0;
 
-    let totalFine = 0;
+  books.forEach((book) => {
+    const fineInfo = calculateFine(book.returnDate);
 
+    if (fineInfo.fine > 0) {
+      overdueBooks++;
 
-    books.forEach(
-        (book) => {
+      totalFine += fineInfo.fine;
+    }
+  });
 
-            const fineInfo =
-                calculateFine(
-                    book.returnDate
-                );
+  totalOverdueBooks.textContent = overdueBooks;
 
-
-            if (
-                fineInfo.fine > 0
-            ) {
-
-                overdueBooks++;
-
-                totalFine +=
-                    fineInfo.fine;
-
-            }
-
-        }
-    );
-
-
-    totalOverdueBooks.textContent =
-        overdueBooks;
-
-
-    totalFineCollected.textContent =
-        `Rs. ${totalFine.toLocaleString()}`;
-
+  totalFineCollected.textContent = `Rs. ${totalFine.toLocaleString()}`;
 }
-
 
 // ======================================================
 // DATE PARSER
 // DD/MM/YYYY
 // ======================================================
 
-function parseDate(
-    dateString
-) {
+function parseDate(dateString) {
+  if (!dateString) {
+    return null;
+  }
 
-    if (!dateString) {
-        return null;
-    }
+  const parts = dateString.split("/");
 
+  if (parts.length !== 3) {
+    return null;
+  }
 
-    const parts =
-        dateString.split("/");
+  const day = Number(parts[0]);
 
+  const month = Number(parts[1]) - 1;
 
-    if (
-        parts.length !== 3
-    ) {
+  const year = Number(parts[2]);
 
-        return null;
+  const date = new Date(year, month, day);
 
-    }
+  date.setHours(0, 0, 0, 0);
 
-
-    const day =
-        Number(parts[0]);
-
-    const month =
-        Number(parts[1]) - 1;
-
-    const year =
-        Number(parts[2]);
-
-
-    const date =
-        new Date(
-            year,
-            month,
-            day
-        );
-
-
-    date.setHours(
-        0,
-        0,
-        0,
-        0
-    );
-
-
-    return date;
-
+  return date;
 }
-
 
 // ======================================================
 // TODAY
 // ======================================================
 
 function getTodayDate() {
+  const today = new Date();
 
-    const today =
-        new Date();
+  const day = String(today.getDate()).padStart(2, "0");
 
+  const month = String(today.getMonth() + 1).padStart(2, "0");
 
-    const day =
-        String(
-            today.getDate()
-        ).padStart(
-            2,
-            "0"
-        );
+  const year = today.getFullYear();
 
-
-    const month =
-        String(
-            today.getMonth() + 1
-        ).padStart(
-            2,
-            "0"
-        );
-
-
-    const year =
-        today.getFullYear();
-
-
-    return `${day}/${month}/${year}`;
-
+  return `${day}/${month}/${year}`;
 }
-
 
 // ======================================================
 // MESSAGE
 // ======================================================
 
-function showMessage(
-    message,
-    type
-) {
-
-    returnMessage.innerHTML = `
+function showMessage(message, type) {
+  returnMessage.innerHTML = `
 
         <div class="alert alert-${type}"
             role="alert">
@@ -945,42 +503,22 @@ function showMessage(
 
     `;
 
-
-    setTimeout(
-        () => {
-
-            returnMessage.innerHTML =
-                "";
-
-        },
-        4000
-    );
-
+  setTimeout(() => {
+    returnMessage.innerHTML = "";
+  }, 4000);
 }
-
 
 // ======================================================
 // ESCAPE HTML
 // ======================================================
 
-function escapeHTML(
-    value
-) {
+function escapeHTML(value) {
+  const div = document.createElement("div");
 
-    const div =
-        document.createElement(
-            "div"
-        );
+  div.textContent = value;
 
-
-    div.textContent =
-        value;
-
-
-    return div.innerHTML;
-
+  return div.innerHTML;
 }
-
 
 // ======================================================
 // START PAGE

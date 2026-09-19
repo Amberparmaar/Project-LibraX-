@@ -1,207 +1,331 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QR-Scanner - LibraX</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
 
     <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
     <!-- HTML5 QR Code Library (Required for Camera Scanning) -->
     <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/components.css">
-    <link rel="stylesheet" href="../../css/responsive.css">
-</head>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/responsive.css" />
+  </head>
 
-<body>
-
+  <body>
     <!-- MOBILE HEADER -->
     <div class="mobile-header">
-        <div class="mobile-logo">
-            <img src="../../images/logo1.png" alt="Logo">
-        </div>
-        <button id="menuBtn" aria-label="Toggle Navigation">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+      <div class="mobile-logo">
+        <img src="../../images/logo1.png" alt="Logo" />
+      </div>
+      <button id="menuBtn" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
 
     <div class="overlay" id="overlay"></div>
 
     <div class="dashboard container-fluid p-0">
-        <div class="main-card">
-            <div class="row g-0">
-
-                <!-- SIDEBAR -->
-                <div class="col-lg-2 sidebar" id="sidebar">
-                    <div class="logo desktop-logo">
-                        <img src="../../images/logo3.png" alt="Logo">
-                    </div>
-
-                    <div class="menu">
-                        <a href="#"><i class="fa-solid fa-house"></i> Dashboard</a>
-                        <a href="./books.html"><i class="fa-solid fa-book"></i> Books</a>
-                        <a href="../member/members.html"><i class="fa-solid fa-users"></i> Members</a>
-                        <a href="../admin/qr-scanner.html" class="active"><i class="fa-solid fa-qrcode"></i> QR Scanner</a>
-                        <a href="../admin/issue-book.html"><i class="fa-solid fa-book-open"></i> Issue Book</a>
-                        <a href="../admin/return-book.html"><i class="fa-solid fa-arrow-rotate-left"></i> Return Book</a>
-                        <a href="../admin/issue-book.html"><i class="fa-solid fa-chart-line"></i> Reports</a>
-                        <a href="../admin/setting.html"><i class="fa-solid fa-gear"></i> Settings</a>
-                    </div>
-
-                    <div class="sidebar-footer">
-                        <hr>
-                        <a href="#" class="logout" id="logoutBtn">
-                            <i class="fa-solid fa-right-from-bracket"></i> Logout
-                        </a>
-                    </div>
-                </div>
-
-                <!-- WORKSPACE AREA -->
-                <div class="col-lg-10 blank-area">
-                    <div class="container-fluid p-4">
-                        <div class="row g-4">
-
-                            <!-- Left Side: Scan QR Code Card -->
-                            <div class="col-12 col-md-5 col-xl-4">
-                                <div class="card border-0 bg-white rounded-4 p-4 shadow-sm">
-                                    <h5 class="fw-bold mb-3 text-dark" style="color: #06285c !important;">Scan QR Code</h5>
-
-                                    <!-- Scanner Alert / Status Messages -->
-                                    <div id="scannerError" class="alert alert-danger d-none py-2 px-3 small mb-3"></div>
-                                    <p id="scannerStatus" class="text-muted small fw-medium mb-3">Click below to start camera</p>
-
-                                    <!-- Scanner Box Video Container -->
-                                    <div class="scanner-view mb-4 shadow-sm position-relative" style="overflow: hidden; min-height: 250px; background-color: #000;">
-                                        <div id="reader" style="width: 100%;"></div>
-                                        <div class="corner top-left"></div>
-                                        <div class="corner top-right"></div>
-                                        <div class="corner bottom-left"></div>
-                                        <div class="corner bottom-right"></div>
-                                    </div>
-
-                                    <!-- Scan Control Buttons -->
-                                    <div class="text-center w-100">
-                                        <button id="startScannerBtn" class="btn btn-primary px-4 py-2-5 w-100 fw-medium rounded-3"
-                                            style="background-color: #2563EB; border: none; padding: 12px;">
-                                            <i class="fa-solid fa-qrcode me-2"></i> Start Scanner
-                                        </button>
-                                        <button id="stopScannerBtn" class="btn btn-danger px-4 py-2-5 w-100 fw-medium rounded-3"
-                                            style="display: none; padding: 12px;">
-                                            <i class="fa-solid fa-stop me-2"></i> Stop Scanner
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Right Side: Scan Result Information Container -->
-                            <div class="col-12 col-md-7 col-xl-8">
-                                <div class="card border-0 bg-white rounded-4 p-4 shadow-sm min-vh-50">
-                                    <div class="d-flex justify-content-between align-items-center mb-4">
-                                        <h5 class="fw-bold m-0" style="color: #06285c !important;">Scan Result</h5>
-                                        <button id="clearResultBtn" class="btn btn-sm btn-outline-secondary rounded-2">
-                                            <i class="fa-solid fa-rotate-left me-1"></i> Clear
-                                        </button>
-                                    </div>
-
-                                    <!-- State 1: Placeholder when no scan performed -->
-                                    <div id="emptyResult" class="text-center py-5">
-                                        <i class="fa-solid fa-id-card text-muted opacity-25 display-1 mb-3"></i>
-                                        <p class="text-muted fw-medium m-0">No member scanned yet. Please scan a QR Code.</p>
-                                    </div>
-
-                                    <!-- State 2: Dynamic Member Details (Shown when found) -->
-                                    <div id="memberResult" class="d-none">
-                                        <!-- Member Header Details -->
-                                        <div class="d-flex align-items-center gap-3 mb-4">
-                                            <img id="memberPhoto" src="../../images/default-profile.png"
-                                                alt="Member Photo" class="rounded-circle object-fit-cover shadow-sm" style="width: 80px; height: 80px;">
-                                            <div>
-                                                <h4 id="memberName" class="mb-1 fw-bold" style="color: #06285c !important;">-</h4>
-                                                <div id="memberId" class="fw-semibold mb-1" style="color: #2563EB !important;">-</div>
-                                                <span id="memberStatus" class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 rounded-2 small fw-semibold">Active Member</span>
-                                            </div>
-                                        </div>
-
-                                        <!-- Member Data Fields -->
-                                        <div class="container-fluid p-0 mb-4">
-                                            <div class="row info-row border-bottom py-2 g-0">
-                                                <div class="col-6 text-muted fw-medium">Department</div>
-                                                <div id="memberDepartment" class="col-6 fw-semibold text-dark text-end text-sm-start">-</div>
-                                            </div>
-                                            <div class="row info-row border-bottom py-2 g-0">
-                                                <div class="col-6 text-muted fw-medium">Email</div>
-                                                <div id="memberEmail" class="col-6 fw-semibold text-dark text-truncate text-end text-sm-start">-</div>
-                                            </div>
-                                            <div class="row info-row border-bottom py-2 g-0">
-                                                <div class="col-6 text-muted fw-medium">Phone</div>
-                                                <div id="memberPhone" class="col-6 fw-semibold text-dark text-end text-sm-start">-</div>
-                                            </div>
-                                            <div class="row info-row border-bottom py-2 g-0">
-                                                <div class="col-6 text-muted fw-medium">Books Borrowed</div>
-                                                <div id="memberBorrowed" class="col-6 fw-semibold text-dark text-end text-sm-start">0</div>
-                                            </div>
-                                            <div class="row info-row border-bottom py-2 g-0">
-                                                <div class="col-6 text-muted fw-medium">Overdue Books</div>
-                                                <div id="memberOverdue" class="col-6 text-danger fw-bold text-end text-sm-start">0</div>
-                                            </div>
-                                            <div class="row info-row py-2 g-0">
-                                                <div class="col-6 text-muted fw-medium">Total Fine</div>
-                                                <div id="memberFine" class="col-6 text-danger fw-bold text-end text-sm-start">Rs. 0</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
+      <div class="main-card">
+        <div class="row g-0">
+          <!-- SIDEBAR -->
+          <div class="col-lg-2 sidebar" id="sidebar">
+            <div class="logo desktop-logo">
+              <img src="../../images/logo3.png" alt="Logo" />
             </div>
+
+            <div class="menu">
+              <a href="#"><i class="fa-solid fa-house"></i> Dashboard</a>
+              <a href="./books.html"><i class="fa-solid fa-book"></i> Books</a>
+              <a href="../member/members.html"
+                ><i class="fa-solid fa-users"></i> Members</a
+              >
+              <a href="../admin/qr-scanner.html" class="active"
+                ><i class="fa-solid fa-qrcode"></i> QR Scanner</a
+              >
+              <a href="../admin/issue-book.html"
+                ><i class="fa-solid fa-book-open"></i> Issue Book</a
+              >
+              <a href="../admin/return-book.html"
+                ><i class="fa-solid fa-arrow-rotate-left"></i> Return Book</a
+              >
+
+              <a href="../admin/setting.html"
+                ><i class="fa-solid fa-gear"></i> Settings</a
+              >
+            </div>
+
+            <div class="sidebar-footer">
+              <hr />
+              <a href="#" class="logout" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+              </a>
+            </div>
+          </div>
+
+          <!-- WORKSPACE AREA -->
+          <div class="col-lg-10 blank-area">
+            <div class="container-fluid p-4">
+              <div class="row g-4">
+                <!-- Left Side: Scan QR Code Card -->
+                <div class="col-12 col-md-5 col-xl-4">
+                  <div class="card border-0 bg-white rounded-4 p-4 shadow-sm">
+                    <h5
+                      class="fw-bold mb-3 text-dark"
+                      style="color: #06285c !important"
+                    >
+                      Scan QR Code
+                    </h5>
+
+                    <!-- Scanner Alert / Status Messages -->
+                    <div
+                      id="scannerError"
+                      class="alert alert-danger d-none py-2 px-3 small mb-3"
+                    ></div>
+                    <p
+                      id="scannerStatus"
+                      class="text-muted small fw-medium mb-3"
+                    >
+                      Click below to start camera
+                    </p>
+
+                    <!-- Scanner Box Video Container -->
+                    <div
+                      class="scanner-view mb-4 shadow-sm position-relative"
+                      style="
+                        overflow: hidden;
+                        min-height: 250px;
+                        background-color: #000;
+                      "
+                    >
+                      <div id="reader" style="width: 100%"></div>
+                      <div class="corner top-left"></div>
+                      <div class="corner top-right"></div>
+                      <div class="corner bottom-left"></div>
+                      <div class="corner bottom-right"></div>
+                    </div>
+
+                    <!-- Scan Control Buttons -->
+                    <div class="text-center w-100">
+                      <button
+                        id="startScannerBtn"
+                        class="btn btn-primary px-4 py-2-5 w-100 fw-medium rounded-3"
+                        style="
+                          background-color: #2563eb;
+                          border: none;
+                          padding: 12px;
+                        "
+                      >
+                        <i class="fa-solid fa-qrcode me-2"></i> Start Scanner
+                      </button>
+                      <button
+                        id="stopScannerBtn"
+                        class="btn btn-danger px-4 py-2-5 w-100 fw-medium rounded-3"
+                        style="display: none; padding: 12px"
+                      >
+                        <i class="fa-solid fa-stop me-2"></i> Stop Scanner
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right Side: Scan Result Information Container -->
+                <div class="col-12 col-md-7 col-xl-8">
+                  <div
+                    class="card border-0 bg-white rounded-4 p-4 shadow-sm min-vh-50"
+                  >
+                    <div class="mb-4">
+                      <h5 class="fw-bold m-0" style="color: #06285c !important">
+                        Scan Result
+                      </h5>
+                      <button
+                        id="clearResultBtn"
+                        class="btn btn-sm btn-outline-secondary rounded-2"
+                      >
+                        <i class="fa-solid fa-rotate-left me-1"></i> Clear
+                      </button>
+                    </div>
+
+                    <!-- State 1: Placeholder when no scan performed -->
+                    <div id="emptyResult" class="text-center py-5">
+                      <i
+                        class="fa-solid fa-id-card text-muted opacity-25 display-1 mb-3"
+                      ></i>
+                      <p class="text-muted fw-medium m-0">
+                        No member scanned yet. Please scan a QR Code.
+                      </p>
+                    </div>
+
+                    <!-- State 2: Dynamic Member Details (Shown when found) -->
+                    <div id="memberResult" class="d-none">
+                      <!-- Member Header Details -->
+                      <div class="d-flex align-items-center gap-3 mb-4 w-50">
+                        <img
+                          id="memberPhoto"
+                          src="../../images/default-profile.png"
+                          alt="Member Photo"
+                          class="rounded-circle object-fit-cover shadow-sm"
+                          style="width: 80px; height: 80px"
+                        />
+                        <div>
+                          <h4
+                            id="memberName"
+                            class="mb-1 fw-bold"
+                            style="color: #06285c !important"
+                          >
+                            -
+                          </h4>
+                          <div
+                            id="memberId"
+                            class="fw-semibold mb-1"
+                            style="color: #2563eb !important"
+                          >
+                            -
+                          </div>
+                          <span
+                            id="memberStatus"
+                            class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 rounded-2 small fw-semibold"
+                            >Active Member</span
+                          >
+                        </div>
+                      </div>
+
+                      <!-- Member Data Fields -->
+                      <div class="container-fluid p-0 mb-4">
+                        <div class="row info-row border-bottom py-2 g-0">
+                          <div class="col-6 text-muted fw-medium">
+                            Department
+                          </div>
+                          <div
+                            id="memberDepartment"
+                            class="col-6 fw-semibold text-dark text-end text-sm-start"
+                          >
+                            -
+                          </div>
+                        </div>
+                        <div class="row info-row border-bottom py-2 g-0">
+                          <div class="col-6 text-muted fw-medium">Email</div>
+                          <div
+                            id="memberEmail"
+                            class="col-6 fw-semibold text-dark text-truncate text-end text-sm-start"
+                          >
+                            -
+                          </div>
+                        </div>
+                        <div class="row info-row border-bottom py-2 g-0">
+                          <div class="col-6 text-muted fw-medium">Phone</div>
+                          <div
+                            id="memberPhone"
+                            class="col-6 fw-semibold text-dark text-end text-sm-start"
+                          >
+                            -
+                          </div>
+                        </div>
+                        <div class="row info-row border-bottom py-2 g-0">
+                          <div class="col-6 text-muted fw-medium">
+                            Books Borrowed
+                          </div>
+                          <div
+                            id="memberBorrowed"
+                            class="col-6 fw-semibold text-dark text-end text-sm-start"
+                          >
+                            0
+                          </div>
+                        </div>
+                        <div class="row info-row border-bottom py-2 g-0">
+                          <div class="col-6 text-muted fw-medium">
+                            Overdue Books
+                          </div>
+                          <div
+                            id="memberOverdue"
+                            class="col-6 text-danger fw-bold text-end text-sm-start"
+                          >
+                            0
+                          </div>
+                        </div>
+                        <div class="row info-row py-2 g-0">
+                          <div class="col-6 text-muted fw-medium">
+                            Total Fine
+                          </div>
+                          <div
+                            id="memberFine"
+                            class="col-6 text-danger fw-bold text-end text-sm-start"
+                          >
+                            Rs. 0
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Bootstrap Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+      integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Navigation Drawer Script -->
     <script>
-        const menuBtn = document.getElementById("menuBtn");
-        const sidebar = document.getElementById("sidebar");
-        const overlay = document.getElementById("overlay");
+      const menuBtn = document.getElementById("menuBtn");
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("overlay");
 
-        if (menuBtn) {
-            menuBtn.onclick = function () {
-                sidebar.classList.toggle("show");
-                overlay.classList.toggle("show");
-            };
-        }
+      if (menuBtn) {
+        menuBtn.onclick = function () {
+          sidebar.classList.toggle("show");
+          overlay.classList.toggle("show");
+        };
+      }
 
-        if (overlay) {
-            overlay.onclick = function () {
-                sidebar.classList.remove("show");
-                overlay.classList.remove("show");
-            };
-        }
+      if (overlay) {
+        overlay.onclick = function () {
+          sidebar.classList.remove("show");
+          overlay.classList.remove("show");
+        };
+      }
     </script>
 
     <!-- Custom Module JS -->
-     <script type="module" src="../../JS/auth.js"></script>
+    <!-- GSAP Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+
+    <!-- GSAP Animation Script -->
+    <script src="../../JS/animation.js"></script>
+    <script type="module" src="../../JS/auth.js"></script>
     <script type="module" src="../../JS/qr-scanner.js"></script>
-
-</body>
-
+  </body>
 </html>

@@ -17,53 +17,86 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <!-- custom css -->
-     <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/components.css" />
     <link rel="stylesheet" href="../../css/home.css" />
     <link rel="stylesheet" href="../../css/responsive.css" />
-    
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary navigation position-fixed z-3 w-100">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img style="width: 170px" src="../../images/logo1.png" alt="LibraX Logo" />
-    </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary navigation position-fixed z-3 w-100"
     >
-      <span class="menu-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="#">Home</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="../../about.html">About</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="../../feature.html">Features</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="../admin/books.html">Books</a></li>
-        <li class="nav-item pad"><a class="nav-link custom-nav-link" href="../../">Contact</a></li>
-        <li class="nav-item pad ms-lg-3">
-          <a href="../../login.html" class="animated-button nav-btn">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-            </svg>
-            <span class="btn-text">Login</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            style="width: 170px"
+            src="../../images/logo1.png"
+            alt="LibraX Logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="menu-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="../../about.html"
+                >About</a
+              >
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="../../feature.html"
+                >Features</a
+              >
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="../admin/books.html"
+                >Books</a
+              >
+            </li>
+            <li class="nav-item pad">
+              <a class="nav-link custom-nav-link" href="../../">Contact</a>
+            </li>
+            <li class="nav-item pad ms-lg-3">
+              <a href="../../login.html" class="animated-button nav-btn">
+                <svg
+                  viewBox="0 0 24 24"
+                  class="arr-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                  />
+                </svg>
+                <span class="btn-text">Login</span>
+                <span class="circle"></span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="arr-1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- ================= BOOK DETAIL SECTION START ================= -->
 
@@ -133,7 +166,7 @@
             </button>
 
             <div class="thumbnails">
-              <button class="thumbnail active ">
+              <button class="thumbnail active">
                 <img
                   src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRyQ8__SctcAs4N0BU2bAnLJDZBGsI3yE4eSf66chmlGJE0RaAuBmXQGnPpeNXP"
                   alt="Book front cover"
@@ -153,7 +186,7 @@
                   alt="Book inside page"
                 />
               </button>
-               <button class="thumbnail">
+              <button class="thumbnail">
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSISiLU91CSGJF4h7cUYwPIwJUEvB4nQ_lzxTyq4pR6F12usyJhp9laEHlYd7Wc"
                   alt="Book back cover"
@@ -190,7 +223,6 @@
             </div>
 
             <div class="meta-divider"></div>
-
 
             <div class="meta-divider"></div>
 
@@ -230,13 +262,13 @@
                  AVAILABILITY CARDS
             ========================== -->
           <div class="availability-grid">
-            <div class="dashboard-card " style="width: 140px">
+            <div class="dashboard-card" style="width: 140px">
               <div class="bg"></div>
 
               <!-- Wrapper div around the content -->
               <div class="card-content">
                 <div class="card-icon orange">
-                  <i class="fa-solid fa-book-open" style="font-size: large;"></i>
+                  <i class="fa-solid fa-book-open" style="font-size: large"></i>
                 </div>
 
                 <div class="font-sm">
@@ -248,13 +280,13 @@
               <div class="blob"></div>
             </div>
 
-            <div class="dashboard-card " style="width: 140px">
+            <div class="dashboard-card" style="width: 140px">
               <div class="bg"></div>
 
               <!-- Wrapper div around the content -->
               <div class="card-content">
                 <div class="card-icon green">
-                  <i class="fa-solid fa-check" style="font-size: large;"></i>
+                  <i class="fa-solid fa-check" style="font-size: large"></i>
                 </div>
 
                 <div class="font-sm">
@@ -266,13 +298,13 @@
               <div class="blob"></div>
             </div>
 
-            <div class="dashboard-card " style="width: 140px">
+            <div class="dashboard-card" style="width: 140px">
               <div class="bg"></div>
 
               <!-- Wrapper div around the content -->
               <div class="card-content">
                 <div class="card-icon red">
-                  <i class="fa-solid fa-user" style="font-size: large;"></i>
+                  <i class="fa-solid fa-user" style="font-size: large"></i>
                 </div>
 
                 <div class="font-sm">
@@ -284,13 +316,13 @@
               <div class="blob"></div>
             </div>
 
-            <div class="dashboard-card " style="width: 140px">
+            <div class="dashboard-card" style="width: 140px">
               <div class="bg"></div>
 
               <!-- Wrapper div around the content -->
               <div class="card-content">
                 <div class="card-icon blue">
-                  <i class="fa-solid fa-book-open" style="font-size: large;"></i>
+                  <i class="fa-solid fa-book-open" style="font-size: large"></i>
                 </div>
 
                 <div class="font-sm">
@@ -378,8 +410,14 @@
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
       crossorigin="anonymous"
     ></script>
-    <!-- gsap -->
+
+    <!-- GSAP Plugins -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+
+    <!-- GSAP Animation Script -->
+    <script src="../../JS/animation.js"></script>
+    <script type="module" src="../../JS/auth.js"></script>
     <!-- custom js -->
     <script type="module" src="../../JS/bookdetail.js"></script>
   </body>

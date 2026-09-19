@@ -30,14 +30,15 @@
   <body>
     <!-- Navigation -->
     <nav
-      class="navbar navbar-expand-lg bg-body-tertiary navigation position-fixed z-3 w-100"
+      class="navbar navbar-expand-lg bg-body-tertiary navigation position-fixed z-3 w-100 fade-in"
     >
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand fade-in" href="#">
           <img
             style="width: 170px"
             src="./images/logo1.png"
             alt="LibraX Logo"
+            class="scale-in"
           />
         </a>
         <button
@@ -54,28 +55,35 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto align-items-center">
             <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="#">Home</a>
+              <a class="nav-link custom-nav-link fade-in" href="#">Home</a>
             </li>
             <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="./about.html">About</a>
+              <a class="nav-link custom-nav-link fade-in" href="./about.html"
+                >About</a
+              >
             </li>
             <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="./feature.html"
+              <a class="nav-link custom-nav-link fade-in" href="./feature.html"
                 >Features</a
               >
             </li>
             <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="./html/admin/books.html"
+              <a
+                class="nav-link custom-nav-link fade-in"
+                href="./html/admin/books.html"
                 >Books</a
               >
             </li>
             <li class="nav-item pad">
-              <a class="nav-link custom-nav-link" href="./contact.html"
+              <a class="nav-link custom-nav-link fade-in" href="./contact.html"
                 >Contact</a
               >
             </li>
             <li class="nav-item pad ms-lg-3">
-              <a href="./login.html" class="animated-button nav-btn">
+              <a
+                href="./login.html"
+                class="animated-button nav-btn hover-scale"
+              >
                 <svg
                   viewBox="0 0 24 24"
                   class="arr-2"
@@ -106,16 +114,16 @@
     <!-- Hero Section -->
     <div class="container-xxl hero-section">
       <div class="hero-content">
-        <h2 class="fw-bold">Welcome to</h2>
-        <h1 class="display-1 fw-bold">LibraX</h1>
-        <h4>Smart Library Management System</h4>
-        <p>
+        <h2 class="fw-bold slide-left">Welcome to</h2>
+        <h1 class="display-1 fw-bold slide-left fst-italic">LibraX</h1>
+        <h4 class="slide-left">Smart Library Management System</h4>
+        <p class="slide-left">
           Managing Books, Members, Borrowing records and reports efficiently
           with LibraX.
         </p>
 
         <div class="btns">
-          <div class="btn-wrapper">
+          <div class="btn-wrapper fade-in hover-scale">
             <a href="./ragister.html" class="animated-button">
               <svg
                 viewBox="0 0 24 24"
@@ -140,12 +148,11 @@
             </a>
           </div>
 
-          <div class="btn-wrapper">
+          <div class="btn-wrapper fade-in hover-scale">
             <a href="./html/admin/books.html" class="animated-button">
               <svg
                 viewBox="0 0 24 24"
                 class="arr-2"
-                xmlns="http://display 0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -168,8 +175,8 @@
         </div>
       </div>
 
-      <div class="hero-image">
-        <img src="./images/homee.png" alt="Hero Illustration" />
+      <div class="hero-image slide-right">
+        <img src="./images/hero.avif" alt="Hero Illustration" />
       </div>
     </div>
 
@@ -179,7 +186,7 @@
       <!-- ================= FIRST ROW ================= -->
       <div class="fstrow">
         <!-- Card 1 -->
-        <div class="flip-card">
+        <div class="flip-card scroll-fade">
           <div class="flip-card-inner">
             <div class="flip-card-front card-body">
               <i class="fa-solid fa-book-open"></i>
@@ -198,7 +205,7 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="flip-card">
+        <div class="flip-card scroll-fade">
           <div class="flip-card-inner">
             <div class="flip-card-front card-body">
               <i class="fa-solid fa-users"></i>
@@ -217,7 +224,7 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="flip-card">
+        <div class="flip-card scroll-fade">
           <div class="flip-card-inner">
             <div class="flip-card-front card-body">
               <i class="fa-solid fa-circle-left"></i>
@@ -236,7 +243,7 @@
         </div>
 
         <!-- Card 4 -->
-        <div class="flip-card">
+        <div class="flip-card scroll-fade">
           <div class="flip-card-inner">
             <div class="flip-card-front card-body">
               <i class="fa-solid fa-arrow-trend-up"></i>
@@ -258,7 +265,7 @@
       <!-- ================= SECOND ROW ================= -->
       <div class="container-xxl secrow">
         <!-- Books -->
-        <div class="sec">
+        <div class="sec scroll-fade">
           <div class="circle">
             <i class="fa-solid fa-book"></i>
           </div>
@@ -269,7 +276,7 @@
         </div>
 
         <!-- Members -->
-        <div class="sec bord">
+        <div class="sec bord scroll-fade">
           <div class="circle">
             <i class="fa-solid fa-users"></i>
           </div>
@@ -280,7 +287,7 @@
         </div>
 
         <!-- Books Issued -->
-        <div class="sec bord">
+        <div class="sec bord scroll-fade">
           <div class="circle">
             <i class="fa-solid fa-book-open"></i>
           </div>
@@ -291,7 +298,7 @@
         </div>
 
         <!-- Satisfaction -->
-        <div class="sec bord">
+        <div class="sec bord scroll-fade">
           <div class="circle">
             <i class="fa-solid fa-star"></i>
           </div>
@@ -304,12 +311,12 @@
     </div>
 
     <!-- FOOTER START -->
-    <footer class="container-xxl footer-container">
+    <footer class="container-xxl footer-container scroll-fade">
       <div class="container">
         <div class="row gy-5">
           <!-- Logo -->
 
-          <div class="col-lg-4 col-md-6 logo-section">
+          <div class="col-lg-4 col-md-6 logo-section fade-in">
             <img src="./images/logo3.png" alt="LibraX Logo" />
 
             <p class="logo-desc">
@@ -320,7 +327,7 @@
 
           <!-- Quick Links -->
 
-          <div class="col-lg-2 col-md-6">
+          <div class="col-lg-2 col-md-6 fade-in">
             <h4>Quick Links</h4>
 
             <ul class="list-unstyled">
@@ -336,7 +343,7 @@
 
           <!-- Services -->
 
-          <div class="col-lg-3 col-md-6">
+          <div class="col-lg-3 col-md-6 fade-in">
             <h4>Services</h4>
 
             <ul class="list-unstyled">
@@ -352,7 +359,7 @@
 
           <!-- Contact -->
 
-          <div class="col-lg-3 col-md-6">
+          <div class="col-lg-3 col-md-6 fade-in">
             <h4>Contact Us</h4>
 
             <ul class="list-unstyled">
@@ -376,19 +383,19 @@
             </ul>
 
             <div class="social-icons-container">
-              <a href="#" class="social-icon">
+              <a href="#" class="social-icon hover-scale">
                 <i class="fab fa-facebook-f"></i>
               </a>
 
-              <a href="#" class="social-icon">
+              <a href="#" class="social-icon hover-scale">
                 <i class="fab fa-x-twitter"></i>
               </a>
 
-              <a href="#" class="social-icon">
+              <a href="#" class="social-icon hover-scale">
                 <i class="fab fa-instagram"></i>
               </a>
 
-              <a href="#" class="social-icon">
+              <a href="#" class="social-icon hover-scale">
                 <i class="fab fa-linkedin-in"></i>
               </a>
             </div>
@@ -398,9 +405,11 @@
         <hr class="footer-divider" />
 
         <div class="row align-items-center">
-          <div class="col-md-6">© 2026 LibraX. All rights reserved.</div>
+          <div class="col-md-6 fade-in">
+            © 2026 LibraX. All rights reserved.
+          </div>
 
-          <div class="col-md-6 text-md-end">
+          <div class="col-md-6 text-md-end fade-in">
             <a href="#" class="me-3"> Privacy Policy </a>
 
             <a href="#"> Terms & Conditions </a>
@@ -411,12 +420,19 @@
 
     <!-- FOOTER END -->
 
+    <!-- gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <!-- bootstrape js -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
       crossorigin="anonymous"
     ></script>
+
+    <!-- animation.js -->
+    <script type="module" src="./JS/animation.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
