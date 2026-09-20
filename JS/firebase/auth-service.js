@@ -6,7 +6,8 @@ import {
   sendPasswordResetEmail,
   updateProfile,
    GoogleAuthProvider,
-   signInWithPopup
+   signInWithPopup,
+    sendEmailVerification,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { auth, db } from "../firebase/firebase-config.js";
 import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -19,6 +20,8 @@ export async function registerUser(name, email, password, contact, role, departm
 
    
     await updateProfile(user, { displayName: name });
+     // ================= EMAIL VERIFICATION =================
+      await sendEmailVerification(user);
 
     
     await setDoc(doc(db, "users", user.uid), {
@@ -30,7 +33,8 @@ export async function registerUser(name, email, password, contact, role, departm
       department:department,
       createdAt: new Date(),
       isActive: true,
-      profilePicture: null
+      profilePicture: null,
+       emailVerified: false
     });
 
     return { success: true, user };
@@ -44,6 +48,15 @@ export async function loginUser(email, password) {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
+
+       if (!user.emailVerified) {
+      await signOut(auth);
+
+      return {
+        success: false,
+        error: "Please verify your email before logging in."
+      };
+    }
     const userDoc = await getDoc(doc(db, "users", user.uid));
     
     return { 
