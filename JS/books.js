@@ -230,7 +230,7 @@ if (addBookForm) {
     const title = document.getElementById("bookTitleInput")?.value.trim() || "";
     const desc = document.getElementById("bookdesc")?.value.trim() || "";
     const author =
-      document.getElementById("bookAuthorInput")?.value.trim() || "";
+      document.getElementById("bookAuthorInput")?.value.trim() || "";  
     const price = document.getElementById("bookPriceInput")?.value.trim() || "";
     const category =
       document.getElementById("bookCategoryInput")?.value.trim() || "";

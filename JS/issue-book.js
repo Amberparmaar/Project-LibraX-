@@ -11,6 +11,8 @@ import {
   limit,
   serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getLibrarySettings } from "../JS/firebase/settings-services.js";
+import { createNotification } from "../JS/firebase/notifications-service.js";
 
 // ================= ELEMENT REFERENCES =================
 const memberSelect = document.getElementById("memberSelect");
@@ -53,7 +55,7 @@ const requiredElements = {
 for (const [name, el] of Object.entries(requiredElements)) {
   if (!el) {
     console.error(
-      `⚠️ MISSING ELEMENT: "${name}" is null — is ID ka element HTML mein nahi mila.`,
+      `MISSING ELEMENT: "${name}" is null — is ID ka element HTML mein nahi mila.`,
     );
   }
 }
@@ -63,10 +65,13 @@ let membersMap = {};
 let booksMap = {};
 
 const defaultAvatar = "https://via.placeholder.com/60";
-const FINE_PER_DAY = 50; // return-book.js ke saath consistent rakha
+let FINE_PER_DAY = 50;
 
 // ================= INITIALIZATION =================
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  const settings = await getLibrarySettings();
+  FINE_PER_DAY = settings.finePerDay;
+
   loadMembers();
   loadBooks();
   loadIssuedBooksTable();
@@ -409,6 +414,12 @@ issueBookForm?.addEventListener("submit", async (e) => {
       });
     });
 
+    await createNotification({
+      memberId: memberId,
+      type: "info",
+      message: `"${bookData.title || bookData.bookName}" has been issued to you.`,
+      detail: `Return by ${returnDateVal} to avoid Rs. ${FINE_PER_DAY}/day late fine.`,
+    });
     showMessage("Book successfully issue ho gayi!", "success");
 
     issueBookForm.reset();
@@ -469,7 +480,6 @@ function showMessage(text, type = "success") {
     issueMessage.innerHTML = "";
   }, 4000);
 }
-
 
 function escapeHTML(value) {
   const div = document.createElement("div");

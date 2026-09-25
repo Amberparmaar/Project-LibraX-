@@ -59,7 +59,7 @@ const requiredElements = {
 for (const [name, el] of Object.entries(requiredElements)) {
   if (!el) {
     console.error(
-      `⚠️ MISSING ELEMENT: "${name}" is null — is ID ka element HTML mein nahi mila.`,
+      `MISSING ELEMENT: "${name}" is null — is ID ka element HTML mein nahi mila.`,
     );
   }
 }
@@ -78,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
   html5QrCode = new Html5Qrcode("reader");
-  console.log("✅ QR Scanner initialized");
 });
 
 // ================= START SCANNER =================
@@ -109,7 +108,7 @@ startScannerBtn?.addEventListener("click", async () => {
     startScannerBtn.style.display = "none";
     stopScannerBtn.style.display = "block";
 
-    console.log("📷 Scanner started successfully");
+    console.log("Scanner started successfully");
   } catch (err) {
     console.error("Camera start error:", err);
     showScannerError(
@@ -170,7 +169,7 @@ async function onScanSuccess(decodedText) {
       return;
     }
 
-    console.log("✅ Member Found:", memberData);
+    console.log("Member Found:", memberData);
 
     await displayMemberResult(memberData);
     setStatus("Click below to start camera");
@@ -191,17 +190,17 @@ async function resolveMemberFromQR(decodedText) {
     const parsed = JSON.parse(decodedText);
     docId = parsed.id || null;
     memberCode = parsed.memberId || null;
-    console.log("🔍 Parsed as JSON:", { docId, memberCode }); // DEBUG
+    console.log(" Parsed as JSON:", { docId, memberCode }); // DEBUG
   } catch {
     memberCode = decodedText.trim();
-    console.log("🔍 Not JSON, treating as plain text memberCode:", memberCode); // DEBUG
+    console.log(" Not JSON, treating as plain text memberCode:", memberCode); // DEBUG
   }
 
   if (docId) {
     try {
       const userSnap = await getDoc(doc(db, "users", docId));
       console.log(
-        "🔍 Direct doc lookup with ID:",
+        "Direct doc lookup with ID:",
         docId,
         "— found:",
         userSnap.exists(),
@@ -223,7 +222,7 @@ async function resolveMemberFromQR(decodedText) {
         query(usersRef, where("memberId", "==", memberCode)),
       );
       console.log(
-        `🔍 Query where memberId == "${memberCode}" — results:`,
+        `Query where memberId == "${memberCode}" — results:`,
         snapshot.size,
       ); // DEBUG
 
@@ -232,7 +231,7 @@ async function resolveMemberFromQR(decodedText) {
           query(usersRef, where("memberCode", "==", memberCode)),
         );
         console.log(
-          `🔍 Query where memberCode == "${memberCode}" — results:`,
+          `Query where memberCode == "${memberCode}" — results:`,
           snapshot.size,
         ); // DEBUG
       }
@@ -244,7 +243,7 @@ async function resolveMemberFromQR(decodedText) {
 
       const directSnap = await getDoc(doc(db, "users", memberCode));
       console.log(
-        `🔍 Direct doc lookup with code "${memberCode}" — found:`,
+        `Direct doc lookup with code "${memberCode}" — found:`,
         directSnap.exists(),
       ); // DEBUG
       if (directSnap.exists()) {
@@ -256,7 +255,7 @@ async function resolveMemberFromQR(decodedText) {
   }
 
   console.warn(
-    "❌ Koi lookup method member match nahi kar saka. 'users' collection mein data verify karo.",
+    " Koi lookup method member match nahi kar saka. 'users' collection mein data verify karo.",
   ); // DEBUG
   return null;
 }
@@ -335,7 +334,7 @@ async function loadMemberStats(memberId) {
     if (memberFineEl)
       memberFineEl.innerText = `Rs. ${totalFine.toLocaleString()}`;
 
-    console.log("📊 Member stats loaded:", { borrowed, overdue, totalFine });
+    console.log(" Member stats loaded:", { borrowed, overdue, totalFine });
   } catch (err) {
     console.error("Member stats load error:", err);
     if (memberBorrowedEl) memberBorrowedEl.innerText = "0";
@@ -400,7 +399,7 @@ clearResultBtn?.addEventListener("click", () => {
   memberResult?.classList.add("d-none");
   emptyResult?.classList.remove("d-none");
   hideScannerError();
-  console.log("🔄 Results cleared");
+  console.log(" Results cleared");
 });
 
 // ================= UI HELPERS =================
@@ -412,7 +411,7 @@ function showScannerError(message) {
   if (!scannerError) return;
   scannerError.innerText = message;
   scannerError.classList.remove("d-none");
-  console.error("❌ Scanner Error:", message);
+  console.error("Scanner Error:", message);
 }
 
 function hideScannerError() {

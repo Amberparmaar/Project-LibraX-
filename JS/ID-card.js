@@ -144,10 +144,9 @@ function generateQRCode(data) {
 
   let memberCode = data.memberId || data.memberCode || data.id;
 
-  // ⚠️ DIAGNOSTIC: Check if memberId exists in Firestore
   if (!data.memberId && !data.memberCode) {
     console.warn(
-      "⚠️ WARNING: Member document mein 'memberId' ya 'memberCode' field nahi mila!",
+      "WARNING: Member document mein 'memberId' ya 'memberCode' field nahi mila!",
     );
     console.warn(
       "   Admin ko ye field add karna padega taake scanner kaam kare.",
@@ -155,15 +154,13 @@ function generateQRCode(data) {
     console.warn("   Abhi ke liye fallback use kar rahe hain: document ID");
   }
 
-  // ✅ FIXED: QR mein document ID (id) bhejo, NOT uid
-  // QR mein member verify karne layak basic info encode kar rahe hain
   const qrPayload = JSON.stringify({
     memberId: memberCode,
     name: data.name || data.fullName || "",
-    id: data.id, // Firestore document ID — qr-scanner.js mein use hoga
+    id: data.id,
   });
 
-  console.log("📱 QR Payload:", qrPayload); // DEBUG — console mein verify karo
+  console.log("📱 QR Payload:", qrPayload);
   console.log("🔍 QR Contents:", {
     memberId: memberCode,
     hasDocumentId: !!data.id,

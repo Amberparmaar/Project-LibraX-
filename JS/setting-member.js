@@ -61,8 +61,7 @@ async function loadMemberData(user) {
       data = userSnap.data();
     }
 
-    // "name" ko pehle check karo — baaki saari files (dashboard, my-books,
-    // ID-card, qr-scanner) primarily "name" field padhti hain
+   
     const name = data.name || data.fullName || user.displayName || "Member";
     const email = data.email || user.email || "";
     const phone = data.phone || "";
@@ -140,8 +139,8 @@ if (profileInfoForm) {
 
       const userRef = doc(db, "users", currentUser.uid);
       const updatePayload = {
-        name: name, // primary field — baaki files "name" pehle check karti hain
-        fullName: name, // backward-compat
+        name: name, 
+        fullName: name, 
         email: email,
         phone: phone,
         photoURL: photoURL,
@@ -218,6 +217,7 @@ if (logoutBtn) {
   logoutBtn.addEventListener("click", async (e) => {
     e.preventDefault();
     await signOut(auth);
+    localStorage.removeItem("user");
     window.location.href = "../../login.html";
   });
 }

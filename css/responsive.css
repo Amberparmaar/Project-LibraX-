@@ -1015,3 +1015,23 @@
     flex: 100%;
   }
 }
+
+
+/* FORCE FIX FOR MOBILE LOGOUT BUTTON */
+@media (max-width: 991.98px) {
+  #sidebar.sidebar {
+    display: flex !important;
+    flex-direction: column !important;
+    height: calc(100vh - 65px) !important;
+    overflow-y: auto !important;
+    padding-bottom: 30px !important; /* Screen ke aakhir me gap dene ke liye */
+  }
+
+  #sidebar .sidebar-footer {
+    margin-top: auto !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 20px 15px 40px 15px !important;
+  }
+}

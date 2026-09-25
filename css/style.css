@@ -1412,6 +1412,7 @@ tbody tr:hover {
   align-items: center;
 
   margin-top: 20px;
+  padding: 15px;
 }
 
 .table-footer p {
@@ -3536,7 +3537,7 @@ input:hover {
   width: 250px;
   height: 154px;
   border-radius: 14px;
-  z-index: 1111;
+
   overflow: hidden;
   display: flex;
   align-items: center;

@@ -71,7 +71,7 @@ const requiredElements = {
 for (const [name, el] of Object.entries(requiredElements)) {
   if (!el) {
     console.error(
-      `⚠️ MISSING ELEMENT: "${name}" is null — is ID ka element HTML mein nahi mila.`,
+      `MISSING ELEMENT: "${name}" is null — is ID ka element HTML mein nahi mila.`,
     );
   }
 }

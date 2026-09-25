@@ -14,7 +14,9 @@ import {
   updateDoc,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+// ====================================
 // DOM Elements
+// ====================================
 const settingsMessage = document.getElementById("settingsMessage");
 const profileDisplayName = document.getElementById("profileDisplayName");
 const profileRole = document.getElementById("profileRole");
@@ -32,14 +34,17 @@ const currentPasswordInput = document.getElementById("currentPassword");
 const newPasswordInput = document.getElementById("newPassword");
 const confirmPasswordInput = document.getElementById("confirmPassword");
 
+// EMAIL NOTIFICATION
 const emailNotifSwitch = document.getElementById("emailNotifSwitch");
-const smsNotifSwitch = document.getElementById("smsNotifSwitch");
 const saveNotificationsBtn = document.getElementById("saveNotificationsBtn");
+
 const darkModeSwitch = document.getElementById("darkModeSwitch");
 
 let currentUser = null;
 
-// Helper: Alert Display
+// ====================================
+// Alert Display Function
+// ====================================
 function showAlert(message, type = "success") {
   settingsMessage.innerHTML = `
     <div class="alert alert-${type} alert-dismissible fade show mb-3" role="alert">
@@ -49,7 +54,9 @@ function showAlert(message, type = "success") {
   `;
 }
 
-// 1. Initial Data Fetch & Auth Check
+// ====================================
+// 1. Load User Data on Page Load
+// ====================================
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     currentUser = user;
@@ -62,6 +69,7 @@ onAuthStateChanged(auth, async (user) => {
       if (userDocSnap.exists()) {
         const data = userDocSnap.data();
 
+        // Profile Info
         profileDisplayName.textContent =
           data.fullName || user.displayName || "User";
         profileRole.textContent = data.role || "Member";
@@ -73,10 +81,12 @@ onAuthStateChanged(auth, async (user) => {
           data.photoURL || user.photoURL || "../../images/user-avatar.png";
         profileAvatar.src = photoURL;
 
+        // ✅ Load Email Notification Preference
         if (data.notifications) {
           emailNotifSwitch.checked = !!data.notifications.email;
-          smsNotifSwitch.checked = !!data.notifications.sms;
         }
+
+        // Dark Mode
         if (data.darkMode !== undefined) {
           darkModeSwitch.checked = data.darkMode;
         }
@@ -89,6 +99,9 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
+// ====================================
+// 2. Update Profile Information
+// ====================================
 profileInfoForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (!currentUser) return;
@@ -115,20 +128,20 @@ profileInfoForm.addEventListener("submit", async (e) => {
       photoURL: photoURL,
     };
 
-    // Firestore record update
+    // Update Firestore
     const userDocRef = doc(db, "users", currentUser.uid);
     await updateDoc(userDocRef, updatedData);
 
-    // Firebase Auth user profile update
+    // Update Firebase Auth Profile
     await updateProfile(currentUser, {
       displayName: updatedData.fullName,
       photoURL: photoURL,
     });
 
-    // Update UI Elements
+    // Update UI
     profileDisplayName.textContent = updatedData.fullName;
     profileAvatar.src = photoURL;
-    imageInput.value = ""; // Clear file input
+    imageInput.value = "";
 
     showAlert("Profile updated successfully!");
   } catch (err) {
@@ -139,7 +152,9 @@ profileInfoForm.addEventListener("submit", async (e) => {
   }
 });
 
-// 3. Password Reset Handler
+// ====================================
+// 3. Change Password
+// ====================================
 changePasswordForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const currentPassword = currentPasswordInput.value;
@@ -166,33 +181,31 @@ changePasswordForm.addEventListener("submit", async (e) => {
   }
 });
 
-// 4. Notifications Update
+// ====================================
+// 4. Save Email Notification Settings
+// ====================================
 saveNotificationsBtn.addEventListener("click", async () => {
   if (!currentUser) return;
 
+  const saveBtn = saveNotificationsBtn;
+  const originalText = saveBtn.textContent;
+
   try {
+    saveBtn.disabled = true;
+    saveBtn.textContent = "Saving...";
+
     const userDocRef = doc(db, "users", currentUser.uid);
+
+    // Save to Firestore
     await updateDoc(userDocRef, {
       "notifications.email": emailNotifSwitch.checked,
-      "notifications.sms": smsNotifSwitch.checked,
     });
-    showAlert("Notification settings saved!");
+
+    showAlert("✓ Email notification settings saved!", "success");
   } catch (err) {
     showAlert("Failed to save settings: " + err.message, "danger");
-  }
-});
-
-// 5. Dark Mode Handler
-darkModeSwitch.addEventListener("change", async () => {
-  const isDark = darkModeSwitch.checked;
-  document.body.classList.toggle("bg-dark", isDark);
-
-  if (currentUser) {
-    try {
-      const userDocRef = doc(db, "users", currentUser.uid);
-      await updateDoc(userDocRef, { darkMode: isDark });
-    } catch (err) {
-      console.error("Theme preference error:", err);
-    }
+  } finally {
+    saveBtn.disabled = false;
+    saveBtn.textContent = originalText;
   }
 });

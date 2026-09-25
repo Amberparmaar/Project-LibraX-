@@ -11,9 +11,17 @@ const urlParams = new URLSearchParams(window.location.search);
 const bookId = urlParams.get("id");
 
 let currentQuantity = 1;
-let bookImages = [];      // gallery images array (from Firestore)
-let currentImageIndex = 0; // index of image currently shown in main view
-let basePrice = 0;         // per-copy price from Firestore
+let bookImages = [];       
+let currentImageIndex = 0; 
+let basePrice = 0;        
+
+// ================= SHOW PAGE (data ready hone ke baad) =================
+function showPage() {
+  const page = document.querySelector(".book-detail-page");
+  if (!page) return;
+  page.style.transition = "opacity 0.3s ease";
+  page.style.opacity = "1";
+}
 
 // Recalculates displayed price as basePrice * currentQuantity
 function updatePriceDisplay() {
@@ -28,6 +36,7 @@ async function loadBookDetail() {
   if (!bookId) {
     console.error("Book ID not found in URL!");
     alert("Error: Book not found!");
+    showPage();
     return;
   }
 
@@ -97,13 +106,15 @@ async function loadBookDetail() {
 
       currentImageIndex = 0;
       renderGallery();
-
     } else {
       alert("Book not found!");
     }
   } catch (error) {
     console.error("Error loading book:", error);
     alert("Error loading data: " + error.message);
+  } finally {
+    // Data aaye ya error, page hamesha end mein dikhao
+    showPage();
   }
 }
 
@@ -202,13 +213,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ================= ISSUE BOOK =================
+  // Pehle copies check + Firestore update, phir issue-book page par redirect
   const issueBtn = document.getElementById("issueBookBtn");
   issueBtn?.addEventListener("click", async () => {
     if (!bookId) return alert("Book ID not found!");
+
     const available = Number(document.querySelectorAll(".dashboard-card h6")[1]?.innerText) || 0;
-  if (currentQuantity > available) {
-    return alert(`Not enough copies! Only ${available} available.`);
-  }
+    if (currentQuantity > available) {
+      return alert(`Not enough copies! Only ${available} available.`);
+    }
 
     try {
       issueBtn.disabled = true;
@@ -221,13 +234,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       alert(`Success! ${currentQuantity} book(s) issued!`);
-      currentQuantity = 1;
-      quantityEl.innerText = 1;
-      loadBookDetail();
 
+      // Update poora hone ke baad admin ko Issue Book page par bhejo (Book ID ke saath)
+      window.location.href = `../admin/issue-book.html?bookId=${bookId}`;
     } catch (error) {
       alert("Error: " + error.message);
-    } finally {
       issueBtn.disabled = false;
       issueBtn.innerText = "Issue Book";
     }
@@ -252,7 +263,6 @@ document.addEventListener("DOMContentLoaded", () => {
       currentQuantity = 1;
       quantityEl.innerText = 1;
       loadBookDetail();
-
     } catch (error) {
       alert("Error: " + error.message);
     } finally {
@@ -274,19 +284,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-
-
-
-const issueBookBtn = document.getElementById("issueBookBtn");
-
-if (issueBookBtn) {
-    issueBookBtn.addEventListener("click", () => {
-        if (!bookId) {
-            alert("Book ID not found!");
-            return;
-        }
-        // Admin ko Issue Book page par bhejega aur Book ID URL mein saath le jayega
-        window.location.href = `../admin/issue-book.html?bookId=${currentBookId}`;
-    });
-}

@@ -15,18 +15,28 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
 
   const result = await loginUser(email, password);
 
-  if (result.success) {
-    alert("Welcome");
+if (result.success) {
+    // Role ko localStorage mein save karo
+    localStorage.setItem('user', JSON.stringify({
+      uid: result.uid,
+      email: result.user.email,
+      role: result.user.role, 
+      name: result.user.name
+    }));
 
+    alert("Welcome " + result.user.name);
+
+   
     if (result.user.role === "admin") {
-      window.location.href = "html/admin/dashboard.html";
+      window.location.href = "./html/admin/dashboard.html";
     } else {
-      window.location.href = "html/member/member-dashboard.html";
+      window.location.href = "./html/member/member-dashboard.html";
     }
   } else {
-    alert("error" + result.error);
+    alert("Error: " + result.error);
   }
 });
+
 
 // REGISTER FORM HANDLER
 document
@@ -61,6 +71,7 @@ document
 document.getElementById("logoutBtn")?.addEventListener("click", async () => {
   const result = await logoutUser();
   if (result.success) {
+    localStorage.removeItem('user');
     window.location.href = "/";
   }
 });
@@ -83,10 +94,16 @@ document
 
 // google auth
 document.getElementById("googleBtn")?.addEventListener("click", async () => {
-  const result = await googleSignIn("user"); // Default role 'user'
+  const result = await googleSignIn("user");
   if (result.success) {
-    console.log("Logged in user:", result.user);
+    localStorage.setItem('user', JSON.stringify({
+      uid: result.uid,
+      email: result.user.email,
+      role: result.user.role,
+      name: result.user.name
+    }));
+    window.location.href = "./html/member/member-dashboard.html";
   } else {
     console.error("Error:", result.error);
-  }
-});
+  }}
+)

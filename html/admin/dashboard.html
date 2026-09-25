@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard - LibraX</title>
+      <script>
+    let user = localStorage.getItem('user');
+    user = user ? JSON.parse(user) : null;
+    
+    if (!user || user.role !== 'admin') {
+      alert('❌ Admin Only!');
+      window.location.href = '/index.html';
+    }
+  </script>
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -98,8 +107,8 @@
 
           <!-- Blank Workspace -->
           <div class="col-lg-10 blank-area p-4">
-            <!-- Top Bar (Search & Admin Profile) -->
-            <div
+           
+            <!-- <div
               class="toprow d-flex justify-content-between align-items-center mb-4"
             >
               <div class="group">
@@ -136,8 +145,85 @@
                   >
                 </div>
               </div>
-            </div>
+            </div> -->
 
+
+
+
+            <!-- ================ -->
+             <div class="toprow d-flex justify-content-between align-items-center mb-4">
+  <!-- Left: Search -->
+  <div class="group" style="flex: 1; max-width: 400px; position: relative;">
+    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+      <g>
+        <path
+          d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+        ></path>
+      </g>
+    </svg>
+    <input
+      id="globalSearchInput"
+      placeholder="Search Books here..."
+      type="search"
+      class="input srch"
+    />
+    <!-- Search Results Dropdown -->
+    <div id="searchResults" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #ddd; border-top: none; max-height: 300px; overflow-y: auto; z-index: 1000; border-radius: 0 0 8px 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    </div>
+  </div>
+
+  <!-- Right: Notifications + Profile -->
+  <div class="admin d-flex align-items-center gap-3">
+    <!-- Notification Bell -->
+    <div style="position: relative;">
+      <button 
+        id="notificationBell" 
+        style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: rgb(87, 87, 112);"
+      >
+        <i class="fa-regular fa-bell"></i>
+        <span 
+          id="notificationCount" 
+          style="position: absolute; top: -8px; right: -8px; background: #ef4444; color: white; border-radius: 50%; width: 22px; height: 22px; display: none; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold;"
+        >0</span>
+      </button>
+
+      <!-- Notification Dropdown -->
+      <div 
+        id="notificationDropdown" 
+        style="display: none; position: absolute; top: 50px; right: 0; width: 380px; background: white; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1000;"
+      >
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #eee; background: #f9fafb; border-radius: 8px 8px 0 0;">
+          <h6 class="mb-0 fw-bold"> Notifications</h6>
+          <button 
+            id="closeNotifications" 
+            style="background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #666;"
+          >✕</button>
+        </div>
+        <div 
+          id="adminNotificationsList" 
+          style="max-height: 400px; overflow-y: auto;"
+        >
+          <div class="p-3 text-center text-muted small">Loading...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="profile">
+      <img
+        id="adminAvatar"
+        src="../../images/admin.webp"
+        alt="Admin"
+      />
+    </div>
+    <div style="margin-left: 10px;">
+      <h5 class="mb-0"><b id="adminName">Admin</b></h5>
+      <small class="text-muted"
+        ><b id="adminRole">Administrator</b></small
+      >
+    </div>
+  </div>
+</div>
             <!-- Heading -->
             <div class="mb-4 d-flex justify-content-between align-items-center">
               <h3>Admin Dashboard</h3>
@@ -292,6 +378,11 @@
     <script src="../../JS/animation.js"></script>
 
     <!-- App Modules -->
+     <!-- Admin Notifications Script -->
+<script type="module" src="../../JS/admin-notifications.js"></script>
+
+<!-- Admin Search Script -->
+<script type="module" src="../../JS/admin-search.js"></script>
     <script type="module" src="../../JS/auth.js"></script>
     <script type="module" src="../../JS/admin-dashboard.js"></script>
   </body>

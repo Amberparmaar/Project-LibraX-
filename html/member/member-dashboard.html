@@ -5,6 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Member Dashboard - Library Management System</title>
+      <script>
+    let user = localStorage.getItem('user');
+    user = user ? JSON.parse(user) : null;
+    
+    if (!user) {
+      alert('❌ Please Login!');
+      window.location.href = '/login.html';
+    }
+    // Admin + Member dono khol sakte ho
+  </script>
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -50,7 +60,9 @@
                     <a href="../member/ID-card.html">
                         <i class="fa-solid fa-id-card"></i> Digital ID Cards
                     </a>
-                   
+                    <a href="../member/notifications.html">
+                        <i class="fa-solid fa-id-card"></i> Notifications
+                    </a>
                     <a href="../member/setting-member.html">
                         <i class="fa-solid fa-gear"></i> Settings
                     </a>
@@ -58,7 +70,7 @@
 
                 <div class="sidebar-footer">
                     <hr>
-                    <a href="#" id="logoutBtn" class="logout">
+                    <a href="#" class="logout" id="logoutBtn" >
                         <i class="fa-solid fa-right-from-bracket"></i> Logout
                     </a>
                 </div>
@@ -79,7 +91,7 @@
 
                         <button class="notification-btn position-relative">
                             <i class="fa-regular fa-bell"></i>
-                            <span class="badge-dot"></span>
+                            <span class="badge-dot" style="display:none"></span>
                         </button>
 
                         <div class="user-profile">

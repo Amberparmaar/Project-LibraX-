@@ -17,7 +17,7 @@ export async function addBook(bookData) {
     const docRef = await addDoc(collection(db, "books"), {
       title: bookData.title,
       author: bookData.author,
-     
+      price: Number(bookData.price) || 0,
       isbn: bookData.isbn,
       category: bookData.category,
       totalCopies: parseInt(bookData.totalCopies),

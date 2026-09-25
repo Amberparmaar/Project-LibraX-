@@ -45,12 +45,12 @@
 
             <div class="menu">
               <a href="#"><i class="fa-solid fa-house"></i> Dashboard</a>
-              <a href="#"><i class="fa-solid fa-book"></i> Books</a>
-              <a href="#"><i class="fa-solid fa-users"></i> Members</a>
+              <a href="../admin/books.html"><i class="fa-solid fa-book"></i> Books</a>
+              <a href="../member/members.html"><i class="fa-solid fa-users"></i> Members</a>
               <a href="../member/ID-card.html"
                 ><i class="fa-solid fa-id-card"></i> Digital ID Cards</a
               >
-              <a href="../member/qr-scanner.html"
+              <a href="../admin/qr-scanner.html"
                 ><i class="fa-solid fa-qrcode"></i> QR Scanner</a
               >
               <a href="../admin/issue-book.html"
@@ -141,6 +141,18 @@
                         >
                           <i class="fa-solid fa-palette"></i> Appearance
                         </button>
+                        <button
+  class="nav-link"
+  id="tab-library-rules"
+  data-bs-toggle="pill"
+  data-bs-target="#content-library-rules"
+  type="button"
+  role="tab"
+  aria-controls="content-library-rules"
+  aria-selected="false"
+>
+  <i class="fa-solid fa-book-open-reader"></i> Library Rules
+</button>
                       </div>
                     </div>
 
@@ -347,70 +359,55 @@
                         </div>
 
                         <!-- 2. NOTIFICATIONS TAB CONTENT -->
-                        <div
-                          class="tab-pane fade"
-                          id="content-notifications"
-                          role="tabpanel"
-                          aria-labelledby="tab-notifications"
-                        >
-                          <h6 class="fw-bold text-dark mb-4">
-                            Notification Toggles
-                          </h6>
+                      <!-- 
+  NOTIFICATIONS TAB CONTENT
+  Copy this entire section and replace the existing Notifications Tab in your setting.html
+-->
 
-                          <div
-                            class="d-flex justify-content-between align-items-start mb-4 pb-3 border-bottom"
-                          >
-                            <div>
-                              <label
-                                class="fw-semibold text-dark mb-0 d-block"
-                                style="font-size: 15px"
-                                >Email Notifications</label
-                              >
-                              <span class="text-muted small d-block"
-                                >Send notifications on book checkout/returns.</span
-                              >
-                            </div>
-                            <div class="form-check form-switch">
-                              <input
-                                class="form-check-input"
-                                type="checkbox"
-                                role="switch"
-                                id="emailNotifSwitch"
-                              />
-                            </div>
-                          </div>
+<div
+  class="tab-pane fade"
+  id="content-notifications"
+  role="tabpanel"
+  aria-labelledby="tab-notifications"
+>
+  <h6 class="fw-bold text-dark mb-4">
+    📧 Notification Settings
+  </h6>
 
-                          <div
-                            class="d-flex justify-content-between align-items-start mb-4"
-                          >
-                            <div>
-                              <label
-                                class="fw-semibold text-dark mb-0 d-block"
-                                style="font-size: 15px"
-                                >SMS Notifications</label
-                              >
-                              <span class="text-muted small d-block"
-                                >Send alerts for upcoming due dates via SMS.</span
-                              >
-                            </div>
-                            <div class="form-check form-switch">
-                              <input
-                                class="form-check-input"
-                                type="checkbox"
-                                role="switch"
-                                id="smsNotifSwitch"
-                              />
-                            </div>
-                          </div>
+  <!-- Email Notifications Toggle -->
+  <div
+    class="d-flex justify-content-between align-items-start mb-4 pb-3 border-bottom"
+  >
+    <div>
+      <label
+        class="fw-semibold text-dark mb-0 d-block"
+        style="font-size: 15px"
+        >Email Notifications</label
+      >
+      <span class="text-muted small d-block"
+        >Get email alerts when you checkout or return books.</span
+      >
+    </div>
+    <div class="form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="emailNotifSwitch"
+        checked
+      />
+    </div>
+  </div>
 
-                          <button
-                            id="saveNotificationsBtn"
-                            class="btn btn-primary px-4 rounded-3 fw-medium"
-                            style="background-color: #2563eb; border: none"
-                          >
-                            Save Preferences
-                          </button>
-                        </div>
+  <!-- Save Button -->
+  <button
+    id="saveNotificationsBtn"
+    class="btn btn-primary px-4 rounded-3 fw-medium"
+    style="background-color: #2563eb; border: none"
+  >
+    Save Settings
+  </button>
+</div>
 
                         <!-- 3. SECURITY TAB CONTENT -->
                         <div
@@ -473,6 +470,48 @@
                             </div>
                           </div>
                         </div>
+                        <!-- library rules -->
+
+
+                          <!-- 5. LIBRARY RULES TAB CONTENT -->
+<!-- 5. LIBRARY RULES TAB CONTENT -->
+<div
+  class="tab-pane fade"
+  id="content-library-rules"
+  role="tabpanel"
+  aria-labelledby="tab-library-rules"
+>
+  <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+    <h5 class="fw-bold mb-3 text-dark">Library Rules</h5>
+    <div id="rulesMessage"></div>
+    <form id="libraryRulesForm">
+      <div class="row g-3 mb-4">
+        <!-- Late Fine Field -->
+        <div class="col-md-4">
+          <label for="finePerDay" class="form-label text-secondary fw-semibold small">Late fine per day</label>
+          <input type="number" min="0" id="finePerDay" class="form-control bg-light border-light-subtle rounded-3" placeholder="e.g. 10" />
+        </div>
+
+        <!-- Default Loan Days Field -->
+        <div class="col-md-4">
+          <label for="loanDays" class="form-label text-secondary fw-semibold small">Default loan days </label>
+          <input type="number" min="1" id="loanDays" class="form-control bg-light border-light-subtle rounded-3" placeholder="e.g. 14" />
+        </div>
+
+        <!-- Due-Soon Reminder Field -->
+        <div class="col-md-4">
+          <label for="dueSoonDays" class="form-label text-secondary fw-semibold small">Due-soon reminder</label>
+          <input type="number" min="1" id="dueSoonDays" class="form-control bg-light border-light-subtle rounded-3" placeholder="e.g. 2" />
+        </div>
+      </div>
+
+      <button type="submit" id="saveRulesBtn" class="btn btn-primary px-4 rounded-3 fw-medium" style="background-color: #2563eb; border: none">
+        Save Rules
+      </button>
+    </form>
+  </div>
+</div>
+                        
                       </div>
                     </div>
                   </div>
@@ -504,5 +543,6 @@
     <!-- JS Imports -->
      <script type="module" src="../../JS/auth.js"></script>
     <script type="module" src="../../JS/setting.js"></script>
+    <script type="module" src="../../JS/library-rules.js"></script>
   </body>
 </html>

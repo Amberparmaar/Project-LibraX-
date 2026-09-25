@@ -9,11 +9,12 @@ import {
   onAuthStateChanged,
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getLibrarySettings } from "../JS/firebase/settings-services.js";
 
 const tableBody = document.getElementById("myBooksTableBody");
 const logoutBtn = document.getElementById("logoutBtn");
 
-const FINE_PER_DAY = 50; // issue-book.js / return-book.js ke saath consistent
+let FINE_PER_DAY = 50;
 
 // ================= DIAGNOSTIC: MISSING ELEMENT CHECK =================
 if (!tableBody) {
@@ -57,7 +58,6 @@ function formatDate(value) {
     year: "numeric",
   });
 }
-
 
 function calculateFine(dueDateValue) {
   const dueDate = parseToDate(dueDateValue);
@@ -178,8 +178,10 @@ function loadUserIssuedBooks(userId) {
 }
 
 // Auth Guard & Dynamic Fetching
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
   if (user) {
+    const s = await getLibrarySettings();
+    FINE_PER_DAY = s.finePerDay;
     loadUserIssuedBooks(user.uid);
   } else {
     window.location.href = "../../login.html";
@@ -192,6 +194,7 @@ if (logoutBtn) {
     e.preventDefault();
     signOut(auth)
       .then(() => {
+        localStorage.removeItem("user");
         window.location.href = "../../login.html";
       })
       .catch((err) => {

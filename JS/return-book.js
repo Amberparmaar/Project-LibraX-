@@ -7,6 +7,8 @@ import {
   runTransaction,
   serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getLibrarySettings } from "../JS/firebase/settings-services.js";
+import { createNotification } from "../JS/firebase/notifications-service.js";
 
 const menuBtn = document.getElementById("menuBtn");
 
@@ -24,7 +26,7 @@ const totalFineCollected = document.getElementById("totalFineCollected");
 
 const returnMessage = document.getElementById("returnMessage");
 
-const FINE_PER_DAY = 50;
+let FINE_PER_DAY = 50;
 
 // ======================================================
 // SIDEBAR
@@ -249,7 +251,7 @@ returnBooksTable.addEventListener("click", async function (event) {
   button.disabled = true;
 
   button.textContent = "Returning...";
-
+  let returnedFine = 0;
   try {
     const issuedBookRef = doc(db, "issuedBooks", issuedBookId);
 
@@ -302,6 +304,7 @@ returnBooksTable.addEventListener("click", async function (event) {
 
       // Calculate fine
       const fineInfo = calculateFine(issuedData.returnDate);
+      returnedFine = fineInfo.fine;
 
       // Update issued book
       transaction.update(issuedBookRef, {
@@ -315,6 +318,18 @@ returnBooksTable.addEventListener("click", async function (event) {
       });
     });
 
+    await createNotification({
+      memberId: selectedBook.memberId,
+      type: returnedFine > 0 ? "danger" : "success",
+      message:
+        returnedFine > 0
+          ? `"${selectedBook.bookTitle}" returned late. Fine of Rs. ${returnedFine} added.`
+          : `"${selectedBook.bookTitle}" returned successfully.`,
+      detail:
+        returnedFine > 0
+          ? "Please clear your due amount at the library."
+          : "Thank you for returning the book on time.",
+    });
     showMessage("Book returned successfully!", "success");
 
     // Reload data
@@ -524,4 +539,8 @@ function escapeHTML(value) {
 // START PAGE
 // ======================================================
 
-loadIssuedBooks();
+getLibrarySettings()
+  .then((s) => {
+    FINE_PER_DAY = s.finePerDay;
+  })
+  .finally(loadIssuedBooks);

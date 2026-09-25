@@ -100,7 +100,8 @@
 
     <!-- ================= BOOK DETAIL SECTION START ================= -->
 
-    <main class="book-detail-page">
+    <!-- opacity: 0 => data load hone tak page hidden (JS showPage() se dikhayega) -->
+    <main class="book-detail-page" style="opacity: 0">
       <!-- =========================
          BREADCRUMB
     ========================== -->
@@ -139,11 +140,7 @@
             </button>
 
             <div class="main-cover">
-              <img
-                id="mainBookImage"
-                src="https://dd9xtpjstvsy0.cloudfront.net/production/images/ebook/python-basic/ebook.png"
-                alt="The Psychology of Money book cover"
-              />
+              <img id="mainBookImage" alt="Book cover" />
             </div>
 
             <!-- Next button -->
@@ -152,12 +149,8 @@
             </button>
           </div>
 
-          <!-- Gallery dots -->
-          <div class="gallery-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
+          <!-- Gallery dots (JS fills these) -->
+          <div class="gallery-dots"></div>
 
           <!-- Thumbnail row -->
           <div class="thumbnail-area">
@@ -165,34 +158,8 @@
               <i class="fa-solid fa-chevron-left"></i>
             </button>
 
-            <div class="thumbnails">
-              <button class="thumbnail active">
-                <img
-                  src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRyQ8__SctcAs4N0BU2bAnLJDZBGsI3yE4eSf66chmlGJE0RaAuBmXQGnPpeNXP"
-                  alt="Book front cover"
-                />
-              </button>
-
-              <button class="thumbnail">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSISiLU91CSGJF4h7cUYwPIwJUEvB4nQ_lzxTyq4pR6F12usyJhp9laEHlYd7Wc"
-                  alt="Book back cover"
-                />
-              </button>
-
-              <button class="thumbnail">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiuTjHqM11NNSpElsDDKKzOVtFRKmLfHLi-l_jXADf6lgkdf5CgvTY2w8ZdyEv"
-                  alt="Book inside page"
-                />
-              </button>
-              <button class="thumbnail">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSISiLU91CSGJF4h7cUYwPIwJUEvB4nQ_lzxTyq4pR6F12usyJhp9laEHlYd7Wc"
-                  alt="Book back cover"
-                />
-              </button>
-            </div>
+            <!-- JS fills thumbnails -->
+            <div class="thumbnails"></div>
 
             <button class="thumbnail-arrow">
               <i class="fa-solid fa-chevron-right"></i>
@@ -204,31 +171,27 @@
              RIGHT: BOOK INFORMATION
         ========================== -->
         <div class="book-information">
-          <!-- Stock status -->
-          <span class="stock-badge"> In Stock </span>
+          <!-- Stock status (JS fills) -->
+          <span class="stock-badge"></span>
 
           <!-- Book title -->
-          <h1 id="detailTitle">Python Basics</h1>
+          <h1 id="detailTitle"></h1>
 
           <!-- Subtitle -->
-          <p class="book-subtitle" id="bookSubtitle">
-            Timeless Lessons on python programming
-          </p>
+          <p class="book-subtitle" id="bookSubtitle"></p>
 
-          <!-- Author / Publisher / Year -->
+          <!-- Author / Year -->
           <div class="book-meta">
             <div class="meta-item">
               <i class="fa-regular fa-user"></i>
-              <span id="detailAuthor">Morgan Housel</span>
+              <span id="detailAuthor"></span>
             </div>
-
-            <div class="meta-divider"></div>
 
             <div class="meta-divider"></div>
 
             <div class="meta-item">
               <i class="fa-regular fa-calendar"></i>
-              <span id="bookYear">2020</span>
+              <span id="bookYear"></span>
             </div>
           </div>
 
@@ -238,23 +201,17 @@
           <div class="book-basic-info">
             <div class="basic-item">
               <span class="basic-label">Category</span>
-              <span class="basic-value category-value" id="bookCategory">
-                Programming
-              </span>
+              <span class="basic-value category-value" id="bookCategory"></span>
             </div>
 
             <div class="basic-item">
               <span class="basic-label">Language</span>
-              <span class="basic-value language-value" id="bookLanguage">
-                English
-              </span>
+              <span class="basic-value language-value" id="bookLanguage"></span>
             </div>
 
             <div class="basic-item">
               <span class="basic-label">ISBN</span>
-              <span class="basic-value isbn-value" id="bookISBN">
-                978-0857197689
-              </span>
+              <span class="basic-value isbn-value" id="bookISBN"></span>
             </div>
           </div>
 
@@ -265,7 +222,6 @@
             <div class="dashboard-card" style="width: 140px">
               <div class="bg"></div>
 
-              <!-- Wrapper div around the content -->
               <div class="card-content">
                 <div class="card-icon orange">
                   <i class="fa-solid fa-book-open" style="font-size: large"></i>
@@ -273,7 +229,7 @@
 
                 <div class="font-sm">
                   <p style="font-size: x-small">Total Copies</p>
-                  <h6 class="orange">25</h6>
+                  <h6 class="orange"></h6>
                 </div>
               </div>
 
@@ -283,7 +239,6 @@
             <div class="dashboard-card" style="width: 140px">
               <div class="bg"></div>
 
-              <!-- Wrapper div around the content -->
               <div class="card-content">
                 <div class="card-icon green">
                   <i class="fa-solid fa-check" style="font-size: large"></i>
@@ -291,7 +246,7 @@
 
                 <div class="font-sm">
                   <p style="font-size: x-small">Available</p>
-                  <h6 class="green">18</h6>
+                  <h6 class="green"></h6>
                 </div>
               </div>
 
@@ -301,7 +256,6 @@
             <div class="dashboard-card" style="width: 140px">
               <div class="bg"></div>
 
-              <!-- Wrapper div around the content -->
               <div class="card-content">
                 <div class="card-icon red">
                   <i class="fa-solid fa-user" style="font-size: large"></i>
@@ -309,7 +263,7 @@
 
                 <div class="font-sm">
                   <p style="font-size: x-small">Issued</p>
-                  <h6 class="red">6</h6>
+                  <h6 class="red"></h6>
                 </div>
               </div>
 
@@ -319,7 +273,6 @@
             <div class="dashboard-card" style="width: 140px">
               <div class="bg"></div>
 
-              <!-- Wrapper div around the content -->
               <div class="card-content">
                 <div class="card-icon blue">
                   <i class="fa-solid fa-book-open" style="font-size: large"></i>
@@ -327,7 +280,7 @@
 
                 <div class="font-sm">
                   <p style="font-size: x-small">Reserved</p>
-                  <h6 class="blue">1</h6>
+                  <h6 class="blue"></h6>
                 </div>
               </div>
 
@@ -339,7 +292,7 @@
                  PRICE + RATING
             ========================== -->
           <div class="price-rating">
-            <h2 id="bookPrice">Rs. 1,450</h2>
+            <h2 id="bookPrice"></h2>
 
             <div class="rating">
               <div class="stars">
@@ -350,8 +303,8 @@
                 <i class="fa-solid fa-star-half-stroke"></i>
               </div>
 
-              <strong id="bookRating">4.8</strong>
-              <span id="reviewCount">(12 reviews)</span>
+              <strong id="bookRating"></strong>
+              <span id="reviewCount"></span>
             </div>
           </div>
 

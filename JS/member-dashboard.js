@@ -13,6 +13,11 @@ import {
   onAuthStateChanged,
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getLibrarySettings } from "../JS/firebase/settings-services.js";
+import {
+  timeAgo,
+  generateDueNotifications,
+} from "../JS/firebase/notifications-service.js";
 
 // DOM Elements
 const userProfileImg = document.getElementById("userProfileImg");
@@ -30,7 +35,8 @@ const notificationsContainer = document.getElementById(
 );
 const logoutBtn = document.getElementById("logoutBtn");
 
-const FINE_PER_DAY = 50; // issue-book.js / return-book.js ke saath consistent
+let FINE_PER_DAY = 50;
+let librarySettings = null;
 
 // ================= DIAGNOSTIC: MISSING ELEMENT CHECK =================
 const requiredElements = {
@@ -48,12 +54,12 @@ const requiredElements = {
 for (const [name, el] of Object.entries(requiredElements)) {
   if (!el) {
     console.error(
-      `⚠️ MISSING ELEMENT: "${name}" is null — is ID ka element HTML mein nahi mila.`,
+      ` MISSING ELEMENT: ${name}.`,
     );
   }
 }
 
-// Helper: "DD/MM/YYYY" string / Firestore Timestamp — dono ko reliably Date mein convert karna
+
 function parseToDate(value) {
   if (!value) return null;
 
@@ -62,7 +68,7 @@ function parseToDate(value) {
   }
 
   if (typeof value === "string") {
-    // "DD/MM/YYYY" format — seedha new Date() ko nahi dena, US format samajh leta hai
+  
     if (value.includes("/")) {
       const parts = value.split("/");
       if (parts.length === 3) {
@@ -187,7 +193,8 @@ function loadDashboardData(userId) {
           (a, b) =>
             (a.status === "Issued" ? -1 : 1) - (b.status === "Issued" ? -1 : 1),
         );
-
+      if (librarySettings)
+        generateDueNotifications(userId, docs, librarySettings);
       docs.forEach((data) => {
         // "returnDate" field yahan DUE DATE hai (jab tak return na ho)
         const dueDate = parseToDate(data.returnDate);
@@ -277,6 +284,11 @@ function loadNotifications(userId) {
   onSnapshot(
     q,
     (snapshot) => {
+      const dot = document.querySelector(".notification-btn .badge-dot");
+      if (dot)
+        dot.style.display = snapshot.docs.some((d) => !d.data().read)
+          ? "block"
+          : "none";
       if (!notificationsContainer) return;
 
       if (snapshot.empty) {
@@ -288,13 +300,15 @@ function loadNotifications(userId) {
       snapshot.forEach((docSnap) => {
         const notif = docSnap.data();
         const message = notif.message || "Notification received.";
-        const timeAgo = notif.timeAgo || "Recently";
+        const when = timeAgo(notif.createdAt);
         const typeClass =
           notif.type === "warning"
             ? "text-warning"
             : notif.type === "success"
               ? "text-success"
-              : "text-primary";
+              : notif.type === "danger"
+                ? "text-danger"
+                : "text-primary";
 
         notifHTML += `
                 <div class="notification-item">
@@ -322,13 +336,15 @@ function loadNotifications(userId) {
 }
 
 // Authentication Listener
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
   if (user) {
+    librarySettings = await getLibrarySettings();
+    FINE_PER_DAY = librarySettings.finePerDay;
     loadUserProfile(user.uid, user);
     loadDashboardData(user.uid);
     loadNotifications(user.uid);
   } else {
-    window.location.href = "./login.html";
+    window.location.href = "../../login.html";
   }
 });
 
@@ -338,10 +354,14 @@ if (logoutBtn) {
     e.preventDefault();
     signOut(auth)
       .then(() => {
-        window.location.href = "./login.html";
+        window.location.href = "../../login.html";
       })
       .catch((err) => {
         console.error("Logout Error:", err);
       });
   });
 }
+
+document.querySelector(".notification-btn")?.addEventListener("click", () => {
+  window.location.href = "../member/notifications.html";
+});
