@@ -5,7 +5,6 @@ import {
   resetPassword,
   googleSignIn,
 } from "../JS/firebase/auth-service.js";
-
 // LOGIN FORM HANDLER
 document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
   e.preventDefault();

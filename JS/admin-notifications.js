@@ -44,7 +44,7 @@ onSnapshot(q, (snap) => {
 
   notificationsList.innerHTML = items
     .map((n) => `
-      <div class="notification-item unread" data-id="${n.id}" data-read="${n.read}">
+      <div class="notification-item p-3 unread" data-id="${n.id}" data-read="${n.read}">
         <div class="d-flex justify-content-between align-items-start">
           <div>
             <p class="mb-1 fw-semibold">${n.message}</p>

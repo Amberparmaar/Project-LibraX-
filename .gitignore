@@ -1,0 +1,4 @@
+# Sensitive config - contains real API key, never push this
+JS/firebase/chatbot.config.js
+
+

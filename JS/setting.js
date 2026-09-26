@@ -38,8 +38,6 @@ const confirmPasswordInput = document.getElementById("confirmPassword");
 const emailNotifSwitch = document.getElementById("emailNotifSwitch");
 const saveNotificationsBtn = document.getElementById("saveNotificationsBtn");
 
-const darkModeSwitch = document.getElementById("darkModeSwitch");
-
 let currentUser = null;
 
 // ====================================
@@ -81,15 +79,11 @@ onAuthStateChanged(auth, async (user) => {
           data.photoURL || user.photoURL || "../../images/user-avatar.png";
         profileAvatar.src = photoURL;
 
-        // ✅ Load Email Notification Preference
+        // Load Email Notification Preference
         if (data.notifications) {
           emailNotifSwitch.checked = !!data.notifications.email;
         }
 
-        // Dark Mode
-        if (data.darkMode !== undefined) {
-          darkModeSwitch.checked = data.darkMode;
-        }
       }
     } catch (err) {
       showAlert("Error loading profile data: " + err.message, "danger");

@@ -69,7 +69,7 @@ onAuthStateChanged(auth, (user) => {
 
   }
 
-  // Sirf where() — composite index ki zaroorat nahi, sorting client side
+
   const q = query(collection(db, "notifications"), where("memberId", "==", user.uid));
   
 
@@ -79,7 +79,7 @@ onAuthStateChanged(auth, (user) => {
       const items = snap.docs
         .map((d) => ({ id: d.id, ...d.data() }))
         .sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
-         )
+         
           
       render(items);
     },

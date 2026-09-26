@@ -27,7 +27,7 @@ async function loadBooks() {
   const result = await getAllBooks();
   if (result.success) {
     currentBooks = result.books;
-    filteredBooks = [...currentBooks]; // Initial setting
+    filteredBooks = [...currentBooks]; 
     currentPage = 1;
     renderPaginatedBooks();
     setupSearchAndFilters();
